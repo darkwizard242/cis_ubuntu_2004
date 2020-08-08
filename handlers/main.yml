@@ -1,0 +1,11 @@
+---
+# handlers file for CIS UBUNTU 20.04 BENCHMARKS
+
+- name: systemd tmp.mount reload
+  become: true
+  systemd:
+    name: tmp.mount
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: reloaded

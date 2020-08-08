@@ -1,0 +1,44 @@
+---
+# tasks file for CIS UBUNTU 20.04 SECTION 1 BENCHMARKS
+
+- name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_1
+  tags:
+      - section1
+      - rule_1_1_1_1
+
+- name: "1.1.1.1 | Remove cramfs kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_1
+  tags:
+      - section1
+      - rule_1_1_1_1
+
+- name: "1.1.1.2 | Ensure mounting of cramfs filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_2
+  tags:
+      - section1
+      - rule_1_1_1_2
+
+- name: "1.1.1.2 | Remove freevxfs kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_2
+  tags:
+      - section1
+      - rule_1_1_1_2

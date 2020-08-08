@@ -84,3 +84,19 @@ ubuntu_2004_cis_section1_rule_1_1_2_params:
   backup: yes
   remote_src: yes
   force: yes
+
+ubuntu_2004_cis_section1_rule_1_1_3: true
+ubuntu_2004_cis_section1_rule_1_1_4: true
+ubuntu_2004_cis_section1_rule_1_1_5: true
+
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params:
+  path: /etc/systemd/system/tmp.mount
+  section: Mount
+  option: Options
+  value: mode=1777,strictatime,nodev,nosuid,noexec
+  owner: root
+  group: root
+  mode: '0644'
+  state: present
+  backup: yes
+  no_extra_spaces: yes

@@ -104,3 +104,23 @@ def test_1_1_1_5_file_user(host):
 
 def test_1_1_1_5_file_group(host):
     assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').group == 'root'
+
+
+def test_1_1_1_6_file_exists(host):
+    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').exists
+
+
+def test_1_1_1_6_file_isfile(host):
+    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').is_file
+
+
+def test_1_1_1_6_file_mode(host):
+    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').mode == 0o644
+
+
+def test_1_1_1_6_file_user(host):
+    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').user == 'root'
+
+
+def test_1_1_1_6_file_group(host):
+    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').group == 'root'

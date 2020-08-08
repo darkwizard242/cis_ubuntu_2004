@@ -42,3 +42,45 @@
   tags:
     - section1
     - rule_1_1_1_2
+
+- name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_3
+  tags:
+    - section1
+    - rule_1_1_1_3
+
+- name: "1.1.1.3 | Remove jffs2 kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_3
+  tags:
+    - section1
+    - rule_1_1_1_3
+
+- name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_4
+  tags:
+    - section1
+    - rule_1_1_1_4
+
+- name: "1.1.1.4 | Remove hfs kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_4
+  tags:
+    - section1
+    - rule_1_1_1_4

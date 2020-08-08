@@ -1,0 +1,47 @@
+---
+os: linux
+dist: bionic
+
+language: python
+python:
+  - "3.8"
+
+env:
+  global:
+    - ROLE_NAME: cis-ubuntu-20.04
+    - VAGRANT_VERSION: 2.2.9
+  jobs:
+    - DISTRO: ubuntu2004
+
+# addons:
+#   sonarcloud:
+#     organization: "tech-overlord-github"
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get upgrade -y
+  - sudo apt-get install wget unzip software-properties-common linux-headers-$(uname -r) -y
+
+install:
+  - echo -e "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+  - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+  - sudo apt-get update
+  - sudo apt-get install virtualbox-6.1 -y
+  - sudo /sbin/vboxconfig
+  - pip3 install molecule docker ansible-lint flake8 testinfra molecule-vagrant
+
+# before_script:
+#   # Rename project directory to actual Ansible Galaxy role name and switch to it.
+#   - cd ../
+#   - mv ansible-role-$ROLE_NAME darkwizard242.$ROLE_NAME
+#   - cd darkwizard242.$ROLE_NAME
+
+script:
+  - sudo wget -v -O vagrant.zip https://releases.hashicorp.com/vagrant/2.2.9/vagrant_${VAGRANT_VERSION}_linux_amd64.zip &> /dev/null
+  - sudo unzip vagrant.zip -d /usr/local/bin/  &> /dev/null
+  - sudo rm -rv vagrant.zip
+  - vagrant --version
+  # - sonar-scanner -Dsonar.projectVersion=$TRAVIS_BRANCH\_$TRAVIS_JOB_NUMBER
+  - molecule test
+# notifications:
+#   webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master

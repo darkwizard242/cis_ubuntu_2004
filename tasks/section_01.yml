@@ -128,15 +128,17 @@
     - rule_1_1_1_6
 
 - name: "1.1.2 | Ensure /tmp is configured (Automated)"
-  mount:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_filesystem']  }}"
-    path: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_point'] }}"
-    fstype: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_type'] }}"
-    opts: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_options'] }}"
-    dump: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_dump'] }}"
-    passno: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_pass'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_state'] }}"
-    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mount_backup'] }}"
+  copy:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['src']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['dest']  }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['owner']  }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['group']  }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mode']  }}"
+    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['backup']  }}"
+    remote_src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['remote_src']  }}"
+    force: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['force']  }}"
+  notify:
+    - systemd tmp.mount reload
   when: ubuntu_2004_cis_section1_rule_1_1_2
   tags:
     - section1

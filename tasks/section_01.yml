@@ -84,3 +84,24 @@
   tags:
     - section1
     - rule_1_1_1_4
+
+- name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_5
+  tags:
+    - section1
+    - rule_1_1_1_5
+
+- name: "1.1.1.5 | Remove hfsplus kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_5
+  tags:
+    - section1
+    - rule_1_1_1_5

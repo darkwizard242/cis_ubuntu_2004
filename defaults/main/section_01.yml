@@ -1,0 +1,26 @@
+---
+# Default Variables for CIS UBUNTU 20.04 Benchmarks Section 1
+
+ubuntu_2004_cis_section1_rule_1_1_1_1: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_1_params:
+  source: 1.1.1.1_cramfs.conf.j2
+  line: install cramfs /bin/true
+  dest: /etc/modprobe.d/1.1.1.1_cramfs.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: cramfs
+  module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_1_1_2: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_2_params:
+  source: 1.1.1.2_freevxfs.conf.j2
+  line: install freevxfs /bin/true
+  dest: /etc/modprobe.d/1.1.1.1_freevxfs.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: freevxfs
+  module_state: absent

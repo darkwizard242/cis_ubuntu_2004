@@ -47,23 +47,23 @@ def test_1_1_1_2_file_group(host):
 
 
 def test_1_1_1_3_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.con').exists
+    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.conf').exists
 
 
 def test_1_1_1_3_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.con').is_file
+    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.conf').is_file
 
 
 def test_1_1_1_3_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.con').mode == 0o644
+    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.conf').mode == 0o644
 
 
 def test_1_1_1_3_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.con').user == 'root'
+    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.conf').user == 'root'
 
 
 def test_1_1_1_3_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.con').group == 'root'
+    assert host.file('/etc/modprobe.d/1.1.1.3_jffs2.conf').group == 'root'
 
 
 def test_1_1_1_4_file_exists(host):
@@ -84,3 +84,23 @@ def test_1_1_1_4_file_user(host):
 
 def test_1_1_1_4_file_group(host):
     assert host.file('/etc/modprobe.d/1.1.1.4_hfs.conf').group == 'root'
+
+
+def test_1_1_1_5_file_exists(host):
+    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').exists
+
+
+def test_1_1_1_5_file_isfile(host):
+    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').is_file
+
+
+def test_1_1_1_5_file_mode(host):
+    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').mode == 0o644
+
+
+def test_1_1_1_5_file_user(host):
+    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').user == 'root'
+
+
+def test_1_1_1_5_file_group(host):
+    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').group == 'root'

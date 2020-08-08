@@ -105,3 +105,24 @@
   tags:
     - section1
     - rule_1_1_1_5
+
+- name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_6
+  tags:
+    - section1
+    - rule_1_1_1_6
+
+- name: "1.1.1.6 | Remove udf kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_6
+  tags:
+    - section1
+    - rule_1_1_1_6

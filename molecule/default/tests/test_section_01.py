@@ -124,3 +124,31 @@ def test_1_1_1_6_file_user(host):
 
 def test_1_1_1_6_file_group(host):
     assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').group == 'root'
+
+
+def test_1_1_2_tmp_mount_file_exists(host):
+    assert host.file('/etc/systemd/system/tmp.mount').exists
+
+
+def test_1_1_2_tmp_mount_file_isfile(host):
+    assert host.file('/etc/systemd/system/tmp.mount').is_file
+
+
+def test_1_1_2_tmp_mount_file_mode(host):
+    assert host.file('/etc/systemd/system/tmp.mount').mode == 0o644
+
+
+def test_1_1_2_tmp_mount_file_user(host):
+    assert host.file('/etc/systemd/system/tmp.mount').user == 'root'
+
+
+def test_1_1_2_tmp_mount_file_group(host):
+    assert host.file('/etc/systemd/system/tmp.mount').group == 'root'
+
+
+def test_1_1_2_tmp_mount_service_enabled(host):
+    assert host.service('tmp.mount').is_enabled
+
+
+def test_1_1_2_tmp_mount_service_running(host):
+    assert host.service('tmp.mount').is_running

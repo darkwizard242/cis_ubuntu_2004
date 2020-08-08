@@ -48,3 +48,15 @@ ubuntu_2004_cis_section1_rule_1_1_1_4_params:
   mode: '0644'
   module_name: hfs
   module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_1_1_5: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_5_params:
+  source: 1.1.1.5_hfsplus.conf.j2
+  line: install hfsplus /bin/true
+  dest: /etc/modprobe.d/1.1.1.5_hfsplus.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: hfsplus
+  module_state: absent

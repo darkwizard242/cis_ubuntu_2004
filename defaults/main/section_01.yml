@@ -4,7 +4,7 @@
 ubuntu_2004_cis_section1_rule_1_1_1_1: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_1_params:
-  source: 1.1.1.1_cramfs.conf.j2
+  source: section_01/1.1.1.1_cramfs.conf.j2
   line: install cramfs /bin/true
   dest: /etc/modprobe.d/1.1.1.1_cramfs.conf
   owner: root
@@ -16,7 +16,7 @@ ubuntu_2004_cis_section1_rule_1_1_1_1_params:
 ubuntu_2004_cis_section1_rule_1_1_1_2: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_2_params:
-  source: 1.1.1.2_freevxfs.conf.j2
+  source: section_01/1.1.1.2_freevxfs.conf.j2
   line: install freevxfs /bin/true
   dest: /etc/modprobe.d/1.1.1.2_freevxfs.conf
   owner: root
@@ -28,7 +28,7 @@ ubuntu_2004_cis_section1_rule_1_1_1_2_params:
 ubuntu_2004_cis_section1_rule_1_1_1_3: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_3_params:
-  source: 1.1.1.3_jffs2.conf.j2
+  source: section_01/1.1.1.3_jffs2.conf.j2
   line: install jffs2 /bin/true
   dest: /etc/modprobe.d/1.1.1.3_jffs2.conf
   owner: root
@@ -40,7 +40,7 @@ ubuntu_2004_cis_section1_rule_1_1_1_3_params:
 ubuntu_2004_cis_section1_rule_1_1_1_4: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_4_params:
-  source: 1.1.1.4_hfs.conf.j2
+  source: section_01/1.1.1.4_hfs.conf.j2
   line: install hfs /bin/true
   dest: /etc/modprobe.d/1.1.1.4_hfs.conf
   owner: root
@@ -52,7 +52,7 @@ ubuntu_2004_cis_section1_rule_1_1_1_4_params:
 ubuntu_2004_cis_section1_rule_1_1_1_5: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_5_params:
-  source: 1.1.1.5_hfsplus.conf.j2
+  source: section_01/1.1.1.5_hfsplus.conf.j2
   line: install hfsplus /bin/true
   dest: /etc/modprobe.d/1.1.1.5_hfsplus.conf
   owner: root
@@ -64,7 +64,7 @@ ubuntu_2004_cis_section1_rule_1_1_1_5_params:
 ubuntu_2004_cis_section1_rule_1_1_1_6: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_6_params:
-  source: 1.1.1.6_udf.conf.j2
+  source: section_01/1.1.1.6_udf.conf.j2
   line: install udf /bin/true
   dest: /etc/modprobe.d/1.1.1.6_udf.conf
   owner: root
@@ -76,11 +76,11 @@ ubuntu_2004_cis_section1_rule_1_1_1_6_params:
 ubuntu_2004_cis_section1_rule_1_1_2: true
 
 ubuntu_2004_cis_section1_rule_1_1_2_params:
-  mount_filesystem: tmpfs
-  mount_point: /tmp
-  mount_type: tmpfs
-  mount_options: rw,noexec,nodev,nosuid,size=2G
-  mount_dump: 0
-  mount_pass: 0
-  mount_state: mounted
-  mount_backup: yes
+  src: /usr/share/systemd/tmp.mount
+  dest: /etc/systemd/system/tmp.mount
+  owner: root
+  group: root
+  mode: '0644'
+  backup: yes
+  remote_src: yes
+  force: yes

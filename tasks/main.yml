@@ -9,3 +9,8 @@
       - not ansible_distribution_version == "20.04"
   # tags:
   #     - always
+
+- name: Import CIS Section 1 tasks
+  import_tasks: section_01.yml
+  become: true
+  when: ubuntu_2004_cis_section1

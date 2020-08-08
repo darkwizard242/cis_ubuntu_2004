@@ -72,3 +72,15 @@ ubuntu_2004_cis_section1_rule_1_1_1_6_params:
   mode: '0644'
   module_name: udf
   module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_1_2: true
+
+ubuntu_2004_cis_section1_rule_1_1_2_params:
+  mount_filesystem: tmpfs
+  mount_point: /tmp
+  mount_type: tmpfs
+  mount_options: rw,noexec,nodev,nosuid,size=2G
+  mount_dump: 0
+  mount_pass: 0
+  mount_state: mounted
+  mount_backup: yes

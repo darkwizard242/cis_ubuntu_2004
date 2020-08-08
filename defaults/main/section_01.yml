@@ -18,9 +18,33 @@ ubuntu_2004_cis_section1_rule_1_1_1_2: true
 ubuntu_2004_cis_section1_rule_1_1_1_2_params:
   source: 1.1.1.2_freevxfs.conf.j2
   line: install freevxfs /bin/true
-  dest: /etc/modprobe.d/1.1.1.1_freevxfs.conf
+  dest: /etc/modprobe.d/1.1.1.2_freevxfs.conf
   owner: root
   group: root
   mode: '0644'
   module_name: freevxfs
+  module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_1_1_3: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_3_params:
+  source: 1.1.1.3_jffs2.conf.j2
+  line: install jffs2 /bin/true
+  dest: /etc/modprobe.d/1.1.1.3_jffs2.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: jffs2
+  module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_1_1_4: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_4_params:
+  source: 1.1.1.4_hfs.conf.j2
+  line: install hfs /bin/true
+  dest: /etc/modprobe.d/1.1.1.4_hfs.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: hfs
   module_state: absent

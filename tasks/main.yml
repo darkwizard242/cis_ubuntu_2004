@@ -1,9 +1,18 @@
 ---
 # tasks file for cis-ubuntu-20.04
 
-- name: Validate OS is Ubuntu and Version is 20.04, fail if not.
+- name: Validate OS is Ubuntu and Version is 20.04, Print message.
+  debug:
+      msg: "OS is: {{ ansible_distribution }} | version is: {{ ansible_distribution_version }}"
+  when:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_version == "20.04"
+  tags:
+      - always
+
+- name: Fail if OS isn't Ubuntu and Version isn't 20.04.
   fail:
-      msg: "Role is only applicable for Ubuntu 20.04. Does not comply on OS: {{ ansible_distribution }} and version: {{ ansible_distribution_major_version }}"
+      msg: "Role is only applicable for Ubuntu 20.04. Does not comply on OS: {{ ansible_distribution }} and version: {{ ansible_distribution_version }}"
   when:
       - not ansible_distribution == "Ubuntu"
       - not ansible_distribution_version == "20.04"

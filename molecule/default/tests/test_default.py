@@ -7,4 +7,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_this_that(host):
-    host.file('/usr/local/bin/this').exists
+    host.file('/usr/local/bin/who').exists

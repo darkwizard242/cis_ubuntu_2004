@@ -126,6 +126,26 @@ def test_1_1_1_6_file_group(host):
     assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').group == 'root'
 
 
+def test_1_1_1_7_file_exists(host):
+    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').exists
+
+
+def test_1_1_1_7_file_isfile(host):
+    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').is_file
+
+
+def test_1_1_1_7_file_mode(host):
+    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').mode == 0o644
+
+
+def test_1_1_1_7_file_user(host):
+    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').user == 'root'
+
+
+def test_1_1_1_7_file_group(host):
+    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').group == 'root'
+
+
 def test_1_1_2_tmp_mount_file_exists(host):
     assert host.file('/etc/systemd/system/tmp.mount').exists
 

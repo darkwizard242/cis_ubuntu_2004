@@ -149,3 +149,14 @@ ubuntu_2004_cis_section1_rule_1_1_18: true
 ubuntu_2004_cis_section1_rule_1_1_19: true
 
 ubuntu_2004_cis_section1_rule_1_1_20: true
+
+ubuntu_2004_cis_section1_rule_1_1_21: true
+
+ubuntu_2004_cis_section1_rule_1_1_22: true
+
+ubuntu_2004_cis_section1_rule_1_1_22_params:
+  shell: |
+      set -eou pipefail;
+
+      df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | xargs -I '{}' chmod a+t '{}'
+  executable: /bin/bash

@@ -362,3 +362,17 @@
     - section1
     - rule_1_1_16
     - level_1
+
+- name: "1.1.17 | Ensure separate partition exists for /home (Automated) | Not IMPLEMENTED"
+  debug:
+      msg:
+        - "CIS Ubuntu 20.04 benchmark 1.1.17 has not been implemented in this Ansible Role."
+        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+        - "Highly recommend to perform the actions for 1.1.17 prior to applying this Role."
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_17
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_17
+    - level_1

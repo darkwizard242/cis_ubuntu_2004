@@ -1,12 +1,12 @@
 ---
 # tasks file for cis-ubuntu-20.04
 
-- name: Validate OS is Ubuntu and Version is 20.04, Print message.
+- name: Inspect OS and Version that the role is being applied on.
   debug:
-      msg: "OS is: {{ ansible_distribution }} | version is: {{ ansible_distribution_version }}"
-  when:
-      - ansible_distribution == "Ubuntu"
-      - ansible_distribution_version == "20.04"
+      msg:
+        - "The role cis-ubuntu-20.04 is currently being applied to:"
+        - "OS: {{ ansible_distribution }}"
+        - "Version: {{ ansible_distribution_version }}"
   tags:
       - always
 

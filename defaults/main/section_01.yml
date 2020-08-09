@@ -112,3 +112,17 @@ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params:
   state: present
   backup: yes
   no_extra_spaces: yes
+
+ubuntu_2004_cis_section1_rule_1_1_7: true
+ubuntu_2004_cis_section1_rule_1_1_8: true
+ubuntu_2004_cis_section1_rule_1_1_9: true
+
+ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params:
+  src: tmpfs
+  path: /dev/shm
+  fstype: tmpfs
+  opts: defaults,nodev,nosuid,noexec
+  dump: 0
+  passno: 0
+  state: mounted
+  backup: yes

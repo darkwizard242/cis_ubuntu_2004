@@ -172,3 +172,15 @@ ubuntu_2004_cis_section1_rule_1_1_23_params:
   package_name: autofs
   package_state: absent
   package_purge: yes
+
+ubuntu_2004_cis_section1_rule_1_1_24: true
+
+ubuntu_2004_cis_section1_rule_1_1_24_params:
+  source: section_01/1.1.24_usb-storage.conf.j2
+  line: install usb-storage /bin/true
+  dest: /etc/modprobe.d/1.1.24_usb-storage.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: usb-storage
+  module_state: absent

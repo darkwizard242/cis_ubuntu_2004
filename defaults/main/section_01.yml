@@ -160,3 +160,15 @@ ubuntu_2004_cis_section1_rule_1_1_22_params:
 
       df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | xargs -I '{}' chmod a+t '{}'
   executable: /bin/bash
+
+ubuntu_2004_cis_section1_rule_1_1_23: true
+
+ubuntu_2004_cis_section1_rule_1_1_23_params:
+  service_name: autofs
+  daemon_reload: yes
+  enabled: no
+  masked: yes
+  ignore_errors: yes
+  package_name: autofs
+  package_state: absent
+  package_purge: yes

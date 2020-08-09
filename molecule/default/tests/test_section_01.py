@@ -184,3 +184,19 @@ def test_1_1_4_tmp_mount_nosuid(host):
 
 def test_1_1_5_tmp_mount_noexec(host):
     assert host.file('/etc/systemd/system/tmp.mount').contains('noexec')
+
+
+def test_1_1_6_dev_shm_mount_exists(host):
+    assert host.mount_point('/dev/shm').exists
+
+
+def test_1_1_7_dev_shm_mount_nodev(host):
+    assert host.file('/etc/fstab').contains('nodev')
+
+
+def test_1_1_8_dev_shm_mount_nosuid(host):
+    assert host.file('/etc/fstab').contains('nosuid')
+
+
+def test_1_1_9_dev_shm_mount_noexec(host):
+    assert host.file('/etc/fstab').contains('noexec')

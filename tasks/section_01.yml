@@ -127,6 +127,27 @@
     - section1
     - rule_1_1_1_6
 
+- name: "1.1.1.7 | Ensure mounting of FAT filesystems is limited (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['mode'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_7
+  tags:
+    - section1
+    - rule_1_1_1_7
+
+- name: "1.1.1.7 | Remove FAT (vfat) kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_state'] }}"
+  when: ubuntu_2004_cis_section1_rule_1_1_1_7
+  tags:
+    - section1
+    - rule_1_1_1_7
+
 - name: "1.1.2 | Ensure /tmp is configured (Automated)"
   copy:
     src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['src'] }}"

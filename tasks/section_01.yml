@@ -12,6 +12,7 @@
   tags:
     - section1
     - rule_1_1_1_1
+    - level_1
 
 - name: "1.1.1.1 | Remove cramfs kernel module (Automated)"
   modprobe:
@@ -21,6 +22,7 @@
   tags:
     - section1
     - rule_1_1_1_1
+    - level_1
 
 - name: "1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled (Automated)"
   template:
@@ -33,6 +35,7 @@
   tags:
     - section1
     - rule_1_1_1_2
+    - level_1
 
 - name: "1.1.1.2 | Remove freevxfs kernel module (Automated)"
   modprobe:
@@ -42,6 +45,7 @@
   tags:
     - section1
     - rule_1_1_1_2
+    - level_1
 
 - name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated)"
   template:
@@ -54,6 +58,7 @@
   tags:
     - section1
     - rule_1_1_1_3
+    - level_1
 
 - name: "1.1.1.3 | Remove jffs2 kernel module (Automated)"
   modprobe:
@@ -63,6 +68,7 @@
   tags:
     - section1
     - rule_1_1_1_3
+    - level_1
 
 - name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated)"
   template:
@@ -75,6 +81,7 @@
   tags:
     - section1
     - rule_1_1_1_4
+    - level_1
 
 - name: "1.1.1.4 | Remove hfs kernel module (Automated)"
   modprobe:
@@ -84,6 +91,7 @@
   tags:
     - section1
     - rule_1_1_1_4
+    - level_1
 
 - name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated)"
   template:
@@ -96,6 +104,7 @@
   tags:
     - section1
     - rule_1_1_1_5
+    - level_1
 
 - name: "1.1.1.5 | Remove hfsplus kernel module (Automated)"
   modprobe:
@@ -105,6 +114,7 @@
   tags:
     - section1
     - rule_1_1_1_5
+    - level_1
 
 - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
   template:
@@ -117,6 +127,7 @@
   tags:
     - section1
     - rule_1_1_1_6
+    - level_1
 
 - name: "1.1.1.6 | Remove udf kernel module (Automated)"
   modprobe:
@@ -126,6 +137,7 @@
   tags:
     - section1
     - rule_1_1_1_6
+    - level_1
 
 - name: "1.1.1.7 | Ensure mounting of FAT filesystems is limited (Automated)"
   template:
@@ -138,6 +150,7 @@
   tags:
     - section1
     - rule_1_1_1_7
+    - level_1
 
 - name: "1.1.1.7 | Remove FAT (vfat) kernel module (Automated)"
   modprobe:
@@ -147,6 +160,7 @@
   tags:
     - section1
     - rule_1_1_1_7
+    - level_1
 
 - name: "1.1.2 | Ensure /tmp is configured (Automated)"
   copy:
@@ -164,6 +178,7 @@
   tags:
     - section1
     - rule_1_1_2
+    - level_1
 
 - name: "1.1.3 | Ensure nodev option set on /tmp partition (Automated)\n
          1.1.4 | Ensure nosuid option set on /tmp partition (Automated)\n
@@ -190,3 +205,4 @@
     - rule_1_1_3
     - rule_1_1_4
     - rule_1_1_5
+    - level_1

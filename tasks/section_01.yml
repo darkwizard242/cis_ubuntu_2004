@@ -268,7 +268,7 @@
 - name: "1.1.10 | Ensure separate partition exists for /var (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.10 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.10 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.10 prior to applying this Role."
   when:
@@ -282,7 +282,7 @@
 - name: "1.1.11 | Ensure separate partition exists for /var/tmp (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.11 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.11 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user or organization's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.11 prior to applying this Role."
   when:
@@ -296,7 +296,7 @@
 - name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.12 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.12 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.12 prior to applying this Role."
   when:
@@ -310,7 +310,7 @@
 - name: "1.1.13 | Ensure nosuid option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.13 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.13 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.13 prior to applying this Role."
   when:
@@ -324,7 +324,7 @@
 - name: "1.1.14 | Ensure noexec option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.14 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.14 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.14 prior to applying this Role."
   when:
@@ -338,7 +338,7 @@
 - name: "1.1.15 | Ensure separate partition exists for /var/log (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.15 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.15 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.15 prior to applying this Role."
   when:
@@ -352,7 +352,7 @@
 - name: "1.1.16 | Ensure separate partition exists for /var/log/audit (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.16 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.16 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.16 prior to applying this Role."
   when:
@@ -366,7 +366,7 @@
 - name: "1.1.17 | Ensure separate partition exists for /home (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.17 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.17 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.17 prior to applying this Role."
   when:
@@ -380,7 +380,7 @@
 - name: "1.1.18 | Ensure nodev option set on /home partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.18 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.18 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.18 prior to applying this Role."
   when:
@@ -394,7 +394,7 @@
 - name: "1.1.19 | Ensure nodev option set on removable media partitions (Manual) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.19 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.19 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Not all systems (especially Cloud VMs) will have a removable media partition."
         - "If applicable, highly recommend to perform the actions for 1.1.19 prior to applying this Role."
   when:
@@ -408,7 +408,7 @@
 - name: "1.1.20 | Ensure noexec option set on removable media partitions (Manual) | Not IMPLEMENTED"
   debug:
       msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.20 has not been implemented in this Ansible Role."
+        - "CIS Ubuntu 20.04 benchmark 1.1.20 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
         - "Not all systems (especially Cloud VMs) will have a removable media partition."
         - "If applicable, highly recommend to perform the actions for 1.1.20 prior to applying this Role."
   when:

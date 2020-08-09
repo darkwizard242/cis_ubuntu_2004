@@ -257,7 +257,7 @@
     - rule_1_1_11
     - level_1
 
-- name: "1.1.12 | Ensure nodev option set on /var/tmp partition | Not IMPLEMENTED"
+- name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
         - "CIS Ubuntu 20.04 benchmark 1.1.12 has not been implemented in this Ansible Role."
@@ -269,7 +269,7 @@
     - rule_1_1_12
     - level_1
 
-- name: "1.1.13 | Ensure nodev option set on /var/tmp partition | Not IMPLEMENTED"
+- name: "1.1.13 | Ensure nosuid option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
       msg:
         - "CIS Ubuntu 20.04 benchmark 1.1.13 has not been implemented in this Ansible Role."
@@ -279,4 +279,16 @@
   tags:
     - section1
     - rule_1_1_13
+    - level_1
+
+- name: "1.1.14 | Ensure noexec option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+  debug:
+      msg:
+        - "CIS Ubuntu 20.04 benchmark 1.1.14 has not been implemented in this Ansible Role."
+        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+        - "Highly recommend to perform the actions for 1.1.14 prior to applying this Role."
+  when: ubuntu_2004_cis_section1_rule_1_1_14
+  tags:
+    - section1
+    - rule_1_1_14
     - level_1

@@ -206,3 +206,26 @@
     - rule_1_1_4
     - rule_1_1_5
     - level_1
+
+  - name: "1.1.7 | Ensure nodev option set on /dev/shm partition (Automated)\n
+           1.1.8 | Ensure nosuid option set on /dev/shm partition (Automated)\n
+           1.1.9 | Ensure noexec option set on /dev/shm partition (Automated)"
+    mount:
+      src: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['src'] }}"
+      path: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['path'] }}"
+      fstype: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['fstype'] }}"
+      opts: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['opts'] }}"
+      dump: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['dump'] }}"
+      passno: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['passno'] }}"
+      state: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['state'] }}"
+      backup: "{{ ubuntu_2004_cis_section1_rule_1_1_7_and_1_1_8_and_1_1_9_params['backup'] }}"
+    when:
+      - ubuntu_2004_cis_section1_rule_1_1_7
+      - ubuntu_2004_cis_section1_rule_1_1_8
+      - ubuntu_2004_cis_section1_rule_1_1_9
+    tags:
+      - section1
+      - rule_1_1_7
+      - rule_1_1_8
+      - rule_1_1_9
+      - level_1

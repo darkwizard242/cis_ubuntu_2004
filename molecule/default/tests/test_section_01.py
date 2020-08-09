@@ -152,3 +152,15 @@ def test_1_1_2_tmp_mount_service_enabled(host):
 
 def test_1_1_2_tmp_mount_service_running(host):
     assert host.service('tmp.mount').is_running
+
+
+def test_1_1_3_tmp_mount_nodev(host):
+    assert host.file('/etc/systemd/system/tmp.mount').contains('nodev')
+
+
+def test_1_1_4_tmp_mount_nosuid(host):
+    assert host.file('/etc/systemd/system/tmp.mount').contains('nosuid')
+
+
+def test_1_1_5_tmp_mount_noexec(host):
+    assert host.file('/etc/systemd/system/tmp.mount').contains('noexec')

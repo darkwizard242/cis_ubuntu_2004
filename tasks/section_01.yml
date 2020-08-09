@@ -8,7 +8,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_1
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_1
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_1
@@ -18,7 +20,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_1
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_1
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_1
@@ -31,7 +35,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_2
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_2
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_2
@@ -41,7 +47,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_2
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_2
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_2
@@ -54,7 +62,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_3
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_3
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_3
@@ -64,7 +74,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_3
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_3
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_3
@@ -77,7 +89,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_4
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_4
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_4
@@ -87,7 +101,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_4
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_4
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_4
@@ -100,7 +116,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_5
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_5
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_5
@@ -110,7 +128,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_5
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_5
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_5
@@ -123,7 +143,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_6
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_6
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_6
@@ -133,7 +155,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_6
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_6
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_6
@@ -146,7 +170,9 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['owner'] }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['group'] }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['mode'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_7
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_7
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_7
@@ -156,7 +182,9 @@
   modprobe:
     name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_state'] }}"
-  when: ubuntu_2004_cis_section1_rule_1_1_1_7
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_1_7
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_1_7
@@ -174,7 +202,9 @@
     force: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['force'] }}"
   notify:
     - systemd tmp.mount reload
-  when: ubuntu_2004_cis_section1_rule_1_1_2
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_2
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_2
@@ -200,6 +230,7 @@
     - ubuntu_2004_cis_section1_rule_1_1_3
     - ubuntu_2004_cis_section1_rule_1_1_4
     - ubuntu_2004_cis_section1_rule_1_1_5
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_3
@@ -225,6 +256,7 @@
     - ubuntu_2004_cis_section1_rule_1_1_7
     - ubuntu_2004_cis_section1_rule_1_1_8
     - ubuntu_2004_cis_section1_rule_1_1_9
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_6
@@ -239,7 +271,9 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.10 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.10 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_10
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_10
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_10
@@ -251,7 +285,9 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.11 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user or organization's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.11 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_11
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_11
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_11
@@ -263,7 +299,9 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.12 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.12 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_12
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_12
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_12
@@ -275,7 +313,9 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.13 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.13 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_13
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_13
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_13
@@ -287,7 +327,9 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.14 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.14 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_14
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_14
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_14
@@ -299,8 +341,24 @@
         - "CIS Ubuntu 20.04 benchmark 1.1.15 has not been implemented in this Ansible Role."
         - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
         - "Highly recommend to perform the actions for 1.1.15 prior to applying this Role."
-  when: ubuntu_2004_cis_section1_rule_1_1_15
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_15
+    - ubuntu_2004_cis_section1
   tags:
     - section1
     - rule_1_1_15
+    - level_1
+
+- name: "1.1.16 | Ensure separate partition exists for /var/log/audit (Automated) | Not IMPLEMENTED"
+  debug:
+      msg:
+        - "CIS Ubuntu 20.04 benchmark 1.1.16 has not been implemented in this Ansible Role."
+        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+        - "Highly recommend to perform the actions for 1.1.16 prior to applying this Role."
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_16
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_16
     - level_1

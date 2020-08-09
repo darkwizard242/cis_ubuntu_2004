@@ -4,9 +4,7 @@
 - name: Inspect OS and Version that the role is being applied on.
   debug:
       msg:
-        - "The role cis-ubuntu-20.04 is currently being applied to:"
-        - "OS: {{ ansible_distribution }}"
-        - "Version: {{ ansible_distribution_version }}"
+        - "Role cis-ubuntu-20.04 being applied upon | OS: {{ ansible_distribution }} | Version: {{ ansible_distribution_version }}"
   tags:
       - always
 

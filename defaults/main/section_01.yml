@@ -73,6 +73,18 @@ ubuntu_2004_cis_section1_rule_1_1_1_6_params:
   module_name: udf
   module_state: absent
 
+ubuntu_2004_cis_section1_rule_1_1_1_7: true
+
+ubuntu_2004_cis_section1_rule_1_1_1_7_params:
+  source: section_01/1.1.1.7_vfat.conf.j2
+  line: install vfat /bin/true
+  dest: /etc/modprobe.d/1.1.1.7_vfat.conf
+  owner: root
+  group: root
+  mode: '0644'
+  module_name: vfat
+  module_state: absent
+
 ubuntu_2004_cis_section1_rule_1_1_2: true
 
 ubuntu_2004_cis_section1_rule_1_1_2_params:

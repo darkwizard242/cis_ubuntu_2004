@@ -475,3 +475,30 @@
       - section1
       - rule_1_1_23
       - level_1
+
+- name: "1.1.24 | Disable USB Storage (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['source']  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['dest'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['mode'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_24
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_24
+    - level_1
+
+- name: "1.1.24 | Remove usb-storage kernel module (Automated)"
+  modprobe:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['module_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['module_state'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_24
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_24
+    - level_1

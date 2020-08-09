@@ -131,3 +131,5 @@ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params:
 ubuntu_2004_cis_section1_rule_1_1_10: true
 
 ubuntu_2004_cis_section1_rule_1_1_11: true
+
+ubuntu_2004_cis_section1_rule_1_1_12: true

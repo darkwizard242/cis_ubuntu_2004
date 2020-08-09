@@ -295,10 +295,10 @@
 
 - name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.12 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.12 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.12 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.12 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_12
     - ubuntu_2004_cis_section1
@@ -309,10 +309,10 @@
 
 - name: "1.1.13 | Ensure nosuid option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.13 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.13 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.13 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.13 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_13
     - ubuntu_2004_cis_section1
@@ -323,10 +323,10 @@
 
 - name: "1.1.14 | Ensure noexec option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.14 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.14 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.14 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.14 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_14
     - ubuntu_2004_cis_section1
@@ -337,10 +337,10 @@
 
 - name: "1.1.15 | Ensure separate partition exists for /var/log (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.15 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.15 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.15 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.15 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_15
     - ubuntu_2004_cis_section1
@@ -351,10 +351,10 @@
 
 - name: "1.1.16 | Ensure separate partition exists for /var/log/audit (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.16 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.16 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.16 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.16 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_16
     - ubuntu_2004_cis_section1
@@ -365,10 +365,10 @@
 
 - name: "1.1.17 | Ensure separate partition exists for /home (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.17 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.17 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.17 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.17 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_17
     - ubuntu_2004_cis_section1
@@ -379,10 +379,10 @@
 
 - name: "1.1.18 | Ensure nodev option set on /home partition (Automated) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.18 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
-        - "Highly recommend to perform the actions for 1.1.18 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.18 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Separate partitions and their mount point entries may always vary based on the user's system architecture and disk layout."
+      - "Highly recommend to perform the actions for 1.1.18 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_18
     - ubuntu_2004_cis_section1
@@ -393,10 +393,10 @@
 
 - name: "1.1.19 | Ensure nodev option set on removable media partitions (Manual) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.19 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Not all systems (especially Cloud VMs) will have a removable media partition."
-        - "If applicable, highly recommend to perform the actions for 1.1.19 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.19 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Not all systems (especially Cloud VMs) will have a removable media partition."
+      - "If applicable, highly recommend to perform the actions for 1.1.19 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_19
     - ubuntu_2004_cis_section1
@@ -405,12 +405,12 @@
     - rule_1_1_19
     - level_1
 
-- name: "1.1.20 | Ensure noexec option set on removable media partitions (Manual) | Not IMPLEMENTED"
+- name: "1.1.20 | Ensure nosuid option set on removable media partitions (Manual) | Not IMPLEMENTED"
   debug:
-      msg:
-        - "CIS Ubuntu 20.04 benchmark 1.1.20 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
-        - "Not all systems (especially Cloud VMs) will have a removable media partition."
-        - "If applicable, highly recommend to perform the actions for 1.1.20 prior to applying this Role."
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.20 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Not all systems (especially Cloud VMs) will have a removable media partition."
+      - "If applicable, highly recommend to perform the actions for 1.1.20 prior to applying this Role."
   when:
     - ubuntu_2004_cis_section1_rule_1_1_20
     - ubuntu_2004_cis_section1
@@ -418,3 +418,32 @@
     - section1
     - rule_1_1_20
     - level_1
+
+- name: "1.1.21 | Ensure noexec option set on removable media partitions (Manual) | Not IMPLEMENTED"
+  debug:
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 1.1.21 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Not all systems (especially Cloud VMs) will have a removable media partition."
+      - "If applicable, highly recommend to perform the actions for 1.1.21 prior to applying this Role."
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_21
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_21
+    - level_1
+
+
+- name: "1.1.22 | Ensure sticky bit is set on all world-writable directories (Automated)"
+  shell: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params['shell'] }}"
+  args:
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params['executable'] }}"
+  changed_when: false
+  failed_when: false
+  when:
+      - ubuntu_2004_cis_section1_rule_1_1_22
+      - ubuntu_2004_cis_section1
+  tags:
+      - section1
+      - rule_1_1_22
+      - level_1

@@ -200,3 +200,23 @@ def test_1_1_8_dev_shm_mount_nosuid(host):
 
 def test_1_1_9_dev_shm_mount_noexec(host):
     assert host.file('/etc/fstab').contains('noexec')
+
+
+def test_1_1_24_file_exists(host):
+    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').exists
+
+
+def test_1_1_24_file_isfile(host):
+    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').is_file
+
+
+def test_1_1_24_file_mode(host):
+    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').mode == 0o644
+
+
+def test_1_1_24_file_user(host):
+    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').user == 'root'
+
+
+def test_1_1_24_file_group(host):
+    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').group == 'root'

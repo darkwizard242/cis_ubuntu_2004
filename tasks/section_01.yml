@@ -447,3 +447,31 @@
       - section1
       - rule_1_1_22
       - level_1
+
+- name: "1.1.23 | Disable Automounting (Automated) | autofs: systemd service mask"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['service_name'] }}"
+    daemon_reload: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['daemon_reload'] }}"
+    enabled: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['enabled'] }}"
+    masked: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['masked'] }}"
+  ignore_errors: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['ignore_errors'] }}"
+  when:
+      - ubuntu_2004_cis_section1_rule_1_1_23
+      - ubuntu_2004_cis_section1
+  tags:
+      - section1
+      - rule_1_1_23
+      - level_1
+
+- name: "1.1.23 | Disable Automounting (Automated) | autofs: apt package purge"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_state'] }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_purge'] }}"
+  when:
+      - ubuntu_2004_cis_section1_rule_1_1_23
+      - ubuntu_2004_cis_section1
+  tags:
+      - section1
+      - rule_1_1_23
+      - level_1

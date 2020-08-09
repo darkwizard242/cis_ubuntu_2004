@@ -404,3 +404,17 @@
     - section1
     - rule_1_1_19
     - level_1
+
+- name: "1.1.20 | Ensure noexec option set on removable media partitions (Manual) | Not IMPLEMENTED"
+  debug:
+      msg:
+        - "CIS Ubuntu 20.04 benchmark 1.1.20 has not been implemented in this Ansible Role."
+        - "Not all systems (especially Cloud VMs) will have a removable media partition."
+        - "If applicable, highly recommend to perform the actions for 1.1.20 prior to applying this Role."
+  when:
+    - ubuntu_2004_cis_section1_rule_1_1_20
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_1_20
+    - level_1

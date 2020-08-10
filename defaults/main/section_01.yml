@@ -232,3 +232,13 @@ ubuntu_2004_cis_section1_rule_1_3_3_params:
   group: root
   mode: '0640'
   validate: visudo -cf %s
+
+ubuntu_2004_cis_section1_rule_1_4_1: true
+
+ubuntu_2004_cis_section1_rule_1_4_1_params:
+  package_name:
+    - aide
+    - aide-common
+  package_state: present
+  db_file_name: /var/lib/aide/aide.db
+  db_file_init_command: aideinit

@@ -220,3 +220,7 @@ def test_1_1_24_file_user(host):
 
 def test_1_1_24_file_group(host):
     assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').group == 'root'
+
+
+def test_1_3_1_sudo_package(host):
+    assert host.package('sudo').is_installed

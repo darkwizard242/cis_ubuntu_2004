@@ -525,3 +525,56 @@
     - section1
     - rule_1_2_1
     - level_1
+
+- name: "1.2.2 | Ensure GPG keys are configured (Manual) | apt-key list check"
+  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params['shell'] }}"
+  args:
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params['executable'] }}"
+  register: apt_key_list_output
+  when:
+    - ubuntu_2004_cis_section1_rule_1_2_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_2_2
+    - level_1
+
+- name: "1.2.2 | Ensure GPG keys are configured (Manual) | apt-key list print"
+  debug:
+    var: "{{ apt_key_list_output.stdout_lines  | to_nice_json }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_2_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_2_2
+    - level_1
+
+- name: "1.3.1 | Ensure sudo is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params['package_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params['package_state'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_3_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_3_1
+    - level_1
+
+- name: "1.3.2 | Ensure sudo commands use pty (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['path'] }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['line'] }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['regexp'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['state'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['mode'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_3_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_3_2
+    - level_1

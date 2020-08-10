@@ -6,16 +6,16 @@
     msg:
       - "Role cis-ubuntu-20.04 being applied upon | OS: {{ ansible_distribution }} | Version: {{ ansible_distribution_version }}"
   tags:
-      - always
+    - always
 
 - name: Fail if OS isn't Ubuntu and Version isn't 20.04.
   fail:
     msg: "Role is only applicable for Ubuntu 20.04. Does not comply on OS: {{ ansible_distribution }} and version: {{ ansible_distribution_version }}"
   when:
-      - not ansible_distribution == "Ubuntu"
-      - not ansible_distribution_version == "20.04"
+    - not ansible_distribution == "Ubuntu"
+    - not ansible_distribution_version == "20.04"
   tags:
-      - always
+    - always
 
 - name: Import CIS Section 1 tasks
   import_tasks: section_01.yml

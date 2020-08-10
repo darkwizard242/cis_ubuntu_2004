@@ -224,3 +224,11 @@ def test_1_1_24_file_group(host):
 
 def test_1_3_1_sudo_package(host):
     assert host.package('sudo').is_installed
+
+
+def test_1_3_2_sudoers_file_use_pty(host):
+    assert host.file('/etc/sudoers').contains(' Defaults use_pty')
+
+
+def test_1_3_2_sudoers_file_mode(host):
+    assert host.file('/etc/sudoers').mode == 0o644

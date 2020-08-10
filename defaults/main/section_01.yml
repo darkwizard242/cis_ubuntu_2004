@@ -193,3 +193,29 @@ ubuntu_2004_cis_section1_rule_1_2_1_params:
 
       apt-cache policy
   executable: /bin/bash
+
+ubuntu_2004_cis_section1_rule_1_2_2: true
+
+ubuntu_2004_cis_section1_rule_1_2_2_params:
+  shell: |
+      set -eou pipefail;
+
+      apt-key list
+  executable: /bin/bash
+
+ubuntu_2004_cis_section1_rule_1_3_1: true
+
+ubuntu_2004_cis_section1_rule_1_3_1_params:
+  package_name: sudo
+  package_state: present
+
+ubuntu_2004_cis_section1_rule_1_3_2: true
+
+ubuntu_2004_cis_section1_rule_1_3_2_params:
+  path: /etc/sudoers
+  line: Defaults use_pty
+  regexp: ^Defaults.*use_pty
+  state: present
+  owner: root
+  group: root
+  mode: '0640'

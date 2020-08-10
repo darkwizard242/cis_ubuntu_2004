@@ -219,3 +219,16 @@ ubuntu_2004_cis_section1_rule_1_3_2_params:
   owner: root
   group: root
   mode: '0640'
+  validate: visudo -cf %s
+
+ubuntu_2004_cis_section1_rule_1_3_3: true
+
+ubuntu_2004_cis_section1_rule_1_3_3_params:
+  path: /etc/sudoers
+  line: Defaults logfile="/var/log/sudo.log"
+  regexp: ^Defaults.*logfile
+  state: present
+  owner: root
+  group: root
+  mode: '0640'
+  validate: visudo -cf %s

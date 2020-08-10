@@ -227,8 +227,16 @@ def test_1_3_1_sudo_package(host):
 
 
 def test_1_3_2_sudoers_file_use_pty(host):
-    assert host.file('/etc/sudoers').contains(' Defaults use_pty')
+    assert host.file('/etc/sudoers').contains('use_pty')
 
 
 def test_1_3_2_sudoers_file_mode(host):
-    assert host.file('/etc/sudoers').mode == 0o644
+    assert host.file('/etc/sudoers').mode == 0o640
+
+
+def test_1_3_3_sudoers_file_logfile(host):
+    assert host.file('/etc/sudoers').contains('logfile')
+
+
+def test_1_3_3_sudoers_file_mode(host):
+    assert host.file('/etc/sudoers').mode == 0o640

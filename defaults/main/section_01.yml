@@ -184,3 +184,12 @@ ubuntu_2004_cis_section1_rule_1_1_24_params:
   mode: '0644'
   module_name: usb-storage
   module_state: absent
+
+ubuntu_2004_cis_section1_rule_1_2_1: true
+
+ubuntu_2004_cis_section1_rule_1_2_1_params:
+  shell: |
+      set -eou pipefail;
+
+      apt-cache policy
+  executable: /bin/bash

@@ -240,3 +240,19 @@ def test_1_3_3_sudoers_file_logfile(host):
 
 def test_1_3_3_sudoers_file_mode(host):
     assert host.file('/etc/sudoers').mode == 0o640
+
+
+def test_1_4_1_aide_package(host):
+    assert host.package('aide').is_installed
+
+
+def test_1_4_1_aide_common_package(host):
+    assert host.package('aide-common').is_installed
+
+
+def test_1_4_1_aide_db_file_exists(host):
+    assert host.file('/var/lib/aide/aide.db').exists
+
+
+def test_1_4_1_aide_db_file_isfile(host):
+    assert host.file('/var/lib/aide/aide.db').is_file

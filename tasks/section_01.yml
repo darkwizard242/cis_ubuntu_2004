@@ -634,3 +634,21 @@
     - section1
     - rule_1_4_1
     - level_1
+
+- name: "1.4.2 | Ensure filesystem integrity is regularly checked (Automated)"
+  cron:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['name'] }}"
+    minute: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['minute'] }}"
+    hour: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['hour'] }}"
+    day: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['day'] }}"
+    month: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['month'] }}"
+    weekday: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['weekday'] }}"
+    user: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['user'] }}"
+    job: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['job'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_4_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_4_2
+    - level_1

@@ -242,3 +242,15 @@ ubuntu_2004_cis_section1_rule_1_4_1_params:
   package_state: present
   db_file_name: /var/lib/aide/aide.db
   db_file_init_command: aideinit
+
+ubuntu_2004_cis_section1_rule_1_4_2: true
+
+ubuntu_2004_cis_section1_rule_1_4_2_params:
+  name: "1.4.2 Ensure filesystem integrity is regularly checked | AIDE CRON ENTRY"
+  minute: 0
+  hour: 5
+  day: '*'
+  month: '*'
+  weekday: '*'
+  user: root
+  job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'

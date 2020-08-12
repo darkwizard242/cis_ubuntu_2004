@@ -17,6 +17,11 @@
   tags:
     - always
 
+- name: Import Preliminary Appliance tasks
+  import_tasks: pre.yml
+  become: true
+  when: preliminary_appliance
+
 - name: Import CIS Section 1 tasks
   import_tasks: section_01.yml
   become: true

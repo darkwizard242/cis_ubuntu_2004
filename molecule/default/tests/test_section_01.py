@@ -276,3 +276,7 @@ def test_1_5_2_grub_file_user(host):
 
 def test_1_5_2_grub_file_group(host):
     assert host.file('/boot/grub/grub.cfg').group == 'root'
+
+
+def test_1_6_1_xd_nx(host):
+    assert host.file('/proc/cpuinfo').group == 'pae'

@@ -882,3 +882,41 @@
     - section1
     - rule_1_6_4
     - level_1
+
+- name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file Storage=none modification"
+  ini_file:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_path'] }}"
+    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_section'] }}"
+    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_storage_option'] }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_storage_value'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_mode'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_state'] }}"
+    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_no_extra_spaces'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_4
+    - level_1
+
+- name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file ProcessSizeMax=0 modification"
+  ini_file:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_path'] }}"
+    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_section'] }}"
+    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_processsizemax_option'] }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_processsizemax_value'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_mode'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_state'] }}"
+    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_no_extra_spaces'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_4
+    - level_1

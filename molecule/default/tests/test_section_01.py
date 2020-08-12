@@ -256,3 +256,19 @@ def test_1_4_1_aide_db_file_exists(host):
 
 def test_1_4_1_aide_db_file_isfile(host):
     assert host.file('/var/lib/aide/aide.db').is_file
+
+
+def test_1_5_1_40custom_file_mode(host):
+    assert host.file('/etc/grub.d/40_custom').mode == 0o640
+
+
+def test_1_5_1_40custom_file_mode(host):
+    assert host.file('/etc/grub.d/10_linux').mode == 0o640
+
+
+def test_1_5_1_40custom_file_superusers(host):
+    assert host.file('/etc/grub.d/40_custom').contains('superusers')
+
+
+def test_1_5_1_40custom_file_password(host):
+    assert host.file('/etc/grub.d/40_custom').contains('password')

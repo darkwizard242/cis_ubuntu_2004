@@ -664,6 +664,7 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_mode'] }}"
   notify:
     - update grub configuration
+    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_set_superuser
@@ -704,6 +705,7 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_mode'] }}"
   notify:
     - update grub configuration
+    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
@@ -723,6 +725,7 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_mode'] }}"
   notify:
     - update grub configuration
+    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_unrestricted
@@ -730,4 +733,21 @@
   tags:
     - section1
     - rule_1_5_1
+    - level_1
+
+- name: "1.5.2 | Ensure permissions on bootloader config are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['path'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['mode'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['group'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['state'] }}"
+  notify:
+    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+  when:
+    - ubuntu_2004_cis_section1_rule_1_5_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_5_2
     - level_1

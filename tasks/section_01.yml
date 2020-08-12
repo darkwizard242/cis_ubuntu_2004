@@ -870,3 +870,15 @@
     - section1
     - rule_1_6_4
     - level_1
+
+- name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump package"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_package_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_package_state'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_4
+    - level_1

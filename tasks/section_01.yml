@@ -783,3 +783,16 @@
     - section1
     - rule_1_5_3
     - level_1
+
+- name: "1.6.1 | Ensure XD/NX support is enabled (Automated)"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params['audit_xd_nx_command'] }}" # Evaluates if xd/nx are supported. If supported, rc is 0.
+  register: audit_xd_nx_command_result
+  changed_when: false
+  failed_when: "'FAILED' in audit_xd_nx_command_result.stderr" # Fail task if xd/nx grep command returns any non 0 return code
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_1
+    - level_1

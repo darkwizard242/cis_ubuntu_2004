@@ -283,3 +283,12 @@ ubuntu_2004_cis_section1_rule_1_5_1_params:
   unrestricted_owner: root
   unrestricted_group: root
   unrestricted_mode: '0755'
+
+ubuntu_2004_cis_section1_rule_1_5_2: true
+
+ubuntu_2004_cis_section1_rule_1_5_2_params:
+  path: /boot/grub/grub.cfg
+  mode: '0400'
+  owner: root
+  group: root
+  state: file

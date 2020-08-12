@@ -259,7 +259,7 @@ def test_1_4_1_aide_db_file_isfile(host):
 
 
 def test_1_5_1_40custom_file_mode(host):
-    assert host.file('/etc/grub.d/40_custom').mode == 0o640
+    assert host.file('/etc/grub.d/40_custom').mode == 0o755
 
 
 def test_1_5_1_40custom_file_superusers(host):

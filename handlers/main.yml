@@ -9,3 +9,6 @@
     enabled: yes
     masked: no
     state: reloaded
+
+- name: update grub configuration
+  command: update-grub

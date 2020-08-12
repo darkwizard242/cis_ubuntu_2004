@@ -11,4 +11,14 @@
     state: reloaded
 
 - name: update grub configuration
+  become: true
   command: update-grub
+
+- name: reapply permissions to bootloader configuration
+  become: true
+  file:
+    path: /boot/grub/grub.cfg
+    mode: '0400'
+    owner: root
+    group: root
+    state: file

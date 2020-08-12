@@ -254,3 +254,32 @@ ubuntu_2004_cis_section1_rule_1_4_2_params:
   weekday: '*'
   user: root
   job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
+
+ubuntu_2004_cis_section1_rule_1_5_1: true
+
+ubuntu_2004_cis_section1_rule_1_5_1_set_superuser: true
+ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2: true
+ubuntu_2004_cis_section1_rule_1_5_1_unrestricted: true
+
+ubuntu_2004_cis_section1_rule_1_5_1_params:
+  set_superusers_path: /etc/grub.d/40_custom
+  set_superusers_line: set superusers="root"
+  set_superusers_regexp: ^set.*superusers
+  set_superusers_state: present
+  set_superusers_owner: root
+  set_superusers_group: root
+  set_superusers_mode: '0755'
+  bootloader_password_executable: /bin/bash
+  bootloader_password_path: /etc/grub.d/40_custom
+  bootloader_password_regexp: ^password_pbkdf2.*root
+  bootloader_password_state: present
+  bootloader_password_owner: root
+  bootloader_password_group: root
+  bootloader_password_mode: '0755'
+  bootloader_password_insertafter: '^set superusers="root"'
+  unrestricted_path: /etc/grub.d/10_linux
+  unrestricted_regex: '^CLASS="(((?!--unrestricted).)*)"$'
+  unrestricted_replace: 'CLASS="\1 --unrestricted"'
+  unrestricted_owner: root
+  unrestricted_group: root
+  unrestricted_mode: '0755'

@@ -321,3 +321,33 @@ ubuntu_2004_cis_section1_rule_1_6_3_params:
   package_name: prelink
   package_state: absent
   package_purge: yes
+
+
+ubuntu_2004_cis_section1_rule_1_6_4: true
+
+ubuntu_2004_cis_section1_rule_1_6_4_params:
+  core_dump_security_limit_path: /etc/security/limits.conf
+  core_dump_security_limit_line: '* hard core 0'
+  core_dump_security_limit_regexp: .*\*.*hard.*core.*[0-9]
+  core_dump_security_limit_state: present
+  core_dump_security_limit_owner: root
+  core_dump_security_limit_group: root
+  core_dump_security_limit_mode: '0644'
+  core_dump_kernel_parameter_name: fs.suid_dumpable
+  core_dump_kernel_parameter_value: '0'
+  core_dump_kernel_parameter_state: present
+  core_dump_kernel_parameter_reload: yes
+  core_dump_kernel_parameter_sysctl_set: yes
+  core_dump_package_name: systemd-coredump
+  core_dump_package_state: present
+  core_dump_service_conf_path: /etc/systemd/coredump.conf
+  core_dump_service_conf_section: Coredump
+  core_dump_service_conf_storage_option: Storage
+  core_dump_service_conf_storage_value: none
+  core_dump_service_conf_processsizemax_option: ProcessSizeMax
+  core_dump_service_conf_processsizemax_value: 0
+  core_dump_service_conf_owner: root
+  core_dump_service_conf_group: root
+  core_dump_service_conf_mode: '0644'
+  core_dump_service_conf_state: present
+  core_dump_service_conf_no_extra_spaces: yes

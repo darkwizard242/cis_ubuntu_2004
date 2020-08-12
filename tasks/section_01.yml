@@ -507,6 +507,7 @@
   args:
     executable: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params['executable'] }}"
   register: apt_cache_policy_output
+  changed_when: false
   when:
     - ubuntu_2004_cis_section1_rule_1_2_1
     - ubuntu_2004_cis_section1
@@ -531,6 +532,7 @@
   args:
     executable: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params['executable'] }}"
   register: apt_key_list_output
+  changed_when: false
   when:
     - ubuntu_2004_cis_section1_rule_1_2_2
     - ubuntu_2004_cis_section1
@@ -678,7 +680,7 @@
 - name: "1.5.1 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
   shell: "set -eou pipefail;
 
-      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c12)
+      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18)
 
       echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
   args:
@@ -750,4 +752,34 @@
   tags:
     - section1
     - rule_1_5_2
+    - level_1
+
+- name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Audit if root has a password"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params['audit_root_password_command'] }}" # Evaluates if root has a password. If root has password, rc is 0.
+  register: audit_root_password_command_result
+  changed_when: false
+  failed_when: false
+  when:
+    - ubuntu_2004_cis_section1_rule_1_5_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_5_3
+    - level_1
+
+- name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Set password for root"
+  shell: "set -eou pipefail;
+
+      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18)
+
+      echo -e \"$PASSWORD\n$PASSWORD\" | passwd root"
+  args:
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params['audit_root_password_executable'] }}"
+  when:
+    - audit_root_password_command_result.rc == 0 # This conditions allows to only set/change root password when it has been evaluated that root did not originally have a password.
+    - ubuntu_2004_cis_section1_rule_1_5_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_5_3
     - level_1

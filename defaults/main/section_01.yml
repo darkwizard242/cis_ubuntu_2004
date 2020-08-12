@@ -292,3 +292,9 @@ ubuntu_2004_cis_section1_rule_1_5_2_params:
   owner: root
   group: root
   state: file
+
+ubuntu_2004_cis_section1_rule_1_5_3: true
+
+ubuntu_2004_cis_section1_rule_1_5_3_params:
+  audit_root_password_command: 'grep ^root:[*\!]: /etc/shadow'
+  audit_root_password_executable: /bin/bash

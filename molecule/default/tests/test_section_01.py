@@ -279,4 +279,4 @@ def test_1_5_2_grub_file_group(host):
 
 
 def test_1_6_1_xd_nx(host):
-    assert host.file('/proc/cpuinfo').group == 'pae'
+    assert host.file('/proc/cpuinfo').contains('pae')

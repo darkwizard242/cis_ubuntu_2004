@@ -268,3 +268,23 @@ def test_1_5_1_40custom_file_superusers(host):
 
 def test_1_5_1_40custom_file_password(host):
     assert host.file('/etc/grub.d/40_custom').contains('password')
+
+
+def test_1_5_2_grub_file_exists(host):
+    assert host.file('/boot/grub/grub.cfg').exists
+
+
+def test_1_5_2_grub_file_isfile(host):
+    assert host.file('/boot/grub/grub.cfg').is_file
+
+
+def test_1_5_2_grub_file_mode(host):
+    assert host.file('/boot/grub/grub.cfg').mode == 0o400
+
+
+def test_1_5_2_grub_file_user(host):
+    assert host.file('/boot/grub/grub.cfg').user == 'root'
+
+
+def test_1_5_2_grub_file_group(host):
+    assert host.file('/boot/grub/grub.cfg').group == 'root'

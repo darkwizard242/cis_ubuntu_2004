@@ -837,3 +837,21 @@
     - section1
     - rule_1_6_3
     - level_1
+
+- name: "1.6.4 | Ensure core dumps are restricted (Automated) | limit for user groups"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_path'] }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_line'] }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_regexp'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_state'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_mode'] }}"
+    backup: yes
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_4
+    - level_1

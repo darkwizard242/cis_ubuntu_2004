@@ -304,3 +304,20 @@ ubuntu_2004_cis_section1_rule_1_6_1: true
 ubuntu_2004_cis_section1_rule_1_6_1_params:
   audit_xd_nx_command: "grep ^flags /proc/cpuinfo | head -n1 | grep -E 'pae|nx'"
   audit_root_password_executable: /bin/bash
+
+ubuntu_2004_cis_section1_rule_1_6_2: true
+
+ubuntu_2004_cis_section1_rule_1_6_2_params:
+  name: kernel.randomize_va_space
+  value: '2'
+  state: present
+  reload: yes
+  sysctl_set: yes
+
+ubuntu_2004_cis_section1_rule_1_6_3: true
+
+ubuntu_2004_cis_section1_rule_1_6_3_params:
+  prelink_command: 'prelink -ua'
+  package_name: prelink
+  package_state: absent
+  package_purge: yes

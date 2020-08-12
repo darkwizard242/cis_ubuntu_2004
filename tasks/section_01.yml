@@ -796,3 +796,44 @@
     - section1
     - rule_1_6_1
     - level_1
+
+- name: "1.6.2 | Ensure address space layout randomization (ASLR) is enabled (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['name'] }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['value'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['state'] }}"
+    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['reload'] }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['sysctl_set'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_6_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_2
+    - level_1
+
+- name: "1.6.3 | Ensure prelink is disabled (Automated) | undo all prelinking"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['prelink_command'] }}"
+  failed_when: false
+  when:
+    - "'prelink' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_6_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_3
+    - level_1
+
+- name: "1.6.3 | Ensure prelink is disabled (Automated) | uninstall/purge prelink"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_state'] }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_purge'] }}"
+  when:
+    - "'prelink' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_6_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_6_3
+    - level_1

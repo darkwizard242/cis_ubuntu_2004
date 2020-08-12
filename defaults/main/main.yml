@@ -1,4 +1,6 @@
 ---
 # defaults file for cis-ubuntu-20.04
 
+preliminary_appliance: true
+
 ubuntu_2004_cis_section1: true

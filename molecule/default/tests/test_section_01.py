@@ -262,10 +262,6 @@ def test_1_5_1_40custom_file_mode(host):
     assert host.file('/etc/grub.d/40_custom').mode == 0o640
 
 
-def test_1_5_1_40custom_file_mode(host):
-    assert host.file('/etc/grub.d/10_linux').mode == 0o640
-
-
 def test_1_5_1_40custom_file_superusers(host):
     assert host.file('/etc/grub.d/40_custom').contains('superusers')
 

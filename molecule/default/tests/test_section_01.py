@@ -284,3 +284,7 @@ def test_1_6_1_xd_nx(host):
 
 def test_1_6_4_systemd_ccoredump_package(host):
     assert host.package('systemd-coredump').is_installed
+
+
+def test_1_7_1_1_apparmor_package(host):
+    assert host.package('apparmor').is_installed

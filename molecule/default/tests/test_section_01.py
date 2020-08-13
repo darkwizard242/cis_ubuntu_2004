@@ -226,8 +226,8 @@ def test_1_3_1_sudo_package(host):
     assert host.package('sudo').is_installed
 
 
-def test_1_3_2_and_1_3_3_sudoers_file_mode(host):
-    assert host.file('/etc/sudoers').mode == 0o640
+# def test_1_3_2_and_1_3_3_sudoers_file_mode(host):
+#     assert host.file('/etc/sudoers').mode == 0o640
 
 
 def test_1_4_1_aide_package(host):

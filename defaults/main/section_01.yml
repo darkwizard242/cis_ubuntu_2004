@@ -1,371 +1,381 @@
 ---
 # Default Variables for CIS UBUNTU 20.04 Benchmarks Section 1
 
+# Variables for 1.1.1.1
 ubuntu_2004_cis_section1_rule_1_1_1_1: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_1_params:
-  source: section_01/1.1.1.1_cramfs.conf.j2
-  line: install cramfs /bin/true
-  dest: /etc/modprobe.d/1.1.1.1_cramfs.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: cramfs
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_source: section_01/1.1.1.1_cramfs.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_line: install cramfs /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_dest: /etc/modprobe.d/1.1.1.1_cramfs.conf
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_name: cramfs
+ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_state: absent
 
+# Variables for 1.1.1.2
 ubuntu_2004_cis_section1_rule_1_1_1_2: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_2_params:
-  source: section_01/1.1.1.2_freevxfs.conf.j2
-  line: install freevxfs /bin/true
-  dest: /etc/modprobe.d/1.1.1.2_freevxfs.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: freevxfs
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_source: section_01/1.1.1.2_freevxfs.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_line: install freevxfs /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_dest: /etc/modprobe.d/1.1.1.2_freevxfs.conf
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_name: freevxfs
+ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_state: absent
 
+# Variables for 1.1.1.3
 ubuntu_2004_cis_section1_rule_1_1_1_3: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_3_params:
-  source: section_01/1.1.1.3_jffs2.conf.j2
-  line: install jffs2 /bin/true
-  dest: /etc/modprobe.d/1.1.1.3_jffs2.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: jffs2
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_source: section_01/1.1.1.3_jffs2.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_line: install jffs2 /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_dest: /etc/modprobe.d/1.1.1.3_jffs2.conf
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_name: jffs2
+ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_state: absent
 
+# Variables for 1.1.1.4
 ubuntu_2004_cis_section1_rule_1_1_1_4: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_4_params:
-  source: section_01/1.1.1.4_hfs.conf.j2
-  line: install hfs /bin/true
-  dest: /etc/modprobe.d/1.1.1.4_hfs.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: hfs
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_source: section_01/1.1.1.4_hfs.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_line: install hfs /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_dest: /etc/modprobe.d/1.1.1.4_hfs.conf
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_name: hfs
+ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_state: absent
 
+# Variables for 1.1.1.5
 ubuntu_2004_cis_section1_rule_1_1_1_5: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_5_params:
-  source: section_01/1.1.1.5_hfsplus.conf.j2
-  line: install hfsplus /bin/true
-  dest: /etc/modprobe.d/1.1.1.5_hfsplus.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: hfsplus
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_source: section_01/1.1.1.5_hfsplus.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_line: install hfsplus /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_dest: /etc/modprobe.d/1.1.1.5_hfsplus.conf
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_name: hfsplus
+ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_state: absent
 
+# Variables for 1.1.1.6
 ubuntu_2004_cis_section1_rule_1_1_1_6: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_6_params:
-  source: section_01/1.1.1.6_udf.conf.j2
-  line: install udf /bin/true
-  dest: /etc/modprobe.d/1.1.1.6_udf.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: udf
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_source: section_01/1.1.1.6_udf.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_line: install udf /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest: /etc/modprobe.d/1.1.1.6_udf.conf
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name: udf
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state: absent
 
+# Variables for 1.1.1.7
 ubuntu_2004_cis_section1_rule_1_1_1_7: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_7_params:
-  source: section_01/1.1.1.7_vfat.conf.j2
-  line: install vfat /bin/true
-  dest: /etc/modprobe.d/1.1.1.7_vfat.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: vfat
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_source: section_01/1.1.1.7_vfat.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_line: install vfat /bin/true
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest: /etc/modprobe.d/1.1.1.7_vfat.conf
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name: vfat
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state: absent
 
+# Variables for 1.1.2
 ubuntu_2004_cis_section1_rule_1_1_2: true
 
-ubuntu_2004_cis_section1_rule_1_1_2_params:
-  src: /usr/share/systemd/tmp.mount
-  dest: /etc/systemd/system/tmp.mount
-  owner: root
-  group: root
-  mode: '0644'
-  backup: yes
-  remote_src: yes
-  force: yes
+ubuntu_2004_cis_section1_rule_1_1_2_params_src: /usr/share/systemd/tmp.mount
+ubuntu_2004_cis_section1_rule_1_1_2_params_dest: /etc/systemd/system/tmp.mount
+ubuntu_2004_cis_section1_rule_1_1_2_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_2_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_2_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_2_params_backup: yes
+ubuntu_2004_cis_section1_rule_1_1_2_params_remote_src: yes
+ubuntu_2004_cis_section1_rule_1_1_2_params_force: yes
 
+# Variables for 1.1.3, 1.1.4 and 1.1.5
 ubuntu_2004_cis_section1_rule_1_1_3: true
 ubuntu_2004_cis_section1_rule_1_1_4: true
 ubuntu_2004_cis_section1_rule_1_1_5: true
 
-ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params:
-  path: /etc/systemd/system/tmp.mount
-  section: Mount
-  option: Options
-  value: mode=1777,strictatime,nodev,nosuid,noexec
-  owner: root
-  group: root
-  mode: '0644'
-  state: present
-  backup: yes
-  no_extra_spaces: yes
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_path: /etc/systemd/system/tmp.mount
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_section: Mount
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_option: Options
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_value: mode=1777,strictatime,nodev,nosuid,noexec
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_state: present
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_backup: yes
+ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_no_extra_spaces: yes
 
+# Variables for 1.1.6, 1.1.7, 1.1.8 and 1.1.9
 ubuntu_2004_cis_section1_rule_1_1_6: true
 ubuntu_2004_cis_section1_rule_1_1_7: true
 ubuntu_2004_cis_section1_rule_1_1_8: true
 ubuntu_2004_cis_section1_rule_1_1_9: true
 
-ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params:
-  src: tmpfs
-  path: /dev/shm
-  fstype: tmpfs
-  opts: defaults,noexec,nodev,nosuid,seclabel
-  dump: 0
-  passno: 0
-  state: present
-  backup: yes
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_src: tmpfs
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_path: /dev/shm
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_fstype: tmpfs
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_opts: defaults,noexec,nodev,nosuid,seclabel
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_dump: '0'
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_passno: '0'
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_state: present
+ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_backup: yes
 
+# Variables for 1.1.10
 ubuntu_2004_cis_section1_rule_1_1_10: true
 
+# Variables for 1.1.11
 ubuntu_2004_cis_section1_rule_1_1_11: true
 
+# Variables for 1.1.12
 ubuntu_2004_cis_section1_rule_1_1_12: true
 
+# Variables for 1.1.13
 ubuntu_2004_cis_section1_rule_1_1_13: true
 
+# Variables for 1.1.14
 ubuntu_2004_cis_section1_rule_1_1_14: true
 
+# Variables for 1.1.15
 ubuntu_2004_cis_section1_rule_1_1_15: true
 
+# Variables for 1.1.16
 ubuntu_2004_cis_section1_rule_1_1_16: true
 
+# Variables for 1.1.17
 ubuntu_2004_cis_section1_rule_1_1_17: true
 
+# Variables for 1.1.18
 ubuntu_2004_cis_section1_rule_1_1_18: true
 
+# Variables for 1.1.19
 ubuntu_2004_cis_section1_rule_1_1_19: true
 
+# Variables for 1.1.20
 ubuntu_2004_cis_section1_rule_1_1_20: true
 
+# Variables for 1.1.21
 ubuntu_2004_cis_section1_rule_1_1_21: true
 
+# Variables for 1.1.22
 ubuntu_2004_cis_section1_rule_1_1_22: true
 
-ubuntu_2004_cis_section1_rule_1_1_22_params:
-  shell: |
+ubuntu_2004_cis_section1_rule_1_1_22_params_shell: |
       set -eou pipefail;
 
       df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | xargs -I '{}' chmod a+t '{}'
-  executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_1_22_params_executable: /bin/bash
 
+# Variables for 1.1.23
 ubuntu_2004_cis_section1_rule_1_1_23: true
 
-ubuntu_2004_cis_section1_rule_1_1_23_params:
-  service_name: autofs
-  daemon_reload: yes
-  enabled: no
-  masked: yes
-  ignore_errors: yes
-  package_name: autofs
-  package_state: absent
-  package_purge: yes
+ubuntu_2004_cis_section1_rule_1_1_23_params_service_name: autofs
+ubuntu_2004_cis_section1_rule_1_1_23_params_daemon_reload: yes
+ubuntu_2004_cis_section1_rule_1_1_23_params_enabled: no
+ubuntu_2004_cis_section1_rule_1_1_23_params_masked: yes
+ubuntu_2004_cis_section1_rule_1_1_23_params_ignore_errors: yes
+ubuntu_2004_cis_section1_rule_1_1_23_params_package_name: autofs
+ubuntu_2004_cis_section1_rule_1_1_23_params_package_state: absent
+ubuntu_2004_cis_section1_rule_1_1_23_params_package_purge: yes
 
+# Variables for 1.1.24
 ubuntu_2004_cis_section1_rule_1_1_24: true
 
-ubuntu_2004_cis_section1_rule_1_1_24_params:
-  source: section_01/1.1.24_usb-storage.conf.j2
-  line: install usb-storage /bin/true
-  dest: /etc/modprobe.d/1.1.24_usb-storage.conf
-  owner: root
-  group: root
-  mode: '0644'
-  module_name: usb-storage
-  module_state: absent
+ubuntu_2004_cis_section1_rule_1_1_24_params_source: section_01/1.1.24_usb-storage.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_24_params_line: install usb-storage /bin/true
+ubuntu_2004_cis_section1_rule_1_1_24_params_dest: /etc/modprobe.d/1.1.24_usb-storage.conf
+ubuntu_2004_cis_section1_rule_1_1_24_params_owner: root
+ubuntu_2004_cis_section1_rule_1_1_24_params_group: root
+ubuntu_2004_cis_section1_rule_1_1_24_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_1_24_params_module_name: usb-storage
+ubuntu_2004_cis_section1_rule_1_1_24_params_module_state: absent
 
+# Variables for 1.2.1
 ubuntu_2004_cis_section1_rule_1_2_1: true
 
-ubuntu_2004_cis_section1_rule_1_2_1_params:
-  shell: |
+ubuntu_2004_cis_section1_rule_1_2_1_params_shell: |
       set -eou pipefail;
 
       apt-cache policy
-  executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_2_1_params_executable: /bin/bash
 
+# Variables for 1.2.2
 ubuntu_2004_cis_section1_rule_1_2_2: true
 
-ubuntu_2004_cis_section1_rule_1_2_2_params:
-  shell: |
+ubuntu_2004_cis_section1_rule_1_2_2_params_shell: |
       set -eou pipefail;
 
       apt-key list
-  executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_2_2_params_executable: /bin/bash
 
+# Variables for 1.3.1
 ubuntu_2004_cis_section1_rule_1_3_1: true
 
-ubuntu_2004_cis_section1_rule_1_3_1_params:
-  package_name: sudo
-  package_state: present
+ubuntu_2004_cis_section1_rule_1_3_1_params_package_name: sudo
+ubuntu_2004_cis_section1_rule_1_3_1_params_package_state: present
 
+# Variables for 1.3.2
 ubuntu_2004_cis_section1_rule_1_3_2: true
 
-ubuntu_2004_cis_section1_rule_1_3_2_params:
-  path: /etc/sudoers
-  line: Defaults use_pty
-  regexp: ^Defaults.*use_pty
-  state: present
-  owner: root
-  group: root
-  mode: '0640'
-  validate: visudo -cf %s
+ubuntu_2004_cis_section1_rule_1_3_2_params_path: /etc/sudoers
+ubuntu_2004_cis_section1_rule_1_3_2_params_line: Defaults use_pty
+ubuntu_2004_cis_section1_rule_1_3_2_params_regexp: ^Defaults.*use_pty
+ubuntu_2004_cis_section1_rule_1_3_2_params_state: present
+ubuntu_2004_cis_section1_rule_1_3_2_params_owner: root
+ubuntu_2004_cis_section1_rule_1_3_2_params_group: root
+ubuntu_2004_cis_section1_rule_1_3_2_params_mode: '0640'
+ubuntu_2004_cis_section1_rule_1_3_2_params_validate: visudo -cf %s
 
+# Variables for 1.3.3
 ubuntu_2004_cis_section1_rule_1_3_3: true
 
-ubuntu_2004_cis_section1_rule_1_3_3_params:
-  path: /etc/sudoers
-  line: Defaults logfile="/var/log/sudo.log"
-  regexp: ^Defaults.*logfile
-  state: present
-  owner: root
-  group: root
-  mode: '0640'
-  validate: visudo -cf %s
+ubuntu_2004_cis_section1_rule_1_3_3_params_path: /etc/sudoers
+ubuntu_2004_cis_section1_rule_1_3_3_params_line: Defaults logfile="/var/log/sudo.log"
+ubuntu_2004_cis_section1_rule_1_3_3_params_regexp: ^Defaults.*logfile
+ubuntu_2004_cis_section1_rule_1_3_3_params_state: present
+ubuntu_2004_cis_section1_rule_1_3_3_params_owner: root
+ubuntu_2004_cis_section1_rule_1_3_3_params_group: root
+ubuntu_2004_cis_section1_rule_1_3_3_params_mode: '0640'
+ubuntu_2004_cis_section1_rule_1_3_3_params_validate: visudo -cf %s
 
+# Variables for 1.4.1
 ubuntu_2004_cis_section1_rule_1_4_1: true
 
-ubuntu_2004_cis_section1_rule_1_4_1_params:
-  package_name:
-    - aide
-    - aide-common
-  package_state: present
-  db_file_name: /var/lib/aide/aide.db
-  db_file_init_command: aideinit
+ubuntu_2004_cis_section1_rule_1_4_1_params_package_name:
+  - aide
+  - aide-common
+ubuntu_2004_cis_section1_rule_1_4_1_params_package_state: present
+ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name: /var/lib/aide/aide.db
+ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_init_command: aideinit
 
+# Variables for 1.4.2
 ubuntu_2004_cis_section1_rule_1_4_2: true
 
-ubuntu_2004_cis_section1_rule_1_4_2_params:
-  name: "1.4.2 Ensure filesystem integrity is regularly checked | AIDE CRON ENTRY"
-  minute: 0
-  hour: 5
-  day: '*'
-  month: '*'
-  weekday: '*'
-  user: root
-  job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
+ubuntu_2004_cis_section1_rule_1_4_2_params_name: "1.4.2 Ensure filesystem integrity is regularly checked | AIDE CRON ENTRY"
+ubuntu_2004_cis_section1_rule_1_4_2_params_minute: '0'
+ubuntu_2004_cis_section1_rule_1_4_2_params_hour: '5'
+ubuntu_2004_cis_section1_rule_1_4_2_params_day: '*'
+ubuntu_2004_cis_section1_rule_1_4_2_params_month: '*'
+ubuntu_2004_cis_section1_rule_1_4_2_params_weekday: '*'
+ubuntu_2004_cis_section1_rule_1_4_2_params_user: root
+ubuntu_2004_cis_section1_rule_1_4_2_params_job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
 
+# Variables for 1.5.1
 ubuntu_2004_cis_section1_rule_1_5_1: true
 
 ubuntu_2004_cis_section1_rule_1_5_1_set_superuser: true
 ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2: true
 ubuntu_2004_cis_section1_rule_1_5_1_unrestricted: true
 
-ubuntu_2004_cis_section1_rule_1_5_1_params:
-  set_superusers_path: /etc/grub.d/40_custom
-  set_superusers_line: set superusers="root"
-  set_superusers_regexp: ^set.*superusers
-  set_superusers_state: present
-  set_superusers_owner: root
-  set_superusers_group: root
-  set_superusers_mode: '0755'
-  bootloader_password_executable: /bin/bash
-  bootloader_password_path: /etc/grub.d/40_custom
-  bootloader_password_regexp: ^password_pbkdf2.*root
-  bootloader_password_state: present
-  bootloader_password_owner: root
-  bootloader_password_group: root
-  bootloader_password_mode: '0755'
-  bootloader_password_insertafter: '^set superusers="root"'
-  unrestricted_path: /etc/grub.d/10_linux
-  unrestricted_regex: '^CLASS="(((?!--unrestricted).)*)"$'
-  unrestricted_replace: 'CLASS="\1 --unrestricted"'
-  unrestricted_owner: root
-  unrestricted_group: root
-  unrestricted_mode: '0755'
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_path: /etc/grub.d/40_custom
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_line: set superusers="root"
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_regexp: ^set.*superusers
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_state: present
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_owner: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_group: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode: '0755'
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_path: /etc/grub.d/40_custom
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_regexp: ^password_pbkdf2.*root
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_insertafter: '^set superusers="root"'
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_state: present
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_owner: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_group: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode: '0755'
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_path: /etc/grub.d/10_linux
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_regex: '^CLASS="(((?!--unrestricted).)*)"$'
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_replace: 'CLASS="\1 --unrestricted"'
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_owner: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_group: root
+ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode: '0755'
 
+# Variables for 1.5.2
 ubuntu_2004_cis_section1_rule_1_5_2: true
 
-ubuntu_2004_cis_section1_rule_1_5_2_params:
-  path: /boot/grub/grub.cfg
-  mode: '0400'
-  owner: root
-  group: root
-  state: file
+ubuntu_2004_cis_section1_rule_1_5_2_params_path: /boot/grub/grub.cfg
+ubuntu_2004_cis_section1_rule_1_5_2_params_mode: '0400'
+ubuntu_2004_cis_section1_rule_1_5_2_params_owner: root
+ubuntu_2004_cis_section1_rule_1_5_2_params_group: root
+ubuntu_2004_cis_section1_rule_1_5_2_params_state: file
 
+# Variables for 1.5.3
 ubuntu_2004_cis_section1_rule_1_5_3: true
 
-ubuntu_2004_cis_section1_rule_1_5_3_params:
-  audit_root_password_command: 'grep ^root:[*\!]: /etc/shadow'
-  audit_root_password_executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_command: 'grep ^root:[*\!]: /etc/shadow'
+ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable: /bin/bash
 
+# Variables for 1.6.1
 ubuntu_2004_cis_section1_rule_1_6_1: true
 
-ubuntu_2004_cis_section1_rule_1_6_1_params:
-  audit_xd_nx_command: "grep ^flags /proc/cpuinfo | head -n1 | grep -E 'pae|nx'"
-  audit_root_password_executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command: "grep ^flags /proc/cpuinfo | head -n1 | grep -E 'pae|nx'"
 
+# Variables for 1.6.2
 ubuntu_2004_cis_section1_rule_1_6_2: true
 
-ubuntu_2004_cis_section1_rule_1_6_2_params:
-  name: kernel.randomize_va_space
-  value: '2'
-  state: present
-  reload: yes
-  sysctl_set: yes
+ubuntu_2004_cis_section1_rule_1_6_2_params_name: kernel.randomize_va_space
+ubuntu_2004_cis_section1_rule_1_6_2_params_value: '2'
+ubuntu_2004_cis_section1_rule_1_6_2_params_state: present
+ubuntu_2004_cis_section1_rule_1_6_2_params_reload: yes
+ubuntu_2004_cis_section1_rule_1_6_2_params_sysctl_set: yes
 
+# Variables for 1.6.3
 ubuntu_2004_cis_section1_rule_1_6_3: true
 
-ubuntu_2004_cis_section1_rule_1_6_3_params:
-  prelink_command: 'prelink -ua'
-  package_name: prelink
-  package_state: absent
-  package_purge: yes
+ubuntu_2004_cis_section1_rule_1_6_3_params_prelink_command: 'prelink -ua'
+ubuntu_2004_cis_section1_rule_1_6_3_params_package_name: prelink
+ubuntu_2004_cis_section1_rule_1_6_3_params_package_state: absent
+ubuntu_2004_cis_section1_rule_1_6_3_params_package_purge: yes
 
-
+# Variables for 1.6.4
 ubuntu_2004_cis_section1_rule_1_6_4: true
 
-ubuntu_2004_cis_section1_rule_1_6_4_params:
-  core_dump_security_limit_path: /etc/security/limits.conf
-  core_dump_security_limit_line: '* hard core 0'
-  core_dump_security_limit_regexp: .*\*.*hard.*core.*[0-9]
-  core_dump_security_limit_state: present
-  core_dump_security_limit_owner: root
-  core_dump_security_limit_group: root
-  core_dump_security_limit_mode: '0644'
-  core_dump_kernel_parameter_name: fs.suid_dumpable
-  core_dump_kernel_parameter_value: '0'
-  core_dump_kernel_parameter_state: present
-  core_dump_kernel_parameter_reload: yes
-  core_dump_kernel_parameter_sysctl_set: yes
-  core_dump_package_name: systemd-coredump
-  core_dump_package_state: present
-  core_dump_service_conf_path: /etc/systemd/coredump.conf
-  core_dump_service_conf_section: Coredump
-  core_dump_service_conf_storage_option: Storage
-  core_dump_service_conf_storage_value: none
-  core_dump_service_conf_processsizemax_option: ProcessSizeMax
-  core_dump_service_conf_processsizemax_value: 0
-  core_dump_service_conf_owner: root
-  core_dump_service_conf_group: root
-  core_dump_service_conf_mode: '0644'
-  core_dump_service_conf_state: present
-  core_dump_service_conf_no_extra_spaces: yes
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_path: /etc/security/limits.conf
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_line: '* hard core 0'
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_regexp: .*\*.*hard.*core.*[0-9]
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_state: present
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_owner: root
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_group: root
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_name: fs.suid_dumpable
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_value: '0'
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_state: present
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_reload: yes
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_sysctl_set: yes
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_name: systemd-coredump
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_state: present
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_path: /etc/systemd/coredump.conf
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_section: Coredump
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_option: Storage
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_value: none
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_option: ProcessSizeMax
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_value: '0'
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_owner: root
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_group: root
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_state: present
+ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_no_extra_spaces: yes
 
+# Variables for 1.7.1.1
 ubuntu_2004_cis_section1_rule_1_7_1_1: true
 
-ubuntu_2004_cis_section1_rule_1_7_1_1_params:
-  name:
-    - apparmor
-    - apparmor-utils
-  state: present
+ubuntu_2004_cis_section1_rule_1_7_1_1_params_name:
+  - apparmor
+  - apparmor-utils
+ubuntu_2004_cis_section1_rule_1_7_1_1_params_state: present
 
+# Variables for 1.7.1.2
 ubuntu_2004_cis_section1_rule_1_7_1_2: true
 
-ubuntu_2004_cis_section1_rule_1_7_1_2_params:
-  apparmor_enabled_path: /etc/default/grub
-  apparmor_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!apparmor).)*)"$'
-  apparmor_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 apparmor=1 security=apparmor"'
-  apparmor_enabled_owner: root
-  apparmor_enabled_group: root
-  apparmor_enabled_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_path: /etc/default/grub
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!apparmor).)*)"$'
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 apparmor=1 security=apparmor"'
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_owner: root
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_group: root
+ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_mode: '0644'

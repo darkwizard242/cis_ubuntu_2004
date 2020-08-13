@@ -3,11 +3,11 @@
 
 - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_1
     - ubuntu_2004_cis_section1
@@ -18,8 +18,8 @@
 
 - name: "1.1.1.1 | Remove cramfs kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_1
     - ubuntu_2004_cis_section1
@@ -30,11 +30,11 @@
 
 - name: "1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_source  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_2
     - ubuntu_2004_cis_section1
@@ -45,8 +45,8 @@
 
 - name: "1.1.1.2 | Remove freevxfs kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_2
     - ubuntu_2004_cis_section1
@@ -57,11 +57,11 @@
 
 - name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_3
     - ubuntu_2004_cis_section1
@@ -72,8 +72,8 @@
 
 - name: "1.1.1.3 | Remove jffs2 kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_3
     - ubuntu_2004_cis_section1
@@ -84,11 +84,11 @@
 
 - name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_4
     - ubuntu_2004_cis_section1
@@ -99,8 +99,8 @@
 
 - name: "1.1.1.4 | Remove hfs kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_4
     - ubuntu_2004_cis_section1
@@ -111,11 +111,11 @@
 
 - name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_source  }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_5
     - ubuntu_2004_cis_section1
@@ -126,8 +126,8 @@
 
 - name: "1.1.1.5 | Remove hfsplus kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_5
     - ubuntu_2004_cis_section1
@@ -138,11 +138,11 @@
 
 - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_6
     - ubuntu_2004_cis_section1
@@ -153,8 +153,8 @@
 
 - name: "1.1.1.6 | Remove udf kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_6
     - ubuntu_2004_cis_section1
@@ -165,11 +165,11 @@
 
 - name: "1.1.1.7 | Ensure mounting of FAT filesystems is limited (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_7
     - ubuntu_2004_cis_section1
@@ -180,8 +180,8 @@
 
 - name: "1.1.1.7 | Remove FAT (vfat) kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_7
     - ubuntu_2004_cis_section1
@@ -192,14 +192,14 @@
 
 - name: "1.1.2 | Ensure /tmp is configured (Automated)"
   copy:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['src'] }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['mode'] }}"
-    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['backup'] }}"
-    remote_src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['remote_src'] }}"
-    force: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params['force'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_src }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_mode }}"
+    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_backup }}"
+    remote_src: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_remote_src }}"
+    force: "{{ ubuntu_2004_cis_section1_rule_1_1_2_params_force }}"
   notify:
     - systemd tmp.mount reload
   when:
@@ -214,16 +214,16 @@
          1.1.4 | Ensure nosuid option set on /tmp partition (Automated)\n
          1.1.5 | Ensure noexec option set on /tmp partition (Automated)"
   ini_file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['path'] }}"
-    section: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['section'] }}"
-    option: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['option'] }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['value'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['mode'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['state'] }}"
-    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['backup'] }}"
-    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params['no_extra_spaces'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_path }}"
+    section: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_section }}"
+    option: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_option }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_value }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_mode }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_state }}"
+    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_backup }}"
+    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_1_3_and_1_1_4_and_1_1_5_params_no_extra_spaces }}"
   notify:
     - systemd tmp.mount reload
   when:
@@ -243,14 +243,14 @@
          1.1.8 | Ensure nosuid option set on /dev/shm partition (Automated)\n
          1.1.9 | Ensure noexec option set on /dev/shm partition (Automated)"
   mount:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['src'] }}"
-    path: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['path'] }}"
-    fstype: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['fstype'] }}"
-    opts: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['opts'] }}"
-    dump: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['dump'] }}"
-    passno: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['passno'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['state'] }}"
-    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params['backup'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_src }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_path }}"
+    fstype: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_fstype }}"
+    opts: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_opts }}"
+    dump: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_dump }}"
+    passno: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_passno }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_state }}"
+    backup: "{{ ubuntu_2004_cis_section1_rule_1_1_6_and_1_1_7_and_1_1_8_and_1_1_9_params_backup }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_6
     - ubuntu_2004_cis_section1_rule_1_1_7
@@ -434,9 +434,9 @@
     - level_1
 
 - name: "1.1.22 | Ensure sticky bit is set on all world-writable directories (Automated)"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params['shell'] }}"
+  shell: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params_shell }}"
   args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params['executable'] }}"
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params_executable }}"
   changed_when: false
   failed_when: false
   when:
@@ -449,11 +449,11 @@
 
 - name: "1.1.23 | Disable Automounting (Automated) | autofs: systemd service mask"
   systemd:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['service_name'] }}"
-    daemon_reload: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['daemon_reload'] }}"
-    enabled: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['enabled'] }}"
-    masked: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['masked'] }}"
-  ignore_errors: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['ignore_errors'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_service_name }}"
+    daemon_reload: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_daemon_reload }}"
+    enabled: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_enabled }}"
+    masked: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_masked }}"
+  ignore_errors: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_ignore_errors }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_23
     - ubuntu_2004_cis_section1
@@ -464,9 +464,9 @@
 
 - name: "1.1.23 | Disable Automounting (Automated) | autofs: apt package purge"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_state'] }}"
-    purge: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params['package_purge'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_1_23_params_package_purge }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_23
     - ubuntu_2004_cis_section1
@@ -477,11 +477,11 @@
 
 - name: "1.1.24 | Disable USB Storage (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['source']  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['dest'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['mode'] }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_mode }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_24
     - ubuntu_2004_cis_section1
@@ -492,8 +492,8 @@
 
 - name: "1.1.24 | Remove usb-storage kernel module (Automated)"
   modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['module_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params['module_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_1_24
     - ubuntu_2004_cis_section1
@@ -503,9 +503,9 @@
     - level_1
 
 - name: "1.2.1 | Ensure package manager repositories are configured (Manual) | apt-cache policy check"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params['shell'] }}"
+  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params_shell }}"
   args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params['executable'] }}"
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params_executable }}"
   register: apt_cache_policy_output
   changed_when: false
   when:
@@ -528,9 +528,9 @@
     - level_1
 
 - name: "1.2.2 | Ensure GPG keys are configured (Manual) | apt-key list check"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params['shell'] }}"
+  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params_shell }}"
   args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params['executable'] }}"
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params_executable }}"
   register: apt_key_list_output
   changed_when: false
   when:
@@ -554,8 +554,8 @@
 
 - name: "1.3.1 | Ensure sudo is installed (Automated)"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params['package_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params['package_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_3_1
     - ubuntu_2004_cis_section1
@@ -566,14 +566,14 @@
 
 - name: "1.3.2 | Ensure sudo commands use pty (Automated)"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['path'] }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['line'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['regexp'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['state'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['mode'] }}"
-    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params['validate'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_mode }}"
+    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_validate }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_3_2
     - ubuntu_2004_cis_section1
@@ -584,14 +584,14 @@
 
 - name: "1.3.3 | Ensure sudo log file exists (Automated)"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['path'] }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['line'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['regexp'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['state'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['mode'] }}"
-    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params['validate'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_mode }}"
+    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_validate }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_3_3
     - ubuntu_2004_cis_section1
@@ -602,8 +602,8 @@
 
 - name: "1.4.1 | Ensure AIDE is installed (Automated) | Packages installation"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params['package_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params['package_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_4_1
     - ubuntu_2004_cis_section1
@@ -614,7 +614,7 @@
 
 - name: "1.4.1 | Ensure AIDE is installed (Automated) | Check if DB exists"
   stat:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params['db_file_name'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
   register: aide_db_file
   when:
     - ubuntu_2004_cis_section1_rule_1_4_1
@@ -626,8 +626,8 @@
 
 - name: "1.4.1 | Ensure AIDE is installed (Automated) | Initialize DB if it DOESN'T Exist"
   command:
-    cmd: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params['db_file_init_command'] }}"
-    creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params['db_file_name'] }}"
+    cmd: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_init_command }}"
+    creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_4_1
     - ubuntu_2004_cis_section1
@@ -639,14 +639,14 @@
 
 - name: "1.4.2 | Ensure filesystem integrity is regularly checked (Automated)"
   cron:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['name'] }}"
-    minute: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['minute'] }}"
-    hour: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['hour'] }}"
-    day: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['day'] }}"
-    month: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['month'] }}"
-    weekday: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['weekday'] }}"
-    user: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['user'] }}"
-    job: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params['job'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_name }}"
+    minute: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_minute }}"
+    hour: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_hour }}"
+    day: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_day }}"
+    month: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_month }}"
+    weekday: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_weekday }}"
+    user: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_user }}"
+    job: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_job }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_4_2
     - ubuntu_2004_cis_section1
@@ -657,13 +657,13 @@
 
 - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set super_users"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_path'] }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_line'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_regexp'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_state'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['set_superusers_mode'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode }}"
   notify:
     - update grub configuration
     - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
@@ -684,7 +684,7 @@
 
       echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
   args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_executable'] }}"
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable }}"
   register: bootloader_encrypted_password
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
@@ -697,14 +697,14 @@
 
 - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set bootloader encrypted password"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_path'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_path }}"
     line: password_pbkdf2 root {{ bootloader_encrypted_password.stdout }}
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_regexp'] }}"
-    insertafter: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_insertafter'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_state'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['bootloader_password_mode'] }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_regexp }}"
+    insertafter: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_insertafter }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode }}"
   notify:
     - update grub configuration
     - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
@@ -719,12 +719,12 @@
 
 - name: "1.5.1 | Ensure bootloader password is set (Automated) | Add --unrestricted for system boot without password"
   replace:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_path'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_regex'] }}"
-    replace: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_replace'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params['unrestricted_mode'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_path }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_regex }}"
+    replace: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_replace }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode }}"
   notify:
     - update grub configuration
     - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
@@ -739,11 +739,11 @@
 
 - name: "1.5.2 | Ensure permissions on bootloader config are configured (Automated)"
   file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['path'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['mode'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['group'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params['state'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_path }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_mode }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_group }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_state }}"
   notify:
     - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
@@ -755,7 +755,7 @@
     - level_1
 
 - name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Audit if root has a password"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params['audit_root_password_command'] }}" # Evaluates if root has a password. If root has password, rc is 0.
+  command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_command }}" # Evaluates if root has a password. If root has password, rc is 0.
   register: audit_root_password_command_result
   changed_when: false
   failed_when: false
@@ -774,7 +774,7 @@
 
       echo -e \"$PASSWORD\n$PASSWORD\" | passwd root"
   args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params['audit_root_password_executable'] }}"
+    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable }}"
   when:
     - audit_root_password_command_result.rc == 0 # This conditions allows to only set/change root password when it has been evaluated that root did not originally have a password.
     - ubuntu_2004_cis_section1_rule_1_5_3
@@ -785,7 +785,7 @@
     - level_1
 
 - name: "1.6.1 | Ensure XD/NX support is enabled (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params['audit_xd_nx_command'] }}" # Evaluates if xd/nx are supported. If supported, rc is 0.
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command }}" # Evaluates if xd/nx are supported. If supported, rc is 0.
   register: audit_xd_nx_command_result
   changed_when: false
   failed_when: "'FAILED' in audit_xd_nx_command_result.stderr" # Fail task if xd/nx grep command returns any non 0 return code
@@ -799,11 +799,11 @@
 
 - name: "1.6.2 | Ensure address space layout randomization (ASLR) is enabled (Automated)"
   sysctl:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['name'] }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['value'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['state'] }}"
-    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['reload'] }}"
-    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params['sysctl_set'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_name }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_value }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_sysctl_set }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_6_2
     - ubuntu_2004_cis_section1
@@ -813,7 +813,7 @@
     - level_1
 
 - name: "1.6.3 | Ensure prelink is disabled (Automated) | undo all prelinking"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['prelink_command'] }}"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_prelink_command }}"
   failed_when: false
   when:
     - "'prelink' in ansible_facts.packages"
@@ -826,9 +826,9 @@
 
 - name: "1.6.3 | Ensure prelink is disabled (Automated) | uninstall/purge prelink"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_state'] }}"
-    purge: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params['package_purge'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_purge }}"
   when:
     - "'prelink' in ansible_facts.packages"
     - ubuntu_2004_cis_section1_rule_1_6_3
@@ -840,13 +840,13 @@
 
 - name: "1.6.4 | Ensure core dumps are restricted (Automated) | limit for user groups"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_path'] }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_line'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_regexp'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_state'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_security_limit_mode'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_mode }}"
     backup: yes
   when:
     - ubuntu_2004_cis_section1_rule_1_6_4
@@ -858,11 +858,11 @@
 
 - name: "1.6.4 | Ensure core dumps are restricted (Automated) | set kernel parameter fs.suid_dumpable"
   sysctl:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_kernel_parameter_name'] }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_kernel_parameter_value'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_kernel_parameter_state'] }}"
-    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_kernel_parameter_reload'] }}"
-    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_kernel_parameter_sysctl_set'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_name }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_value }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_state }}"
+    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_sysctl_set }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_6_4
     - ubuntu_2004_cis_section1
@@ -873,8 +873,8 @@
 
 - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump package"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_package_name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_package_state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_6_4
     - ubuntu_2004_cis_section1
@@ -885,15 +885,15 @@
 
 - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file Storage=none modification"
   ini_file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_path'] }}"
-    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_section'] }}"
-    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_storage_option'] }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_storage_value'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_mode'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_state'] }}"
-    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_no_extra_spaces'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_path }}"
+    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_section }}"
+    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_option }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_value }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_mode }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_state }}"
+    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_no_extra_spaces }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_6_4
     - ubuntu_2004_cis_section1
@@ -904,15 +904,15 @@
 
 - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file ProcessSizeMax=0 modification"
   ini_file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_path'] }}"
-    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_section'] }}"
-    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_processsizemax_option'] }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_processsizemax_value'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_mode'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_state'] }}"
-    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params['core_dump_service_conf_no_extra_spaces'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_path }}"
+    section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_section }}"
+    option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_option }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_value }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_mode }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_state }}"
+    no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_no_extra_spaces }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_6_4
     - ubuntu_2004_cis_section1
@@ -923,8 +923,8 @@
 
 - name: "1.7.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['name'] }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['state'] }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_state }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_7_1_1
     - ubuntu_2004_cis_section1
@@ -935,12 +935,12 @@
 
 - name: "1.7.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
   replace:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_path'] }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_regex'] }}"
-    replace: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_replace'] }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_owner'] }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_group'] }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_mode'] }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_path }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_regex }}"
+    replace: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_replace }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_mode }}"
     backup: yes
   notify:
     - update grub configuration

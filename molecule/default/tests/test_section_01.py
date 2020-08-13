@@ -312,3 +312,23 @@ def test_1_8_1_1_motd_file_user(host):
 
 def test_1_8_1_1_motd_file_group(host):
     assert host.file('/etc/motd').group == 'root'
+
+
+def test_1_8_1_2_issue_file_exists(host):
+    assert host.file('/etc/issue').exists
+
+
+def test_1_8_1_2_issue_file_isfile(host):
+    assert host.file('/etc/issue').is_file
+
+
+def test_1_8_1_2_issue_file_mode(host):
+    assert host.file('/etc/issue').mode == 0o644
+
+
+def test_1_8_1_2_issue_file_user(host):
+    assert host.file('/etc/issue').user == 'root'
+
+
+def test_1_8_1_2_issue_file_group(host):
+    assert host.file('/etc/issue').group == 'root'

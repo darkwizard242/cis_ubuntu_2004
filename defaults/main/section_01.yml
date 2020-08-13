@@ -5,7 +5,6 @@
 ubuntu_2004_cis_section1_rule_1_1_1_1: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_1_params_source: section_01/1.1.1.1_cramfs.conf.j2
-ubuntu_2004_cis_section1_rule_1_1_1_1_params_line: install cramfs /bin/true
 ubuntu_2004_cis_section1_rule_1_1_1_1_params_dest: /etc/modprobe.d/1.1.1.1_cramfs.conf
 ubuntu_2004_cis_section1_rule_1_1_1_1_params_owner: root
 ubuntu_2004_cis_section1_rule_1_1_1_1_params_group: root

@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS UBUNTU 20.04 SECTION 1 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 1 BENCHMARKS
 
 - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated)"
   template:

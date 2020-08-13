@@ -352,3 +352,7 @@ def test_1_8_1_3_issue_net_file_user(host):
 
 def test_1_8_1_3_issue_net_file_group(host):
     assert host.file('/etc/issue.net').group == 'root'
+
+
+def test_1_8_1_4_motd_file_mode(host):
+    assert host.file('/etc/motd').mode == 0o644

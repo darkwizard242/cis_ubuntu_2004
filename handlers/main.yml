@@ -22,3 +22,7 @@
     owner: root
     group: root
     state: file
+
+- name: reload gdm
+  become: true
+  command: dpkg-reconfigure gdm3

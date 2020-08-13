@@ -921,7 +921,7 @@
     - rule_1_6_4
     - level_1
 
-- name: "1.7.1.1 | Ensure AppArmor is installed (Automated)"
+- name: "1.7.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
   apt:
     name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['name'] }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['state'] }}"

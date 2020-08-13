@@ -278,8 +278,12 @@ def test_1_5_2_grub_file_group(host):
     assert host.file('/boot/grub/grub.cfg').group == 'root'
 
 
-def test_1_6_1_xd_nx(host):
+def test_1_6_1_xd_nx_pae(host):
     assert host.file('/proc/cpuinfo').contains('pae')
+
+
+def test_1_6_1_xd_nx_nx(host):
+    assert host.file('/proc/cpuinfo').contains('nx')
 
 
 def test_1_6_4_systemd_ccoredump_package(host):

@@ -408,3 +408,12 @@ ubuntu_2004_cis_section1_rule_1_8_1_3_params_dest: /etc/issue.net
 ubuntu_2004_cis_section1_rule_1_8_1_3_params_owner: root
 ubuntu_2004_cis_section1_rule_1_8_1_3_params_group: root
 ubuntu_2004_cis_section1_rule_1_8_1_3_params_mode: '0644'
+
+# Variables for 1.8.1.4
+ubuntu_2004_cis_section1_rule_1_8_1_4: true
+
+ubuntu_2004_cis_section1_rule_1_8_1_4_params_path: /etc/motd
+ubuntu_2004_cis_section1_rule_1_8_1_4_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_8_1_4_params_owner: root
+ubuntu_2004_cis_section1_rule_1_8_1_4_params_group: root
+ubuntu_2004_cis_section1_rule_1_8_1_4_params_state: file

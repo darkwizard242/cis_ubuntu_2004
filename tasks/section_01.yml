@@ -1152,3 +1152,21 @@
     - section1
     - rule_1_10
     - level_1
+
+- name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure disable-user-list if gdm3 installed"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_10
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_10
+    - level_1

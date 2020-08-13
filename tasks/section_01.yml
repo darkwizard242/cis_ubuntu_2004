@@ -920,3 +920,35 @@
     - section1
     - rule_1_6_4
     - level_1
+
+- name: "1.7.1.1 | Ensure AppArmor is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['name'] }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params['state'] }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_7_1_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_7_1_1
+    - level_1
+
+- name: "1.7.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
+  replace:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_path'] }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_regex'] }}"
+    replace: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_replace'] }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_owner'] }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_group'] }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params['apparmor_enabled_mode'] }}"
+    backup: yes
+  notify:
+    - update grub configuration
+    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+  when:
+    - ubuntu_2004_cis_section1_rule_1_7_1_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_7_1_2
+    - level_1

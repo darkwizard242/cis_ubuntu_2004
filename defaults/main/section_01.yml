@@ -351,3 +351,19 @@ ubuntu_2004_cis_section1_rule_1_6_4_params:
   core_dump_service_conf_mode: '0644'
   core_dump_service_conf_state: present
   core_dump_service_conf_no_extra_spaces: yes
+
+ubuntu_2004_cis_section1_rule_1_7_1_1: true
+
+ubuntu_2004_cis_section1_rule_1_7_1_1_params:
+  name: apparmor
+  state: present
+
+ubuntu_2004_cis_section1_rule_1_7_1_2: true
+
+ubuntu_2004_cis_section1_rule_1_7_1_2_params:
+  apparmor_enabled_path: /etc/default/grub
+  apparmor_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!apparmor).)*)"$'
+  apparmor_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 apparmor=1 security=apparmor"'
+  apparmor_enabled_owner: root
+  apparmor_enabled_group: root
+  apparmor_enabled_mode: '0644'

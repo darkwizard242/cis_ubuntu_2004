@@ -292,3 +292,23 @@ def test_1_6_4_systemd_ccoredump_package(host):
 
 def test_1_7_1_1_apparmor_package(host):
     assert host.package('apparmor').is_installed
+
+
+def test_1_8_1_1_motd_file_exists(host):
+    assert host.file('/etc/motd').exists
+
+
+def test_1_8_1_1_motd_file_isfile(host):
+    assert host.file('/etc/motd').is_file
+
+
+def test_1_8_1_1_motd_file_mode(host):
+    assert host.file('/etc/motd').mode == 0o644
+
+
+def test_1_8_1_1_motd_file_user(host):
+    assert host.file('/etc/motd').user == 'root'
+
+
+def test_1_8_1_1_motd_file_group(host):
+    assert host.file('/etc/motd').group == 'root'

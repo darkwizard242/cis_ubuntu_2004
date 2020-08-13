@@ -332,3 +332,23 @@ def test_1_8_1_2_issue_file_user(host):
 
 def test_1_8_1_2_issue_file_group(host):
     assert host.file('/etc/issue').group == 'root'
+
+
+def test_1_8_1_3_issue_net_file_exists(host):
+    assert host.file('/etc/issue.net').exists
+
+
+def test_1_8_1_3_issue_net_file_isfile(host):
+    assert host.file('/etc/issue.net').is_file
+
+
+def test_1_8_1_3_issue_net_file_mode(host):
+    assert host.file('/etc/issue.net').mode == 0o644
+
+
+def test_1_8_1_3_issue_net_file_user(host):
+    assert host.file('/etc/issue.net').user == 'root'
+
+
+def test_1_8_1_3_issue_net_file_group(host):
+    assert host.file('/etc/issue.net').group == 'root'

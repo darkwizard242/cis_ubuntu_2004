@@ -1126,6 +1126,8 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
+  notify:
+    - reload gdm
   when:
     - "'gdm3' in ansible_facts.packages"
     - ubuntu_2004_cis_section1_rule_1_10
@@ -1144,6 +1146,8 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
+  notify:
+    - reload gdm
   when:
     - "'gdm3' in ansible_facts.packages"
     - ubuntu_2004_cis_section1_rule_1_10
@@ -1162,6 +1166,8 @@
     owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
     group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
     mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
+  notify:
+    - reload gdm
   when:
     - "'gdm3' in ansible_facts.packages"
     - ubuntu_2004_cis_section1_rule_1_10

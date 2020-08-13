@@ -1104,3 +1104,15 @@
     - section1
     - rule_1_8_1_6
     - level_1
+
+- name: "1.9 | Ensure updates, patches, and additional security software are installed (Manual)"
+  apt:
+    upgrade: "{{ ubuntu_2004_cis_section1_rule_1_9_params_upgrade }}"
+    update_cache: "{{ ubuntu_2004_cis_section1_rule_1_9_params_update_cache }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_9
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_9
+    - level_1

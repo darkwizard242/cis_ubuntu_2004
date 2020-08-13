@@ -182,7 +182,6 @@ ubuntu_2004_cis_section1_rule_1_1_23_params_package_purge: yes
 ubuntu_2004_cis_section1_rule_1_1_24: true
 
 ubuntu_2004_cis_section1_rule_1_1_24_params_source: section_01/1.1.24_usb-storage.conf.j2
-ubuntu_2004_cis_section1_rule_1_1_24_params_line: install usb-storage /bin/true
 ubuntu_2004_cis_section1_rule_1_1_24_params_dest: /etc/modprobe.d/1.1.24_usb-storage.conf
 ubuntu_2004_cis_section1_rule_1_1_24_params_owner: root
 ubuntu_2004_cis_section1_rule_1_1_24_params_group: root

@@ -16,7 +16,6 @@ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_state: absent
 ubuntu_2004_cis_section1_rule_1_1_1_2: true
 
 ubuntu_2004_cis_section1_rule_1_1_1_2_params_source: section_01/1.1.1.2_freevxfs.conf.j2
-ubuntu_2004_cis_section1_rule_1_1_1_2_params_line: install freevxfs /bin/true
 ubuntu_2004_cis_section1_rule_1_1_1_2_params_dest: /etc/modprobe.d/1.1.1.2_freevxfs.conf
 ubuntu_2004_cis_section1_rule_1_1_1_2_params_owner: root
 ubuntu_2004_cis_section1_rule_1_1_1_2_params_group: root

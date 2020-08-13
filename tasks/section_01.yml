@@ -176,7 +176,7 @@
   tags:
     - section1
     - rule_1_1_1_7
-    - level_1
+    - level_2
 
 - name: "1.1.1.7 | Remove FAT (vfat) kernel module (Automated)"
   modprobe:
@@ -188,7 +188,7 @@
   tags:
     - section1
     - rule_1_1_1_7
-    - level_1
+    - level_2
 
 - name: "1.1.2 | Ensure /tmp is configured (Automated)"
   copy:
@@ -277,7 +277,7 @@
   tags:
     - section1
     - rule_1_1_10
-    - level_1
+    - level_2
 
 - name: "1.1.11 | Ensure separate partition exists for /var/tmp (Automated) | Not IMPLEMENTED"
   debug:
@@ -291,7 +291,7 @@
   tags:
     - section1
     - rule_1_1_11
-    - level_1
+    - level_2
 
 - name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
   debug:
@@ -347,7 +347,7 @@
   tags:
     - section1
     - rule_1_1_15
-    - level_1
+    - level_2
 
 - name: "1.1.16 | Ensure separate partition exists for /var/log/audit (Automated) | Not IMPLEMENTED"
   debug:
@@ -361,7 +361,7 @@
   tags:
     - section1
     - rule_1_1_16
-    - level_1
+    - level_2
 
 - name: "1.1.17 | Ensure separate partition exists for /home (Automated) | Not IMPLEMENTED"
   debug:
@@ -375,7 +375,7 @@
   tags:
     - section1
     - rule_1_1_17
-    - level_1
+    - level_2
 
 - name: "1.1.18 | Ensure nodev option set on /home partition (Automated) | Not IMPLEMENTED"
   debug:
@@ -971,7 +971,7 @@
   tags:
     - section1
     - rule_1_7_1_4
-    - level_1
+    - level_2
 
 - name: "1.8.1.1 | Ensure message of the day is configured properly (Automated)"
   template:

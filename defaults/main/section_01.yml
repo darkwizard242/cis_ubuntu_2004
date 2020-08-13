@@ -1,5 +1,5 @@
 ---
-# Default Variables for CIS UBUNTU 20.04 Benchmarks Section 1
+# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 1
 
 # Variables for 1.1.1.1
 ubuntu_2004_cis_section1_rule_1_1_1_1: true

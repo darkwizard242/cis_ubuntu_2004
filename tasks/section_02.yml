@@ -33,7 +33,7 @@
     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Enable systemd-timesyncd if time synchronization is systemd-timesyncd"
       systemd:
         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name }}"
-        enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_enabled_true }}"
+        enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_enabled_state }}"
       when:
         - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
 
@@ -74,4 +74,70 @@
   tags:
     - section2
     - rule_2_2_1_1
+    - level_1
+
+- name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual)"
+  block:
+
+    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is not masked if time synchronization is systemd-timesyncd"
+      systemd:
+        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
+        masked: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_masked_true }}"
+
+    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
+      systemd:
+        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
+        enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_enabled_state }}"
+
+    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd NTP entries"
+      ini_file:
+        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+
+    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd FallbackNTP entries"
+      ini_file:
+        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+
+    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd RootDistanceMaxSec entries"
+      ini_file:
+        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+
+    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Restart systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
+      systemd:
+        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_state }}"
+
+    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | set-ntp true"
+      command: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_setntptrue_command }}"
+
+  when:
+    - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
+    - ubuntu_2004_cis_section2_rule_2_2_1_2
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_1_2
     - level_1

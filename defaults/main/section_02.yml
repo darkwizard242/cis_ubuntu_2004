@@ -21,7 +21,7 @@ ubuntu_2004_cis_section2_rule_2_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_2_1_3: true
 ubuntu_2004_cis_section2_rule_2_2_1_4: true
 
-ubuntu_2004_cis_time_synchronization: ntp # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
+ubuntu_2004_cis_time_synchronization: systemd-timesyncd # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_time_synchronization_package_state: present
 
 ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name: systemd-timesyncd

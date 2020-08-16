@@ -394,3 +394,17 @@
     - section2
     - rule_2_2_16
     - level_1
+
+- name: "2.2.17 | Ensure NIS Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_nis_server
+    - ubuntu_2004_cis_section2_rule_2_2_17
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_17
+    - level_1

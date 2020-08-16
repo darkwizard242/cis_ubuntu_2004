@@ -380,3 +380,17 @@
     - section2
     - rule_2_2_15
     - level_1
+
+- name: "2.2.16 | Ensure rsync service is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_rsyncd_server
+    - ubuntu_2004_cis_section2_rule_2_2_16
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_16
+    - level_1

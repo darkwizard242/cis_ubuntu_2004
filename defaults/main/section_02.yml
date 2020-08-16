@@ -129,3 +129,11 @@ ubuntu_2004_cis_require_ftp_server: false
 ubuntu_2004_cis_section2_rule_2_2_9_params_package_name: vsftpd
 ubuntu_2004_cis_section2_rule_2_2_9_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_9_params_package_purge: yes
+
+# Variables for 2.2.10
+ubuntu_2004_cis_section2_rule_2_2_10: true
+ubuntu_2004_cis_require_http_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_10_params_package_name: apache2
+ubuntu_2004_cis_section2_rule_2_2_10_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_10_params_package_purge: yes

@@ -359,3 +359,24 @@
     - section2
     - rule_2_2_14
     - level_1
+
+- name: "2.2.15 | Ensure mail transfer agent is configured for local-only mode (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_path }}"
+    line: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_mode }}"
+  notify:
+    - postfix restart
+  when:
+    - ubuntu_2004_cis_require_mail_server
+    - "'postfix' in ansible_facts.packages"
+    - ubuntu_2004_cis_section2_rule_2_2_15
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_15
+    - level_1

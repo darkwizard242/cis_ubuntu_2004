@@ -219,3 +219,17 @@
     - rule_2_2_4
     - level_1
     - level_2
+
+- name: "2.2.5 | Ensure DHCP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_dhcp_server
+    - ubuntu_2004_cis_section2_rule_2_2_5
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_5
+    - level_1

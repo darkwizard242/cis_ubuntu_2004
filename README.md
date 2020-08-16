@@ -80,15 +80,67 @@ Benchmarks around the **_disk partitioning_** and their **_mount points_** from 
 - 1.1.20 Ensure nosuid option set on removable media partitions (Manual)
 - 1.1.21 Ensure noexec option set on removable media partitions (Manual)
 
-## Requirements
+## 3\. Requirements
 
 None.
 
-## Role Variables
+## 4\. Role Variables
 
-Default variables for the role tasks are located in `defaults/main/`.
+Role default variables being utilized in role tasks are located in `defaults/main/`.
 
-## Dependencies
+[defaults/main/main.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/main.yml) consists of variables referring to the entire CIS sections such as the following:
+
+```yaml
+ubuntu_2004_cis_section1: true
+ubuntu_2004_cis_section2: true
+ubuntu_2004_cis_section3: true
+ubuntu_2004_cis_section4: true
+ubuntu_2004_cis_section5: true
+ubuntu_2004_cis_section6: true
+```
+
+The purpose of above mentioned variables is to indicate that all of tasks pertaining to these sections should be applied through `cis-ubuntu-20.04` role.
+
+Variables for each of the sections are located in their own files.
+
+- Section 1 variables are in [defaults/main/section_01.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_01.yml)
+- Section 2 variables are in [defaults/main/section_02.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_02.yml)
+- Section 3 variables are in [defaults/main/section_03.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_03.yml)
+- Section 4 variables are in [defaults/main/section_04.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_04.yml)
+- Section 5 variables are in [defaults/main/section_05.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_05.yml)
+- Section 6 variables are in [defaults/main/section_06.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_06.yml)
+
+Role default values for everything in the `cis-ubuntu-20.04` role can be superseded via passing them in a playbook or any other [variable precedence method](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable).
+
+### Important variables.
+
+CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can be exploited, have known vulnerabilities, result in an exposure of attack surface or should be disabled if not required. As per the benchmark, by default - all of these services will be purged and the value for their variables has been set to `false`. However, if you still require the use of these services for any reason, please change their values to `true` so that when applying the role in a playbook, the role tasks to _purge_ those services can be **skipped**.
+
+```yaml
+ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
+ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
+ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.
+ubuntu_2004_cis_require_ldap_server: false # Set to `true` if LDAP server is required.
+ubuntu_2004_cis_require_nfs_server: false # Set to `true` if NFS server is required.
+ubuntu_2004_cis_require_dns_server: false # Set to `true` if DNS server is required.
+ubuntu_2004_cis_require_ftp_server: false # Set to `true` if FTP server is required.
+ubuntu_2004_cis_require_http_server: false # Set to `true` if HTTP (apache2) server is required.
+ubuntu_2004_cis_require_imap_pop3_server: false # Set to `true` if IMAP and POP3 servers are required.
+ubuntu_2004_cis_require_samba_server: false  # Set to `true` if Samba daemon is required.
+ubuntu_2004_cis_require_squid_server: false # Set to `true` if Squid server is required.
+ubuntu_2004_cis_require_snmp_server: false # Set to `true` if SNMP server is required.
+ubuntu_2004_cis_require_mail_server: true # Set's postfix to act in local-only mode.
+ubuntu_2004_cis_require_rsyncd_server: false # Set to `true` if RSYNC is required.
+ubuntu_2004_cis_require_nis_server: false # Set to `true` if NIS server is required.
+ubuntu_2004_cis_require_nis_client: false # Set to `true` if NIS client is required.
+ubuntu_2004_cis_require_rsh_client: false # Set to `true` if RSH client is required.
+ubuntu_2004_cis_require_talk_client: false # Set to `true` if TALK client is required.
+ubuntu_2004_cis_require_telnet_client: false # Set to `true` if TELNET client is required.
+ubuntu_2004_cis_require_ldap_client: false # Set to `true` if LDAP client is required.
+ubuntu_2004_cis_require_rpcbind_client: false # Set to `true` if RPCBIND client is required.
+```
+
+## 5\. Dependencies
 
 None
 

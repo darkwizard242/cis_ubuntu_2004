@@ -95,3 +95,11 @@ ubuntu_2004_cis_require_dhcp_server: false
 ubuntu_2004_cis_section2_rule_2_2_5_params_package_name: isc-dhcp-server
 ubuntu_2004_cis_section2_rule_2_2_5_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge: yes
+
+# Variables for 2.2.6
+ubuntu_2004_cis_section2_rule_2_2_6: true
+ubuntu_2004_cis_require_ldap_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_6_params_package_name: slapd
+ubuntu_2004_cis_section2_rule_2_2_6_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_6_params_package_purge: yes

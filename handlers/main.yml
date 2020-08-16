@@ -33,3 +33,10 @@
     name: chrony
     enabled: yes
     state: restarted
+
+- name: ntp restart
+  become: true
+  systemd:
+    name: ntp
+    enabled: yes
+    state: restarted

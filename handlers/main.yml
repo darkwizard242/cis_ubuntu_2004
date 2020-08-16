@@ -40,3 +40,10 @@
     name: ntp
     enabled: yes
     state: restarted
+
+- name: postfix restart
+  become: true
+  systemd:
+    name: postfix
+    enabled: yes
+    state: restarted

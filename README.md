@@ -112,7 +112,7 @@ Variables for each of the sections are located in their own files.
 
 Role default values for everything in the `cis-ubuntu-20.04` role can be superseded via passing them in a playbook or any other [variable precedence method](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable).
 
-### Important variables.
+- ### Important variables
 
 CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can be exploited, have known vulnerabilities, result in an exposure of attack surface or should be disabled if not required. As per the benchmark, by default - all of these services will be purged and the value for their variables has been set to `false`. However, if you still require the use of these services for any reason, please change their values to `true` so that when applying the role in a playbook, the role tasks to _purge_ those services can be **skipped**.
 

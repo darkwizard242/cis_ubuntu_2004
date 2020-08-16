@@ -207,3 +207,11 @@ ubuntu_2004_cis_require_nis_client: false
 ubuntu_2004_cis_section2_rule_2_3_1_params_package_name: nis
 ubuntu_2004_cis_section2_rule_2_3_1_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_3_1_params_package_purge: yes
+
+# Variables for 2.3.2
+ubuntu_2004_cis_section2_rule_2_3_2: true
+ubuntu_2004_cis_require_rsh_client: false
+
+ubuntu_2004_cis_section2_rule_2_3_2_params_package_name: rsh-client
+ubuntu_2004_cis_section2_rule_2_3_2_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_3_2_params_package_purge: yes

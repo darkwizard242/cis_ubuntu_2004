@@ -450,3 +450,17 @@
     - section2
     - rule_2_3_3
     - level_1
+
+- name: "2.3.4 | Ensure telnet client is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_telnet_client
+    - ubuntu_2004_cis_section2_rule_2_3_4
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_3_4
+    - level_1

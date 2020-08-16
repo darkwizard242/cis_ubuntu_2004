@@ -19,8 +19,9 @@ ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
 ubuntu_2004_cis_section2_rule_2_2_1_1: true
 ubuntu_2004_cis_section2_rule_2_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_2_1_3: true
+ubuntu_2004_cis_section2_rule_2_2_1_4: true
 
-ubuntu_2004_cis_time_synchronization: chrony # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
+ubuntu_2004_cis_time_synchronization: ntp # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_time_synchronization_package_state: present
 
 ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name: systemd-timesyncd
@@ -56,4 +57,10 @@ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_src: section_02/2.2
 ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_dest: /etc/chrony/chrony.conf
 ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_owner: root
 ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_group: root
-ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_mode: '0640'
+ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_mode: '0644'
+
+ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_src: section_02/2.2.1.4_ntp.conf.j2
+ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_dest: /etc/ntp.conf
+ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner: root
+ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group: root
+ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode: '0644'

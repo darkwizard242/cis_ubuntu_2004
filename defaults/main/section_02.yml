@@ -171,3 +171,15 @@ ubuntu_2004_cis_require_snmp_server: false
 ubuntu_2004_cis_section2_rule_2_2_14_params_package_name: snmpd
 ubuntu_2004_cis_section2_rule_2_2_14_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge: yes
+
+# Variables for 2.2.15
+ubuntu_2004_cis_section2_rule_2_2_15: true
+ubuntu_2004_cis_require_mail_server: true
+
+ubuntu_2004_cis_section2_rule_2_2_15_params_path: /etc/postfix/main.cf
+ubuntu_2004_cis_section2_rule_2_2_15_params_line: inet_interfaces = localhost
+ubuntu_2004_cis_section2_rule_2_2_15_params_regexp: ^inet_interfaces.*
+ubuntu_2004_cis_section2_rule_2_2_15_params_state: present
+ubuntu_2004_cis_section2_rule_2_2_15_params_owner: root
+ubuntu_2004_cis_section2_rule_2_2_15_params_group: root
+ubuntu_2004_cis_section2_rule_2_2_15_params_mode: '0644'

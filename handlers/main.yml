@@ -26,3 +26,10 @@
 - name: reload gdm
   become: true
   command: dpkg-reconfigure gdm3
+
+- name: chrony restart
+  become: true
+  systemd:
+    name: chrony
+    enabled: yes
+    state: restarted

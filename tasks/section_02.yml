@@ -436,3 +436,17 @@
     - section2
     - rule_2_3_2
     - level_1
+
+- name: "2.3.3 | Ensure talk client is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_talk_client
+    - ubuntu_2004_cis_section2_rule_2_3_3
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_3_3
+    - level_1

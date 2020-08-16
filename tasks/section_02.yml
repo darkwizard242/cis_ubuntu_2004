@@ -345,3 +345,17 @@
     - section2
     - rule_2_2_13
     - level_1
+
+- name: "2.2.14 | Ensure SNMP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_snmp_server
+    - ubuntu_2004_cis_section2_rule_2_2_14
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_14
+    - level_1

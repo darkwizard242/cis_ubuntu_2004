@@ -331,3 +331,17 @@
     - section2
     - rule_2_2_12
     - level_1
+
+- name: "2.2.13 | Ensure HTTP Proxy Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_squid_server
+    - ubuntu_2004_cis_section2_rule_2_2_13
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_13
+    - level_1

@@ -247,3 +247,12 @@ ubuntu_2004_cis_require_rpcbind_client: false
 ubuntu_2004_cis_section2_rule_2_3_6_params_package_name: rpcbind
 ubuntu_2004_cis_section2_rule_2_3_6_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_3_6_params_package_purge: yes
+
+# Variables for 2.4
+ubuntu_2004_cis_section2_rule_2_4: true
+
+ubuntu_2004_cis_section2_rule_2_4_params_shell: |
+      set -eou pipefail;
+
+      lsof -i -P -n | grep -v "(ESTABLISHED)"
+ubuntu_2004_cis_section2_rule_2_4_params_executable: /bin/bash

@@ -1,5 +1,5 @@
 ---
-- name: Example Playbook to apply cis-ubuntu-20.04.
+- name: Example Playbook to apply cis-ubuntu-20.04 role with all the default values.
   hosts: localhost
   connection: local
   become: yes
@@ -8,5 +8,3 @@
     - cis-ubuntu-20.04
   vars:
     ansible_python_interpreter: /usr/bin/python3
-
-    ubuntu_2004_cis_section1_rule_1_7_1_1_params_state: latest

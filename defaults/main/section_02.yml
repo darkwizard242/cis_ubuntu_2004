@@ -223,3 +223,11 @@ ubuntu_2004_cis_require_talk_client: false
 ubuntu_2004_cis_section2_rule_2_3_3_params_package_name: talk
 ubuntu_2004_cis_section2_rule_2_3_3_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_3_3_params_package_purge: yes
+
+# Variables for 2.3.4
+ubuntu_2004_cis_section2_rule_2_3_4: true
+ubuntu_2004_cis_require_telnet_client: false
+
+ubuntu_2004_cis_section2_rule_2_3_4_params_package_name: telnet
+ubuntu_2004_cis_section2_rule_2_3_4_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_3_4_params_package_purge: yes

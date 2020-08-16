@@ -64,3 +64,11 @@ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_dest: /etc/ntp.conf
 ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner: root
 ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group: root
 ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode: '0644'
+
+# Variables for 2.2.2
+ubuntu_2004_cis_section2_rule_2_2_2: true
+ubuntu_2004_cis_require_xwindows_system: false
+
+ubuntu_2004_cis_section2_rule_2_2_2_params_package_name: xserver-xorg*
+ubuntu_2004_cis_section2_rule_2_2_2_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_2_params_package_purge: yes

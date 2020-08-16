@@ -113,3 +113,11 @@ ubuntu_2004_cis_section2_rule_2_2_7_params_package_name:
   - rpcbind
 ubuntu_2004_cis_section2_rule_2_2_7_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_7_params_package_purge: yes
+
+# Variables for 2.2.8
+ubuntu_2004_cis_section2_rule_2_2_8: true
+ubuntu_2004_cis_require_dns_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_8_params_package_name: bind9
+ubuntu_2004_cis_section2_rule_2_2_8_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_8_params_package_purge: yes

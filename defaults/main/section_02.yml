@@ -163,3 +163,11 @@ ubuntu_2004_cis_require_squid_server: false
 ubuntu_2004_cis_section2_rule_2_2_13_params_package_name: squid
 ubuntu_2004_cis_section2_rule_2_2_13_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_13_params_package_purge: yes
+
+# Variables for 2.2.14
+ubuntu_2004_cis_section2_rule_2_2_14: true
+ubuntu_2004_cis_require_snmp_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_14_params_package_name: snmpd
+ubuntu_2004_cis_section2_rule_2_2_14_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge: yes

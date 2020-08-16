@@ -103,3 +103,13 @@ ubuntu_2004_cis_require_ldap_server: false
 ubuntu_2004_cis_section2_rule_2_2_6_params_package_name: slapd
 ubuntu_2004_cis_section2_rule_2_2_6_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_6_params_package_purge: yes
+
+# Variables for 2.2.7
+ubuntu_2004_cis_section2_rule_2_2_7: true
+ubuntu_2004_cis_require_nfs_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_7_params_package_name:
+  - nfs-kernel-server
+  - rpcbind
+ubuntu_2004_cis_section2_rule_2_2_7_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_7_params_package_purge: yes

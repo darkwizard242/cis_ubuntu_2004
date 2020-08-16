@@ -50,7 +50,7 @@ Add to an existing **requirements.yml** file along with your other roles or crea
 - Specific branch from repository.
 
   ```yaml
-  - name: darkwizard242.cis-ubuntu-20.04
+  - name: cis-ubuntu-20.04
     src: https://github.com/darkwizard242/cis-ubuntu-20.04
     version: master
   ```

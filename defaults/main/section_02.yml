@@ -147,3 +147,11 @@ ubuntu_2004_cis_section2_rule_2_2_11_params_package_name:
   - dovecot-pop3d
 ubuntu_2004_cis_section2_rule_2_2_11_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_11_params_package_purge: yes
+
+# Variables for 2.2.12
+ubuntu_2004_cis_section2_rule_2_2_12: true
+ubuntu_2004_cis_require_samba_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_12_params_package_name: samba
+ubuntu_2004_cis_section2_rule_2_2_12_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_12_params_package_purge: yes

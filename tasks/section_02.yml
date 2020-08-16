@@ -478,3 +478,17 @@
     - section2
     - rule_2_3_5
     - level_1
+
+- name: "2.3.6 | Ensure RPC is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_rpcbind_client
+    - ubuntu_2004_cis_section2_rule_2_3_6
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_3_6
+    - level_1

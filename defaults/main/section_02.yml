@@ -191,3 +191,11 @@ ubuntu_2004_cis_require_rsyncd_server: false
 ubuntu_2004_cis_section2_rule_2_2_16_params_package_name: rsync
 ubuntu_2004_cis_section2_rule_2_2_16_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_16_params_package_purge: yes
+
+# Variables for 2.2.17
+ubuntu_2004_cis_section2_rule_2_2_17: true
+ubuntu_2004_cis_require_nis_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_17_params_package_name: nis
+ubuntu_2004_cis_section2_rule_2_2_17_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_17_params_package_purge: yes

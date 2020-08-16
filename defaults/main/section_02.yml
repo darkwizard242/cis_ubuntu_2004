@@ -155,3 +155,11 @@ ubuntu_2004_cis_require_samba_server: false
 ubuntu_2004_cis_section2_rule_2_2_12_params_package_name: samba
 ubuntu_2004_cis_section2_rule_2_2_12_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_12_params_package_purge: yes
+
+# Variables for 2.2.13
+ubuntu_2004_cis_section2_rule_2_2_13: true
+ubuntu_2004_cis_require_squid_server: false
+
+ubuntu_2004_cis_section2_rule_2_2_13_params_package_name: squid
+ubuntu_2004_cis_section2_rule_2_2_13_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_13_params_package_purge: yes

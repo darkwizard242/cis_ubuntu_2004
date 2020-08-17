@@ -679,10 +679,8 @@
 
 # Example taken from https://github.com/florianutz/Ubuntu1804-CIS/blob/master/tasks/section1.yml
 - name: "1.5.1 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
-  shell: "set -eou pipefail;
-
-      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18)
-
+  shell: "set -eou pipefail && \
+      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
       echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
   args:
     executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable }}"
@@ -773,17 +771,15 @@
     - level_1
 
 - name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Set password for root"
-  shell: "set -eou pipefail;
-
-      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18)
-
+  shell: "set -eou pipefail && \
+      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
       echo -e \"$PASSWORD\n$PASSWORD\" | passwd root"
   args:
     executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable }}"
   when:
     - audit_root_password_command_result.rc == 0
-     # ^ This conditions allows to only set/change root password when it has been evaluated
-     # that root did not originally have a password.
+    # ^ This conditions allows to only set/change root password when it has been evaluated
+    # that root did not originally have a password.
     - ubuntu_2004_cis_section1_rule_1_5_3
     - ubuntu_2004_cis_section1
   tags:
@@ -793,7 +789,7 @@
 
 - name: "1.6.1 | Ensure XD/NX support is enabled (Automated)"
   command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command }}"
-   # ^ Evaluates if xd/nx are supported. If supported, rc is 0.
+  # ^ Evaluates if xd/nx are supported. If supported, rc is 0.
   register: audit_xd_nx_command_result
   changed_when: false
   failed_when: "'FAILED' in audit_xd_nx_command_result.stderr"

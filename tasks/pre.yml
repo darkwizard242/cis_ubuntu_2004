@@ -5,12 +5,9 @@
   apt:
     name: python3-apt
     state: present
-  when:
-    - preliminary_appliance
-
+  when: preliminary_appliance
 
 - name: "Gather Package facts"
   package_facts:
     manager: apt
-  when:
-    - preliminary_appliance
+  when: preliminary_appliance

@@ -666,7 +666,8 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode }}"
   notify:
     - update grub configuration
-    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_set_superuser
@@ -707,7 +708,8 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode }}"
   notify:
     - update grub configuration
-    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
@@ -727,7 +729,8 @@
     mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode }}"
   notify:
     - update grub configuration
-    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1_rule_1_5_1_unrestricted
@@ -745,7 +748,8 @@
     group: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_group }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_state }}"
   notify:
-    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_5_2
     - ubuntu_2004_cis_section1
@@ -755,7 +759,8 @@
     - level_1
 
 - name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Audit if root has a password"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_command }}" # Evaluates if root has a password. If root has password, rc is 0.
+  command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_command }}"
+  # ^ Evaluates if root has a password. If root has password, rc is 0.
   register: audit_root_password_command_result
   changed_when: false
   failed_when: false
@@ -776,7 +781,9 @@
   args:
     executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable }}"
   when:
-    - audit_root_password_command_result.rc == 0 # This conditions allows to only set/change root password when it has been evaluated that root did not originally have a password.
+    - audit_root_password_command_result.rc == 0
+     # ^ This conditions allows to only set/change root password when it has been evaluated
+     # that root did not originally have a password.
     - ubuntu_2004_cis_section1_rule_1_5_3
     - ubuntu_2004_cis_section1
   tags:
@@ -785,10 +792,12 @@
     - level_1
 
 - name: "1.6.1 | Ensure XD/NX support is enabled (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command }}" # Evaluates if xd/nx are supported. If supported, rc is 0.
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command }}"
+   # ^ Evaluates if xd/nx are supported. If supported, rc is 0.
   register: audit_xd_nx_command_result
   changed_when: false
-  failed_when: "'FAILED' in audit_xd_nx_command_result.stderr" # Fail task if xd/nx grep command returns any non 0 return code
+  failed_when: "'FAILED' in audit_xd_nx_command_result.stderr"
+  # ^ Fail task if xd/nx grep command returns any non 0 return code
   when:
     - ubuntu_2004_cis_section1_rule_1_6_1
     - ubuntu_2004_cis_section1
@@ -944,7 +953,8 @@
     backup: yes
   notify:
     - update grub configuration
-    - reapply permissions to bootloader configuration # to handle the fact that handlers run after tasks which change bootloader config permissions
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
     - ubuntu_2004_cis_section1_rule_1_7_1_2
     - ubuntu_2004_cis_section1

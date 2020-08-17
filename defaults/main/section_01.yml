@@ -161,8 +161,7 @@ ubuntu_2004_cis_section1_rule_1_1_21: true
 ubuntu_2004_cis_section1_rule_1_1_22: true
 
 ubuntu_2004_cis_section1_rule_1_1_22_params_shell: |
-      set -eou pipefail;
-
+      set -eou pipefail && \
       df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | xargs -I '{}' chmod a+t '{}'
 ubuntu_2004_cis_section1_rule_1_1_22_params_executable: /bin/bash
 
@@ -193,8 +192,7 @@ ubuntu_2004_cis_section1_rule_1_1_24_params_module_state: absent
 ubuntu_2004_cis_section1_rule_1_2_1: true
 
 ubuntu_2004_cis_section1_rule_1_2_1_params_shell: |
-      set -eou pipefail;
-
+      set -eou pipefail && \
       apt-cache policy
 ubuntu_2004_cis_section1_rule_1_2_1_params_executable: /bin/bash
 
@@ -202,8 +200,7 @@ ubuntu_2004_cis_section1_rule_1_2_1_params_executable: /bin/bash
 ubuntu_2004_cis_section1_rule_1_2_2: true
 
 ubuntu_2004_cis_section1_rule_1_2_2_params_shell: |
-      set -eou pipefail;
-
+      set -eou pipefail && \
       apt-key list
 ubuntu_2004_cis_section1_rule_1_2_2_params_executable: /bin/bash
 

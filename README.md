@@ -117,6 +117,7 @@ Role default values for everything in the `cis-ubuntu-20.04` role can be superse
 CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can be exploited, have known vulnerabilities, result in an exposure of attack surface or should be disabled if not required. As per the benchmark, by default - all of these services will be purged and the value for their variables has been set to `false`. However, if you still require the use of these services for any reason, please change their values to `true` so that when applying the role in a playbook, the role tasks to _purge_ those services can be **skipped**.
 
 ```yaml
+ubuntu_2004_cis_require_ipv6: false # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
 ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
 ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.

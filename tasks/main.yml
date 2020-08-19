@@ -31,3 +31,8 @@
   import_tasks: section_02.yml
   become: true
   when: ubuntu_2004_cis_section2
+
+- name: Import CIS Section 3 tasks
+  import_tasks: section_03.yml
+  become: true
+  when: ubuntu_2004_cis_section3

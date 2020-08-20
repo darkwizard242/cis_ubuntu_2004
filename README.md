@@ -115,6 +115,7 @@ CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can 
 
 ```yaml
 ubuntu_2004_cis_require_ipv6: false # Set to `true` if IPv6 is required.
+ubuntu_2004_cis_require_wireless: false # Set to `true` if Wireless is required.
 ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
 ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
 ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.

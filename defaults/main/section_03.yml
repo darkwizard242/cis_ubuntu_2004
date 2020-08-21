@@ -28,3 +28,15 @@ ubuntu_2004_cis_section3_rule_3_1_2_params_shell: |
         done
       fi
 ubuntu_2004_cis_section3_rule_3_1_2_params_executable: /bin/bash
+
+# Variables for 3.2.1
+ubuntu_2004_cis_section3_rule_3_2_1: true
+ubuntu_2004_cis_require_router: false
+
+ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects: net.ipv4.conf.all.send_redirects
+ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects: net.ipv4.conf.default.send_redirects
+ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_1_params_state: present
+ubuntu_2004_cis_section3_rule_3_2_1_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_2_1_params_sysctl_set: yes

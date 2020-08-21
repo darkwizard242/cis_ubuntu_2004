@@ -46,6 +46,8 @@
   with_items:
     - { name: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects_value }}" }
     - { name: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects_value }}" }
+  notify:
+    - flush ipv4 route
   when:
     - not ubuntu_2004_cis_require_router
     - ubuntu_2004_cis_section3_rule_3_2_1

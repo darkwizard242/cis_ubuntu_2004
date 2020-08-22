@@ -300,3 +300,27 @@
     - section3
     - rule_3_3_9
     - level_1
+
+- name: "3.4.1 | Ensure DCCP is disabled (Automated)"
+  block:
+
+    - name: "3.4.1 | Ensure DCCP is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_mode }}"
+
+    - name: "3.4.1 | Ensure DCCP is disabled (Automated) | dccp kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_1
+    - level_2

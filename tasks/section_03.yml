@@ -262,3 +262,20 @@
     - section3
     - rule_3_3_7
     - level_1
+
+- name: "3.3.8 | Ensure TCP SYN Cookies is enabled (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies_value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_sysctl_set }}"
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_8
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_8
+    - level_1

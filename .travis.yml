@@ -19,7 +19,7 @@ env:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get upgrade -y
+  # - sudo apt-get upgrade -y
   - sudo apt-get install wget unzip software-properties-common linux-headers-$(uname -r) -y
 
 install:
@@ -28,7 +28,7 @@ install:
   - sudo apt-get update
   - sudo apt-get install virtualbox-6.1 -y
   - sudo /sbin/vboxconfig
-  - pip3 install molecule==3.0.6 ansible-lint flake8 testinfra molecule-vagrant
+  - pip3 install molecule ansible-lint flake8 testinfra molecule-vagrant
 
 # before_script:
 #   # Rename project directory to actual Ansible Galaxy role name and switch to it.

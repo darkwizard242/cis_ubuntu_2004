@@ -211,8 +211,8 @@
 
 - name: "3.3.5 | Ensure broadcast ICMP requests are ignored (Automated)"
   sysctl:
-    name: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4all_ignore_broadcasts }}"
-    value: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4all_ignore_broadcasts_value }}"
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts_value }}"
     state: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_state }}"
     reload: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_reload }}"
     sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_sysctl_set }}"
@@ -228,8 +228,8 @@
 
 - name: "3.3.6 | Ensure bogus ICMP responses are ignored (Automated)"
   sysctl:
-    name: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4all_ignore_bogus_error_responses }}"
-    value: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4all_ignore_bogus_error_responses_value }}"
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses_value }}"
     state: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_state }}"
     reload: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_reload }}"
     sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_sysctl_set }}"

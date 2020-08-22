@@ -2,24 +2,21 @@
 # tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 1 BENCHMARKS
 
 - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_1
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_1
-    - level_1
+  block:
 
-- name: "1.1.1.1 | Remove cramfs kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_state }}"
+    - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_mode }}"
+
+    - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated) | remove cramfs kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_1_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_1
     - ubuntu_2004_cis_section1
@@ -29,24 +26,21 @@
     - level_1
 
 - name: "1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_source  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_2
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_2
-    - level_1
+  block:
 
-- name: "1.1.1.2 | Remove freevxfs kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_state }}"
+    - name: "1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_mode }}"
+
+    - name: "1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled (Automated) | remove freevxfs kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_2_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_2
     - ubuntu_2004_cis_section1
@@ -56,24 +50,21 @@
     - level_1
 
 - name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_3
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_3
-    - level_1
+  block:
 
-- name: "1.1.1.3 | Remove jffs2 kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_state }}"
+    - name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_mode }}"
+
+    - name: "1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled (Automated) | remove jffs2 kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_3_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_3
     - ubuntu_2004_cis_section1
@@ -83,24 +74,21 @@
     - level_1
 
 - name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_4
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_4
-    - level_1
+  block:
 
-- name: "1.1.1.4 | Remove hfs kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_state }}"
+    - name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_mode }}"
+
+    - name: "1.1.1.4 | Ensure mounting of hfs filesystems is disabled (Automated) | remove hfs kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_4_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_4
     - ubuntu_2004_cis_section1
@@ -110,24 +98,21 @@
     - level_1
 
 - name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_source  }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_5
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_5
-    - level_1
+  block:
 
-- name: "1.1.1.5 | Remove hfsplus kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_state }}"
+    - name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_mode }}"
+
+    - name: "1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled (Automated) | remove hfsplus kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_5
     - ubuntu_2004_cis_section1
@@ -137,12 +122,21 @@
     - level_1
 
 - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode }}"
+  block:
+
+    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode }}"
+
+    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | remove udf kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_6
     - ubuntu_2004_cis_section1
@@ -151,37 +145,22 @@
     - rule_1_1_1_6
     - level_1
 
-- name: "1.1.1.6 | Remove udf kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_6
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_6
-    - level_1
+- name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated)"
+  block:
 
-- name: "1.1.1.7 | Ensure mounting of FAT filesystems is limited (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_1_7
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_1_7
-    - level_2
+    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode }}"
 
-- name: "1.1.1.7 | Remove FAT (vfat) kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state }}"
+    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | remove vfat kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_1_7
     - ubuntu_2004_cis_section1
@@ -476,24 +455,21 @@
     - level_1
 
 - name: "1.1.24 | Disable USB Storage (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_1_24
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_1_24
-    - level_1
+  block:
 
-- name: "1.1.24 | Remove usb-storage kernel module (Automated)"
-  modprobe:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_state }}"
+    - name: "1.1.24 | Disable USB Storage (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_mode }}"
+
+    - name: "1.1.24 | Disable USB Storage (Automated) | remove usb-storage kernel module"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_1_24_params_module_state }}"
+
   when:
     - ubuntu_2004_cis_section1_rule_1_1_24
     - ubuntu_2004_cis_section1

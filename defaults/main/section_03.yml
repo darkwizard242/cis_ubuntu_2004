@@ -150,3 +150,14 @@ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra_value: '0'
 ubuntu_2004_cis_section3_rule_3_3_9_params_state: present
 ubuntu_2004_cis_section3_rule_3_3_9_params_reload: yes
 ubuntu_2004_cis_section3_rule_3_3_9_params_sysctl_set: yes
+
+# Variables for 3.4.1
+ubuntu_2004_cis_section3_rule_3_4_1: true
+
+ubuntu_2004_cis_section3_rule_3_4_1_params_source: section_03/3.4.1_dccp.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_1_params_dest: /etc/modprobe.d/3.4.1_dccp.conf
+ubuntu_2004_cis_section3_rule_3_4_1_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_1_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_1_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_1_params_module_name: dccp
+ubuntu_2004_cis_section3_rule_3_4_1_params_module_state: absent

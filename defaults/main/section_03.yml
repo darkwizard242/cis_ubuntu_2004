@@ -130,3 +130,12 @@ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter_value: '1'
 ubuntu_2004_cis_section3_rule_3_3_7_params_state: present
 ubuntu_2004_cis_section3_rule_3_3_7_params_reload: yes
 ubuntu_2004_cis_section3_rule_3_3_7_params_sysctl_set: yes
+
+# Variables for 3.3.8
+ubuntu_2004_cis_section3_rule_3_3_8: true
+
+ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies: net.ipv4.tcp_syncookies
+ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_8_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_8_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_8_params_sysctl_set: yes

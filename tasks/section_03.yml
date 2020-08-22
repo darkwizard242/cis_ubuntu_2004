@@ -90,3 +90,42 @@
     - section3
     - rule_3_2_2
     - level_1
+
+- name: "3.3.1 | Ensure source routed packets are not accepted (Automated)"
+  block:
+
+    - name: "3.3.1 | Ensure source routed packets are not accepted (Automated) | IPv4 source routed packets"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route_value }}" }
+      notify:
+        - flush ipv4 route
+
+    - name: "3.3.1 | Ensure source routed packets are not accepted (Automated) | IPv6 source routed packets"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route_value }}" }
+      notify:
+        - flush ipv6 route
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_1
+    - level_1

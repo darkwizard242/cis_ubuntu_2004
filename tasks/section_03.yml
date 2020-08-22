@@ -168,3 +168,43 @@
     - section3
     - rule_3_3_2
     - level_1
+
+- name: "3.3.3 | Ensure secure ICMP redirects are not accepted (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_3
+    - level_1
+
+- name: "3.3.4 | Ensure suspicious packets are logged (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_4
+    - level_1

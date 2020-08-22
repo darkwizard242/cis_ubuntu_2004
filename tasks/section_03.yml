@@ -279,3 +279,24 @@
     - section3
     - rule_3_3_8
     - level_1
+
+- name: "3.3.9 | Ensure IPv6 router advertisements are not accepted (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter_value }}" }
+  notify:
+    - flush ipv6 route
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_section3_rule_3_3_9
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_9
+    - level_1

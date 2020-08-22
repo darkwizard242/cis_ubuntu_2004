@@ -21,7 +21,6 @@ ubuntu_2004_cis_section2_rule_2_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_2_1_3: true
 ubuntu_2004_cis_section2_rule_2_2_1_4: true
 
-ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_time_synchronization_package_state: present
 
 ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name: systemd-timesyncd
@@ -67,7 +66,6 @@ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode: '0644'
 
 # Variables for 2.2.2
 ubuntu_2004_cis_section2_rule_2_2_2: true
-ubuntu_2004_cis_require_xwindows_system: false
 
 ubuntu_2004_cis_section2_rule_2_2_2_params_package_name: xserver-xorg*
 ubuntu_2004_cis_section2_rule_2_2_2_params_package_state: absent
@@ -82,7 +80,6 @@ ubuntu_2004_cis_section2_rule_2_2_3_params_package_purge: yes
 
 # Variables for 2.2.4
 ubuntu_2004_cis_section2_rule_2_2_4: true
-ubuntu_2004_cis_require_cups: false
 
 ubuntu_2004_cis_section2_rule_2_2_4_params_package_name: cups
 ubuntu_2004_cis_section2_rule_2_2_4_params_package_state: absent
@@ -90,7 +87,6 @@ ubuntu_2004_cis_section2_rule_2_2_4_params_package_purge: yes
 
 # Variables for 2.2.5
 ubuntu_2004_cis_section2_rule_2_2_5: true
-ubuntu_2004_cis_require_dhcp_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_5_params_package_name: isc-dhcp-server
 ubuntu_2004_cis_section2_rule_2_2_5_params_package_state: absent
@@ -98,7 +94,6 @@ ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge: yes
 
 # Variables for 2.2.6
 ubuntu_2004_cis_section2_rule_2_2_6: true
-ubuntu_2004_cis_require_ldap_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_6_params_package_name: slapd
 ubuntu_2004_cis_section2_rule_2_2_6_params_package_state: absent
@@ -106,7 +101,6 @@ ubuntu_2004_cis_section2_rule_2_2_6_params_package_purge: yes
 
 # Variables for 2.2.7
 ubuntu_2004_cis_section2_rule_2_2_7: true
-ubuntu_2004_cis_require_nfs_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_7_params_package_name:
   - nfs-kernel-server
@@ -116,7 +110,6 @@ ubuntu_2004_cis_section2_rule_2_2_7_params_package_purge: yes
 
 # Variables for 2.2.8
 ubuntu_2004_cis_section2_rule_2_2_8: true
-ubuntu_2004_cis_require_dns_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_8_params_package_name: bind9
 ubuntu_2004_cis_section2_rule_2_2_8_params_package_state: absent
@@ -124,7 +117,6 @@ ubuntu_2004_cis_section2_rule_2_2_8_params_package_purge: yes
 
 # Variables for 2.2.9
 ubuntu_2004_cis_section2_rule_2_2_9: true
-ubuntu_2004_cis_require_ftp_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_9_params_package_name: vsftpd
 ubuntu_2004_cis_section2_rule_2_2_9_params_package_state: absent
@@ -132,7 +124,6 @@ ubuntu_2004_cis_section2_rule_2_2_9_params_package_purge: yes
 
 # Variables for 2.2.10
 ubuntu_2004_cis_section2_rule_2_2_10: true
-ubuntu_2004_cis_require_http_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_10_params_package_name: apache2
 ubuntu_2004_cis_section2_rule_2_2_10_params_package_state: absent
@@ -140,7 +131,6 @@ ubuntu_2004_cis_section2_rule_2_2_10_params_package_purge: yes
 
 # Variables for 2.2.11
 ubuntu_2004_cis_section2_rule_2_2_11: true
-ubuntu_2004_cis_require_imap_pop3_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_11_params_package_name:
   - dovecot-imapd
@@ -150,7 +140,6 @@ ubuntu_2004_cis_section2_rule_2_2_11_params_package_purge: yes
 
 # Variables for 2.2.12
 ubuntu_2004_cis_section2_rule_2_2_12: true
-ubuntu_2004_cis_require_samba_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_12_params_package_name: samba
 ubuntu_2004_cis_section2_rule_2_2_12_params_package_state: absent
@@ -158,7 +147,6 @@ ubuntu_2004_cis_section2_rule_2_2_12_params_package_purge: yes
 
 # Variables for 2.2.13
 ubuntu_2004_cis_section2_rule_2_2_13: true
-ubuntu_2004_cis_require_squid_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_13_params_package_name: squid
 ubuntu_2004_cis_section2_rule_2_2_13_params_package_state: absent
@@ -166,7 +154,6 @@ ubuntu_2004_cis_section2_rule_2_2_13_params_package_purge: yes
 
 # Variables for 2.2.14
 ubuntu_2004_cis_section2_rule_2_2_14: true
-ubuntu_2004_cis_require_snmp_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_14_params_package_name: snmpd
 ubuntu_2004_cis_section2_rule_2_2_14_params_package_state: absent
@@ -174,7 +161,6 @@ ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge: yes
 
 # Variables for 2.2.15
 ubuntu_2004_cis_section2_rule_2_2_15: true
-ubuntu_2004_cis_require_mail_server: true
 
 ubuntu_2004_cis_section2_rule_2_2_15_params_path: /etc/postfix/main.cf
 ubuntu_2004_cis_section2_rule_2_2_15_params_line: inet_interfaces = localhost
@@ -186,7 +172,6 @@ ubuntu_2004_cis_section2_rule_2_2_15_params_mode: '0644'
 
 # Variables for 2.2.16
 ubuntu_2004_cis_section2_rule_2_2_16: true
-ubuntu_2004_cis_require_rsyncd_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_16_params_package_name: rsync
 ubuntu_2004_cis_section2_rule_2_2_16_params_package_state: absent
@@ -194,7 +179,6 @@ ubuntu_2004_cis_section2_rule_2_2_16_params_package_purge: yes
 
 # Variables for 2.2.17
 ubuntu_2004_cis_section2_rule_2_2_17: true
-ubuntu_2004_cis_require_nis_server: false
 
 ubuntu_2004_cis_section2_rule_2_2_17_params_package_name: nis
 ubuntu_2004_cis_section2_rule_2_2_17_params_package_state: absent
@@ -202,7 +186,6 @@ ubuntu_2004_cis_section2_rule_2_2_17_params_package_purge: yes
 
 # Variables for 2.3.1
 ubuntu_2004_cis_section2_rule_2_3_1: true
-ubuntu_2004_cis_require_nis_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_1_params_package_name: nis
 ubuntu_2004_cis_section2_rule_2_3_1_params_package_state: absent
@@ -210,7 +193,6 @@ ubuntu_2004_cis_section2_rule_2_3_1_params_package_purge: yes
 
 # Variables for 2.3.2
 ubuntu_2004_cis_section2_rule_2_3_2: true
-ubuntu_2004_cis_require_rsh_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_2_params_package_name: rsh-client
 ubuntu_2004_cis_section2_rule_2_3_2_params_package_state: absent
@@ -218,7 +200,6 @@ ubuntu_2004_cis_section2_rule_2_3_2_params_package_purge: yes
 
 # Variables for 2.3.3
 ubuntu_2004_cis_section2_rule_2_3_3: true
-ubuntu_2004_cis_require_talk_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_3_params_package_name: talk
 ubuntu_2004_cis_section2_rule_2_3_3_params_package_state: absent
@@ -226,7 +207,6 @@ ubuntu_2004_cis_section2_rule_2_3_3_params_package_purge: yes
 
 # Variables for 2.3.4
 ubuntu_2004_cis_section2_rule_2_3_4: true
-ubuntu_2004_cis_require_telnet_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_4_params_package_name: telnet
 ubuntu_2004_cis_section2_rule_2_3_4_params_package_state: absent
@@ -234,7 +214,6 @@ ubuntu_2004_cis_section2_rule_2_3_4_params_package_purge: yes
 
 # Variables for 2.3.5
 ubuntu_2004_cis_section2_rule_2_3_5: true
-ubuntu_2004_cis_require_ldap_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_5_params_package_name: ldap-utils
 ubuntu_2004_cis_section2_rule_2_3_5_params_package_state: absent
@@ -242,7 +221,6 @@ ubuntu_2004_cis_section2_rule_2_3_5_params_package_purge: yes
 
 # Variables for 2.3.6
 ubuntu_2004_cis_section2_rule_2_3_6: true
-ubuntu_2004_cis_require_rpcbind_client: false
 
 ubuntu_2004_cis_section2_rule_2_3_6_params_package_name: rpcbind
 ubuntu_2004_cis_section2_rule_2_3_6_params_package_state: absent

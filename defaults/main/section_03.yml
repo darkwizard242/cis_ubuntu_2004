@@ -3,7 +3,6 @@
 
 # Variables for 3.1.1
 ubuntu_2004_cis_section3_rule_3_1_1: true
-ubuntu_2004_cis_require_ipv6: false
 
 ubuntu_2004_cis_section3_rule_3_1_1_params_path: /etc/default/grub
 ubuntu_2004_cis_section3_rule_3_1_1_params_regex: '^GRUB_CMDLINE_LINUX="(((?!ipv6.disable=1).)*)"$'
@@ -31,7 +30,6 @@ ubuntu_2004_cis_section3_rule_3_1_2_params_executable: /bin/bash
 
 # Variables for 3.2.1
 ubuntu_2004_cis_section3_rule_3_2_1: true
-ubuntu_2004_cis_require_router: false
 
 ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects: net.ipv4.conf.all.send_redirects
 ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects_value: '0'

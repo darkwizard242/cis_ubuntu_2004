@@ -129,3 +129,42 @@
     - section3
     - rule_3_3_1
     - level_1
+
+- name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated)"
+  block:
+
+    - name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated) | IPv4 ICMP redirects rejected"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects_value }}" }
+      notify:
+        - flush ipv4 route
+
+    - name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated) | IPv6 ICMP redirects rejected"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects_value }}" }
+      notify:
+        - flush ipv6 route
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_2
+    - level_1

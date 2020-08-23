@@ -396,3 +396,16 @@
     - section3
     - rule_3_4_4
     - level_2
+
+- name: "3.5.1.1 | Ensure Uncomplicated Firewall is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_1_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_1
+    - level_1

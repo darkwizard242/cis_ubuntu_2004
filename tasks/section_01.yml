@@ -947,11 +947,25 @@
     - rule_1_8_1_3
     - level_1
 
-- name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | Check if /etc/motd exists"
-  stat:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
-  register: etc_motd_file
-  failed_when: false
+- name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated)"
+  block:
+
+    - name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | Check if /etc/motd exists"
+      stat:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
+      register: etc_motd_file
+      failed_when: false
+
+    - name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | set /etc/motd permissions"
+      file:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_state }}"
+      when:
+        - etc_motd_file.stat.exists
+
   when:
     - ubuntu_2004_cis_section1_rule_1_8_1_4
     - ubuntu_2004_cis_section1
@@ -960,44 +974,26 @@
     - rule_1_8_1_4
     - level_1
 
-- name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | set /etc/motd permissions"
-  file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_mode }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_group }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_state }}"
-  when:
-    - etc_motd_file.stat.exists
-    - ubuntu_2004_cis_section1_rule_1_8_1_4
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_8_1_4
-    - level_1
+- name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated)"
+  block:
 
-- name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | Check if /etc/issue exists"
-  stat:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
-  register: etc_issue_file
-  failed_when: false
-  when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_5
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_8_1_5
-    - level_1
+    - name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | Check if /etc/issue exists"
+      stat:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
+      register: etc_issue_file
+      failed_when: false
 
-- name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | set /etc/issue permissions"
-  file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_mode }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_group }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_state }}"
+    - name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | set /etc/issue permissions"
+      file:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_state }}"
+      when:
+        - etc_issue_file.stat.exists
+
   when:
-    - etc_issue_file.stat.exists
     - ubuntu_2004_cis_section1_rule_1_8_1_5
     - ubuntu_2004_cis_section1
   tags:

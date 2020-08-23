@@ -84,3 +84,7 @@ def test_3_4_4_file_user(host):
 
 def test_3_4_4_file_group(host):
     assert host.file('/etc/modprobe.d/3.4.4_tipc.conf').group == 'root'
+
+
+def test_3_5_1_1_ufw_package(host):
+    assert host.package('ufw').is_installed

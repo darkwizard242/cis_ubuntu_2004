@@ -194,3 +194,9 @@ ubuntu_2004_cis_section3_rule_3_4_4_params_group: root
 ubuntu_2004_cis_section3_rule_3_4_4_params_mode: '0644'
 ubuntu_2004_cis_section3_rule_3_4_4_params_module_name: tipc
 ubuntu_2004_cis_section3_rule_3_4_4_params_module_state: absent
+
+# Variables for 3.5.1.1
+ubuntu_2004_cis_section3_rule_3_5_1_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_1_params_name: ufw
+ubuntu_2004_cis_section3_rule_3_5_1_1_params_state: present

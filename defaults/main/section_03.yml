@@ -183,3 +183,14 @@ ubuntu_2004_cis_section3_rule_3_4_3_params_group: root
 ubuntu_2004_cis_section3_rule_3_4_3_params_mode: '0644'
 ubuntu_2004_cis_section3_rule_3_4_3_params_module_name: rds
 ubuntu_2004_cis_section3_rule_3_4_3_params_module_state: absent
+
+# Variables for 3.4.4
+ubuntu_2004_cis_section3_rule_3_4_4: true
+
+ubuntu_2004_cis_section3_rule_3_4_4_params_source: section_03/3.4.4_tipc.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_4_params_dest: /etc/modprobe.d/3.4.4_tipc.conf
+ubuntu_2004_cis_section3_rule_3_4_4_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_4_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_4_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_4_params_module_name: tipc
+ubuntu_2004_cis_section3_rule_3_4_4_params_module_state: absent

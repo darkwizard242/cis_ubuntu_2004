@@ -727,8 +727,8 @@
         executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable }}"
       when:
         - audit_root_password_command_result.rc == 0
-      # ^ This conditions allows to only set/change root password when it has been evaluated
-      # that root did not originally have a password.
+        # ^ This conditions allows to only set/change root password when it has been evaluated
+        # that root did not originally have a password.
 
   when:
     - ubuntu_2004_cis_section1_rule_1_5_3

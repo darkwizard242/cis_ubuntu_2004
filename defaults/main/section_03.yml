@@ -200,3 +200,10 @@ ubuntu_2004_cis_section3_rule_3_5_1_1: true
 
 ubuntu_2004_cis_section3_rule_3_5_1_1_params_name: ufw
 ubuntu_2004_cis_section3_rule_3_5_1_1_params_state: present
+
+# Variables for 3.5.1.2
+ubuntu_2004_cis_section3_rule_3_5_1_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_name: iptables-persistent
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_state: absent
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_purge: yes

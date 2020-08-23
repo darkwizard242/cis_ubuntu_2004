@@ -27,23 +27,23 @@ def test_3_4_1_file_group(host):
 
 
 def test_3_4_2_file_exists(host):
-    assert host.file('/etc/modprobe.d/3_4_2_sctp.conf').exists
+    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').exists
 
 
 def test_3_4_2_file_isfile(host):
-    assert host.file('/etc/modprobe.d/3_4_2_sctp.conf').is_file
+    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').is_file
 
 
 def test_3_4_2_file_mode(host):
-    assert host.file('/etc/modprobe.d/3_4_2_sctp.conf').mode == 0o644
+    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').mode == 0o644
 
 
 def test_3_4_2_file_user(host):
-    assert host.file('/etc/modprobe.d/3_4_2_sctp.conf').user == 'root'
+    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').user == 'root'
 
 
 def test_3_4_2_file_group(host):
-    assert host.file('/etc/modprobe.d/3_4_2_sctp.conf').group == 'root'
+    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').group == 'root'
 
 
 def test_3_4_3_file_exists(host):

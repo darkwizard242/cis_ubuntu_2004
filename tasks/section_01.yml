@@ -622,83 +622,70 @@
     - rule_1_4_2
     - level_1
 
-- name: "1.5.1 | Ensure bootloader password is set (Automated) | Set super_users"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_path }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_line }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_regexp }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_state }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode }}"
-  notify:
-    - update grub configuration
-    - reapply permissions to bootloader configuration
-    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
-  when:
-    - ubuntu_2004_cis_section1_rule_1_5_1
-    - ubuntu_2004_cis_section1_rule_1_5_1_set_superuser
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_5_1
-    - level_1
+- name: "1.5.1 | Ensure bootloader password is set (Automated)"
+  block:
 
-# Example taken from https://github.com/florianutz/Ubuntu1804-CIS/blob/master/tasks/section1.yml
-- name: "1.5.1 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
-  shell: "set -eou pipefail && \
-      PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
-      echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
-  args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable }}"
-  register: bootloader_encrypted_password
-  when:
-    - ubuntu_2004_cis_section1_rule_1_5_1
-    - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_5_1
-    - level_1
+    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set super_users"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_path }}"
+        line: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_5_1_set_superuser
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
 
-- name: "1.5.1 | Ensure bootloader password is set (Automated) | Set bootloader encrypted password"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_path }}"
-    line: password_pbkdf2 root {{ bootloader_encrypted_password.stdout }}
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_regexp }}"
-    insertafter: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_insertafter }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_state }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode }}"
-  notify:
-    - update grub configuration
-    - reapply permissions to bootloader configuration
-    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
-  when:
-    - ubuntu_2004_cis_section1_rule_1_5_1
-    - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_5_1
-    - level_1
+    # Example taken from https://github.com/florianutz/Ubuntu1804-CIS/blob/master/tasks/section1.yml
+    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
+      shell: "set -eou pipefail && \
+          PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
+          echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
+      args:
+        executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable }}"
+      register: bootloader_encrypted_password
+      when:
+        - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
 
-- name: "1.5.1 | Ensure bootloader password is set (Automated) | Add --unrestricted for system boot without password"
-  replace:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_path }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_regex }}"
-    replace: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_replace }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode }}"
-  notify:
-    - update grub configuration
-    - reapply permissions to bootloader configuration
-    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set bootloader encrypted password"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_path }}"
+        line: password_pbkdf2 root {{ bootloader_encrypted_password.stdout }}
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_regexp }}"
+        insertafter: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_insertafter }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+
+    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Add --unrestricted for system boot without password"
+      replace:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_path }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_regex }}"
+        replace: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_replace }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_5_1_unrestricted
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
-    - ubuntu_2004_cis_section1_rule_1_5_1_unrestricted
     - ubuntu_2004_cis_section1
   tags:
     - section1

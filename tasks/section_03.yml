@@ -324,3 +324,27 @@
     - section3
     - rule_3_4_1
     - level_2
+
+- name: "3.4.2 | Ensure SCTP is disabled (Automated)"
+  block:
+
+    - name: "3.4.2 | Ensure SCTP is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_mode }}"
+
+    - name: "3.4.2 | Ensure SCTP is disabled (Automated) | sctp kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_2
+    - level_2

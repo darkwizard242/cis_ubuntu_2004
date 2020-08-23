@@ -493,23 +493,20 @@
     - rule_2_3_6
     - level_1
 
-- name: "2.4 | Ensure nonessential services are removed or masked (Manual) | check"
-  shell: "{{ ubuntu_2004_cis_section2_rule_2_4_params_shell }}"
-  args:
-    executable: "{{ ubuntu_2004_cis_section2_rule_2_4_params_executable }}"
-  register: services_listening_output
-  changed_when: false
-  when:
-    - ubuntu_2004_cis_section2_rule_2_4
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_4
-    - level_1
+- name: "2.4 | Ensure nonessential services are removed or masked (Manual)"
+  block:
 
-- name: "2.4 | Ensure nonessential services are removed or masked (Manual) | print"
-  debug:
-    var: "{{ services_listening_output.stdout_lines  | to_nice_json }}"
+    - name: "2.4 | Ensure nonessential services are removed or masked (Manual) | check"
+      shell: "{{ ubuntu_2004_cis_section2_rule_2_4_params_shell }}"
+      args:
+        executable: "{{ ubuntu_2004_cis_section2_rule_2_4_params_executable }}"
+      register: services_listening_output
+      changed_when: false
+
+    - name: "2.4 | Ensure nonessential services are removed or masked (Manual) | print"
+      debug:
+        var: "{{ services_listening_output.stdout_lines  | to_nice_json }}"
+
   when:
     - ubuntu_2004_cis_section2_rule_2_4
     - ubuntu_2004_cis_section2

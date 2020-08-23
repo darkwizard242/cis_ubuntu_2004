@@ -423,3 +423,31 @@
     - section3
     - rule_3_5_1_2
     - level_1
+
+- name: "3.5.1.3 | Ensure ufw service is enabled (Automated)"
+  block:
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | SSH Rule"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwrule }}"
+        port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwport }}"
+        proto: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwproto }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwcomment }}"
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | Enable UFW systemd"
+      systemd:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_servicename }}"
+        enabled: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_serviceenabled }}"
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | Enable UFW"
+      ufw:
+        state: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_state }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_3
+    - level_1

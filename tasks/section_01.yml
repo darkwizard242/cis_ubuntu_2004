@@ -576,36 +576,27 @@
     - rule_1_3_3
     - level_1
 
-- name: "1.4.1 | Ensure AIDE is installed (Automated) | Packages installation"
-  apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_state }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_4_1
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_4_1
-    - level_1
+- name: "1.4.1 | Ensure AIDE is installed (Automated)"
+  block:
 
-- name: "1.4.1 | Ensure AIDE is installed (Automated) | Check if DB exists"
-  stat:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
-  register: aide_db_file
-  when:
-    - ubuntu_2004_cis_section1_rule_1_4_1
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_4_1
-    - level_1
+    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Packages installation"
+      apt:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_state }}"
 
-- name: "1.4.1 | Ensure AIDE is installed (Automated) | Initialize DB if it DOESN'T Exist"
-  command:
-    cmd: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_init_command }}"
-    creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
+    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Check if DB exists"
+      stat:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
+      register: aide_db_file
+
+    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Initialize DB if it DOESN'T Exist"
+      command:
+        cmd: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_init_command }}"
+        creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
+      when:
+        - not aide_db_file.stat.exists
+
   when:
-    - not aide_db_file.stat.exists
     - ubuntu_2004_cis_section1_rule_1_4_1
     - ubuntu_2004_cis_section1
   tags:

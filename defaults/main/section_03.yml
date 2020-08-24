@@ -250,3 +250,19 @@ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule: allow
 ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection: out
 ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwinterface: all
 ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwcomment: Allow all for outbound connections on all interfaces
+
+# Variables for 3.5.1.6
+ubuntu_2004_cis_section3_rule_3_5_1_6: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22rule: allow
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22direction: in
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22port: '22'
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22proto: tcp
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22comment: Allow IN port 22 tcp connection
+
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53rule: allow
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53port: '53'
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53proto:
+  - tcp
+  - udp
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53comment: Allow 53 tcp/udp

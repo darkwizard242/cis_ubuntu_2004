@@ -493,3 +493,18 @@
     - section3
     - rule_3_5_1_4
     - level_1
+
+- name: "3.5.1.5 | Ensure outbound connections are configured (Manual)"
+  ufw:
+    rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule }}"
+    direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection }}"
+    interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwinterface }}"
+    comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwcomment }}"
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_5
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_5
+    - level_1

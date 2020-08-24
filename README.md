@@ -118,6 +118,9 @@ ubuntu_2004_cis_require_ipv6: false # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_wireless: false # Set to `true` if Wireless is required.
 ubuntu_2004_cis_require_router: false # Set to `true` if system is supposed to act as a router.
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW git application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTP application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTPS application profile to be configured and allowed.
 ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
 ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.

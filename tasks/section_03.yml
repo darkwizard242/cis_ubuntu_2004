@@ -508,3 +508,31 @@
     - section3
     - rule_3_5_1_5
     - level_1
+
+- name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual)"
+  block:
+
+    - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 22 SSH port in"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22rule }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22direction }}"
+        port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22port }}"
+        proto: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22proto }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw22comment }}"
+
+    - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 53 DNS Resolver"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53rule }}"
+        port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53port }}"
+        proto: "{{ item }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53comment }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufw53proto }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_6
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_6
+    - level_1

@@ -242,3 +242,11 @@ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv6: den
 ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv6: in
 ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv6: '::1'
 ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv6: Deny IN from ::1 - ipv6
+
+# Variables for 3.5.1.5
+ubuntu_2004_cis_section3_rule_3_5_1_5: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule: allow
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection: out
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwinterface: all
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwcomment: Allow all for outbound connections on all interfaces

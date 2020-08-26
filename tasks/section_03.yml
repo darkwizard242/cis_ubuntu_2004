@@ -631,3 +631,17 @@
     - section3
     - rule_3_5_2_1
     - level_1
+
+- name: "3.5.2.2 | Ensure Uncomplicated Firewall is not installed or disabled (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_state }}"
+    purge: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_purge }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_2
+    - level_1

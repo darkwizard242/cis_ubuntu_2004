@@ -618,3 +618,16 @@
     - section3
     - rule_3_5_1_7
     - level_1
+
+- name: "3.5.2.1 | Ensure nftables is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_1
+    - level_1

@@ -302,3 +302,10 @@ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_outgoing: Deny Outgoin
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_routed: deny
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_routed: routed
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_routed: Deny Routed
+
+
+# Variables for 3.5.2.1
+ubuntu_2004_cis_section3_rule_3_5_2_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_1_params_name: nftables
+ubuntu_2004_cis_section3_rule_3_5_2_1_params_state: present

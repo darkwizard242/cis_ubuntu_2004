@@ -317,10 +317,16 @@ ubuntu_2004_cis_section3_rule_3_5_2_2_params_name: ufw
 ubuntu_2004_cis_section3_rule_3_5_2_2_params_state: absent
 ubuntu_2004_cis_section3_rule_3_5_2_2_params_purge: yes
 
-# Variables for 3.5.2.2
+# Variables for 3.5.2.3
 ubuntu_2004_cis_section3_rule_3_5_2_3: true
 
 ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_flush: yes
 ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_version: ipv4
 ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_flush: yes
 ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_version: ipv6
+
+# Variables for 3.5.2.4
+ubuntu_2004_cis_section3_rule_3_5_2_4: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename: filter
+ubuntu_2004_cis_section3_rule_3_5_2_4_params_command: nft create table inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }}

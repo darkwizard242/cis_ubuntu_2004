@@ -316,3 +316,11 @@ ubuntu_2004_cis_section3_rule_3_5_2_2: true
 ubuntu_2004_cis_section3_rule_3_5_2_2_params_name: ufw
 ubuntu_2004_cis_section3_rule_3_5_2_2_params_state: absent
 ubuntu_2004_cis_section3_rule_3_5_2_2_params_purge: yes
+
+# Variables for 3.5.2.2
+ubuntu_2004_cis_section3_rule_3_5_2_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_flush: yes
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_version: ipv4
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_flush: yes
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_version: ipv6

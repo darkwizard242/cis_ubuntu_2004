@@ -669,3 +669,16 @@
     - section3
     - rule_3_5_2_3
     - level_1
+
+- name: "3.5.2.4 | Ensure a table exists (Automated)"
+  command: "{{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_command }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the table already exists.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_4
+    - level_1

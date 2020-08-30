@@ -345,3 +345,8 @@ ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable: /bin/bash
 ubuntu_2004_cis_section3_rule_3_5_2_7: true
 
 ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable: /bin/bash
+
+# Variables for 3.5.2.8
+ubuntu_2004_cis_section3_rule_3_5_2_8: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable: /bin/bash

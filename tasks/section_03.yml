@@ -725,7 +725,7 @@
         - ubuntu_2004_cis_require_ipv6
 
   ignore_errors: true
-  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  # Ignore errors is set to true to avoid a break of playbook apply when loopback traffic is already configured.
   when:
     - ubuntu_2004_cis_firewall == "nftables"
     - ubuntu_2004_cis_section3_rule_3_5_2_6
@@ -747,7 +747,7 @@
   args:
     executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable }}"
   ignore_errors: true
-  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  # Ignore errors is set to true to avoid a break of playbook apply when the outbound/established connections already exist.
   when:
     - ubuntu_2004_cis_firewall == "nftables"
     - ubuntu_2004_cis_section3_rule_3_5_2_7
@@ -766,7 +766,7 @@
   args:
     executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable }}"
   ignore_errors: true
-  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  # Ignore errors is set to true to avoid a break of playbook apply when the default deny rules already exist.
   when:
     - ubuntu_2004_cis_firewall == "nftables"
     - ubuntu_2004_cis_section3_rule_3_5_2_8

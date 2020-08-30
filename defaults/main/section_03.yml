@@ -350,3 +350,9 @@ ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable: /bin/bash
 ubuntu_2004_cis_section3_rule_3_5_2_8: true
 
 ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable: /bin/bash
+
+# Variables for 3.5.2.9
+ubuntu_2004_cis_section3_rule_3_5_2_9: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_servicename: nftables
+ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_serviceenabled: yes

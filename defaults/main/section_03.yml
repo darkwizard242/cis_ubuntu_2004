@@ -356,3 +356,15 @@ ubuntu_2004_cis_section3_rule_3_5_2_9: true
 
 ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_servicename: nftables
 ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_serviceenabled: yes
+
+# Variables for 3.5.2.10
+ubuntu_2004_cis_section3_rule_3_5_2_10: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_executable: /bin/bash
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_path: /etc/nftables.conf
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_line: include "/etc/nftables.rules"
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_regexp: ^include.*"/etc/nftables.rules"
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_state: present
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_owner: root
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_group: root
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_mode: '0755'

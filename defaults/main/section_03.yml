@@ -368,3 +368,11 @@ ubuntu_2004_cis_section3_rule_3_5_2_10_params_state: present
 ubuntu_2004_cis_section3_rule_3_5_2_10_params_owner: root
 ubuntu_2004_cis_section3_rule_3_5_2_10_params_group: root
 ubuntu_2004_cis_section3_rule_3_5_2_10_params_mode: '0755'
+
+# Variables for 3.5.3.1.1
+ubuntu_2004_cis_section3_rule_3_5_3_1_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_name:
+  - iptables
+  - iptables-persistent
+ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_state: present

@@ -788,3 +788,32 @@
     - section3
     - rule_3_5_2_9
     - level_1
+
+- name: "3.5.2.10| Ensure nftables rules are permanent (Automated)"
+  block:
+
+    - name: "3.5.2.10| Ensure nftables rules are permanent (Automated) | Pupulate nftables.rule file"
+      shell: |
+        set -eou pipefail
+        nft list table inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} > /etc/nftables.rules
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_executable }}"
+
+    - name: "3.5.2.10| Ensure nftables rules are permanent (Automated) | Add nftables.rules file to nftables.conf"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_path }}"
+        line: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_line }}"
+        regexp: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_regexp }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_mode }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_10
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_10
+    - level_1

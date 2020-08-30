@@ -330,3 +330,8 @@ ubuntu_2004_cis_section3_rule_3_5_2_4: true
 
 ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename: filter
 ubuntu_2004_cis_section3_rule_3_5_2_4_params_command: nft create table inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }}
+
+# Variables for 3.5.2.5
+ubuntu_2004_cis_section3_rule_3_5_2_5: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_5_params_executable: /bin/bash

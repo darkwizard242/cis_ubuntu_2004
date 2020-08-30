@@ -703,3 +703,56 @@
     - section3
     - rule_3_5_2_5
     - level_1
+
+- name: "3.5.2.6 | Ensure loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.2.6 | Ensure loopback traffic is configured (Automated) | ipv4"
+      shell: |
+        set -eou pipefail && \
+        nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input iif lo accept && \
+        nft create rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip saddr 127.0.0.0/8 counter drop
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable }}"
+
+    - name: "3.5.2.6 | Ensure loopback traffic is configured (Automated) | ipv6"
+      shell: |
+        set -eou pipefail && \
+        nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip6 saddr ::1 counter drop
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable }}"
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_6
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_6
+    - level_1
+
+- name: "3.5.2.7 | Ensure outbound and established connections are configured (Manual)"
+  shell: |
+    set -eou pipefail && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol tcp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol udp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol icmp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol tcp ct state new,related,established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol udp ct state new,related,established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol icmp ct state new,related,established accept
+  args:
+    executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_7
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_7
+    - level_1

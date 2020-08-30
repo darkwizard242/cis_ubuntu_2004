@@ -775,3 +775,16 @@
     - section3
     - rule_3_5_2_8
     - level_1
+
+- name: "3.5.2.9 | Ensure nftables service is enabled (Automated)"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_servicename }}"
+    enabled: "{{ ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_serviceenabled }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_9
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_9
+    - level_1

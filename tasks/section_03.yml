@@ -756,3 +756,22 @@
     - section3
     - rule_3_5_2_7
     - level_1
+
+- name: "3.5.2.8 | Ensure default deny firewall policy (Automated)"
+  shell: |
+    set -eou pipefail
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input { policy drop \; }
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} forward { policy drop \; }
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output { policy drop \; }
+  args:
+    executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_8
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_8
+    - level_1

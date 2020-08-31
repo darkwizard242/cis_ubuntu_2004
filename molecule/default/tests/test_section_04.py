@@ -12,3 +12,7 @@ def test_4_1_1_1_auditd_package(host):
 
 def test_4_1_1_1_audispd_plugins_package(host):
     assert host.package('audispd-plugins').is_installed
+
+
+def test_4_1_1_2_auditd_service(host):
+    assert host.service('auditd').is_enabled

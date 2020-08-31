@@ -265,6 +265,7 @@ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwcomment_53: Allow 53 tcp/udp
 # Variables for 3.5.1.7
 ubuntu_2004_cis_section3_rule_3_5_1_7: true
 
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW git application profile to be configured and allowed.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_src: section_03/3.5.1.7_git.j2
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_dest: /etc/ufw/applications.d/git
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_owner: root
@@ -273,6 +274,7 @@ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_mode: '0644'
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_name: git
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_rule: allow
 
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTP application profile to be configured and allowed.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_src: section_03/3.5.1.7_http.j2
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_dest: /etc/ufw/applications.d/http
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_owner: root
@@ -281,6 +283,7 @@ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_mode: '0644'
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_name: http
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_rule: allow
 
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTPS application profile to be configured and allowed.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_src: section_03/3.5.1.7_https.j2
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_dest: /etc/ufw/applications.d/https
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_owner: root
@@ -291,14 +294,17 @@ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_rule: allow
 
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_logging_state: 'on'
 
+ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming: true  # IF 'ufw' is used, setting to 'true' will deny all incoming connections by default. Operates same as `ufw default deny incoming`. Set to `false` if you don't require this to be applied.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_incoming: deny
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_incoming: incoming
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_incoming: Deny Incoming
 
+ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: true  # IF 'ufw' is used, setting to 'true' will deny all outgoing connections by default. Operates same as `ufw default deny outgoing`. Set to `false` if you don't require this to be applied.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_outgoing: deny
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_outgoing: outgoing
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_outgoing: Deny Outgoing
 
+ubuntu_2004_cis_section3_rule_ufw_default_deny_routed: true  # IF 'ufw' is used, setting to 'true' will deny all routed connections by default. Operates same as `ufw default deny routed`. Set to `false` if you don't require this to be applied.
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_routed: deny
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_routed: routed
 ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_routed: Deny Routed
@@ -390,3 +396,18 @@ ubuntu_2004_cis_section3_rule_3_5_3_1_3: true
 ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_name: ufw
 ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_state: absent
 ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_purge: yes
+
+# Variables for 3.5.3.2.1
+ubuntu_2004_cis_section3_rule_3_5_3_2_1: true
+
+ubuntu_2004_cis_section3_rule_iptables_default_deny_input: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy: DROP
+
+ubuntu_2004_cis_section3_rule_iptables_default_deny_output: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy: DROP
+
+ubuntu_2004_cis_section3_rule_iptables_default_deny_forward: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name: FORWARD
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy: DROP

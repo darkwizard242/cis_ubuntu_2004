@@ -7,7 +7,7 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     ubuntu_2004_cis_require_ipv6: true
-    ubuntu_2004_cis_firewall: iptables
+    ubuntu_2004_cis_firewall: ufw
 
     # ufw rule that denies outgoing connections
     ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: false

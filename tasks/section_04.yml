@@ -64,3 +64,22 @@
     - section4
     - rule_4_1_1_4
     - level_2
+
+- name: "4.1.2.1 | Ensure audit log storage size is configured (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_path }}"
+    line: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section4_rule_4_1_2_1_params_mode }}"
+  notify:
+    - auditd restart
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_2_1
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_2_1
+    - level_2

@@ -12,3 +12,15 @@
     - section4
     - rule_4_1_1_1
     - level_2
+
+- name: "4.1.1.2 | Ensure auditd service is enabled (Automated)"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_name }}"
+    enabled: "{{ ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_enabled }}"
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_1_2
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_1_2
+    - level_2

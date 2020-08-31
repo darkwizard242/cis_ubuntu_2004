@@ -1,0 +1,14 @@
+---
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 4 BENCHMARKS
+
+- name: "4.1.1.1 | Ensure auditd is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section4_rule_4_1_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section4_rule_4_1_1_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_1_1
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_1_1
+    - level_2

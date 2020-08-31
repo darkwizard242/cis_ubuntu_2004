@@ -133,6 +133,7 @@ ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: true # IF 'iptab
 ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: true # IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all outbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
 ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true # IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all forward connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
 ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
+ubuntu_2004_cis_auditd_backloglimit: '8192' # Auditd backlog limit to store sufficient records at boot time.
 ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
 ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
 ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.

@@ -888,3 +888,33 @@
     - section3
     - rule_3_5_3_2_1
     - level_1
+
+- name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | loopback ingress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_jump }}"
+        in_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_interface }}"
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | loopback egress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_jump }}"
+        out_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_interface }}"
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | deny on loopback"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_jump }}"
+        source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_interface }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_2
+    - level_1

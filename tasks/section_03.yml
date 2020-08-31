@@ -866,19 +866,19 @@
       iptables:
         chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
         policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_default_deny_input
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input
 
     - name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated) | set output chain to drop"
       iptables:
         chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
         policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_default_deny_output
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output
 
     - name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated) | set forward chain to drop"
       iptables:
         chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
         policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_default_deny_forward
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward
 
   when:
     - ubuntu_2004_cis_firewall == "iptables"

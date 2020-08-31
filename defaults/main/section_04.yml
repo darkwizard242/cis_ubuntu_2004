@@ -15,7 +15,7 @@ ubuntu_2004_cis_section4_rule_4_1_1_2: true
 ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_name: auditd
 ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_enabled: yes
 
-# Variables for 1.7.1.2
+# Variables for 4.1.1.3
 ubuntu_2004_cis_section4_rule_4_1_1_3: true
 
 ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_path: /etc/default/grub
@@ -24,3 +24,13 @@ ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_replace: 'GRUB_CMDLI
 ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_owner: root
 ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_group: root
 ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_mode: '0644'
+
+# Variables for 4.1.1.4
+ubuntu_2004_cis_section4_rule_4_1_1_4: true
+
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_path: /etc/default/grub
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_regex: '^GRUB_CMDLINE_LINUX="(((?!audit_backlog_limit).)*)"$'
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_replace: 'GRUB_CMDLINE_LINUX="\1 audit_backlog_limit={{ ubuntu_2004_cis_auditd_backloglimit }}"'
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_owner: root
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_group: root
+ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_mode: '0644'

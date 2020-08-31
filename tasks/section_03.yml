@@ -1045,3 +1045,35 @@
     - section3
     - rule_3_5_3_3_2
     - level_1
+
+- name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual)"
+  block:
+
+    - name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual) | input"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ctstate }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ipversion }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_protocols }}"
+
+
+    - name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual) | output"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ctstate }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ipversion }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_protocols }}"
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_3
+    - level_1

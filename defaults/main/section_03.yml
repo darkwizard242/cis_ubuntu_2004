@@ -426,3 +426,22 @@ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_inte
 ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_name: INPUT
 ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_jump: DROP
 ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_interface: '127.0.0.0/8'
+
+# Variables for 3.5.3.2.3
+ubuntu_2004_cis_section3_rule_3_5_3_2_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_protocols:
+  - tcp
+  - udp
+  - icmp

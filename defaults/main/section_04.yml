@@ -8,3 +8,9 @@ ubuntu_2004_cis_section4_rule_4_1_1_1_params_name:
   - auditd
   - audispd-plugins
 ubuntu_2004_cis_section4_rule_4_1_1_1_params_state: present
+
+# Variables for 4.1.1.2
+ubuntu_2004_cis_section4_rule_4_1_1_2: true
+
+ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_name: auditd
+ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_enabled: yes

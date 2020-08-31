@@ -106,6 +106,7 @@ Variables for each of the sections are located in their own files.
 - Section 1 variables are in [defaults/main/section_01.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_01.yml)
 - Section 2 variables are in [defaults/main/section_02.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_02.yml)
 - Section 3 variables are in [defaults/main/section_03.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_03.yml)
+- Section 4 variables are in [defaults/main/section_04.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_04.yml)
 
 Role default values for everything in the `cis-ubuntu-20.04` role can be superseded via passing them in a playbook or any other [variable precedence method](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable).
 

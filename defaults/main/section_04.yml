@@ -14,3 +14,13 @@ ubuntu_2004_cis_section4_rule_4_1_1_2: true
 
 ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_name: auditd
 ubuntu_2004_cis_section4_rule_4_1_1_2_params_auditd_service_enabled: yes
+
+# Variables for 1.7.1.2
+ubuntu_2004_cis_section4_rule_4_1_1_3: true
+
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_path: /etc/default/grub
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!audit=1).)*)"$'
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 audit=1"'
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_owner: root
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_group: root
+ubuntu_2004_cis_section4_rule_4_1_1_3_params_auditd_enabled_mode: '0644'

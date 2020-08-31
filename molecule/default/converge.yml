@@ -15,6 +15,8 @@
     # nftable rule that blocks all connection
     ubuntu_2004_cis_section3_rule_3_5_2_8: false
 
-    # iptables rule that denies incoming/Outgoing connection
+    # iptables rule that denies incoming/outgoing connection for ipv4 and ipv6
     ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input: false
     ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output: false
+    ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: false
+    ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: false

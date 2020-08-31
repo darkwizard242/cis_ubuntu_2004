@@ -34,3 +34,14 @@ ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_replace: 'GRUB_CMDLI
 ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_owner: root
 ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_group: root
 ubuntu_2004_cis_section4_rule_4_1_1_4_params_auditd_backlog_mode: '0644'
+
+# Variables for 4.1.2.1
+ubuntu_2004_cis_section4_rule_4_1_2_1: true
+
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_path: /etc/audit/auditd.conf
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_line: max_log_file = {{ ubuntu_2004_cis_auditd_maxlogfile }}
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_regexp: ^max_log_file .*
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_state: present
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_owner: root
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_group: root
+ubuntu_2004_cis_section4_rule_4_1_2_1_params_mode: '0640'

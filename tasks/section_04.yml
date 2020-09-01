@@ -269,7 +269,7 @@
     - rule_4_1_9
     - level_2
 
-- name: "4.1.10 |Ensure unsuccessful unauthorized file access attempts are collected (Automated)"
+- name: "4.1.10 | Ensure unsuccessful unauthorized file access attempts are collected (Automated)"
   template:
     src: "{{ ubuntu_2004_cis_section4_rule_4_1_10_params_source }}"
     dest: "{{ ubuntu_2004_cis_section4_rule_4_1_10_params_dest }}"
@@ -311,4 +311,21 @@
   tags:
     - section4
     - rule_4_1_11
+    - level_2
+
+- name: "4.1.12 | Ensure successful file system mounts are collected (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section4_rule_4_1_12_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section4_rule_4_1_12_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section4_rule_4_1_12_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section4_rule_4_1_12_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section4_rule_4_1_12_params_mode }}"
+  notify:
+    - auditd restart
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_12
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_12
     - level_2

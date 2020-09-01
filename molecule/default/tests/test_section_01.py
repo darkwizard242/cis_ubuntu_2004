@@ -238,12 +238,12 @@ def test_1_4_1_aide_common_package(host):
     assert host.package('aide-common').is_installed
 
 
-def test_1_4_1_aide_db_file_exists(host):
-    assert host.file('/var/lib/aide/aide.db').exists
-
-
-def test_1_4_1_aide_db_file_isfile(host):
-    assert host.file('/var/lib/aide/aide.db').is_file
+# def test_1_4_1_aide_db_file_exists(host):
+#     assert host.file('/var/lib/aide/aide.db').exists
+#
+#
+# def test_1_4_1_aide_db_file_isfile(host):
+#     assert host.file('/var/lib/aide/aide.db').is_file
 
 
 def test_1_5_1_40custom_file_mode(host):

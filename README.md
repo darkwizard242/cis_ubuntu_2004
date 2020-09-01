@@ -135,7 +135,10 @@ ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true # IF 'ipt
 ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_auditd_backloglimit: '8192' # Auditd backlog limit to store sufficient records at boot time.
 ubuntu_2004_cis_auditd_maxlogfile: '25' # Log file size for auditd logs. Set as appropriate.
-ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs # Action to take when logs have reached max size. Set as appropriate
+ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs # Action to take when auditd logs have reached max size. Set as appropriate.
+ubuntu_2004_cis_auditd_spaceleftaction: email # Action to take for low space left for auditd. Set as appropriate.
+ubuntu_2004_cis_auditd_actionmailacct: root # Who to mail for auditd. Set as appropriate.
+ubuntu_2004_cis_auditd_adminspaceleftaction: halt # Option to halt when audit logs are full. Set as appropriate.
 ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
 ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
 ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.

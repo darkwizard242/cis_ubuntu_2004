@@ -6,6 +6,11 @@
     - role: cis-ubuntu-20.04
   vars:
     ansible_python_interpreter: /usr/bin/python3
+
+    # To skip any long running tasks not required during development
+    skip_for_development: true
+
+    # To set ipv6 as required .... To use ufw is as the firewall
     ubuntu_2004_cis_require_ipv6: true
     ubuntu_2004_cis_firewall: ufw
 

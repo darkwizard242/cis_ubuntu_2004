@@ -595,6 +595,7 @@
         creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
       when:
         - not aide_db_file.stat.exists
+        - not skip_for_development
 
   when:
     - ubuntu_2004_cis_section1_rule_1_4_1

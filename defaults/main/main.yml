@@ -40,4 +40,4 @@ ubuntu_2004_cis_require_ldap_client: false
 ubuntu_2004_cis_require_rpcbind_client: false
 
 # Custom
-skip_for_development: true
+skip_for_development: false

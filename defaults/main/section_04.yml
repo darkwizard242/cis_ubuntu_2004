@@ -45,3 +45,14 @@ ubuntu_2004_cis_section4_rule_4_1_2_1_params_state: present
 ubuntu_2004_cis_section4_rule_4_1_2_1_params_owner: root
 ubuntu_2004_cis_section4_rule_4_1_2_1_params_group: root
 ubuntu_2004_cis_section4_rule_4_1_2_1_params_mode: '0640'
+
+# Variables for 4.1.2.2
+ubuntu_2004_cis_section4_rule_4_1_2_2: true
+
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_path: /etc/audit/auditd.conf
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_line: max_log_file_action = {{ ubuntu_2004_cis_auditd_maxlogfileaction }}
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_regexp: ^max_log_file_action .*
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_state: present
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_owner: root
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_group: root
+ubuntu_2004_cis_section4_rule_4_1_2_2_params_mode: '0640'

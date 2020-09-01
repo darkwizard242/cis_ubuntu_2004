@@ -17,6 +17,9 @@ ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' o
 ubuntu_2004_cis_auditd_backloglimit: '8192'
 ubuntu_2004_cis_auditd_maxlogfile: '25'
 ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs
+ubuntu_2004_cis_auditd_spaceleftaction: email
+ubuntu_2004_cis_auditd_actionmailacct: root
+ubuntu_2004_cis_auditd_adminspaceleftaction: halt
 ubuntu_2004_cis_require_xwindows_system: false
 ubuntu_2004_cis_require_cups: false
 ubuntu_2004_cis_require_dhcp_server: false

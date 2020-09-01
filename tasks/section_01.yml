@@ -1034,6 +1034,7 @@
     upgrade: "{{ ubuntu_2004_cis_section1_rule_1_9_params_upgrade }}"
     update_cache: "{{ ubuntu_2004_cis_section1_rule_1_9_params_update_cache }}"
   when:
+    - not skip_for_development
     - ubuntu_2004_cis_section1_rule_1_9
     - ubuntu_2004_cis_section1
   tags:

@@ -285,3 +285,30 @@
     - section4
     - rule_4_1_10
     - level_2
+
+- name: "4.1.11 | Ensure use of privileged commands is collected (Automated)"
+  block:
+
+    - name: "4.1.11 | Ensure use of privileged commands is collected (Automated) | Find priveleged programs"
+      shell: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_shell }}"
+      args:
+        executable: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_executable }}"
+      register: privileged_programs
+
+    - name: "4.1.11 | Ensure use of privileged commands is collected (Automated) | Generate rules"
+      template:
+        src: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_mode }}"
+      notify:
+        - auditd restart
+
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_11
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_11
+    - level_2

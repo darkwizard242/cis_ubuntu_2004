@@ -42,6 +42,7 @@ script:
   - sudo rm -rv vagrant.zip
   - vagrant --version
   # - sonar-scanner -Dsonar.projectVersion=$TRAVIS_BRANCH\_$TRAVIS_JOB_NUMBER
-  - travis_wait 60 time molecule test
+  # - travis_wait 60 time molecule test
+  - time molecule test
 # notifications:
 #   webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master

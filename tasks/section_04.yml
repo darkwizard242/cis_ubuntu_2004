@@ -234,3 +234,20 @@
     - section4
     - rule_4_1_7
     - level_2
+
+- name: "4.1.8 | Ensure session initiation information is collected (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section4_rule_4_1_8_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section4_rule_4_1_8_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section4_rule_4_1_8_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section4_rule_4_1_8_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section4_rule_4_1_8_params_mode }}"
+  notify:
+    - auditd restart
+  when:
+    - ubuntu_2004_cis_section4_rule_4_1_8
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_1_8
+    - level_2

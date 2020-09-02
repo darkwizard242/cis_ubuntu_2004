@@ -433,3 +433,15 @@
     - section4
     - rule_4_2_1_1
     - level_1
+
+- name: "4.2.1.2 | Ensure rsyslog Service is enabled (Automated)"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section4_rule_4_2_1_2_params_rsyslog_service_name }}"
+    enabled: "{{ ubuntu_2004_cis_section4_rule_4_2_1_2_params_rsyslog_service_enabled }}"
+  when:
+    - ubuntu_2004_cis_section4_rule_4_2_1_2
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_2_1_2
+    - level_1

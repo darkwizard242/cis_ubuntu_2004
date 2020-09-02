@@ -174,3 +174,12 @@ ubuntu_2004_cis_section4_rule_4_1_13_params_dest: /etc/audit/rules.d/4.1.13.rule
 ubuntu_2004_cis_section4_rule_4_1_13_params_owner: root
 ubuntu_2004_cis_section4_rule_4_1_13_params_group: root
 ubuntu_2004_cis_section4_rule_4_1_13_params_mode: '0640'
+
+# Variables for 4.1.14
+ubuntu_2004_cis_section4_rule_4_1_14: true
+
+ubuntu_2004_cis_section4_rule_4_1_14_params_source: section_04/4.1.14.rules.j2
+ubuntu_2004_cis_section4_rule_4_1_14_params_dest: /etc/audit/rules.d/4.1.14.rules
+ubuntu_2004_cis_section4_rule_4_1_14_params_owner: root
+ubuntu_2004_cis_section4_rule_4_1_14_params_group: root
+ubuntu_2004_cis_section4_rule_4_1_14_params_mode: '0640'

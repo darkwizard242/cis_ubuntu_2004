@@ -140,3 +140,7 @@ def test_4_1_17_audit_rule_file_isfile(host):
 
 def test_4_2_1_1_rsyslog_package(host):
     assert host.package('rsyslog').is_installed
+
+
+def test_4_2_1_2_rsyslog_service(host):
+    assert host.service('rsyslog').is_enabled

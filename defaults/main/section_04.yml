@@ -213,3 +213,9 @@ ubuntu_2004_cis_section4_rule_4_1_17_params_dest: /etc/audit/rules.d/99_4.1.17.r
 ubuntu_2004_cis_section4_rule_4_1_17_params_owner: root
 ubuntu_2004_cis_section4_rule_4_1_17_params_group: root
 ubuntu_2004_cis_section4_rule_4_1_17_params_mode: '0640'
+
+# Variables for 4.2.1.1
+ubuntu_2004_cis_section4_rule_4_2_1_1: true
+
+ubuntu_2004_cis_section4_rule_4_2_1_1_params_name: rsyslog
+ubuntu_2004_cis_section4_rule_4_2_1_1_params_state: present

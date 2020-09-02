@@ -73,6 +73,7 @@ ubuntu_2004_cis_section4_rule_4_1_2_3_params_group: root
 ubuntu_2004_cis_section4_rule_4_1_2_3_params_mode: '0640'
 ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_path: /etc/audit/rules.d/audit.rules
 ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_state: absent
+ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_mode: '0640'
 
 
 # Variables for 4.1.3

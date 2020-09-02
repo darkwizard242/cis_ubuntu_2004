@@ -146,6 +146,7 @@
       file:
         path: "{{ ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_path }}"
         state: "{{ ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_state }}"
+        mode: "{{ ubuntu_2004_cis_section4_rule_4_1_2_3_params_audit_rules_mode }}"
       notify:
         - auditd restart
 

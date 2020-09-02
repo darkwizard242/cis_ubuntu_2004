@@ -463,3 +463,22 @@
     - section4
     - rule_4_2_1_3
     - level_1
+
+- name: "4.2.1.4 | Ensure rsyslog default file permissions configured (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_path }}"
+    line: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section4_rule_4_2_1_4_params_mode }}"
+  notify:
+    - rsyslog restart
+  when:
+    - ubuntu_2004_cis_section4_rule_4_2_1_4
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_2_1_4
+    - level_1

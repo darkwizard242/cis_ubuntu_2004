@@ -219,3 +219,9 @@ ubuntu_2004_cis_section4_rule_4_2_1_1: true
 
 ubuntu_2004_cis_section4_rule_4_2_1_1_params_name: rsyslog
 ubuntu_2004_cis_section4_rule_4_2_1_1_params_state: present
+
+# Variables for 4.2.1.2
+ubuntu_2004_cis_section4_rule_4_2_1_2: true
+
+ubuntu_2004_cis_section4_rule_4_2_1_2_params_rsyslog_service_name: rsyslog
+ubuntu_2004_cis_section4_rule_4_2_1_2_params_rsyslog_service_enabled: yes

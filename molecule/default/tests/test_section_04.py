@@ -72,3 +72,11 @@ def test_4_1_9_audit_rule_file_exists(host):
 
 def test_4_1_9_audit_rule_file_isfile(host):
     assert host.file('/etc/audit/rules.d/4.1.9.rules').is_file
+
+
+def test_4_1_10_audit_rule_file_exists(host):
+    assert host.file('/etc/audit/rules.d/4.1.10.rules').exists
+
+
+def test_4_1_10_audit_rule_file_isfile(host):
+    assert host.file('/etc/audit/rules.d/4.1.10.rules').is_file

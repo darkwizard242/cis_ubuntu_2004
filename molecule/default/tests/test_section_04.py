@@ -136,3 +136,7 @@ def test_4_1_17_audit_rule_file_exists(host):
 
 def test_4_1_17_audit_rule_file_isfile(host):
     assert host.file('/etc/audit/rules.d/99_4.1.17.rules').is_file
+
+
+def test_4_2_1_1_rsyslog_package(host):
+    assert host.package('rsyslog').is_installed

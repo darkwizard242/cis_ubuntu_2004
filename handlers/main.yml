@@ -58,3 +58,9 @@
     name: auditd
     enabled: yes
     state: restarted
+
+- name: rsyslog restart
+  systemd:
+    name: rsyslog
+    enabled: yes
+    state: restarted

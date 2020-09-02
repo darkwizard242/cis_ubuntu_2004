@@ -421,3 +421,15 @@
     - section4
     - rule_4_1_17
     - level_2
+
+- name: "4.2.1.1 | Ensure rsyslog is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section4_rule_4_2_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section4_rule_4_2_1_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_section4_rule_4_2_1_1
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_2_1_1
+    - level_1

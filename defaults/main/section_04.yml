@@ -293,3 +293,14 @@ ubuntu_2004_cis_section4_rule_4_2_3_params_command: find /var/log -type f -exec 
 
 # Variables for 4.3
 ubuntu_2004_cis_section4_rule_4_3: true
+
+# Variables for 4.4
+ubuntu_2004_cis_section4_rule_4_4: true
+
+ubuntu_2004_cis_section4_rule_4_4_params_path: /etc/logrotate.conf
+ubuntu_2004_cis_section4_rule_4_4_params_line: create 0640 root utmp
+ubuntu_2004_cis_section4_rule_4_4_params_regexp: ^create.*
+ubuntu_2004_cis_section4_rule_4_4_params_state: present
+ubuntu_2004_cis_section4_rule_4_4_params_owner: root
+ubuntu_2004_cis_section4_rule_4_4_params_group: root
+ubuntu_2004_cis_section4_rule_4_4_params_mode: '0644'

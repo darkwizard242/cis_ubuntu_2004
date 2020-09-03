@@ -482,3 +482,16 @@
     - section4
     - rule_4_2_1_4
     - level_1
+
+- name: "4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host (Automated) | Not IMPLEMENTED"
+  debug:
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 4.2.1.5 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Please configure it based upon your needs."
+  when:
+    - ubuntu_2004_cis_section4_rule_4_2_1_5
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_2_1_5
+    - level_1

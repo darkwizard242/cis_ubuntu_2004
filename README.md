@@ -80,9 +80,10 @@ Benchmarks around the **_disk partitioning_** and their **_mount points_** from 
 - 1.1.20 Ensure nosuid option set on removable media partitions (Manual)
 - 1.1.21 Ensure noexec option set on removable media partitions (Manual)
 
-Following benchmark from **Section 4** has also not been implemented:
+Following benchmarks from **Section 4** has also not been implemented:
 
 - 4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host (Automated)
+- 4.2.1.6 Ensure remote rsyslog messages are only accepted on designated log hosts. (Manual)
 
 ## 3\. Requirements
 

@@ -588,3 +588,20 @@
     - section4
     - rule_4_3
     - level_1
+
+- name: "4.4 | Ensure logrotate assigns appropriate permissions (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section4_rule_4_4_params_path }}"
+    line: "{{ ubuntu_2004_cis_section4_rule_4_4_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section4_rule_4_4_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section4_rule_4_4_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section4_rule_4_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section4_rule_4_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section4_rule_4_4_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section4_rule_4_4
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_4
+    - level_1

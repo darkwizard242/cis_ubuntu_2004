@@ -290,3 +290,6 @@ ubuntu_2004_cis_section4_rule_4_2_2_3_params_mode: '0644'
 ubuntu_2004_cis_section4_rule_4_2_3: true
 
 ubuntu_2004_cis_section4_rule_4_2_3_params_command: find /var/log -type f -exec chmod g-wx,o-rwx "{}" + -o -type d -exec chmod g-w,o-rwx "{}" +
+
+# Variables for 4.3
+ubuntu_2004_cis_section4_rule_4_3: true

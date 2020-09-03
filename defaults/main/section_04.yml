@@ -263,3 +263,14 @@ ubuntu_2004_cis_section4_rule_4_2_2_1_params_state: present
 ubuntu_2004_cis_section4_rule_4_2_2_1_params_owner: root
 ubuntu_2004_cis_section4_rule_4_2_2_1_params_group: root
 ubuntu_2004_cis_section4_rule_4_2_2_1_params_mode: '0644'
+
+# Variables for 4.2.2.2
+ubuntu_2004_cis_section4_rule_4_2_2_2: true
+
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_path: /etc/systemd/journald.conf
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_line: Compress=yes
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_regexp: .*Compress.*
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_state: present
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_owner: root
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_group: root
+ubuntu_2004_cis_section4_rule_4_2_2_2_params_mode: '0644'

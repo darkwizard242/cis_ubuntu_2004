@@ -575,3 +575,16 @@
     - section4
     - rule_4_2_3
     - level_1
+
+- name: "4.3 | Ensure logrotate is configured (Manual) | Not IMPLEMENTED"
+  debug:
+    msg:
+      - "CIS Ubuntu 20.04 benchmark 4.3 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
+      - "Please configure it based upon your needs."
+  when:
+    - ubuntu_2004_cis_section4_rule_4_3
+    - ubuntu_2004_cis_section4
+  tags:
+    - section4
+    - rule_4_3
+    - level_1

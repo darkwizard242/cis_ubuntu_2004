@@ -246,3 +246,20 @@ ubuntu_2004_cis_section4_rule_4_2_1_4_params_state: present
 ubuntu_2004_cis_section4_rule_4_2_1_4_params_owner: root
 ubuntu_2004_cis_section4_rule_4_2_1_4_params_group: root
 ubuntu_2004_cis_section4_rule_4_2_1_4_params_mode: '0644'
+
+# Variables for 4.2.1.5
+ubuntu_2004_cis_section4_rule_4_2_1_5: true
+
+# Variables for 4.2.1.5
+ubuntu_2004_cis_section4_rule_4_2_1_6: true
+
+# Variables for 4.2.2.1
+ubuntu_2004_cis_section4_rule_4_2_2_1: true
+
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_path: /etc/systemd/journald.conf
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_line: ForwardToSyslog=yes
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_regexp: .*ForwardToSyslog.*
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_state: present
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_owner: root
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_group: root
+ubuntu_2004_cis_section4_rule_4_2_2_1_params_mode: '0644'

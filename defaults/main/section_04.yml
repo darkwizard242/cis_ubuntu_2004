@@ -274,3 +274,14 @@ ubuntu_2004_cis_section4_rule_4_2_2_2_params_state: present
 ubuntu_2004_cis_section4_rule_4_2_2_2_params_owner: root
 ubuntu_2004_cis_section4_rule_4_2_2_2_params_group: root
 ubuntu_2004_cis_section4_rule_4_2_2_2_params_mode: '0644'
+
+# Variables for 4.2.2.3
+ubuntu_2004_cis_section4_rule_4_2_2_3: true
+
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_path: /etc/systemd/journald.conf
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_line: Storage=persistent
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_regexp: .*Storage.*
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_state: present
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_owner: root
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_group: root
+ubuntu_2004_cis_section4_rule_4_2_2_3_params_mode: '0644'

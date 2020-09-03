@@ -84,6 +84,7 @@ Following benchmarks from **Section 4** has also not been implemented:
 
 - 4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host (Automated)
 - 4.2.1.6 Ensure remote rsyslog messages are only accepted on designated log hosts. (Manual)
+- 4.3 Ensure logrotate is configured (Manual)
 
 ## 3\. Requirements
 

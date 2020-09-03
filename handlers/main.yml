@@ -64,3 +64,9 @@
     name: rsyslog
     enabled: yes
     state: restarted
+
+- name: journald restart
+  systemd:
+    name: systemd-journald
+    enabled: yes
+    state: restarted

@@ -36,3 +36,13 @@ ubuntu_2004_cis_section5_rule_5_1_4_params_recurse: yes
 ubuntu_2004_cis_section5_rule_5_1_4_params_owner: root
 ubuntu_2004_cis_section5_rule_5_1_4_params_group: root
 ubuntu_2004_cis_section5_rule_5_1_4_params_mode: '0700'
+
+# Variables for 5.1.5
+ubuntu_2004_cis_section5_rule_5_1_5: true
+
+ubuntu_2004_cis_section5_rule_5_1_5_params_path: /etc/cron.weekly
+ubuntu_2004_cis_section5_rule_5_1_5_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_5_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_5_params_mode: '0700'

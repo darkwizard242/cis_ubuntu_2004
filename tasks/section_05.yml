@@ -1,0 +1,15 @@
+---
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5 BENCHMARKS
+
+- name: "5.1.1 | Ensure cron daemon is enabled and running (Automated)"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_name }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_state }}"
+    enabled: "{{ ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_enabled }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_1_1
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_1_1
+    - level_1

@@ -8,6 +8,7 @@ ubuntu_2004_cis_section1: true
 ubuntu_2004_cis_section2: true
 ubuntu_2004_cis_section3: true
 ubuntu_2004_cis_section4: true
+ubuntu_2004_cis_section5: true
 
 # Services
 ubuntu_2004_cis_require_ipv6: false

@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: cis-ubuntu-20.04
+  role_name: cis_ubuntu_2004
   author: Ali Muhammad
   description: Role to apply CIS Ubuntu 20.04 v1.0.0 Benchmarks.
   company: none

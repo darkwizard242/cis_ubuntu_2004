@@ -16,3 +16,13 @@ ubuntu_2004_cis_section5_rule_5_1_2_params_state: file
 ubuntu_2004_cis_section5_rule_5_1_2_params_owner: root
 ubuntu_2004_cis_section5_rule_5_1_2_params_group: root
 ubuntu_2004_cis_section5_rule_5_1_2_params_mode: '0600'
+
+# Variables for 5.1.3
+ubuntu_2004_cis_section5_rule_5_1_3: true
+
+ubuntu_2004_cis_section5_rule_5_1_3_params_path: /etc/cron.hourly
+ubuntu_2004_cis_section5_rule_5_1_3_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_3_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_3_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_3_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_3_params_mode: '0700'

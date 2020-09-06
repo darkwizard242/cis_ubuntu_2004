@@ -1,9 +1,18 @@
 ---
 # Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5
 
-# Variables for 4.1.1.1
+# Variables for 5.1.1
 ubuntu_2004_cis_section5_rule_5_1_1: true
 
 ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_name: cron
 ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_state: started
 ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_enabled: yes
+
+# Variables for 5.1.2
+ubuntu_2004_cis_section5_rule_5_1_2: true
+
+ubuntu_2004_cis_section5_rule_5_1_2_params_path: /etc/crontab
+ubuntu_2004_cis_section5_rule_5_1_2_params_state: file
+ubuntu_2004_cis_section5_rule_5_1_2_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_2_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_2_params_mode: '0600'

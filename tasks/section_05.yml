@@ -92,3 +92,19 @@
     - section5
     - rule_5_1_6
     - level_1
+
+- name: "5.1.7 | Ensure permissions on /etc/cron.d are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_path }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_state }}"
+    recurse: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_recurse }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_1_7
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_1_7
+    - level_1

@@ -16,192 +16,256 @@ CRON_D = "/etc/cron.d"
 
 
 def test_5_1_1_cron_service_is_running(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.1
-    Tests if cron service is running"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.1
+    Tests if cron service is running
+    """
     assert host.service(CRON_SERVICE).is_running
 
 
 def test_5_1_1_cron_service_is_enabled(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.1
-    Tests if cron service is enabled"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.1
+    Tests if cron service is enabled
+    """
     assert host.service(CRON_SERVICE).is_enabled
 
 
 def test_5_1_2_crontab_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
-    Tests if /etc/crontab file exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
+    Tests if /etc/crontab file exists
+    """
     assert host.file(ETC_CRONTAB).exists
 
 
 def test_5_1_2_crontab_isfile(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
-    Tests if /etc/crontab is a file"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
+    Tests if /etc/crontab is a file
+    """
     assert host.file(ETC_CRONTAB).is_file
 
 
 def test_5_1_2_crontab_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
-    Tests if /etc/crontab has 0600 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
+    Tests if /etc/crontab has 0600 mode
+    """
     assert host.file(ETC_CRONTAB).mode == 0o600
 
 
 def test_5_1_2_crontab_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
-    Tests if /etc/crontab is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
+    Tests if /etc/crontab is owned by user root
+    """
     assert host.file(ETC_CRONTAB).user == 'root'
 
 
 def test_5_1_2_crontab_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
-    Tests if /etc/crontab is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.2
+    Tests if /etc/crontab is owned by group root
+    """
     assert host.file(ETC_CRONTAB).group == 'root'
 
 
 def test_5_1_3_cron_hourly_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
-    Tests if /etc/cron.hourly directory exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
+    Tests if /etc/cron.hourly directory exists
+    """
     assert host.file(CRON_HOURLY).exists
 
 
 def test_5_1_3_cron_hourly_is_directory(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
-    Tests if /etc/cron.hourly is a directory"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
+    Tests if /etc/cron.hourly is a directory
+    """
     assert host.file(CRON_HOURLY).is_directory
 
 
 def test_5_1_3_cron_hourly_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
-    Tests if /etc/cron.hourly has 0700 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
+    Tests if /etc/cron.hourly has 0700 mode
+    """
     assert host.file(CRON_HOURLY).mode == 0o700
 
 
 def test_5_1_3_cron_hourly_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
-    Tests if /etc/cron.hourly is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
+    Tests if /etc/cron.hourly is owned by user root
+    """
     assert host.file(CRON_HOURLY).user == 'root'
 
 
 def test_5_1_3_cron_hourly_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
-    Tests if /etc/cron.hourly is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.3
+    Tests if /etc/cron.hourly is owned by group root
+    """
     assert host.file(CRON_HOURLY).group == 'root'
 
 
 def test_5_1_4_cron_daily_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
-    Tests if /etc/cron.daily directory exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
+    Tests if /etc/cron.daily directory exists
+    """
     assert host.file(CRON_DAILY).exists
 
 
 def test_5_1_4_cron_daily_is_directory(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
-    Tests if /etc/cron.daily is a directory"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
+    Tests if /etc/cron.daily is a directory
+    """
     assert host.file(CRON_DAILY).is_directory
 
 
 def test_5_1_4_cron_daily_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
-    Tests if /etc/cron.daily has 0700 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
+    Tests if /etc/cron.daily has 0700 mode
+    """
     assert host.file(CRON_DAILY).mode == 0o700
 
 
 def test_5_1_4_cron_daily_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
-    Tests if /etc/cron.daily is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
+    Tests if /etc/cron.daily is owned by user root
+    """
     assert host.file(CRON_DAILY).user == 'root'
 
 
 def test_5_1_4_cron_daily_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
-    Tests if /etc/cron.daily is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.4
+    Tests if /etc/cron.daily is owned by group root
+    """
     assert host.file(CRON_DAILY).group == 'root'
 
 
 def test_5_1_5_cron_weekly_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
-    Tests if /etc/cron.weekly directory exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
+    Tests if /etc/cron.weekly directory exists
+    """
     assert host.file(CRON_WEEKLY).exists
 
 
 def test_5_1_5_cron_weekly_is_directory(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
-    Tests if /etc/cron.weekly is a directory"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
+    Tests if /etc/cron.weekly is a directory
+    """
     assert host.file(CRON_WEEKLY).is_directory
 
 
 def test_5_1_5_cron_weekly_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
-    Tests if /etc/cron.weekly has 0700 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
+    Tests if /etc/cron.weekly has 0700 mode
+    """
     assert host.file(CRON_WEEKLY).mode == 0o700
 
 
 def test_5_1_5_cron_weekly_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
-    Tests if /etc/cron.weekly is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
+    Tests if /etc/cron.weekly is owned by user root
+    """
     assert host.file(CRON_WEEKLY).user == 'root'
 
 
 def test_5_1_5_cron_weekly_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
-    Tests if /etc/cron.weekly is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.5
+    Tests if /etc/cron.weekly is owned by group root
+    """
     assert host.file(CRON_WEEKLY).group == 'root'
 
 
 def test_5_1_6_cron_monthly_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
-    Tests if /etc/cron.montly directory exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
+    Tests if /etc/cron.montly directory exists
+    """
     assert host.file(CRON_MONTHLY).exists
 
 
 def test_5_1_6_cron_monthly_is_directory(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
-    Tests if /etc/cron.montly is a directory"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
+    Tests if /etc/cron.montly is a directory
+    """
     assert host.file(CRON_MONTHLY).is_directory
 
 
 def test_5_1_6_cron_monthly_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
-    Tests if /etc/cron.montly has 0700 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
+    Tests if /etc/cron.montly has 0700 mode
+    """
     assert host.file(CRON_MONTHLY).mode == 0o700
 
 
 def test_5_1_6_cron_monthly_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
-    Tests if /etc/cron.montly is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
+    Tests if /etc/cron.montly is owned by user root
+    """
     assert host.file(CRON_MONTHLY).user == 'root'
 
 
 def test_5_1_6_cron_monthly_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
-    Tests if /etc/cron.montly is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.6
+    Tests if /etc/cron.montly is owned by group root
+    """
     assert host.file(CRON_MONTHLY).group == 'root'
 
 
 def test_5_1_7_cron_d_exists(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
-    Tests if /etc/cron.d directory exists"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
+    Tests if /etc/cron.d directory exists
+    """
     assert host.file(CRON_D).exists
 
 
 def test_5_1_7_cron_d_is_directory(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
-    Tests if /etc/cron.d is a directory"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
+    Tests if /etc/cron.d is a directory
+    """
     assert host.file(CRON_D).is_directory
 
 
 def test_5_1_7_cron_d_mode(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
-    Tests if /etc/cron.d has 0700 mode"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
+    Tests if /etc/cron.d has 0700 mode
+    """
     assert host.file(CRON_D).mode == 0o700
 
 
 def test_5_1_7_cron_d_user(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
-    Tests if /etc/cron.d is owned by user root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
+    Tests if /etc/cron.d is owned by user root
+    """
     assert host.file(CRON_D).user == 'root'
 
 
 def test_5_1_7_cron_d_group(host):
-    """CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
-    Tests if /etc/cron.d is owned by group root"""
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.7
+    Tests if /etc/cron.d is owned by group root
+    """
     assert host.file(CRON_D).group == 'root'

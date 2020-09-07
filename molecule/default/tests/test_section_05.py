@@ -13,6 +13,7 @@ CRON_DAILY = "/etc/cron.daily"
 CRON_WEEKLY = "/etc/cron.weekly"
 CRON_MONTHLY = "/etc/cron.monthly"
 CRON_D = "/etc/cron.d"
+CRON_ALLOW = "/etc/cron.allow"
 
 
 def test_5_1_1_cron_service_is_running(host):
@@ -269,3 +270,43 @@ def test_5_1_7_cron_d_group(host):
     Tests if /etc/cron.d is owned by group root
     """
     assert host.file(CRON_D).group == 'root'
+
+
+def test_5_1_8_cron_allow_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.8
+    Tests if /etc/cron.allow file exists
+    """
+    assert host.file(CRON_ALLOW).exists
+
+
+def test_5_1_8_cron_allow_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.8
+    Tests if /etc/cron.allow is a file
+    """
+    assert host.file(CRON_ALLOW).is_file
+
+
+def test_5_1_8_cron_allow_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.8
+    Tests if /etc/cron.allow has 0640 mode
+    """
+    assert host.file(CRON_ALLOW).mode == 0o640
+
+
+def test_5_1_8_cron_allow_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.8
+    Tests if /etc/cron.allow is owned by user root
+    """
+    assert host.file(CRON_ALLOW).user == 'root'
+
+
+def test_5_1_8_cron_allow_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.1.8
+    Tests if /etc/cron.allow is owned by group root
+    """
+    assert host.file(CRON_ALLOW).group == 'root'

@@ -15,6 +15,7 @@ CRON_MONTHLY = "/etc/cron.monthly"
 CRON_D = "/etc/cron.d"
 CRON_ALLOW = "/etc/cron.allow"
 AT_ALLOW = "/etc/at.allow"
+SSHD_CONFIG = "/etc/ssh/sshd_config"
 
 
 def test_5_1_1_cron_service_is_running(host):

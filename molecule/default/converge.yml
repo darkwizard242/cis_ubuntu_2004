@@ -30,3 +30,7 @@
     ubuntu_2004_cis_cron_allow_users:
       - root
       - ubuntu
+    # Users allowed to use 'at' to schedule jobs.
+    ubuntu_2004_cis_at_allow_users:
+      - root
+      - ubuntu

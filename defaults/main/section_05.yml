@@ -166,3 +166,14 @@ ubuntu_2004_cis_section5_rule_5_2_8_params_state: present
 ubuntu_2004_cis_section5_rule_5_2_8_params_owner: root
 ubuntu_2004_cis_section5_rule_5_2_8_params_group: root
 ubuntu_2004_cis_section5_rule_5_2_8_params_mode: '0600'
+
+# Variables for 5.2.9
+ubuntu_2004_cis_section5_rule_5_2_9: true
+
+ubuntu_2004_cis_section5_rule_5_2_9_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_9_params_line: PermitRootLogin no
+ubuntu_2004_cis_section5_rule_5_2_9_params_regexp: ^PermitRootLogin.*
+ubuntu_2004_cis_section5_rule_5_2_9_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_9_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_9_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_9_params_mode: '0600'

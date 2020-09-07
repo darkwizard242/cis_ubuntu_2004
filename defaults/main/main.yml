@@ -12,6 +12,7 @@ ubuntu_2004_cis_section5: true
 
 # Services
 ubuntu_2004_cis_require_ssh_server: true
+ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 ubuntu_2004_cis_require_ipv6: false
 ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.

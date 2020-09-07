@@ -94,7 +94,7 @@ None.
 
 Role default variables being utilized in role tasks are located in `defaults/main/`.
 
-[defaults/main/main.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/main.yml) consists of variables referring to the entire CIS sections such as the following:
+[defaults/main/main.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/main.yml) consists of variables referring to the entire CIS sections like the following and the system breaking variables like the ones mentioned in [Important Variables](https://github.com/darkwizard242/cis_ubuntu_2004/tree/master#important-variables) section:
 
 ```yaml
 ubuntu_2004_cis_section1: true

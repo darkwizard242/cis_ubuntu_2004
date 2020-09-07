@@ -210,3 +210,25 @@ ubuntu_2004_cis_section5_rule_5_2_12_params_state: present
 ubuntu_2004_cis_section5_rule_5_2_12_params_owner: root
 ubuntu_2004_cis_section5_rule_5_2_12_params_group: root
 ubuntu_2004_cis_section5_rule_5_2_12_params_mode: '0600'
+
+# Variables for 5.2.13
+ubuntu_2004_cis_section5_rule_5_2_13: true
+
+ubuntu_2004_cis_section5_rule_5_2_13_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_13_params_line: "{{ ubuntu_2004_cis_require_ssh_macs }}"
+ubuntu_2004_cis_section5_rule_5_2_13_params_regexp: ^MACs.*
+ubuntu_2004_cis_section5_rule_5_2_13_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_13_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_13_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_13_params_mode: '0600'
+
+# Variables for 5.2.14
+ubuntu_2004_cis_section5_rule_5_2_14: true
+
+ubuntu_2004_cis_section5_rule_5_2_14_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_14_params_line: "{{ ubuntu_2004_cis_require_ssh_kexalgorithms }}"
+ubuntu_2004_cis_section5_rule_5_2_14_params_regexp: ^KexAlgorithms.*
+ubuntu_2004_cis_section5_rule_5_2_14_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_14_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_14_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_14_params_mode: '0600'

@@ -133,3 +133,14 @@ ubuntu_2004_cis_section5_rule_5_2_5_params_state: present
 ubuntu_2004_cis_section5_rule_5_2_5_params_owner: root
 ubuntu_2004_cis_section5_rule_5_2_5_params_group: root
 ubuntu_2004_cis_section5_rule_5_2_5_params_mode: '0600'
+
+# Variables for 5.2.6
+ubuntu_2004_cis_section5_rule_5_2_6: true
+
+ubuntu_2004_cis_section5_rule_5_2_6_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_6_params_line: MaxAuthTries 4
+ubuntu_2004_cis_section5_rule_5_2_6_params_regexp: ^MaxAuthTries.*
+ubuntu_2004_cis_section5_rule_5_2_6_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_6_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_6_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_6_params_mode: '0600'

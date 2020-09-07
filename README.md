@@ -129,6 +129,9 @@ ubuntu_2004_cis_require_ssh_server: true
 # Variable to store strong Ciphers for SSH daemon.
 ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 
+# Variable to store strong MAC Algorithms for SSH daemon.
+ubuntu_2004_cis_require_ssh_macs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

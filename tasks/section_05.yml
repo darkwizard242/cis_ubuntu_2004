@@ -185,7 +185,6 @@
       notify:
         - sshd restart
 
-
     - name: "5.2.2 | Ensure permissions on SSH private host key files are configured (Automated) | Set permissions for SSH private host keys"
       command: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_permissions_command }}"
       notify:

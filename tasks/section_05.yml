@@ -114,8 +114,8 @@
 
     - name: "5.1.8 | Ensure cron is restricted to authorized users (Automated) | Remove cron.deny"
       file:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_path }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_state }}"
+        path: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_path }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_state }}"
 
     - name: "5.1.8 | Ensure cron is restricted to authorized users (Automated) | Set cron.allow"
       template:
@@ -131,4 +131,28 @@
   tags:
     - section5
     - rule_5_1_8
+    - level_1
+
+- name: "5.1.9 | Ensure at is restricted to authorized users (Automated)"
+  block:
+
+    - name: "5.1.9 | Ensure at is restricted to authorized users (Automated) | Remove at.deny"
+      file:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_path }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_state }}"
+
+    - name: "5.1.9 | Ensure at is restricted to authorized users (Automated) | Set at.allow"
+      template:
+        src: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_source }}"
+        dest: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_dest }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allows_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_mode }}"
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_1_9
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_1_9
     - level_1

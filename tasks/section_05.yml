@@ -341,3 +341,23 @@
     - section5
     - rule_5_2_9
     - level_1
+
+- name: "5.2.10 | Ensure SSH PermitEmptyPasswords is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_2_10
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_2_10
+    - level_1

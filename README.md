@@ -126,6 +126,9 @@ Along with the above mentioned explanation for some variables, there are also ot
 # Set to `false` if SSH daemon is not required.
 ubuntu_2004_cis_require_ssh_server: true
 
+# Variable to store strong Ciphers for SSH daemon.
+ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

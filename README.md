@@ -132,6 +132,9 @@ ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@op
 # Variable to store strong MAC Algorithms for SSH daemon.
 ubuntu_2004_cis_require_ssh_macs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 
+# Variable to store strong Key Exchange Algorithms for SSH daemon.
+ubuntu_2004_cis_require_ssh_kexalgorithms: curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

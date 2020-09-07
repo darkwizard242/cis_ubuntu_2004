@@ -116,6 +116,7 @@
       file:
         path: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_path }}"
         state: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_state }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_mode }}"
 
     - name: "5.1.8 | Ensure cron is restricted to authorized users (Automated) | Set cron.allow"
       template:
@@ -140,6 +141,7 @@
       file:
         path: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_path }}"
         state: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_state }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_mode }}"
 
     - name: "5.1.9 | Ensure at is restricted to authorized users (Automated) | Set at.allow"
       template:

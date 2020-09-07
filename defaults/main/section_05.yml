@@ -72,6 +72,7 @@ ubuntu_2004_cis_section5_rule_5_1_8: true
 
 ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_path: /etc/cron.deny
 ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_state: absent
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_mode: '0640'
 ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_source: section_05/5.1.8.cron.allow.j2
 ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_dest: /etc/cron.allow
 ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allows_owner: root
@@ -83,6 +84,7 @@ ubuntu_2004_cis_section5_rule_5_1_9: true
 
 ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_path: /etc/at.deny
 ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_state: absent
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_mode: '0640'
 ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_source: section_05/5.1.9.at.allow.j2
 ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_dest: /etc/at.allow
 ubuntu_2004_cis_section5_rule_5_1_9_params_at_allows_owner: root

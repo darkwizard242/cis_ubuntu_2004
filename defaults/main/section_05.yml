@@ -122,3 +122,14 @@ ubuntu_2004_cis_section5_rule_5_2_4_params_state: present
 ubuntu_2004_cis_section5_rule_5_2_4_params_owner: root
 ubuntu_2004_cis_section5_rule_5_2_4_params_group: root
 ubuntu_2004_cis_section5_rule_5_2_4_params_mode: '0600'
+
+# Variables for 5.2.5
+ubuntu_2004_cis_section5_rule_5_2_5: true
+
+ubuntu_2004_cis_section5_rule_5_2_5_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_5_params_line: X11Forwarding no
+ubuntu_2004_cis_section5_rule_5_2_5_params_regexp: ^X11Forwarding.*
+ubuntu_2004_cis_section5_rule_5_2_5_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_5_params_mode: '0600'

@@ -70,3 +70,9 @@
     name: systemd-journald
     enabled: yes
     state: restarted
+
+- name: sshd restart
+  systemd:
+    name: sshd
+    enabled: yes
+    state: restarted

@@ -108,3 +108,27 @@
     - section5
     - rule_5_1_7
     - level_1
+
+- name: "5.1.8 | Ensure cron is restricted to authorized users (Automated)"
+  block:
+
+    - name: "5.1.8 | Ensure cron is restricted to authorized users (Automated) | Remove cron.deny"
+      file:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_path }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_1_7_params_state }}"
+
+    - name: "5.1.8 | Ensure cron is restricted to authorized users (Automated) | Set cron.allow"
+      template:
+        src: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_source }}"
+        dest: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_dest }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allows_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_mode }}"
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_1_8
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_1_8
+    - level_1

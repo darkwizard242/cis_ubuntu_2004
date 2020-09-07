@@ -1,57 +1,57 @@
 # IN DEVELOPMENT :lock::no_entry:
 
-[![Build Status](https://travis-ci.com/darkwizard242/cis-ubuntu-20.04.svg?branch=feature_cis-ubuntu-20.04-development)](https://travis-ci.com/darkwizard242/cis-ubuntu-20.04)![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/cis-ubuntu-20.04?color=orange&style=flat-square)
+[![Build Status](https://travis-ci.com/darkwizard242/cis_ubuntu_2004.svg?branch=feature_cis_ubuntu_2004-development)](https://travis-ci.com/darkwizard242/cis_ubuntu_2004)![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/cis_ubuntu_2004?color=orange&style=flat-square)
 
-# Ansible Role: cis-ubuntu-20.04
+# Ansible Role: cis_ubuntu_2004
 
 Ansible Role for applying **CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0**.
 
 ## 1\. Installation/Download Instructions:
 
-This role is available on Ansible Galaxy. There are a few methods you can utilize to install/download the `cis-ubuntu-20.04` role on your Ansible Controller node either from Ansible Galaxy or directly from the repository.
+This role is available on Ansible Galaxy. There are a few methods you can utilize to install/download the `cis_ubuntu_2004` role on your Ansible Controller node either from Ansible Galaxy or directly from the repository.
 
 ### Without a requirements.yml file:
 
 - Installing/Downloading latest (default) available tag version:
 
   ```shell
-  ansible-galaxy install darkwizard242.cis-ubuntu-20.04
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004
   ```
 
 - Installing/Downloading specific available tag version (using 1.0.0 as an example):
 
   ```shell
-  ansible-galaxy install darkwizard242.cis-ubuntu-20.04,1.0.0
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,1.0.0
   ```
 
 - Installing/Downloading specific available branch version from repository (using master branch as an example):
 
   ```shell
-  ansible-galaxy install darkwizard242.cis-ubuntu-20.04,master
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,master
   ```
 
 ### With a requirements.yml file:
 
-Add to an existing **requirements.yml** file along with your other roles or create a new one to install `cis-ubuntu-20.04`.
+Add to an existing **requirements.yml** file along with your other roles or create a new one to install `cis_ubuntu_2004`.
 
 - Latest version directly from Ansible Galaxy.
 
   ```yaml
-  - name: darkwizard242.cis-ubuntu-20.04
+  - name: darkwizard242.cis_ubuntu_2004
   ```
 
 - Specific version directly from Ansible Galaxy.
 
   ```yaml
-  - name: darkwizard242.cis-ubuntu-20.04
+  - name: darkwizard242.cis_ubuntu_2004
     version: 1.0.0
   ```
 
 - Specific branch from repository.
 
   ```yaml
-  - name: cis-ubuntu-20.04
-    src: https://github.com/darkwizard242/cis-ubuntu-20.04
+  - name: cis_ubuntu_2004
+    src: https://github.com/darkwizard242/cis_ubuntu_2004
     version: master
   ```
 
@@ -94,7 +94,7 @@ None.
 
 Role default variables being utilized in role tasks are located in `defaults/main/`.
 
-[defaults/main/main.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/main.yml) consists of variables referring to the entire CIS sections such as the following:
+[defaults/main/main.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/main.yml) consists of variables referring to the entire CIS sections such as the following:
 
 ```yaml
 ubuntu_2004_cis_section1: true
@@ -105,16 +105,16 @@ ubuntu_2004_cis_section5: true
 ubuntu_2004_cis_section6: true
 ```
 
-The purpose of above mentioned variables is to indicate that all of tasks pertaining to these sections should be applied through `cis-ubuntu-20.04` role.
+The purpose of above mentioned variables is to indicate that all of tasks pertaining to these sections should be applied through `cis_ubuntu_2004` role.
 
 Variables for each of the sections are located in their own files.
 
-- Section 1 variables are in [defaults/main/section_01.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_01.yml)
-- Section 2 variables are in [defaults/main/section_02.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_02.yml)
-- Section 3 variables are in [defaults/main/section_03.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_03.yml)
-- Section 4 variables are in [defaults/main/section_04.yml](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/defaults/main/section_04.yml)
+- Section 1 variables are in [defaults/main/section_01.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/section_01.yml)
+- Section 2 variables are in [defaults/main/section_02.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/section_02.yml)
+- Section 3 variables are in [defaults/main/section_03.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/section_03.yml)
+- Section 4 variables are in [defaults/main/section_04.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/defaults/main/section_04.yml)
 
-Role default values for everything in the `cis-ubuntu-20.04` role can be superseded via passing them in a playbook or any other [variable precedence method](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable).
+Role default values for everything in the `cis_ubuntu_2004` role can be superseded via passing them in a playbook or any other [variable precedence method](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable).
 
 - ### Important variables
 
@@ -174,7 +174,7 @@ None
 
 ## License
 
-[MIT](https://github.com/darkwizard242/cis-ubuntu-20.04/blob/master/LICENSE)
+[MIT](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/LICENSE)
 
 ## Author Information
 

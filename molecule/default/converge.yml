@@ -34,3 +34,6 @@
     ubuntu_2004_cis_at_allow_users:
       - root
       - ubuntu
+
+    # To disable task for strong ciphers as it breaks weak ciphers from vagrant's SSH connection.
+    ubuntu_2004_cis_section5_rule_5_2_12: false

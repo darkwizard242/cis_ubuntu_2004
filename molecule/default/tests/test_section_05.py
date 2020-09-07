@@ -351,3 +351,43 @@ def test_5_1_9_at_allow_group(host):
     Tests if /etc/at.allow is owned by group root
     """
     assert host.file(AT_ALLOW).group == 'root'
+
+
+def test_5_2_1_sshd_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if /etc/ssh/sshd_config file exists
+    """
+    assert host.file(SSHD_CONFIG).exists
+
+
+def test_5_2_1_sshd_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if /etc/ssh/sshd_config is a file
+    """
+    assert host.file(SSHD_CONFIG).is_file
+
+
+def test_5_2_1_sshd_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if /etc/ssh/sshd_config has 0600 mode
+    """
+    assert host.file(SSHD_CONFIG).mode == 0o600
+
+
+def test_5_2_1_sshd_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if /etc/ssh/sshd_config is owned by user root
+    """
+    assert host.file(SSHD_CONFIG).user == 'root'
+
+
+def test_5_2_1_sshd_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if /etc/ssh/sshd_config is owned by group root
+    """
+    assert host.file(SSHD_CONFIG).group == 'root'

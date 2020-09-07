@@ -15,6 +15,8 @@ ubuntu_2004_cis_require_ssh_server: true
 ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 ubuntu_2004_cis_require_ssh_macs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
 ubuntu_2004_cis_require_ssh_kexalgorithms: curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+ubuntu_2004_cis_require_ssh_clientaliveinterval: '300'
+ubuntu_2004_cis_require_ssh_clientalivecountmax: '3'
 ubuntu_2004_cis_require_ipv6: false
 ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.

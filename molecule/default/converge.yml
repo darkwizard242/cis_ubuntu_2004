@@ -39,4 +39,4 @@
     ubuntu_2004_cis_section5_rule_5_2_12: false
 
     # To disable task for strong MAC Algorithms as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_12: false
+    ubuntu_2004_cis_section5_rule_5_2_13: false

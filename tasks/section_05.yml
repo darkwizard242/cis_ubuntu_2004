@@ -166,6 +166,8 @@
     owner: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_owner }}"
     group: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_group }}"
     mode: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_mode }}"
+  notify:
+    - sshd restart
   when:
     - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_2_1

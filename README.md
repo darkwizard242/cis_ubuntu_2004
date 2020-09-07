@@ -121,51 +121,150 @@ Role default values for everything in the `cis_ubuntu_2004` role can be supersed
 CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can be exploited, have known vulnerabilities, result in an exposure of attack surface or should be disabled if not required. As per the benchmark, by default - all of these services will be purged and the value for their variables has been set to `false`. However, if you still require the use of these services for any reason, please change their values to `true` so that when applying the role in a playbook, the role tasks to _purge_ those services can be **skipped**.
 
 ```yaml
-ubuntu_2004_cis_require_ipv6: false # Set to `true` if IPv6 is required.
-ubuntu_2004_cis_require_wireless: false # Set to `true` if Wireless is required.
-ubuntu_2004_cis_require_router: false # Set to `true` if system is supposed to act as a router.
-ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.
-ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW git application profile to be configured and allowed.
-ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTP application profile to be configured and allowed.
-ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile: yes # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTPS application profile to be configured and allowed.
-ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming: true # IF 'ufw' is used, setting to 'true' will deny all incoming connections by default. Operates same as `ufw default deny incoming`. Set to `false` if you don't require this to be applied.
-ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: true  # IF 'ufw' is used, setting to 'true' will deny all outgoing connections by default. Operates same as `ufw default deny outgoing`. Set to `false` if you don't require this to be applied.
-ubuntu_2004_cis_section3_rule_ufw_default_deny_routed: true  # IF 'ufw' is used, setting to 'true' will deny all routed connections by default. Operates same as `ufw default deny routed`. Set to `false` if you don't require this to be applied.
-ubuntu_2004_cis_section3_rule_3_5_2_8: true # IF 'nftables' is used, setting to 'true' will deny all input/forward/output connections by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input: true # IF 'iptables' is used, setting to 'true' will deny all inbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output: true # IF 'iptables' is used, setting to 'true' will deny all outbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward: true # IF 'iptables' is used, setting to 'true' will deny all forward connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: true # IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all inbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: true # IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all outbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true # IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all forward connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
-ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
-ubuntu_2004_cis_auditd_backloglimit: '8192' # Auditd backlog limit to store sufficient records at boot time.
-ubuntu_2004_cis_auditd_maxlogfile: '25' # Log file size for auditd logs. Set as appropriate.
-ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs # Action to take when auditd logs have reached max size. Set as appropriate.
-ubuntu_2004_cis_auditd_spaceleftaction: email # Action to take for low space left for auditd. Set as appropriate.
-ubuntu_2004_cis_auditd_actionmailacct: root # Who to mail for auditd. Set as appropriate.
-ubuntu_2004_cis_auditd_adminspaceleftaction: halt # Option to halt when audit logs are full. Set as appropriate.
-ubuntu_2004_cis_require_xwindows_system: false # Set to `true` if X Windows System is required.
-ubuntu_2004_cis_require_cups: false # Set to `true` if CUPS is required.
-ubuntu_2004_cis_require_dhcp_server: false # Set to `true` if DHCP server is required.
-ubuntu_2004_cis_require_ldap_server: false # Set to `true` if LDAP server is required.
-ubuntu_2004_cis_require_nfs_server: false # Set to `true` if NFS server is required.
-ubuntu_2004_cis_require_dns_server: false # Set to `true` if DNS server is required.
-ubuntu_2004_cis_require_ftp_server: false # Set to `true` if FTP server is required.
-ubuntu_2004_cis_require_http_server: false # Set to `true` if HTTP (apache2) server is required.
-ubuntu_2004_cis_require_imap_pop3_server: false # Set to `true` if IMAP and POP3 servers are required.
-ubuntu_2004_cis_require_samba_server: false  # Set to `true` if Samba daemon is required.
-ubuntu_2004_cis_require_squid_server: false # Set to `true` if Squid server is required.
-ubuntu_2004_cis_require_snmp_server: false # Set to `true` if SNMP server is required.
-ubuntu_2004_cis_require_mail_server: true # Set's postfix to act in local-only mode.
-ubuntu_2004_cis_require_rsyncd_server: false # Set to `true` if RSYNC is required.
-ubuntu_2004_cis_require_nis_server: false # Set to `true` if NIS server is required.
-ubuntu_2004_cis_require_nis_client: false # Set to `true` if NIS client is required.
-ubuntu_2004_cis_require_rsh_client: false # Set to `true` if RSH client is required.
-ubuntu_2004_cis_require_talk_client: false # Set to `true` if TALK client is required.
-ubuntu_2004_cis_require_telnet_client: false # Set to `true` if TELNET client is required.
-ubuntu_2004_cis_require_ldap_client: false # Set to `true` if LDAP client is required.
-ubuntu_2004_cis_require_rpcbind_client: false # Set to `true` if RPCBIND client is required.
+# Set to `true` if IPv6 is required.
+ubuntu_2004_cis_require_ipv6: false
+
+# Set to `true` if Wireless is required.
+ubuntu_2004_cis_require_wireless: false
+
+# Set to `true` if system is supposed to act as a router.
+ubuntu_2004_cis_require_router: false
+
+# can be one of 'iptables' or 'nftables' or 'ufw'.
+ubuntu_2004_cis_firewall: ufw
+
+# IF 'ufw' is used, setting to 'yes' allows for a UFW git application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile: yes
+
+# IF 'ufw' is used, setting to 'yes' allows for a UFW HTTP application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile: yes
+
+# IF 'ufw' is used, setting to 'yes' allows for a UFW HTTPS application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile: yes
+
+# IF 'ufw' is used, setting to 'true' will deny all incoming connections by default. Operates same as `ufw default deny incoming`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming: true
+
+# IF 'ufw' is used, setting to 'true' will deny all outgoing connections by default. Operates same as `ufw default deny outgoing`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: true
+
+# IF 'ufw' is used, setting to 'true' will deny all routed connections by default. Operates same as `ufw default deny routed`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_ufw_default_deny_routed: true
+
+# IF 'nftables' is used, setting to 'true' will deny all input/forward/output connections by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_3_5_2_8: true
+
+# IF 'iptables' is used, setting to 'true' will deny all inbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input: true
+
+# IF 'iptables' is used, setting to 'true' will deny all outbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output: true
+
+# IF 'iptables' is used, setting to 'true' will deny all forward connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward: true
+
+# IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all inbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: true
+
+# IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all outbound connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: true
+
+# IF 'iptables' is used and ipv6 is enabled, setting to 'true' will deny all forward connections on ipv4 by default, leaving the system unreachable. Set to `false` if you don't require this to be applied or to lose connectivity.
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true
+
+# can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
+ubuntu_2004_cis_time_synchronization: systemd-timesyncd
+
+# Auditd backlog limit to store sufficient records at boot time.
+ubuntu_2004_cis_auditd_backloglimit: '8192'
+
+# Log file size for auditd logs. Set as appropriate.
+ubuntu_2004_cis_auditd_maxlogfile: '25'
+
+# Action to take when auditd logs have reached max size. Set as appropriate.
+ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs
+
+# Action to take for low space left for auditd. Set as appropriate.
+ubuntu_2004_cis_auditd_spaceleftaction: email
+
+# Who to mail for auditd. Set as appropriate.
+ubuntu_2004_cis_auditd_actionmailacct: root
+
+# Option to halt when audit logs are full. Set as appropriate.
+ubuntu_2004_cis_auditd_adminspaceleftaction: halt
+
+# Users allowed to schedule cronjobs.
+ubuntu_2004_cis_cron_allow_users:
+  - root
+  - ubuntu
+
+# Users allowed to use 'at' to schedule jobs.
+ubuntu_2004_cis_at_allow_users:
+  - root
+  - ubuntu
+
+# Set to `true` if X Windows System is required.
+ubuntu_2004_cis_require_xwindows_system: false
+
+# Set to `true` if CUPS is required.
+ubuntu_2004_cis_require_cups: false
+
+# Set to `true` if DHCP server is required.
+ubuntu_2004_cis_require_dhcp_server: false
+
+# Set to `true` if LDAP server is required.
+ubuntu_2004_cis_require_ldap_server: false
+
+# Set to `true` if NFS server is required.
+ubuntu_2004_cis_require_nfs_server: false
+
+# Set to `true` if DNS server is required.
+ubuntu_2004_cis_require_dns_server: false
+
+# Set to `true` if FTP server is required.
+ubuntu_2004_cis_require_ftp_server: false
+
+# Set to `true` if HTTP (apache2) server is required.
+ubuntu_2004_cis_require_http_server: false
+
+# Set to `true` if IMAP and POP3 servers are required.
+ubuntu_2004_cis_require_imap_pop3_server: false
+
+# Set to `true` if Samba daemon is required.
+ubuntu_2004_cis_require_samba_server: false
+
+# Set to `true` if Squid server is required.
+ubuntu_2004_cis_require_squid_server: false
+
+# Set to `true` if SNMP server is required.
+ubuntu_2004_cis_require_snmp_server: false
+
+# Set's postfix to act in local-only mode.
+ubuntu_2004_cis_require_mail_server: true
+
+# Set to `true` if RSYNC is required.
+ubuntu_2004_cis_require_rsyncd_server: false
+
+# Set to `true` if NIS server is required.
+ubuntu_2004_cis_require_nis_server: false
+
+# Set to `true` if NIS client is required.
+ubuntu_2004_cis_require_nis_client: false
+
+# Set to `true` if RSH client is required.
+ubuntu_2004_cis_require_rsh_client: false
+
+# Set to `true` if TALK client is required.
+ubuntu_2004_cis_require_talk_client: false
+
+# Set to `true` if TELNET client is required.
+ubuntu_2004_cis_require_telnet_client: false
+
+# Set to `true` if LDAP client is required.
+ubuntu_2004_cis_require_ldap_client: false
+
+# Set to `true` if RPCBIND client is required.
+ubuntu_2004_cis_require_rpcbind_client: false
 ```
 
 ## 5\. Dependencies

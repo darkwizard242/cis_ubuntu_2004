@@ -21,6 +21,9 @@ ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs
 ubuntu_2004_cis_auditd_spaceleftaction: email
 ubuntu_2004_cis_auditd_actionmailacct: root
 ubuntu_2004_cis_auditd_adminspaceleftaction: halt
+ubuntu_2004_cis_cron_allow_users:
+  - root
+  - ubuntu
 ubuntu_2004_cis_require_xwindows_system: false
 ubuntu_2004_cis_require_cups: false
 ubuntu_2004_cis_require_dhcp_server: false

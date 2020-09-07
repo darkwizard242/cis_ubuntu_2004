@@ -24,6 +24,9 @@ ubuntu_2004_cis_auditd_adminspaceleftaction: halt
 ubuntu_2004_cis_cron_allow_users:
   - root
   - ubuntu
+ubuntu_2004_cis_at_allow_users:
+  - root
+  - ubuntu
 ubuntu_2004_cis_require_xwindows_system: false
 ubuntu_2004_cis_require_cups: false
 ubuntu_2004_cis_require_dhcp_server: false

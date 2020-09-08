@@ -46,3 +46,6 @@
 
     # To disable task for SSH Idle Timeout Interval as it breaks molecule/vagrant's SSH connection.
     ubuntu_2004_cis_section5_rule_5_2_15: false
+
+    # To disable task for SSH LoginGraceTime as it breaks molecule/vagrant's SSH connection.
+    ubuntu_2004_cis_section5_rule_5_2_16: false

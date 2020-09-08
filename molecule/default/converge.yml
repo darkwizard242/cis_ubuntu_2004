@@ -34,18 +34,3 @@
     ubuntu_2004_cis_at_allow_users:
       - root
       - ubuntu
-
-    # To disable task for strong ciphers as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_12: false
-
-    # To disable task for strong MAC Algorithms as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_13: false
-
-    # To disable task for strong Key Exchange Algorithms as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_14: false
-
-    # To disable task for SSH Idle Timeout Interval as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_15: false
-
-    # To disable task for SSH LoginGraceTime as it breaks molecule/vagrant's SSH connection.
-    ubuntu_2004_cis_section5_rule_5_2_16: false

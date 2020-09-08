@@ -144,6 +144,18 @@ ubuntu_2004_cis_require_ssh_clientalivecountmax: '3'
 # Variable to store Login Grace Time in seconds for SSH daemon.
 ubuntu_2004_cis_require_ssh_logingracetime: '60'
 
+# Variable to store AllowUsers for SSH daemon.
+ubuntu_2004_cis_require_ssh_allowusers: root ubuntu vagrant
+
+# Variable to store AllowGroups for SSH daemon.
+ubuntu_2004_cis_require_ssh_allowgroups: root ubuntu vagrant
+
+# Variable to store DenyUsers for SSH daemon.
+ubuntu_2004_cis_require_ssh_denyusers: bogus
+
+# Variable to store DenyGroups for SSH daemon.
+ubuntu_2004_cis_require_ssh_denygroups: bogus
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

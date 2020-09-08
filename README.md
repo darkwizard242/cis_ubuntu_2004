@@ -141,6 +141,9 @@ ubuntu_2004_cis_require_ssh_clientaliveinterval: '300'
 # Variable to store number of Client Alive Count Max for SSH daemon.
 ubuntu_2004_cis_require_ssh_clientalivecountmax: '3'
 
+# Variable to store Login Grace Time in seconds for SSH daemon.
+ubuntu_2004_cis_require_ssh_logingracetime: '60'
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

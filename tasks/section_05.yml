@@ -477,3 +477,23 @@
     - section5
     - rule_5_2_15
     - level_1
+
+- name: "5.2.16 | Ensure SSH LoginGraceTime is set to one minute or less (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_2_16
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_2_16
+    - level_1

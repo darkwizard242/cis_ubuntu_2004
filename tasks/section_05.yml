@@ -497,3 +497,63 @@
     - section5
     - rule_5_2_16
     - level_1
+
+- name: "5.2.17 | Ensure SSH access is limited (Automated)"
+  block:
+
+    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure AllowUsers"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure AllowGroups"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure DenyUsers"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure DenyGroups"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
+      notify:
+        - sshd restart
+
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_2_17
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_2_17
+    - level_1

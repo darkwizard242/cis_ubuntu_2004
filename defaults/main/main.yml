@@ -18,6 +18,10 @@ ubuntu_2004_cis_require_ssh_kexalgorithms: curve25519-sha256,curve25519-sha256@l
 ubuntu_2004_cis_require_ssh_clientaliveinterval: '300'
 ubuntu_2004_cis_require_ssh_clientalivecountmax: '3'
 ubuntu_2004_cis_require_ssh_logingracetime: '60'
+ubuntu_2004_cis_require_ssh_allowusers: root ubuntu vagrant
+ubuntu_2004_cis_require_ssh_allowgroups: root ubuntu vagrant
+ubuntu_2004_cis_require_ssh_denyusers: bogus
+ubuntu_2004_cis_require_ssh_denygroups: bogus
 ubuntu_2004_cis_require_ipv6: false
 ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.

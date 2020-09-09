@@ -156,6 +156,13 @@ ubuntu_2004_cis_require_ssh_denyusers: bogus dummy
 # Variable to store DenyGroups for SSH daemon.
 ubuntu_2004_cis_require_ssh_denygroups: bogus dummy
 
+# Variable to store minimum length and characters class for pam password quality.
+ubuntu_2004_cis_require_pam_pwquality:
+  - key: 'minlen'
+    value: '14'
+  - key: 'minclass'
+    value: '4'
+
 # Set to `true` if IPv6 is required.
 ubuntu_2004_cis_require_ipv6: false
 

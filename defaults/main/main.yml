@@ -29,6 +29,7 @@ ubuntu_2004_cis_require_pam_pwquality:
     value: '4'
 ubuntu_2004_cis_require_passmaxdays: '365'
 ubuntu_2004_cis_require_passmindays: '1'
+ubuntu_2004_cis_require_passwarnage: '7'
 ubuntu_2004_cis_require_ipv6: false
 ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.

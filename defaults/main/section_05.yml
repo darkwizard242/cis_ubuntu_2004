@@ -403,3 +403,14 @@ ubuntu_2004_cis_section5_rule_5_4_1_1_params_state: present
 ubuntu_2004_cis_section5_rule_5_4_1_1_params_owner: root
 ubuntu_2004_cis_section5_rule_5_4_1_1_params_group: root
 ubuntu_2004_cis_section5_rule_5_4_1_1_params_mode: '0644'
+
+# Variables for 5.4.1.2
+ubuntu_2004_cis_section5_rule_5_4_1_2: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_path: /etc/login.defs
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_line: "PASS_MIN_DAYS {{ ubuntu_2004_cis_require_passmindays }}"
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_regexp: ^PASS_MIN_DAYS.*
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_mode: '0644'

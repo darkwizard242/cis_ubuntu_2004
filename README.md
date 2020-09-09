@@ -123,6 +123,15 @@ CIS Ubuntu 20.04 hardening benchmarks require purging of many services that can 
 Along with the above mentioned explanation for some variables, there are also other variables that define whether a specific service is desired on the system or not (for e.g. SSH daemon), parameters for configuration of various tools (for e.g. auditd) etc. These can also be overridden in a playbook.
 
 ```yaml
+# Set to `true` if IPv6 is required.
+ubuntu_2004_cis_require_ipv6: false
+
+# Set to `true` if Wireless is required.
+ubuntu_2004_cis_require_wireless: false
+
+# Set to `true` if system is supposed to act as a router.
+ubuntu_2004_cis_require_router: false
+
 # Set to `false` if SSH daemon is not required.
 ubuntu_2004_cis_require_ssh_server: true
 
@@ -163,14 +172,8 @@ ubuntu_2004_cis_require_pam_pwquality:
   - key: 'minclass'
     value: '4'
 
-# Set to `true` if IPv6 is required.
-ubuntu_2004_cis_require_ipv6: false
-
-# Set to `true` if Wireless is required.
-ubuntu_2004_cis_require_wireless: false
-
-# Set to `true` if system is supposed to act as a router.
-ubuntu_2004_cis_require_router: false
+# Variable to store value of PASS_MAX_DAYS for password expiration.
+ubuntu_2004_cis_require_passmaxdays: '365'
 
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw

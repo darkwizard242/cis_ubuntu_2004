@@ -175,6 +175,9 @@ ubuntu_2004_cis_require_pam_pwquality:
 # Variable to store value of PASS_MAX_DAYS for password expiration.
 ubuntu_2004_cis_require_passmaxdays: '365'
 
+# Variable to store value of PASS_MIN_DAYS for password change.
+ubuntu_2004_cis_require_passmindays: '1'
+
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw
 

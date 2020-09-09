@@ -178,8 +178,11 @@ ubuntu_2004_cis_require_passmaxdays: '365'
 # Variable to store value of PASS_MIN_DAYS for password change.
 ubuntu_2004_cis_require_passmindays: '1'
 
-# Variable to store value of PASS_WARN_AGE for setting password expiration alert in number of days.
+# Variable to store value of INACTIVE to set set the default password inactivity period to 30 days.
 ubuntu_2004_cis_require_passwarnage: '7'
+
+# Variable to store value of PASS_WARN_AGE for setting password expiration alert in number of days.
+ubuntu_2004_cis_require_passinactive: '30'
 
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw

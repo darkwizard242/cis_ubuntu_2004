@@ -16,6 +16,7 @@ CRON_D = "/etc/cron.d"
 CRON_ALLOW = "/etc/cron.allow"
 AT_ALLOW = "/etc/at.allow"
 SSHD_CONFIG = "/etc/ssh/sshd_config"
+PAM_PWQUALITY = "libpam-pwquality"
 
 
 def test_5_1_1_cron_service_is_running(host):
@@ -392,3 +393,11 @@ def test_5_2_1_sshd_group(host):
     Tests if /etc/ssh/sshd_config is owned by group root
     """
     assert host.file(SSHD_CONFIG).group == 'root'
+
+
+def test_5_3_1_libpam_pwquality_installed(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.3.1
+    Tests if libpam-pwquality is installed
+    """
+    assert host.package(PAM_PWQUALITY).is_installed

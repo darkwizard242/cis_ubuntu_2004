@@ -657,3 +657,41 @@
     - section5
     - rule_5_2_22
     - level_1
+
+- name: "5.3.1 | Ensure password creation requirements are configured (Automated)"
+  block:
+
+    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Install libpam-pwquality"
+      apt:
+        name: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_package_name }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_package_state }}"
+
+    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/security/pwquality.conf"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_path }}"
+        line: "{{ item.key }} = {{ item.value }}"
+        regexp: "^{{ item.key }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_mode }}"
+      with_items:
+        - "{{ ubuntu_2004_cis_require_pam_pwquality }}"
+
+    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/pam.d/common-password"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_mode }}"
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_3_1
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_1
+    - level_1

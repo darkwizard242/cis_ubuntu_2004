@@ -895,3 +895,34 @@
     - section5
     - rule_5_4_3
     - level_1
+
+- name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated)"
+  block:
+
+    - name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in /etc/login.defs"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_mode }}"
+
+    - name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in login.defs in /etc/pam.d/common-session"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_mode }}"
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_4_4
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_4_4
+    - level_1

@@ -848,3 +848,36 @@
     - section5
     - rule_5_4_1_5
     - level_1
+
+- name: "5.4.2 | Ensure system accounts are secured (Automated)"
+  block:
+
+    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #1"
+      shell: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_shell }}"
+      args:
+        executable: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_executable }}"
+      register: ubuntu_2004_cis_section5_rule_5_4_2_audit1
+      changed_when: false
+
+    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #2"
+      shell: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_shell }}"
+      args:
+        executable: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_executable }}"
+      register: ubuntu_2004_cis_section5_rule_5_4_2_audit2
+      changed_when: false
+
+    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Remediation"
+      shell: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_shell }}"
+      args:
+        executable: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_executable }}"
+      when:
+        - ubuntu_2004_cis_section5_rule_5_4_2_audit1 | length > 0
+        - ubuntu_2004_cis_section5_rule_5_4_2_audit2 | length > 0
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_4_2
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_4_2
+    - level_1

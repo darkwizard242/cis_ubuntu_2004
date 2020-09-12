@@ -10,8 +10,10 @@ AUDIT_SYSTEM_SCRIPT = "/usr/local/bin/6_1_1_cis_audit_system.sh"
 ETC_PASSWD = "/etc/passwd"
 ETC_GSHADOW_DASH = "/etc/gshadow-"
 ETC_SHADOW = "/etc/shadow"
+ETC_GROUP = "/etc/group"
 ETC_PASSWD_DASH = "/etc/passwd-"
 ETC_SHADOW_DASH = "/etc/shadow-"
+ETC_GROUP_DASH = "/etc/group-"
 
 
 def test_6_1_1_script_exists(host):
@@ -291,3 +293,43 @@ def test_6_1_7_etc_shadow_dash_group(host):
     Tests if /etc/shadow- is owned by group root
     """
     assert host.file(ETC_SHADOW_DASH).group == 'root'
+
+
+def test_6_1_8_etc_group_dash_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/group- file exists
+    """
+    assert host.file(ETC_GROUP_DASH).exists
+
+
+def test_6_1_8_etc_group_dash_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/group- is a file
+    """
+    assert host.file(ETC_GROUP_DASH).is_file
+
+
+def test_6_1_8_etc_group_dash_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/group- has 0644 mode
+    """
+    assert host.file(ETC_GROUP_DASH).mode == 0o644
+
+
+def test_6_1_8_etc_group_dash_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/group- is owned by user root
+    """
+    assert host.file(ETC_GROUP_DASH).user == 'root'
+
+
+def test_6_1_8_etc_group_dash_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/group- is owned by group root
+    """
+    assert host.file(ETC_GROUP_DASH).group == 'root'

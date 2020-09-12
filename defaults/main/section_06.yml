@@ -14,3 +14,12 @@ ubuntu_2004_cis_section6_rule_6_1_1_params_cron_name: "Performs check for 6.1.1 
 ubuntu_2004_cis_section6_rule_6_1_1_params_cron_job: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_dest }}"
 ubuntu_2004_cis_section6_rule_6_1_1_params_cron_user: root
 ubuntu_2004_cis_section6_rule_6_1_1_params_cron_time: daily
+
+# Variables for 6.1.2
+ubuntu_2004_cis_section6_rule_6_1_2: true
+
+ubuntu_2004_cis_section6_rule_6_1_2_params_path: /etc/passwd
+ubuntu_2004_cis_section6_rule_6_1_2_params_state: file
+ubuntu_2004_cis_section6_rule_6_1_2_params_owner: root
+ubuntu_2004_cis_section6_rule_6_1_2_params_group: root
+ubuntu_2004_cis_section6_rule_6_1_2_params_mode: '0644'

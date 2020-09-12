@@ -1,0 +1,28 @@
+---
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 6 BENCHMARKS
+
+- name: "6.1.1 | Audit system file permissions (Manual)"
+  block:
+
+    - name: "6.1.1 | Audit system file permissions (Manual) | Propagate Template"
+      template:
+        src: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_source }}"
+        dest: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_dest }}"
+        owner: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_owner }}"
+        group: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_group }}"
+        mode: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_template_mode }}"
+
+    - name: "6.1.1 | Audit system file permissions (Manual) | Set Cron"
+      cron:
+        name: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_cron_name }}"
+        job: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_cron_job }}"
+        user: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_cron_user }}"
+        special_time: "{{ ubuntu_2004_cis_section6_rule_6_1_1_params_cron_time }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_1
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_1
+    - level_2

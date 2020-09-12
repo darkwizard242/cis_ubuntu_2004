@@ -50,3 +50,12 @@ ubuntu_2004_cis_section6_rule_6_1_5_params_state: file
 ubuntu_2004_cis_section6_rule_6_1_5_params_owner: root
 ubuntu_2004_cis_section6_rule_6_1_5_params_group: root
 ubuntu_2004_cis_section6_rule_6_1_5_params_mode: '0644'
+
+# Variables for 6.1.6
+ubuntu_2004_cis_section6_rule_6_1_6: true
+
+ubuntu_2004_cis_section6_rule_6_1_6_params_path: /etc/passwd-
+ubuntu_2004_cis_section6_rule_6_1_6_params_state: file
+ubuntu_2004_cis_section6_rule_6_1_6_params_owner: root
+ubuntu_2004_cis_section6_rule_6_1_6_params_group: root
+ubuntu_2004_cis_section6_rule_6_1_6_params_mode: '0644'

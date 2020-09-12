@@ -7,6 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 AUDIT_SYSTEM_SCRIPT = "/usr/local/bin/6_1_1_cis_audit_system.sh"
+ETC_PASSWD = "/etc/passwd"
 
 
 def test_6_1_1_script_exists(host):
@@ -47,3 +48,43 @@ def test_6_1_1_script_group(host):
     Tests if /usr/local/bin/6_1_1_cis_audit_system.sh is owned by group root
     """
     assert host.file(AUDIT_SYSTEM_SCRIPT).group == 'root'
+
+
+def test_6_1_2_etc_passwd_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.2
+    Tests if /etc/passwd file exists
+    """
+    assert host.file(ETC_PASSWD).exists
+
+
+def test_6_1_2_etc_passwd_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.2
+    Tests if /etc/passwd is a file
+    """
+    assert host.file(ETC_PASSWD).is_file
+
+
+def test_6_1_2_etc_passwd_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.2
+    Tests if /etc/passwd has 0644 mode
+    """
+    assert host.file(ETC_PASSWD).mode == 0o644
+
+
+def test_6_1_2_etc_passwd_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.2
+    Tests if /etc/passwd is owned by user root
+    """
+    assert host.file(ETC_PASSWD).user == 'root'
+
+
+def test_6_1_2_etc_passwd_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.2
+    Tests if /etc/passwd is owned by group root
+    """
+    assert host.file(ETC_PASSWD).group == 'root'

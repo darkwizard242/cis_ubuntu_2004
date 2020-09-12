@@ -1,0 +1,20 @@
+#!/bin/bash -e
+
+# {{ ansible_managed }}
+
+echo -e "\n-----------------\n" >> {{ ubuntu_2004_cis_require_audit_system_file_permissions_logfile }}
+
+EXECUTION_TIME_START=$(date)
+
+echo -e "Check Time Start: ${EXECUTION_TIME_START}\n" >> {{ ubuntu_2004_cis_require_audit_system_file_permissions_logfile }}
+
+for PACKAGE_NAME in $(dpkg-query -f '${binary:Package}\n' -W);
+do
+  dpkg --verify ${PACKAGE_NAME} >> {{ ubuntu_2004_cis_require_audit_system_file_permissions_logfile }}
+done
+
+EXECUTION_TIME_END=$(date)
+
+echo -e "\nCheck Time End: ${EXECUTION_TIME_END}"  >> {{ ubuntu_2004_cis_require_audit_system_file_permissions_logfile }}
+
+echo -e "\n-----------------\n" >> {{ ubuntu_2004_cis_require_audit_system_file_permissions_logfile }}

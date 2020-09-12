@@ -10,6 +10,7 @@ AUDIT_SYSTEM_SCRIPT = "/usr/local/bin/6_1_1_cis_audit_system.sh"
 ETC_PASSWD = "/etc/passwd"
 ETC_GSHADOW_DASH = "/etc/gshadow-"
 ETC_SHADOW = "/etc/shadow"
+ETC_PASSWD_DASH = "/etc/passwd-"
 
 
 def test_6_1_1_script_exists(host):
@@ -210,3 +211,43 @@ def test_6_1_5_etc_group_group(host):
     Tests if /etc/group is owned by group root
     """
     assert host.file(ETC_GROUP).group == 'root'
+
+
+def test_6_1_6_etc_group_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/passwd- file exists
+    """
+    assert host.file(ETC_PASSWD_DASH).exists
+
+
+def test_6_1_6_etc_group_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/passwd- is a file
+    """
+    assert host.file(ETC_PASSWD_DASH).is_file
+
+
+def test_6_1_6_etc_group_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/passwd- has 0644 mode
+    """
+    assert host.file(ETC_PASSWD_DASH).mode == 0o644
+
+
+def test_6_1_6_etc_group_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/passwd- is owned by user root
+    """
+    assert host.file(ETC_PASSWD_DASH).user == 'root'
+
+
+def test_6_1_6_etc_group_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/passwd- is owned by group root
+    """
+    assert host.file(ETC_PASSWD_DASH).group == 'root'

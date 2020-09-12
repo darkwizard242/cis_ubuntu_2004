@@ -77,3 +77,12 @@ ubuntu_2004_cis_section6_rule_6_1_8_params_state: file
 ubuntu_2004_cis_section6_rule_6_1_8_params_owner: root
 ubuntu_2004_cis_section6_rule_6_1_8_params_group: root
 ubuntu_2004_cis_section6_rule_6_1_8_params_mode: '0644'
+
+# Variables for 6.1.9
+ubuntu_2004_cis_section6_rule_6_1_9: true
+
+ubuntu_2004_cis_section6_rule_6_1_9_params_path: /etc/gshadow
+ubuntu_2004_cis_section6_rule_6_1_9_params_state: file
+ubuntu_2004_cis_section6_rule_6_1_9_params_owner: root
+ubuntu_2004_cis_section6_rule_6_1_9_params_group: root
+ubuntu_2004_cis_section6_rule_6_1_9_params_mode: '0640'

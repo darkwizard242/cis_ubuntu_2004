@@ -187,6 +187,9 @@ ubuntu_2004_cis_require_passinactive: '30'
 # Variable to store value of Shell Timeout in seconds.
 ubuntu_2004_cis_require_shell_timeout: '900'
 
+# Variable to store value of group name that will be required for the use of su execution.
+ubuntu_2004_cis_require_su_group: sugroup
+
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw
 

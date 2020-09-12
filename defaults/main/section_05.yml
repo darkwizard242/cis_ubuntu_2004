@@ -520,3 +520,17 @@ ubuntu_2004_cis_section5_rule_5_5_params_dest: /etc/securetty
 ubuntu_2004_cis_section5_rule_5_5_params_owner: root
 ubuntu_2004_cis_section5_rule_5_5_params_group: root
 ubuntu_2004_cis_section5_rule_5_5_params_mode: '0644'
+
+# Variables for 5.6
+ubuntu_2004_cis_section5_rule_5_6: true
+
+ubuntu_2004_cis_section5_rule_5_6_params_group_name: "{{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_6_params_group_state: present
+
+ubuntu_2004_cis_section5_rule_5_6_params_su_path: /etc/pam.d/su
+ubuntu_2004_cis_section5_rule_5_6_params_su_line: "auth required pam_wheel.so use_uid group={{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_6_params_su_regexp: ^auth.*required.*pam_wheel.*use_uid.*
+ubuntu_2004_cis_section5_rule_5_6_params_su_state: present
+ubuntu_2004_cis_section5_rule_5_6_params_su_owner: root
+ubuntu_2004_cis_section5_rule_5_6_params_su_group: root
+ubuntu_2004_cis_section5_rule_5_6_params_su_mode: '0644'

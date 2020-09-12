@@ -190,6 +190,9 @@ ubuntu_2004_cis_require_shell_timeout: '900'
 # Variable to store value of group name that will be required for the use of su execution.
 ubuntu_2004_cis_require_su_group: sugroup
 
+# Variable to store value log file to which the cron job execution propagates for 6.1.1 Audit system file permissions (Manual) task to review.
+ubuntu_2004_cis_require_audit_system_file_permissions_logfile: /var/log/6_1_1_cis_audit_system.log
+
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw
 

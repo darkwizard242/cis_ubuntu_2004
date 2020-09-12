@@ -4,8 +4,8 @@
 # Variables for 6.1.1
 ubuntu_2004_cis_section6_rule_6_1_1: true
 
-ubuntu_2004_cis_section6_rule_6_1_1_params_template_source: section_06/6.1.1.cis_audit_system_file_permissions.sh.j2
-ubuntu_2004_cis_section6_rule_6_1_1_params_template_dest: /usr/local/bin/6_1_1_cis_audit_system_file_permissions.sh
+ubuntu_2004_cis_section6_rule_6_1_1_params_template_source: section_06/6.1.1.cis_audit_system.sh.j2
+ubuntu_2004_cis_section6_rule_6_1_1_params_template_dest: /usr/local/bin/6_1_1_cis_audit_system.sh
 ubuntu_2004_cis_section6_rule_6_1_1_params_template_owner: root
 ubuntu_2004_cis_section6_rule_6_1_1_params_template_group: root
 ubuntu_2004_cis_section6_rule_6_1_1_params_template_mode: '0744'

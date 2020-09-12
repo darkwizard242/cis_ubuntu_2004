@@ -11,6 +11,7 @@ ETC_PASSWD = "/etc/passwd"
 ETC_GSHADOW_DASH = "/etc/gshadow-"
 ETC_SHADOW = "/etc/shadow"
 ETC_PASSWD_DASH = "/etc/passwd-"
+ETC_SHADOW_DASH = "/etc/shadow-"
 
 
 def test_6_1_1_script_exists(host):
@@ -251,3 +252,42 @@ def test_6_1_6_etc_group_group(host):
     Tests if /etc/passwd- is owned by group root
     """
     assert host.file(ETC_PASSWD_DASH).group == 'root'
+
+def test_6_1_7_etc_shadow_dash_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7
+    Tests if /etc/shadow- file exists
+    """
+    assert host.file(ETC_SHADOW_DASH).exists
+
+
+def test_6_1_7_etc_shadow_dash_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7
+    Tests if /etc/shadow- is a file
+    """
+    assert host.file(ETC_SHADOW_DASH).is_file
+
+
+def test_6_1_7_etc_shadow_dash_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7
+    Tests if /etc/shadow- has 0640 mode
+    """
+    assert host.file(ETC_SHADOW_DASH).mode == 0o640
+
+
+def test_6_1_7_etc_shadow_dash_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7
+    Tests if /etc/shadow- is owned by user root
+    """
+    assert host.file(ETC_SHADOW_DASH).user == 'root'
+
+
+def test_6_1_7_etc_shadow_dash_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7
+    Tests if /etc/shadow- is owned by group root
+    """
+    assert host.file(ETC_SHADOW_DASH).group == 'root'

@@ -101,3 +101,18 @@
     - section6
     - rule_6_1_6
     - level_1
+
+- name: "6.1.7 | Ensure permissions on /etc/shadow- are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section6_rule_6_1_7_params_path }}"
+    state: "{{ ubuntu_2004_cis_section6_rule_6_1_7_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section6_rule_6_1_7_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section6_rule_6_1_7_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section6_rule_6_1_7_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_7
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_7
+    - level_1

@@ -184,6 +184,9 @@ ubuntu_2004_cis_require_passwarnage: '7'
 # Variable to store value of PASS_WARN_AGE for setting password expiration alert in number of days.
 ubuntu_2004_cis_require_passinactive: '30'
 
+# Variable to store value of Shell Timeout in seconds.
+ubuntu_2004_cis_require_shell_timeout: '900'
+
 # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_firewall: ufw
 

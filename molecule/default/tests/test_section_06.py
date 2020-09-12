@@ -256,6 +256,7 @@ def test_6_1_6_etc_group_group(host):
     """
     assert host.file(ETC_PASSWD_DASH).group == 'root'
 
+
 def test_6_1_7_etc_shadow_dash_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.7

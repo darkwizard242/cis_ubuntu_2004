@@ -68,3 +68,12 @@ ubuntu_2004_cis_section6_rule_6_1_7_params_state: file
 ubuntu_2004_cis_section6_rule_6_1_7_params_owner: root
 ubuntu_2004_cis_section6_rule_6_1_7_params_group: root
 ubuntu_2004_cis_section6_rule_6_1_7_params_mode: '0640'
+
+# Variables for 6.1.8
+ubuntu_2004_cis_section6_rule_6_1_8: true
+
+ubuntu_2004_cis_section6_rule_6_1_8_params_path: /etc/group-
+ubuntu_2004_cis_section6_rule_6_1_8_params_state: file
+ubuntu_2004_cis_section6_rule_6_1_8_params_owner: root
+ubuntu_2004_cis_section6_rule_6_1_8_params_group: root
+ubuntu_2004_cis_section6_rule_6_1_8_params_mode: '0644'

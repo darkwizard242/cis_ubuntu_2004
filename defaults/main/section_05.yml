@@ -511,3 +511,12 @@ ubuntu_2004_cis_section5_rule_5_4_5_params_dest: /etc/profile.d/cis_tmout.sh
 ubuntu_2004_cis_section5_rule_5_4_5_params_owner: root
 ubuntu_2004_cis_section5_rule_5_4_5_params_group: root
 ubuntu_2004_cis_section5_rule_5_4_5_params_mode: '0755'
+
+# Variables for 5.5
+ubuntu_2004_cis_section5_rule_5_5: true
+
+ubuntu_2004_cis_section5_rule_5_5_params_source: section_05/5.5.etc.securetty.j2
+ubuntu_2004_cis_section5_rule_5_5_params_dest: /etc/securetty
+ubuntu_2004_cis_section5_rule_5_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_5_params_mode: '0644'

@@ -86,3 +86,18 @@
     - section6
     - rule_6_1_5
     - level_1
+
+- name: "6.1.6 | Ensure permissions on /etc/passwd- are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_path }}"
+    state: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_6
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_6
+    - level_1

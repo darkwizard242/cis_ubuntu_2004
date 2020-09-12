@@ -59,3 +59,12 @@ ubuntu_2004_cis_section6_rule_6_1_6_params_state: file
 ubuntu_2004_cis_section6_rule_6_1_6_params_owner: root
 ubuntu_2004_cis_section6_rule_6_1_6_params_group: root
 ubuntu_2004_cis_section6_rule_6_1_6_params_mode: '0644'
+
+# Variables for 6.1.7
+ubuntu_2004_cis_section6_rule_6_1_7: true
+
+ubuntu_2004_cis_section6_rule_6_1_7_params_path: /etc/shadow-
+ubuntu_2004_cis_section6_rule_6_1_7_params_state: file
+ubuntu_2004_cis_section6_rule_6_1_7_params_owner: root
+ubuntu_2004_cis_section6_rule_6_1_7_params_group: root
+ubuntu_2004_cis_section6_rule_6_1_7_params_mode: '0640'

@@ -213,3 +213,22 @@
     - section6
     - rule_6_1_13
     - level_1
+
+- name: "6.1.14 | Audit SGID executables (Manual)"
+  block:
+
+    - name: "6.1.14 | Audit SGID executables (Manual) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_1_14_params_script }}"
+      register: ungrouped_files_or_directories_list
+
+    - name: "6.1.14 | Audit SGID executables (Manual) | Printing files/directories that need manual remediation"
+      debug:
+        var: "{{ ungrouped_files_or_directories_list.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_14
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_14
+    - level_1

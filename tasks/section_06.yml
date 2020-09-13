@@ -156,3 +156,22 @@
     - section6
     - rule_6_1_10
     - level_1
+
+- name: "6.1.11 | Ensure no unowned files or directories exist (Automated)"
+  block:
+
+    - name: "6.1.11 | Ensure no unowned files or directories exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_1_11_params_script }}"
+      register: unowned_files_or_directories_list
+
+    - name: "6.1.11 | Ensure no unowned files or directories exist (Automated) | Printing files/directories that need manual remediation"
+      debug:
+        var: "{{ unowned_files_or_directories_list.stdout_lines  | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_11
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_11
+    - level_1

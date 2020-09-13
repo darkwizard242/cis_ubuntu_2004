@@ -837,7 +837,7 @@
       with_items:
         - "{{ users_list_that_have_password_last_change_date_in_future.stdout_lines }}"
       when:
-        - users_list_that_have_password_last_change_date_in_future | length > 0
+        - users_list_that_have_password_last_change_date_in_future | length > 3
 
   when:
     - ubuntu_2004_cis_section5_rule_5_4_1_5

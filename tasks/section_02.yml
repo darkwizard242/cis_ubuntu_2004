@@ -497,9 +497,7 @@
   block:
 
     - name: "2.4 | Ensure nonessential services are removed or masked (Manual) | check"
-      shell: "{{ ubuntu_2004_cis_section2_rule_2_4_params_shell }}"
-      args:
-        executable: "{{ ubuntu_2004_cis_section2_rule_2_4_params_executable }}"
+      script: "{{ ubuntu_2004_cis_section2_rule_2_4_params_script }}"
       register: services_listening_output
       changed_when: false
 

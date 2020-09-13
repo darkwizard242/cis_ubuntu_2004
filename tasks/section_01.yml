@@ -476,10 +476,8 @@
     - rule_1_1_24
     - level_1
 
-- name: "1.2.1 | Ensure package manager repositories are configured (Manual) | apt-cache policy check"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params_shell }}"
-  args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params_executable }}"
+- name: "1.2.1 | Ensure package manager repositories are configured (Manual) | perform apt-cache policy check"
+  script: "{{ ubuntu_2004_cis_section1_rule_1_2_1_params_script }}"
   register: apt_cache_policy_output
   changed_when: false
   when:
@@ -490,7 +488,7 @@
     - rule_1_2_1
     - level_1
 
-- name: "1.2.1 | Ensure package manager repositories are configured (Manual) | apt-cache policy print"
+- name: "1.2.1 | Ensure package manager repositories are configured (Manual) | print apt-cache policy"
   debug:
     var: "{{ apt_cache_policy_output.stdout_lines  | to_nice_json }}"
   when:

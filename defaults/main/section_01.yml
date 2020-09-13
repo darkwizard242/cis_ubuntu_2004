@@ -188,10 +188,7 @@ ubuntu_2004_cis_section1_rule_1_1_24_params_module_state: absent
 # Variables for 1.2.1
 ubuntu_2004_cis_section1_rule_1_2_1: true
 
-ubuntu_2004_cis_section1_rule_1_2_1_params_shell: |
-      set -eou pipefail && \
-      apt-cache policy
-ubuntu_2004_cis_section1_rule_1_2_1_params_executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_2_1_params_script: 1.2.1.apt_cache_policy_check.sh
 
 # Variables for 1.2.2
 ubuntu_2004_cis_section1_rule_1_2_2: true

@@ -13,20 +13,8 @@ ubuntu_2004_cis_section3_rule_3_1_1_params_mode: '0644'
 
 # Variables for 3.1.2
 ubuntu_2004_cis_section3_rule_3_1_2: true
-ubuntu_2004_cis_require_wireless: false
 
-ubuntu_2004_cis_section3_rule_3_1_2_params_shell: |
-      set -eou pipefail;
-
-      if [ -n "$(find /sys/class/net/*/ -type d -name wireless)" ];
-      then
-        drivers=$(for driverdir in $(find /sys/class/net/*/ -type d -name wireless | xargs -0 dirname); do basename "$(readlink -f "$driverdir"/device/driver)";done | sort -u)
-        for dm in $drivers;
-        do
-          echo "install $dm /bin/true" >> /etc/modprobe.d/3.1.2_disable_wireless.conf
-        done
-      fi
-ubuntu_2004_cis_section3_rule_3_1_2_params_executable: /bin/bash
+ubuntu_2004_cis_section3_rule_3_1_2_params_script: 3.1.2.disable_wireless_interfaces.sh
 
 # Variables for 3.2.1
 ubuntu_2004_cis_section3_rule_3_2_1: true

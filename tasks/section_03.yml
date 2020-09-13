@@ -23,9 +23,7 @@
     - level_2
 
 - name: "3.1.2 | Ensure wireless interfaces are disabled (Automated)"
-  shell: "{{ ubuntu_2004_cis_section3_rule_3_1_2_params_shell }}"
-  args:
-    executable: "{{ ubuntu_2004_cis_section3_rule_3_1_2_params_executable }}"
+  script: "{{ ubuntu_2004_cis_section3_rule_3_1_2_params_script }}"
   when:
     - not ubuntu_2004_cis_require_wireless
     - ubuntu_2004_cis_section3_rule_3_1_2

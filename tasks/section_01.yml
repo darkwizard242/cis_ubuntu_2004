@@ -413,11 +413,9 @@
     - level_1
 
 - name: "1.1.22 | Ensure sticky bit is set on all world-writable directories (Automated)"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params_shell }}"
-  args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params_executable }}"
+  script: "{{ ubuntu_2004_cis_section1_rule_1_1_22_params_script }}"
   changed_when: false
-  failed_when: false
+  # failed_when: false
   when:
     - ubuntu_2004_cis_section1_rule_1_1_22
     - ubuntu_2004_cis_section1

@@ -160,10 +160,7 @@ ubuntu_2004_cis_section1_rule_1_1_21: true
 # Variables for 1.1.22
 ubuntu_2004_cis_section1_rule_1_1_22: true
 
-ubuntu_2004_cis_section1_rule_1_1_22_params_shell: |
-      set -eou pipefail && \
-      df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2>/dev/null | xargs -I '{}' chmod a+t '{}'
-ubuntu_2004_cis_section1_rule_1_1_22_params_executable: /bin/bash
+ubuntu_2004_cis_section1_rule_1_1_22_params_script: 1.1.22.sticky_bits.sh
 
 # Variables for 1.1.23
 ubuntu_2004_cis_section1_rule_1_1_23: true

@@ -101,3 +101,8 @@ ubuntu_2004_cis_section6_rule_6_1_11_params_script: 6.1.11.unowned_files_directo
 ubuntu_2004_cis_section6_rule_6_1_12: true
 
 ubuntu_2004_cis_section6_rule_6_1_12_params_script: 6.1.12.ungrouped_files_directories.sh
+
+# Variables for 6.1.13
+ubuntu_2004_cis_section6_rule_6_1_13: true
+
+ubuntu_2004_cis_section6_rule_6_1_13_params_script: 6.1.13.audit_suid_executables.sh

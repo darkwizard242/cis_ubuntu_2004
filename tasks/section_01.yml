@@ -503,10 +503,8 @@
     - rule_1_2_1
     - level_1
 
-- name: "1.2.2 | Ensure GPG keys are configured (Manual) | apt-key list check"
-  shell: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params_shell }}"
-  args:
-    executable: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params_executable }}"
+- name: "1.2.2 | Ensure GPG keys are configured (Manual) | perform apt-key list check"
+  script: "{{ ubuntu_2004_cis_section1_rule_1_2_2_params_script }}"
   register: apt_key_list_output
   changed_when: false
   when:
@@ -517,7 +515,7 @@
     - rule_1_2_2
     - level_1
 
-- name: "1.2.2 | Ensure GPG keys are configured (Manual) | apt-key list print"
+- name: "1.2.2 | Ensure GPG keys are configured (Manual) | print apt-key list"
   debug:
     var: "{{ apt_key_list_output.stdout_lines  | to_nice_json }}"
   when:

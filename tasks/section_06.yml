@@ -146,3 +146,13 @@
     - section6
     - rule_6_1_9
     - level_1
+
+- name: "6.1.10 | Ensure no world writable files exist (Automated)"
+  script: "{{ ubuntu_2004_cis_section6_rule_6_1_10_params_script }}"
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_10
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_10
+    - level_1

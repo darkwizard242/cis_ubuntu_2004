@@ -91,3 +91,8 @@ ubuntu_2004_cis_section6_rule_6_1_9_params_mode: '0640'
 ubuntu_2004_cis_section6_rule_6_1_10: true
 
 ubuntu_2004_cis_section6_rule_6_1_10_params_script: 6.1.10.cis_no_world_writeable.sh
+
+# Variables for 6.1.11
+ubuntu_2004_cis_section6_rule_6_1_11: true
+
+ubuntu_2004_cis_section6_rule_6_1_11_params_script: 6.1.11.unowned_files_directories.sh

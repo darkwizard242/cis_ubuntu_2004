@@ -861,9 +861,7 @@
       changed_when: false
 
     - name: "5.4.2 | Ensure system accounts are secured (Automated) | Remediation"
-      shell: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_shell }}"
-      args:
-        executable: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_executable }}"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script }}"
       when:
         - ubuntu_2004_cis_section5_rule_5_4_2_audit1 | length > 0
         - ubuntu_2004_cis_section5_rule_5_4_2_audit2 | length > 0

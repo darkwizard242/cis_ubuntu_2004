@@ -448,19 +448,7 @@ ubuntu_2004_cis_section5_rule_5_4_2: true
 
 ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_script: 5.4.2.secure_system_accounts_audit1.sh
 ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script: 5.4.2.secure_system_accounts_audit2.sh
-ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_shell: |
-      for user in $(awk -F: '($3 < 1000) {print $1 }' /etc/passwd);
-      do
-        if [ $user != "root" ];
-        then
-          usermod -L $user
-          if [ $user != "sync" ] && [ $user != "shutdown" ] && [ $user != "halt" ];
-          then
-            usermod -s /usr/sbin/nologin $user
-          fi
-        fi
-      done
-ubuntu_2004_cis_section5_rule_5_4_2_params_executable: /bin/bash
+ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script: 5.4.2.secure_system_accounts_remediation.sh
 
 
 # Variables for 5.4.3

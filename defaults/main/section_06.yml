@@ -111,3 +111,9 @@ ubuntu_2004_cis_section6_rule_6_1_13_params_script: 6.1.13.audit_suid_executable
 ubuntu_2004_cis_section6_rule_6_1_14: true
 
 ubuntu_2004_cis_section6_rule_6_1_14_params_script: 6.1.14.audit_sgid_executables.sh
+
+# Variables for 6.2.1
+ubuntu_2004_cis_section6_rule_6_2_1: true
+
+ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.empty_password_fields.sh
+ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock: yes

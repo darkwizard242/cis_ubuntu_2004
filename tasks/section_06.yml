@@ -166,7 +166,7 @@
 
     - name: "6.1.11 | Ensure no unowned files or directories exist (Automated) | Printing files/directories that need manual remediation"
       debug:
-        var: "{{ unowned_files_or_directories_list.stdout_lines  | to_json }}"
+        var: "{{ unowned_files_or_directories_list.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_1_11
@@ -174,4 +174,23 @@
   tags:
     - section6
     - rule_6_1_11
+    - level_1
+
+- name: "6.1.12 | Ensure no ungrouped files or directories exist (Automated)"
+  block:
+
+    - name: "6.1.12 | Ensure no ungrouped files or directories exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_1_12_params_script }}"
+      register: ungrouped_files_or_directories_list
+
+    - name: "6.1.12 | Ensure no ungrouped files or directories exist (Automated) | Printing files/directories that need manual remediation"
+      debug:
+        var: "{{ ungrouped_files_or_directories_list.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_12
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_12
     - level_1

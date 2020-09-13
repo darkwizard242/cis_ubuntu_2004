@@ -106,3 +106,8 @@ ubuntu_2004_cis_section6_rule_6_1_12_params_script: 6.1.12.ungrouped_files_direc
 ubuntu_2004_cis_section6_rule_6_1_13: true
 
 ubuntu_2004_cis_section6_rule_6_1_13_params_script: 6.1.13.audit_suid_executables.sh
+
+# Variables for 6.1.14
+ubuntu_2004_cis_section6_rule_6_1_14: true
+
+ubuntu_2004_cis_section6_rule_6_1_14_params_script: 6.1.14.audit_sgid_executables.sh

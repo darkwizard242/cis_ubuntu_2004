@@ -151,10 +151,7 @@ ubuntu_2004_cis_section4_rule_4_1_10_params_mode: '0640'
 # Variables for 4.1.11
 ubuntu_2004_cis_section4_rule_4_1_11: true
 
-ubuntu_2004_cis_section4_rule_4_1_11_params_shell: |
-      set -eou pipefail && \
-      for executable in  $(df | grep '^/dev' | awk '{ print $NF }'); do find $executable -xdev -type f -perm -4000 -o -type f -perm -2000 2>/dev/null; done
-ubuntu_2004_cis_section4_rule_4_1_11_params_executable: /bin/bash
+ubuntu_2004_cis_section4_rule_4_1_11_params_script: 4.1.11.audit_priveleged_commands.sh
 ubuntu_2004_cis_section4_rule_4_1_11_params_source: section_04/4.1.11.rules.j2
 ubuntu_2004_cis_section4_rule_4_1_11_params_dest: /etc/audit/rules.d/4.1.11.rules
 ubuntu_2004_cis_section4_rule_4_1_11_params_owner: root

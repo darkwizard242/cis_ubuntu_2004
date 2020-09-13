@@ -298,9 +298,7 @@
   block:
 
     - name: "4.1.11 | Ensure use of privileged commands is collected (Automated) | Find priveleged programs"
-      shell: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_shell }}"
-      args:
-        executable: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_executable }}"
+      script: "{{ ubuntu_2004_cis_section4_rule_4_1_11_params_script }}"
       register: privileged_programs
 
     - name: "4.1.11 | Ensure use of privileged commands is collected (Automated) | Generate rules"

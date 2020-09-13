@@ -856,9 +856,7 @@
       changed_when: false
 
     - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #2"
-      shell: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_shell }}"
-      args:
-        executable: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_executable }}"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script }}"
       register: ubuntu_2004_cis_section5_rule_5_4_2_audit2
       changed_when: false
 

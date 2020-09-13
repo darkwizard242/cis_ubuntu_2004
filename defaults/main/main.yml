@@ -12,6 +12,9 @@ ubuntu_2004_cis_section5: true
 ubuntu_2004_cis_section6: true
 
 # Services
+ubuntu_2004_cis_require_ipv6: false
+ubuntu_2004_cis_require_wireless: false
+ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_require_ssh_server: true
 ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 ubuntu_2004_cis_require_ssh_macs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
@@ -35,8 +38,6 @@ ubuntu_2004_cis_require_passinactive: '30'
 ubuntu_2004_cis_require_shell_timeout: '900'
 ubuntu_2004_cis_require_su_group: sugroup
 ubuntu_2004_cis_require_audit_system_file_permissions_logfile: /var/log/6_1_1_cis_audit_system.log
-ubuntu_2004_cis_require_ipv6: false
-ubuntu_2004_cis_require_router: false
 ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.
 ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
 ubuntu_2004_cis_auditd_backloglimit: '8192'

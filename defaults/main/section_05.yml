@@ -440,16 +440,7 @@ ubuntu_2004_cis_section5_rule_5_4_1_4_params_mode: '0644'
 # Variables for 5.4.1.5
 ubuntu_2004_cis_section5_rule_5_4_1_5: true
 
-ubuntu_2004_cis_section5_rule_5_4_1_5_params_shell: |
-      set -eou pipefail;
-      awk -F: '{print $1}' /etc/shadow | while read -r usr
-      do
-        if [[ $(date --date="$(chage --list "$usr" | grep '^Last password change' | cut -d: -f2)" +%s) > $(date +%s) ]];
-        then
-          echo "$usr"
-        fi
-      done
-ubuntu_2004_cis_section5_rule_5_4_1_5_params_executable: /bin/bash
+ubuntu_2004_cis_section5_rule_5_4_1_5_params_script: 5.4.1.5.users_last_password_change.sh
 ubuntu_2004_cis_section5_rule_5_4_1_5_params_expires: '1599884816'
 
 # Variables for 5.4.2

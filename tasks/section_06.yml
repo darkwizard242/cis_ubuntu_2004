@@ -361,11 +361,11 @@
 - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
   block:
 
-    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check"
+    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check and Apply"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_7_params_script }}"
       register: users_dot_files_check
 
-    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing, if any require manual remediation"
+    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing output"
       debug:
         var: "{{ users_dot_files_check.stdout_lines | to_json }}"
 

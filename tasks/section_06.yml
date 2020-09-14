@@ -556,3 +556,22 @@
     - section6
     - rule_6_2_16
     - level_1
+
+- name: "6.2.17 | Ensure shadow group is empty (Automated)"
+  block:
+
+    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_17_params_script }}"
+      register: shadow_group_empty
+
+    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ shadow_group_empty.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_17
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_17
+    - level_1

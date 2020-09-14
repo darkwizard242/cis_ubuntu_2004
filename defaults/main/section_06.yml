@@ -148,3 +148,8 @@ ubuntu_2004_cis_section6_rule_6_2_6_params_script: 6.2.6.users_own_home_director
 ubuntu_2004_cis_section6_rule_6_2_7: true
 
 ubuntu_2004_cis_section6_rule_6_2_7_params_script: 6.2.7.users_dot_files_check.sh
+
+# Variables for 6.2.8
+ubuntu_2004_cis_section6_rule_6_2_8: true
+
+ubuntu_2004_cis_section6_rule_6_2_8_params_script: 6.2.8.users_forward_files_check.sh

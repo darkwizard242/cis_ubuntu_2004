@@ -1,3 +1,9 @@
 #!/bin/bash -e
 
-grep ^shadow:[^:]*:[^:]*:[^:]+ /etc/group
+LIST=$(grep ^shadow:[^:]*:[^:]*:[^:]+ /etc/group) || true
+if [[ ${LIST} = "" ]];
+then
+  echo "Nothing to remediate."
+else
+  echo "Requires remediation for: ${LIST}"
+fi

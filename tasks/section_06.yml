@@ -461,3 +461,22 @@
     - section6
     - rule_6_2_11
     - level_1
+
+- name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
+  block:
+
+    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_12_params_script }}"
+      register: groups_existence_in_passwd_group
+
+    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ groups_existence_in_passwd_group.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_12
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_12
+    - level_1

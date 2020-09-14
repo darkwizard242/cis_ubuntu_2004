@@ -395,3 +395,22 @@
     - section6
     - rule_6_2_8
     - level_1
+
+- name: "6.2.9 | Ensure no users have .netrc files (Automated)"
+  block:
+
+    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
+      register: users_netrc_files_check
+
+    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Printing, if any require manual remediation"
+      debug:
+        var: "{{ users_netrc_files_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_9
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_9
+    - level_1

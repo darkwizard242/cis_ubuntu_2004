@@ -153,3 +153,8 @@ ubuntu_2004_cis_section6_rule_6_2_7_params_script: 6.2.7.users_dot_files_check.s
 ubuntu_2004_cis_section6_rule_6_2_8: true
 
 ubuntu_2004_cis_section6_rule_6_2_8_params_script: 6.2.8.users_forward_files_check.sh
+
+# Variables for 6.2.9
+ubuntu_2004_cis_section6_rule_6_2_9: true
+
+ubuntu_2004_cis_section6_rule_6_2_9_params_script: 6.2.9.users_netrc_files_check.sh

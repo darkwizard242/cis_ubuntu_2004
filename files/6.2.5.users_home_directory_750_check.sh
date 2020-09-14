@@ -9,19 +9,23 @@ do
     dirperm=$(ls -ld $dir | cut -f1 -d" ")
     if [ $(echo $dirperm | cut -c6) != "-" ];
     then
-      echo "Group Write permission set on the home directory ($dir) of user $user"
+      echo "Group Write permission set on the home directory ($dir) of user $user . Remediating!"
+      chmod -v 0750 $dir
     fi
     if [ $(echo $dirperm | cut -c8) != "-" ];
     then
-      echo "Other Read permission set on the home directory ($dir) of user $user"
+      echo "Other Read permission set on the home directory ($dir) of user $user . Remediating!"
+      chmod -v 0750 $dir
     fi
     if [ $(echo $dirperm | cut -c9) != "-" ];
     then
-      echo "Other Write permission set on the home directory ($dir) of user $user"
+      echo "Other Write permission set on the home directory ($dir) of user $user . Remediating!"
+      chmod -v 0750 $dir
     fi
     if [ $(echo $dirperm | cut -c10) != "-" ];
     then
-      echo "Other Execute permission set on the home directory ($dir) of user $user"
+      echo "Other Execute permission set on the home directory ($dir) of user $user . Remediating!"
+      chmod -v 0750 $dir
     fi
   fi
 done

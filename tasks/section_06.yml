@@ -256,3 +256,28 @@
     - section6
     - rule_6_2_1
     - level_1
+
+- name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
+
+  block:
+
+    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_script }}"
+      register: uid_0_non_root_accounts
+
+    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Lock Password"
+      user:
+        name: "{{ item }}"
+        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
+      with_items:
+        - "{{ uid_0_non_root_accounts.stdout_lines }}"
+      when:
+        - uid_0_non_root_accounts | length > 3
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_2
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_2
+    - level_1

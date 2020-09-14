@@ -319,3 +319,22 @@
     - section6
     - rule_6_2_4
     - level_1
+
+- name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
+  block:
+
+    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_5_params_script }}"
+      register: users_home_directory_750_audit_check
+
+    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Printing, if any require manual remediation"
+      debug:
+        var: "{{ users_home_directory_750_audit_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_5
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_5
+    - level_1

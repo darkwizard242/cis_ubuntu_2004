@@ -376,3 +376,22 @@
     - section6
     - rule_6_2_7
     - level_1
+
+- name: "6.2.8 | Ensure no users have .forward files (Automated)"
+  block:
+
+    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
+      register: users_forward_files_check
+
+    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Printing, if any require manual remediation"
+      debug:
+        var: "{{ users_forward_files_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_8
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_8
+    - level_1

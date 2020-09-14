@@ -384,9 +384,12 @@
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
       register: users_forward_files_check
 
-    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_forward_files_check.stdout_lines | to_json }}"
+    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
+      file:
+        name: "{{ item }}/.forward"
+        state: absent
+      with_items:
+        "{{ users_forward_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_8
@@ -403,9 +406,12 @@
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
       register: users_netrc_files_check
 
-    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_netrc_files_check.stdout_lines | to_json }}"
+    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
+      file:
+        name: "{{ item }}/.netrc"
+        state: absent
+      with_items:
+        "{{ users_netrc_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_9

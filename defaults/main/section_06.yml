@@ -196,3 +196,8 @@ ubuntu_2004_cis_section6_rule_6_2_15_params_script: 6.2.15.no_duplicate_username
 ubuntu_2004_cis_section6_rule_6_2_16: true
 
 ubuntu_2004_cis_section6_rule_6_2_16_params_script: 6.2.16.no_duplicate_groupnames.sh
+
+# Variables for 6.2.17
+ubuntu_2004_cis_section6_rule_6_2_17: true
+
+ubuntu_2004_cis_section6_rule_6_2_17_params_script: 6.2.17.shadow_group_empty.sh

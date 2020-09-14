@@ -186,3 +186,8 @@ ubuntu_2004_cis_section6_rule_6_2_13_params_script: 6.2.12.groups_existence_in_p
 ubuntu_2004_cis_section6_rule_6_2_14: true
 
 ubuntu_2004_cis_section6_rule_6_2_14_params_script: 6.2.14.no_duplicate_gids.sh
+
+# Variables for 6.2.15
+ubuntu_2004_cis_section6_rule_6_2_15: true
+
+ubuntu_2004_cis_section6_rule_6_2_15_params_script: 6.2.15.no_duplicate_usernames.sh

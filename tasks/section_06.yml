@@ -414,3 +414,22 @@
     - section6
     - rule_6_2_9
     - level_1
+
+- name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
+  block:
+
+    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_script }}"
+      register: users_netrc_world_accessible_files_check
+
+    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Printing, if any require manual remediation"
+      debug:
+        var: "{{ users_netrc_world_accessible_files_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_10
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_10
+    - level_1

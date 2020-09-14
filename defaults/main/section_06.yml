@@ -165,3 +165,9 @@ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate: absent
 ubuntu_2004_cis_section6_rule_6_2_10: true
 
 ubuntu_2004_cis_section6_rule_6_2_10_params_script: 6.2.10.users_netrc_files_world_accessible_check.sh
+
+# Variables for 6.2.11
+ubuntu_2004_cis_section6_rule_6_2_11: true
+
+ubuntu_2004_cis_section6_rule_6_2_11_params_script: 6.2.11.users_rhosts_files_check.sh
+ubuntu_2004_cis_section6_rule_6_2_11_params_filestate: absent

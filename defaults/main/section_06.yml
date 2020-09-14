@@ -176,3 +176,8 @@ ubuntu_2004_cis_section6_rule_6_2_11_params_filestate: absent
 ubuntu_2004_cis_section6_rule_6_2_12: true
 
 ubuntu_2004_cis_section6_rule_6_2_12_params_script: 6.2.12.groups_existence_in_passwd_group.sh
+
+# Variables for 6.2.13
+ubuntu_2004_cis_section6_rule_6_2_13: true
+
+ubuntu_2004_cis_section6_rule_6_2_13_params_script: 6.2.12.groups_existence_in_passwd_group.sh

@@ -409,7 +409,7 @@
     - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
       file:
         name: "{{ item }}/.netrc"
-        state: absent
+        state: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate }}"
       with_items:
         "{{ users_netrc_files_check.stdout_lines }}"
 

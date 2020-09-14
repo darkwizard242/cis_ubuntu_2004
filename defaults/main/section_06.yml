@@ -123,3 +123,8 @@ ubuntu_2004_cis_section6_rule_6_2_2: true
 
 ubuntu_2004_cis_section6_rule_6_2_2_params_script: 6.2.2.uid_0_non_root_accounts.sh
 ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
+
+# Variables for 6.2.3
+ubuntu_2004_cis_section6_rule_6_2_3: true
+
+ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.root_path_integrity.sh

@@ -247,7 +247,7 @@
       with_items:
         - "{{ empty_password_fields_user_list.stdout_lines }}"
       when:
-        - empty_password_fields_user_list | length > 3
+        - empty_password_fields_user_list | length > 4
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_1
@@ -272,7 +272,7 @@
       with_items:
         - "{{ uid_0_non_root_accounts.stdout_lines }}"
       when:
-        - uid_0_non_root_accounts | length > 3
+        - uid_0_non_root_accounts | length > 4
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_2

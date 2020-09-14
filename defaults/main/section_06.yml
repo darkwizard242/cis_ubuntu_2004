@@ -158,3 +158,8 @@ ubuntu_2004_cis_section6_rule_6_2_8_params_script: 6.2.8.users_forward_files_che
 ubuntu_2004_cis_section6_rule_6_2_9: true
 
 ubuntu_2004_cis_section6_rule_6_2_9_params_script: 6.2.9.users_netrc_files_check.sh
+
+# Variables for 6.2.10
+ubuntu_2004_cis_section6_rule_6_2_10: true
+
+ubuntu_2004_cis_section6_rule_6_2_10_params_script: 6.2.10.users_netrc_files_world_accessible_check.sh

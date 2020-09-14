@@ -387,7 +387,7 @@
     - name: "6.2.8 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
       file:
         name: "{{ item }}/.forward"
-        state: absent
+        state: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_filestate }}"
       with_items:
         "{{ users_forward_files_check.stdout_lines }}"
 

@@ -499,3 +499,22 @@
     - section6
     - rule_6_2_13
     - level_1
+
+- name: "6.2.14 | Ensure no duplicate GIDs exist (Automated)"
+  block:
+
+    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_14_params_script }}"
+      register: no_duplicate_gids
+
+    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ no_duplicate_gids.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_14
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_14
+    - level_1

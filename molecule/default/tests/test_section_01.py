@@ -14,6 +14,7 @@ HFSPLUS_MOD_FILE = "/etc/modprobe.d/1.1.1.5_hfsplus.conf"
 UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
 VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
 TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
+TMP_MOUNT_SYSTEMD = "tmp.mount"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -337,11 +338,19 @@ def test_1_1_2_tmp_mount_file_group(host):
 
 
 def test_1_1_2_tmp_mount_service_enabled(host):
-    assert host.service('tmp.mount').is_enabled
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if tmp.mount service is enabled
+    """
+    assert host.service(TMP_MOUNT_SYSTEMD).is_enabled
 
 
 def test_1_1_2_tmp_mount_service_running(host):
-    assert host.service('tmp.mount').is_running
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if tmp.mount service is running
+    """
+    assert host.service(TMP_MOUNT_SYSTEMD).is_running
 
 
 def test_1_1_3_tmp_mount_nodev(host):

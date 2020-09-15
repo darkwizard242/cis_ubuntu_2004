@@ -13,6 +13,8 @@ HFS_MOD_FILE = "/etc/modprobe.d/1.1.1.4_hfs.conf"
 HFSPLUS_MOD_FILE = "/etc/modprobe.d/1.1.1.5_hfsplus.conf"
 UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
 VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
+TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
+
 
 def test_1_1_1_1_file_exists(host):
     """
@@ -295,23 +297,43 @@ def test_1_1_1_7_file_group(host):
 
 
 def test_1_1_2_tmp_mount_file_exists(host):
-    assert host.file('/etc/systemd/system/tmp.mount').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if /etc/systemd/system/tmp.mount file exists
+    """
+    assert host.file(TMP_MOUNT_FILE).exists
 
 
 def test_1_1_2_tmp_mount_file_isfile(host):
-    assert host.file('/etc/systemd/system/tmp.mount').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if /etc/systemd/system/tmp.mount is a file
+    """
+    assert host.file(TMP_MOUNT_FILE).is_file
 
 
 def test_1_1_2_tmp_mount_file_mode(host):
-    assert host.file('/etc/systemd/system/tmp.mount').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if /etc/systemd/system/tmp.mount has 0644 mode
+    """
+    assert host.file(TMP_MOUNT_FILE).mode == 0o644
 
 
 def test_1_1_2_tmp_mount_file_user(host):
-    assert host.file('/etc/systemd/system/tmp.mount').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if /etc/systemd/system/tmp.mount is owned by user root
+    """
+    assert host.file(TMP_MOUNT_FILE).user == 'root'
 
 
 def test_1_1_2_tmp_mount_file_group(host):
-    assert host.file('/etc/systemd/system/tmp.mount').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2
+    Tests if /etc/systemd/system/tmp.mount is owned by group root
+    """
+    assert host.file(TMP_MOUNT_FILE).group == 'root'
 
 
 def test_1_1_2_tmp_mount_service_enabled(host):

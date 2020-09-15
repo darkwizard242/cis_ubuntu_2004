@@ -354,15 +354,27 @@ def test_1_1_2_tmp_mount_service_running(host):
 
 
 def test_1_1_3_tmp_mount_nodev(host):
-    assert host.file('/etc/systemd/system/tmp.mount').contains('nodev')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.3
+    Tests if /etc/systemd/system/tmp.mount contains nodev
+    """
+    assert host.file(TMP_MOUNT_FILE).contains('nodev')
 
 
 def test_1_1_4_tmp_mount_nosuid(host):
-    assert host.file('/etc/systemd/system/tmp.mount').contains('nosuid')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.4
+    Tests if /etc/systemd/system/tmp.mount contains nosuid
+    """
+    assert host.file(TMP_MOUNT_FILE).contains('nosuid')
 
 
 def test_1_1_5_tmp_mount_noexec(host):
-    assert host.file('/etc/systemd/system/tmp.mount').contains('noexec')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.5
+    Tests if /etc/systemd/system/tmp.mount contains noexec
+    """
+    assert host.file(TMP_MOUNT_FILE).contains('noexec')
 
 
 def test_1_1_6_dev_shm_mount_exists(host):

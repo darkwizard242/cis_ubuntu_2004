@@ -10,6 +10,7 @@ CRAMFS_MOD_FILE = "/etc/modprobe.d/1.1.1.1_cramfs.conf"
 FREEVXFS_MOD_FILE = "/etc/modprobe.d/1.1.1.2_freevxfs.conf"
 JFFS2_MOD_FILE = "/etc/modprobe.d/1.1.1.3_jffs2.conf"
 HFS_MOD_FILE = "/etc/modprobe.d/1.1.1.4_hfs.conf"
+HFSPLUS_MOD_FILE = "/etc/modprobe.d/1.1.1.5_hfsplus.conf"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -173,23 +174,43 @@ def test_1_1_1_4_file_group(host):
 
 
 def test_1_1_1_5_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.5
+    Tests if /etc/modprobe.d/1.1.1.5_hfsplus.conf file exists
+    """
+    assert host.file(HFSPLUS_MOD_FILE).exists
 
 
 def test_1_1_1_5_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.5
+    Tests if /etc/modprobe.d/1.1.1.5_hfsplus.conf is a file
+    """
+    assert host.file(HFSPLUS_MOD_FILE).is_file
 
 
 def test_1_1_1_5_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.5
+    Tests if /etc/modprobe.d/1.1.1.5_hfsplus.conf has 0644 mode
+    """
+    assert host.file(HFSPLUS_MOD_FILE).mode == 0o644
 
 
 def test_1_1_1_5_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.5
+    Tests if /etc/modprobe.d/1.1.1.5_hfsplus.conf is owned by user root
+    """
+    assert host.file(HFSPLUS_MOD_FILE).user == 'root'
 
 
 def test_1_1_1_5_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.1.5_hfsplus.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.5
+    Tests if /etc/modprobe.d/1.1.1.5_hfsplus.conf is owned by group root
+    """
+    assert host.file(HFSPLUS_MOD_FILE).group == 'root'
 
 
 def test_1_1_1_6_file_exists(host):

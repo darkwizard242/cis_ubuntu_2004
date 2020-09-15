@@ -6,24 +6,47 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
+CRAMFS_MOD_FILE = "/etc/modprobe.d/1.1.1.1_cramfs.conf"
+
+
 def test_1_1_1_1_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.1.1_cramfs.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.1
+    Tests if /etc/modprobe.d/1.1.1.1_cramfs.conf file exists
+    """
+    assert host.file(CRAMFS_MOD_FILE).exists
 
 
 def test_1_1_1_1_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.1.1_cramfs.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.1
+    Tests if /etc/modprobe.d/1.1.1.1_cramfs.conf is a file
+    """
+    assert host.file(CRAMFS_MOD_FILE).is_file
 
 
 def test_1_1_1_1_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.1.1_cramfs.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.1
+    Tests if /etc/modprobe.d/1.1.1.1_cramfs.conf has 0644 mode
+    """
+    assert host.file(CRAMFS_MOD_FILE).mode == 0o644
 
 
 def test_1_1_1_1_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.1.1_cramfs.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.1
+    Tests if /etc/modprobe.d/1.1.1.1_cramfs.conf is owned by user root
+    """
+    assert host.file(CRAMFS_MOD_FILE).user == 'root'
 
 
 def test_1_1_1_1_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.1.1_cramfs.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.1
+    Tests if /etc/modprobe.d/1.1.1.1_cramfs.conf is owned by group root
+    """
+    assert host.file(CRAMFS_MOD_FILE).group == 'root'
 
 
 def test_1_1_1_2_file_exists(host):

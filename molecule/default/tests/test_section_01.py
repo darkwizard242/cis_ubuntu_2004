@@ -11,7 +11,8 @@ FREEVXFS_MOD_FILE = "/etc/modprobe.d/1.1.1.2_freevxfs.conf"
 JFFS2_MOD_FILE = "/etc/modprobe.d/1.1.1.3_jffs2.conf"
 HFS_MOD_FILE = "/etc/modprobe.d/1.1.1.4_hfs.conf"
 HFSPLUS_MOD_FILE = "/etc/modprobe.d/1.1.1.5_hfsplus.conf"
-
+UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
+VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
 
 def test_1_1_1_1_file_exists(host):
     """
@@ -214,43 +215,83 @@ def test_1_1_1_5_file_group(host):
 
 
 def test_1_1_1_6_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
+    Tests if /etc/modprobe.d/1.1.1.6_udf.conf file exists
+    """
+    assert host.file(UDF_MOD_FILE).exists
 
 
 def test_1_1_1_6_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
+    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is a file
+    """
+    assert host.file(UDF_MOD_FILE).is_file
 
 
 def test_1_1_1_6_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
+    Tests if /etc/modprobe.d/1.1.1.6_udf.conf has 0644 mode
+    """
+    assert host.file(UDF_MOD_FILE).mode == 0o644
 
 
 def test_1_1_1_6_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
+    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is owned by user root
+    """
+    assert host.file(UDF_MOD_FILE).user == 'root'
 
 
 def test_1_1_1_6_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.1.6_udf.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
+    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is owned by group root
+    """
+    assert host.file(UDF_MOD_FILE).group == 'root'
 
 
 def test_1_1_1_7_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf file exists
+    """
+    assert host.file(VFAT_MOD_FILE).exists
 
 
 def test_1_1_1_7_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is a file
+    """
+    assert host.file(VFAT_MOD_FILE).is_file
 
 
 def test_1_1_1_7_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf has 0744 mode
+    """
+    assert host.file(VFAT_MOD_FILE).mode == 0o744
 
 
 def test_1_1_1_7_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is owned by user root
+    """
+    assert host.file(VFAT_MOD_FILE).user == 'root'
 
 
 def test_1_1_1_7_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.1.7_vfat.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is owned by group root
+    """
+    assert host.file(VFAT_MOD_FILE).group == 'root'
 
 
 def test_1_1_2_tmp_mount_file_exists(host):

@@ -403,7 +403,11 @@ def test_1_1_8_dev_shm_mount_nosuid(host):
 
 
 def test_1_1_9_dev_shm_mount_noexec(host):
-    assert host.file('/etc/fstab').contains('noexec')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.9
+    Tests if mountpoint for /dev/shm in /etc/fstab has noexec option
+    """
+    assert host.file(FSTAB_FILE).contains('noexec')
 
 
 def test_1_1_24_file_exists(host):

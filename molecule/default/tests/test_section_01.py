@@ -464,6 +464,10 @@ def test_1_3_1_sudo_package(host):
 
 
 def test_1_4_1_aide_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.1
+    Tests if aide package is installed
+    """
     assert host.package('aide').is_installed
 
 

@@ -276,9 +276,9 @@ def test_1_1_1_7_file_isfile(host):
 def test_1_1_1_7_file_mode(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf has 0744 mode
+    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf has 0644 mode
     """
-    assert host.file(VFAT_MOD_FILE).mode == 0o744
+    assert host.file(VFAT_MOD_FILE).mode == 0o644
 
 
 def test_1_1_1_7_file_user(host):

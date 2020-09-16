@@ -15,6 +15,7 @@ UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
 VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
 TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
 TMP_MOUNT_SYSTEMD = "tmp.mount"
+FSTAB_FILE = "/etc/fstab"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -386,7 +387,11 @@ def test_1_1_6_dev_shm_mount_exists(host):
 
 
 def test_1_1_7_dev_shm_mount_nodev(host):
-    assert host.file('/etc/fstab').contains('nodev')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.7
+    Tests if mountpoint for /dev/shm in /etc/fstab has nodev option
+    """
+    assert host.file(FSTAB_FILE).contains('nodev')
 
 
 def test_1_1_8_dev_shm_mount_nosuid(host):

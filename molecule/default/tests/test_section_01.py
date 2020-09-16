@@ -726,4 +726,8 @@ def test_1_8_1_5_issue_file_mode(host):
 
 
 def test_1_8_1_6_issue_net_file_mode(host):
-    assert host.file('/etc/issue.net').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.6
+    Tests if /etc/issue.net file has mode 0644
+    """
+    assert host.file(ETC_ISSUE_NET).mode == 0o644

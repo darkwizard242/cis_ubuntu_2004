@@ -19,6 +19,7 @@ FSTAB_FILE = "/etc/fstab"
 USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
 GRUB_D_CUSTOM40_FILE = "/etc/grub.d/40_custom"
 BOOT_GRUB = "/boot/grub/grub.cfg"
+PROC_CPUINFO = "/proc/cpuinfo"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -554,11 +555,19 @@ def test_1_5_2_grub_file_group(host):
 
 
 def test_1_6_1_xd_nx_pae(host):
-    assert host.file('/proc/cpuinfo').contains('pae')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.1
+    Tests if /proc/cpuinfo file contains pae
+    """
+    assert host.file(PROC_CPUINFO).contains('pae')
 
 
 def test_1_6_1_xd_nx_nx(host):
-    assert host.file('/proc/cpuinfo').contains('nx')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.1
+    Tests if /proc/cpuinfo file contains nx
+    """
+    assert host.file(PROC_CPUINFO).contains('nx')
 
 
 def test_1_6_4_systemd_ccoredump_package(host):

@@ -6,24 +6,47 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
+MOD_DCCP_FILE = "/etc/modprobe.d/3.4.1_dccp.conf"
+
+
 def test_3_4_1_file_exists(host):
-    assert host.file('/etc/modprobe.d/3.4.1_dccp.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.1
+    Tests if /etc/modprobe.d/3.4.1_dccp.conf file exists
+    """
+    assert host.file(MOD_DCCP_FILE).exists
 
 
 def test_3_4_1_file_isfile(host):
-    assert host.file('/etc/modprobe.d/3.4.1_dccp.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.1
+    Tests if /etc/modprobe.d/3.4.1_dccp.conf file is a file
+    """
+    assert host.file(MOD_DCCP_FILE).is_file
 
 
 def test_3_4_1_file_mode(host):
-    assert host.file('/etc/modprobe.d/3.4.1_dccp.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.1
+    Tests if /etc/modprobe.d/3.4.1_dccp.conf file has mode 0644
+    """
+    assert host.file(MOD_DCCP_FILE).mode == 0o644
 
 
 def test_3_4_1_file_user(host):
-    assert host.file('/etc/modprobe.d/3.4.1_dccp.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.1
+    Tests if /etc/modprobe.d/3.4.1_dccp.conf file is owned by user root
+    """
+    assert host.file(MOD_DCCP_FILE).user == 'root'
 
 
 def test_3_4_1_file_group(host):
-    assert host.file('/etc/modprobe.d/3.4.1_dccp.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.1
+    Tests if /etc/modprobe.d/3.4.1_dccp.conf file is owned by group root
+    """
+    assert host.file(MOD_DCCP_FILE).group == 'root'
 
 
 def test_3_4_2_file_exists(host):

@@ -570,7 +570,11 @@ def test_1_6_1_xd_nx_nx(host):
     assert host.file(PROC_CPUINFO).contains('nx')
 
 
-def test_1_6_4_systemd_ccoredump_package(host):
+def test_1_6_4_systemd_coredump_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.4
+    Tests if systemd-coredump package is installed
+    """
     assert host.package('systemd-coredump').is_installed
 
 

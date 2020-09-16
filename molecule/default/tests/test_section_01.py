@@ -399,7 +399,7 @@ def test_1_1_8_dev_shm_mount_nosuid(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.8
     Tests if mountpoint for /dev/shm in /etc/fstab has nosuid option
     """
-    assert host.file('/etc/fstab').contains('nosuid')
+    assert host.file(FSTAB_FILE).contains('nosuid')
 
 
 def test_1_1_9_dev_shm_mount_noexec(host):

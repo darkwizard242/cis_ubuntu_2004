@@ -173,4 +173,8 @@ def test_3_4_4_file_group(host):
 
 
 def test_3_5_1_1_ufw_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.5.1.1
+    Tests if ufw package is installed
+    """
     assert host.package('ufw').is_installed

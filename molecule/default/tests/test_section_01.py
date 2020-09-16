@@ -20,6 +20,7 @@ USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
 GRUB_D_CUSTOM40_FILE = "/etc/grub.d/40_custom"
 BOOT_GRUB = "/boot/grub/grub.cfg"
 PROC_CPUINFO = "/proc/cpuinfo"
+ETC_MOTD = "/etc/motd"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -587,23 +588,43 @@ def test_1_7_1_1_apparmor_package(host):
 
 
 def test_1_8_1_1_motd_file_exists(host):
-    assert host.file('/etc/motd').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.1
+    Tests if /etc/motd file exists
+    """
+    assert host.file(ETC_MOTD).exists
 
 
 def test_1_8_1_1_motd_file_isfile(host):
-    assert host.file('/etc/motd').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.1
+    Tests if /etc/motd file is a file
+    """
+    assert host.file(ETC_MOTD).is_file
 
 
 def test_1_8_1_1_motd_file_mode(host):
-    assert host.file('/etc/motd').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.1
+    Tests if /etc/motd file has mode 0644
+    """
+    assert host.file(ETC_MOTD).mode == 0o644
 
 
 def test_1_8_1_1_motd_file_user(host):
-    assert host.file('/etc/motd').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.1
+    Tests if /etc/motd file is owned by user root
+    """
+    assert host.file(ETC_MOTD).user == 'root'
 
 
 def test_1_8_1_1_motd_file_group(host):
-    assert host.file('/etc/motd').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.1
+    Tests if /etc/motd file is owned by group root
+    """
+    assert host.file(ETC_MOTD).group == 'root'
 
 
 def test_1_8_1_2_issue_file_exists(host):

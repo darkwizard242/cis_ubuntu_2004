@@ -22,6 +22,7 @@ BOOT_GRUB = "/boot/grub/grub.cfg"
 PROC_CPUINFO = "/proc/cpuinfo"
 ETC_MOTD = "/etc/motd"
 ETC_ISSUE = "/etc/issue"
+ETC_ISSUE_NET = "/etc/issue.net"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -709,7 +710,11 @@ def test_1_8_1_3_issue_net_file_group(host):
 
 
 def test_1_8_1_4_motd_file_mode(host):
-    assert host.file('/etc/motd').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.4
+    Tests if /etc/motd file has mode 0644
+    """
+    assert host.file(ETC_MOTD).mode == 0o644
 
 
 def test_1_8_1_5_issue_file_mode(host):

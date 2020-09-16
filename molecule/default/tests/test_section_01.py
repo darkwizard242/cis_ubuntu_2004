@@ -18,6 +18,7 @@ TMP_MOUNT_SYSTEMD = "tmp.mount"
 FSTAB_FILE = "/etc/fstab"
 USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
 GRUB_D_CUSTOM40_FILE = "/etc/grub.d/40_custom"
+BOOT_GRUB = "/boot/grub/grub.cfg"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -513,23 +514,43 @@ def test_1_5_1_40custom_file_password(host):
 
 
 def test_1_5_2_grub_file_exists(host):
-    assert host.file('/boot/grub/grub.cfg').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    Tests if /boot/grub/grub.cfg file exists
+    """
+    assert host.file(BOOT_GRUB).exists
 
 
 def test_1_5_2_grub_file_isfile(host):
-    assert host.file('/boot/grub/grub.cfg').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    Tests if /boot/grub/grub.cfg is a file
+    """
+    assert host.file(BOOT_GRUB).is_file
 
 
 def test_1_5_2_grub_file_mode(host):
-    assert host.file('/boot/grub/grub.cfg').mode == 0o400
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    Tests if /boot/grub/grub.cfg has 0400 mode
+    """
+    assert host.file(BOOT_GRUB).mode == 0o400
 
 
 def test_1_5_2_grub_file_user(host):
-    assert host.file('/boot/grub/grub.cfg').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    Tests if /boot/grub/grub.cfg file is owned by user root
+    """
+    assert host.file(BOOT_GRUB).user == 'root'
 
 
 def test_1_5_2_grub_file_group(host):
-    assert host.file('/boot/grub/grub.cfg').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    Tests if /boot/grub/grub.cfg file is owned by group root
+    """
+    assert host.file(BOOT_GRUB).group == 'root'
 
 
 def test_1_6_1_xd_nx_pae(host):

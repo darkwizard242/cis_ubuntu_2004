@@ -17,6 +17,7 @@ TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
 TMP_MOUNT_SYSTEMD = "tmp.mount"
 FSTAB_FILE = "/etc/fstab"
 USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
+GRUB_D_CUSTOM40_FILE = "/etc/grub.d/40_custom"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -488,15 +489,27 @@ def test_1_4_1_aide_common_package(host):
 
 
 def test_1_5_1_40custom_file_mode(host):
-    assert host.file('/etc/grub.d/40_custom').mode == 0o755
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
+    Tests if /etc/grub.d/40_custom has 0755 mode
+    """
+    assert host.file(GRUB_D_CUSTOM40_FILE).mode == 0o755
 
 
 def test_1_5_1_40custom_file_superusers(host):
-    assert host.file('/etc/grub.d/40_custom').contains('superusers')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
+    Tests if /etc/grub.d/40_custom contains superusers
+    """
+    assert host.file(GRUB_D_CUSTOM40_FILE).contains('superusers')
 
 
 def test_1_5_1_40custom_file_password(host):
-    assert host.file('/etc/grub.d/40_custom').contains('password')
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
+    Tests if /etc/grub.d/40_custom contains password
+    """
+    assert host.file(GRUB_D_CUSTOM40_FILE).contains('password')
 
 
 def test_1_5_2_grub_file_exists(host):

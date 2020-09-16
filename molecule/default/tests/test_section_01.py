@@ -16,6 +16,7 @@ VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
 TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
 TMP_MOUNT_SYSTEMD = "tmp.mount"
 FSTAB_FILE = "/etc/fstab"
+USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
 
 
 def test_1_1_1_1_file_exists(host):
@@ -411,23 +412,43 @@ def test_1_1_9_dev_shm_mount_noexec(host):
 
 
 def test_1_1_24_file_exists(host):
-    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.24
+    Tests if /etc/modprobe.d/1.1.24_usb-storage.conf file exists
+    """
+    assert host.file(USBSTORAGE_MOD_FILE).exists
 
 
 def test_1_1_24_file_isfile(host):
-    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.24
+    Tests if /etc/modprobe.d/1.1.24_usb-storage.conf is a file
+    """
+    assert host.file(USBSTORAGE_MOD_FILE).is_file
 
 
 def test_1_1_24_file_mode(host):
-    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.24
+    Tests if /etc/modprobe.d/1.1.24_usb-storage.conf has 0644 mode
+    """
+    assert host.file(USBSTORAGE_MOD_FILE).mode == 0o644
 
 
 def test_1_1_24_file_user(host):
-    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.24
+    Tests if /etc/modprobe.d/1.1.24_usb-storage.conf is owned by user root
+    """
+    assert host.file(USBSTORAGE_MOD_FILE).user == 'root'
 
 
 def test_1_1_24_file_group(host):
-    assert host.file('/etc/modprobe.d/1.1.24_usb-storage.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.24
+    Tests if /etc/modprobe.d/1.1.24_usb-storage.conf is owned by group root
+    """
+    assert host.file(USBSTORAGE_MOD_FILE).group == 'root'
 
 
 def test_1_3_1_sudo_package(host):

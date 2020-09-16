@@ -452,6 +452,10 @@ def test_1_1_24_file_group(host):
 
 
 def test_1_3_1_sudo_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.3.1
+    Tests if sudo package is installed
+    """
     assert host.package('sudo').is_installed
 
 

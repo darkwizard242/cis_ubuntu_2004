@@ -378,6 +378,10 @@ def test_1_1_5_tmp_mount_noexec(host):
 
 
 def test_1_1_6_dev_shm_mount_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.6
+    Tests if mountpoint for /dev/shm exists
+    """
     assert host.mount_point('/dev/shm').exists
 
 

@@ -7,6 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 MOD_DCCP_FILE = "/etc/modprobe.d/3.4.1_dccp.conf"
+MOD_SCTP_FILE ="/etc/modprobe.d/3.4.2_sctp.conf"
 
 
 def test_3_4_1_file_exists(host):
@@ -50,23 +51,43 @@ def test_3_4_1_file_group(host):
 
 
 def test_3_4_2_file_exists(host):
-    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
+    Tests if /etc/modprobe.d/3.4.2_sctp.conf file exists
+    """
+    assert host.file(MODE_SCTP_FILE).exists
 
 
 def test_3_4_2_file_isfile(host):
-    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
+    Tests if /etc/modprobe.d/3.4.2_sctp.conf file is a file
+    """
+    assert host.file(MODE_SCTP_FILE).is_file
 
 
 def test_3_4_2_file_mode(host):
-    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').mode == 0o644
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
+    Tests if /etc/modprobe.d/3.4.2_sctp.conf file has mode 0644
+    """
+    assert host.file(MODE_SCTP_FILE).mode == 0o644
 
 
 def test_3_4_2_file_user(host):
-    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').user == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
+    Tests if /etc/modprobe.d/3.4.2_sctp.conf file is owned by user root
+    """
+    assert host.file(MODE_SCTP_FILE).user == 'root'
 
 
 def test_3_4_2_file_group(host):
-    assert host.file('/etc/modprobe.d/3.4.2_sctp.conf').group == 'root'
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
+    Tests if /etc/modprobe.d/3.4.2_sctp.conf file is owned by group root
+    """
+    assert host.file(MODE_SCTP_FILE).group == 'root'
 
 
 def test_3_4_3_file_exists(host):

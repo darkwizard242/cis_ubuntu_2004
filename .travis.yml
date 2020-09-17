@@ -31,7 +31,7 @@ install:
   - pip3 install molecule ansible-lint flake8 testinfra molecule-vagrant
 
 script:
-  - sudo wget -v -O vagrant.zip https://releases.hashicorp.com/vagrant/2.2.9/vagrant_${VAGRANT_VERSION}_linux_amd64.zip &> /dev/null
+  - sudo wget -v -O vagrant.zip https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_linux_amd64.zip &> /dev/null
   - sudo unzip vagrant.zip -d /usr/local/bin/  &> /dev/null
   - sudo rm -rv vagrant.zip
   - vagrant --version

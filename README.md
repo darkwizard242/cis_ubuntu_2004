@@ -1,8 +1,8 @@
 # IN DEVELOPMENT :lock::no_entry:
 
-[![Build Status](https://travis-ci.com/darkwizard242/cis_ubuntu_2004.svg?branch=feature_cis_ubuntu_2004-development)](https://travis-ci.com/darkwizard242/cis_ubuntu_2004)![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/cis_ubuntu_2004?color=orange&style=flat-square)
+[![Build Status](https://travis-ci.com/darkwizard242/cis_ubuntu_2004.svg?branch=master)](https://travis-ci.com/darkwizard242/cis_ubuntu_2004) ![Ansible Role](https://img.shields.io/ansible/role/50800?color=dark%20green) ![Ansible Role](https://img.shields.io/ansible/role/d/50800?color=dark&style=flat-square) ![Ansible Quality Score](https://img.shields.io/ansible/quality/50800?label=ansible%20quality%20score) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cis_ubuntu_2004&metric=alert_status)](https://sonarcloud.io/dashboard?id=cis_ubuntu_2004) ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/darkwizard242/cis_ubuntu_2004?label=release) ![GitHub repo size](https://img.shields.io/github/repo-size/darkwizard242/cis_ubuntu_2004?color=orange&style=flat-square)
 
-# Ansible Role: cis_ubuntu_2004
+# Ansible Role: cis_ubuntu_2004 :computer:
 
 Ansible Role for applying **CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0**.
 

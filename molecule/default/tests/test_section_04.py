@@ -288,8 +288,16 @@ def test_4_1_17_audit_rule_file_isfile(host):
 
 
 def test_4_2_1_1_rsyslog_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.2.1.1
+    Tests if rsyslog package is installed
+    """
     assert host.package('rsyslog').is_installed
 
 
 def test_4_2_1_2_rsyslog_service(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.2.1.2
+    Tests if rsyslog service is enabled
+    """
     assert host.service('rsyslog').is_enabled

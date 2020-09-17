@@ -1,10 +1,10 @@
 ---
-- name: Example Playbook to apply cis-ubuntu-20.04 role with all the default values.
+- name: Example Playbook to apply cis_ubuntu_2004 role with all the default values.
   hosts: localhost
   connection: local
   become: yes
   gather_facts: true
   roles:
-    - cis-ubuntu-20.04
+    - cis_ubuntu_2004
   vars:
     ansible_python_interpreter: /usr/bin/python3

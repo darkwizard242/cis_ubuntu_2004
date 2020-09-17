@@ -24,6 +24,10 @@ RULE_FILE_4117 = "/etc/audit/rules.d/4.1.17.rules"
 
 
 def test_4_1_1_1_auditd_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.1.1
+    Tests if auditd package is installed
+    """
     assert host.package('auditd').is_installed
 
 

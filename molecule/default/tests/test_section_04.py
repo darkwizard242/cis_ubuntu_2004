@@ -6,6 +6,9 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
+RULE_FILE_413 = "/etc/audit/rules.d/4.1.3.rules"
+
+
 def test_4_1_1_1_auditd_package(host):
     assert host.package('auditd').is_installed
 
@@ -19,11 +22,19 @@ def test_4_1_1_2_auditd_service(host):
 
 
 def test_4_1_3_audit_rule_file_exists(host):
-    host.file('/etc/audit/rules.d/4.1.3.rules').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.3
+    Tests if /etc/audit/rules.d/4.1.3.rules file exists
+    """
+    host.file(RULE_FILE_413).exists
 
 
 def test_4_1_3_audit_rule_file_isfile(host):
-    host.file('/etc/audit/rules.d/4.1.3.rules').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.3
+    Tests if /etc/audit/rules.d/4.1.3.rules file is a file
+    """
+    host.file(RULE_FILE_413).is_file
 
 
 def test_4_1_4_audit_rule_file_exists(host):

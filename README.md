@@ -378,6 +378,15 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
 Ofcourse, you can also simply download the code for cis_ubuntu_2004 role, make changes and run it via ansible-playbook on a testbox if you are not familiar with [molecule](https://molecule.readthedocs.io/en/latest/).
 
+When you create a Pull Request - it will automatically trigger a TravisCI build [here](https://travis-ci.com/github/darkwizard242/cis_ubuntu_2004/pull_requests). The configuration for TravisCI build is present in [.travis.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/.travis.yml) This will perform various tasks such as:
+
+- Clone code from pull request.
+- Perform repository cache update.
+- Install pre-requiste packages.
+- Install Vagrant and Virtualbox.
+- Perform SonarCloud code quality check for the entire repository codebase.
+- Run molecule test (which will provision a vagrant box, apply the role code and run testinfra test suite for cis_ubuntu_2004 role).
+
 ## 8\. Contributing:
 
 Contributions are most welcome. Instructions for contributing have been mentioned [here](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/CONTRIBUTING.md).

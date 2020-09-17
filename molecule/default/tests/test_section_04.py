@@ -132,11 +132,19 @@ def test_4_1_8_audit_rule_file_isfile(host):
 
 
 def test_4_1_9_audit_rule_file_exists(host):
-    host.file('/etc/audit/rules.d/4.1.9.rules').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.9
+    Tests if /etc/audit/rules.d/4.1.9.rules file exists
+    """
+    host.file(RULE_FILE_419).exists
 
 
 def test_4_1_9_audit_rule_file_isfile(host):
-    host.file('/etc/audit/rules.d/4.1.9.rules').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.9
+    Tests if /etc/audit/rules.d/4.1.9.rules file is a file
+    """
+    host.file(RULE_FILE_419).is_file
 
 
 def test_4_1_10_audit_rule_file_exists(host):

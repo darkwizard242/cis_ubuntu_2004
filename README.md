@@ -359,15 +359,15 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 - Install required modules using:
 
   ```shell
-  # To install these pip modules globally when running as a non-root user.
+  # To install pip modules globally when running as a non-root user.
   sudo -H python3 -m pip install -U molecule docker ansible-lint flake8 testinfra molecule-vagrant
   ```
 
   OR
 
   ```shell
-    # To install these pip modules local to user directory when running as a non-root user.
-    python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  # To install pip modules local to user directory when running as a non-root user.
+  python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
   ```
 
 - Make changes and run `molecule test` or `molecule converge`.
@@ -376,7 +376,7 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
 **molecule converge** command will only create the vagrant instance and apply all operations defined in the role.
 
-Ofcourse, you can also simply download the code for cis_ubuntu_2004 role, make changes and run it via ansible-playbook on a testbox if you are not familiar with [molecule](https://molecule.readthedocs.io/en/latest/).
+Ofcourse, you can also simply download the code for **cis_ubuntu_2004** role, make changes and run it via ansible-playbook on a testbox if you are not familiar with [molecule](https://molecule.readthedocs.io/en/latest/).
 
 When you create a Pull Request - it will automatically trigger a TravisCI build [here](https://travis-ci.com/github/darkwizard242/cis_ubuntu_2004/pull_requests). The configuration for TravisCI build is present in [.travis.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/.travis.yml) This will perform various tasks such as:
 
@@ -385,7 +385,7 @@ When you create a Pull Request - it will automatically trigger a TravisCI build 
 - Install pre-requiste packages.
 - Install Vagrant and Virtualbox.
 - Perform SonarCloud code quality check for the entire repository codebase.
-- Run molecule test (which will provision a vagrant box, apply the role code and run testinfra test suite for cis_ubuntu_2004 role).
+- Run molecule test (which will provision a vagrant box, apply the role code and run testinfra test suite for **cis_ubuntu_2004** role).
 
 ## 8\. Contributing:
 

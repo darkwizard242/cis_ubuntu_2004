@@ -40,6 +40,10 @@ def test_4_1_1_1_audispd_plugins_package(host):
 
 
 def test_4_1_1_2_auditd_service(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.1.2
+    Tests if auditd service is installed
+    """
     assert host.service('auditd').is_enabled
 
 

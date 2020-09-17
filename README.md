@@ -344,6 +344,10 @@ ubuntu_2004_cis_require_rpcbind_client: false
 
 None
 
+## 6\. Example playbooks:
+
+Example playbooks have been provided in [playbook-examples](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/playbook-examples) folder. It contains playbooks with defaults and customized requirements.
+
 ## License
 
 [MIT](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/LICENSE)

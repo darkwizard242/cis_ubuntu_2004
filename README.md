@@ -376,6 +376,8 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
 **molecule converge** command will only create the vagrant instance and apply all operations defined in the role.
 
+Ofcourse, you can also simply download the code for cis_ubuntu_2004 role and run it via ansible-playbook on a testbox if you are not familiar with [molecule](https://molecule.readthedocs.io/en/latest/).
+
 ## 8\. Contributing:
 
 Contributions are most welcome. Instructions for contributing have been mentioned [here](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/CONTRIBUTING.md).

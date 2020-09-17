@@ -57,7 +57,7 @@ def test_3_4_2_file_exists(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
     Tests if /etc/modprobe.d/3.4.2_sctp.conf file exists
     """
-    assert host.file(MODE_SCTP_FILE).exists
+    assert host.file(MOD_SCTP_FILE).exists
 
 
 def test_3_4_2_file_isfile(host):
@@ -65,7 +65,7 @@ def test_3_4_2_file_isfile(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
     Tests if /etc/modprobe.d/3.4.2_sctp.conf file is a file
     """
-    assert host.file(MODE_SCTP_FILE).is_file
+    assert host.file(MOD_SCTP_FILE).is_file
 
 
 def test_3_4_2_file_mode(host):
@@ -73,7 +73,7 @@ def test_3_4_2_file_mode(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
     Tests if /etc/modprobe.d/3.4.2_sctp.conf file has mode 0644
     """
-    assert host.file(MODE_SCTP_FILE).mode == 0o644
+    assert host.file(MOD_SCTP_FILE).mode == 0o644
 
 
 def test_3_4_2_file_user(host):
@@ -81,7 +81,7 @@ def test_3_4_2_file_user(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
     Tests if /etc/modprobe.d/3.4.2_sctp.conf file is owned by user root
     """
-    assert host.file(MODE_SCTP_FILE).user == 'root'
+    assert host.file(MOD_SCTP_FILE).user == 'root'
 
 
 def test_3_4_2_file_group(host):
@@ -89,7 +89,7 @@ def test_3_4_2_file_group(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 3.4.2
     Tests if /etc/modprobe.d/3.4.2_sctp.conf file is owned by group root
     """
-    assert host.file(MODE_SCTP_FILE).group == 'root'
+    assert host.file(MOD_SCTP_FILE).group == 'root'
 
 
 def test_3_4_3_file_exists(host):

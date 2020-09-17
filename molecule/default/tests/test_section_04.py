@@ -32,6 +32,10 @@ def test_4_1_1_1_auditd_package(host):
 
 
 def test_4_1_1_1_audispd_plugins_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.1.1
+    Tests if audispd-plugins package is installed
+    """
     assert host.package('audispd-plugins').is_installed
 
 

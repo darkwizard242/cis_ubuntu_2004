@@ -8,6 +8,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 RULE_FILE_413 = "/etc/audit/rules.d/4.1.3.rules"
 RULE_FILE_414 = "/etc/audit/rules.d/4.1.4.rules"
+RULE_FILE_415 = "/etc/audit/rules.d/4.1.5.rules"
+RULE_FILE_416 = "/etc/audit/rules.d/4.1.6.rules"
 
 
 def test_4_1_1_1_auditd_package(host):
@@ -55,11 +57,19 @@ def test_4_1_4_audit_rule_file_isfile(host):
 
 
 def test_4_1_5_audit_rule_file_exists(host):
-    host.file('/etc/audit/rules.d/4.1.5.rules').exists
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.5
+    Tests if /etc/audit/rules.d/4.1.5.rules file exists
+    """
+    host.file(RULE_FILE_415).exists
 
 
 def test_4_1_5_audit_rule_file_isfile(host):
-    host.file('/etc/audit/rules.d/4.1.5.rules').is_file
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 4.1.5
+    Tests if /etc/audit/rules.d/4.1.5.rules file is a file
+    """
+    host.file(RULE_FILE_415).is_file
 
 
 def test_4_1_6_audit_rule_file_exists(host):

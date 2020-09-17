@@ -13,9 +13,9 @@ env:
   jobs:
     - DISTRO: ubuntu2004
 
-# addons:
-#   sonarcloud:
-#     organization: "tech-overlord-github"
+addons:
+  sonarcloud:
+    organization: "tech-overlord-github"
 
 before_install:
   - sudo apt-get update
@@ -30,18 +30,12 @@ install:
   - sudo /sbin/vboxconfig
   - pip3 install molecule ansible-lint flake8 testinfra molecule-vagrant
 
-# before_script:
-#   # Rename project directory to actual Ansible Galaxy role name and switch to it.
-#   - cd ../
-#   - mv ansible-role-$ROLE_NAME darkwizard242.$ROLE_NAME
-#   - cd darkwizard242.$ROLE_NAME
-
 script:
   - sudo wget -v -O vagrant.zip https://releases.hashicorp.com/vagrant/2.2.9/vagrant_${VAGRANT_VERSION}_linux_amd64.zip &> /dev/null
   - sudo unzip vagrant.zip -d /usr/local/bin/  &> /dev/null
   - sudo rm -rv vagrant.zip
   - vagrant --version
-  # - sonar-scanner -Dsonar.projectVersion=$TRAVIS_BRANCH\_$TRAVIS_JOB_NUMBER
+  - sonar-scanner -Dsonar.projectVersion=$TRAVIS_BRANCH\_$TRAVIS_JOB_NUMBER
   # - travis_wait 60 time molecule test
   - time molecule test
 # notifications:

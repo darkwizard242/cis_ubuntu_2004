@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 MOD_DCCP_FILE = "/etc/modprobe.d/3.4.1_dccp.conf"
-MOD_SCTP_FILE ="/etc/modprobe.d/3.4.2_sctp.conf"
+MOD_SCTP_FILE = "/etc/modprobe.d/3.4.2_sctp.conf"
 MOD_RDS_FILE = "/etc/modprobe.d/3.4.3_rds.conf"
 MOD_TIPC_FILE = "/etc/modprobe.d/3.4.4_tipc.conf"
 

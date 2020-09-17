@@ -348,9 +348,37 @@ None
 
 Example playbooks have been provided in [playbook-examples](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/playbook-examples) folder. It contains playbooks with defaults and customized requirements.
 
-## 6\. Contributing:
+## 7\. Local Development and CI/CD:
 
-Contributions are most welcome. Instructions for contributing have been mentioned [here](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/CONTRIBUTING.md)
+For local development of the **cis_ubuntu_2004** role, please perform the following:
+
+- Fork the repo.
+- Clone it locally.
+- Install Vagrant on your machine. Installation instructions available [here](https://www.vagrantup.com/docs/installation) or if you need, you can utilize [darkwizard242.vagrant](https://galaxy.ansible.com/darkwizard242/vagrant) role to install - but please confirm if it supports your OS.
+- Install Virtualbox on your machine. Installation instructions available [here](https://www.virtualbox.org/wiki/Downloads) or or if you need, you can utilize [darkwizard242.virtualbox](https://galaxy.ansible.com/darkwizard242/virtualbox) role to install - but please confirm if it supports your OS.
+- Install required modules using:
+
+  ```shell
+  # To install these pip modules globally when running as a non-root user.
+  sudo -H python3 -m pip install -U molecule docker ansible-lint flake8 testinfra molecule-vagrant
+  ```
+
+  OR
+
+  ```shell
+    # To install these pip modules local to user directory when running as a non-root user.
+    python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  ```
+
+- Make changes and run `molecule test` or `molecule converge`.
+
+**molecule test** command will run the entire suite of configured molecule options.
+
+**molecule converge** command will only create the vagrant instance and apply all operations defined in the role.
+
+## 8\. Contributing:
+
+Contributions are most welcome. Instructions for contributing have been mentioned [here](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/CONTRIBUTING.md).
 
 ## License
 

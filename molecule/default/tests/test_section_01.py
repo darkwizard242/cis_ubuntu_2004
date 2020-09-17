@@ -15,6 +15,7 @@ UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
 VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
 TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
 TMP_MOUNT_SYSTEMD = "tmp.mount"
+DEV_SHM = "/dev/shm"
 FSTAB_FILE = "/etc/fstab"
 USBSTORAGE_MOD_FILE = "/etc/modprobe.d/1.1.24_usb-storage.conf"
 GRUB_D_CUSTOM40_FILE = "/etc/grub.d/40_custom"
@@ -390,7 +391,7 @@ def test_1_1_6_dev_shm_mount_exists(host):
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.6
     Tests if mountpoint for /dev/shm exists
     """
-    assert host.mount_point('/dev/shm').exists
+    assert host.mount_point(DEV_SHM).exists
 
 
 def test_1_1_7_dev_shm_mount_nodev(host):

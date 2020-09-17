@@ -360,7 +360,7 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
   ```shell
   # To install pip modules globally when running as a non-root user.
-  sudo -H python3 -m pip install -U molecule docker ansible-lint flake8 testinfra molecule-vagrant
+  sudo -H python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
   ```
 
   OR

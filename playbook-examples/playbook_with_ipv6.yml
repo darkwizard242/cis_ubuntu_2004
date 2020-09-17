@@ -1,7 +1,7 @@
 ---
 - name: Example Playbook to apply cis_ubuntu_2004 role with ipv6.
-  hosts: localhost
-  connection: local
+  hosts: localhost # or any grouping of hosts
+  connection: local # or 'ssh'
   become: yes
   gather_facts: true
   roles:

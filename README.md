@@ -382,10 +382,10 @@ When you create a Pull Request - it will automatically trigger a TravisCI build 
 
 - Clone code from pull request.
 - Perform repository cache update.
-- Install pre-requiste packages.
+- Install pre-requisite packages.
 - Install Vagrant and Virtualbox.
-- Perform SonarCloud code quality check for the entire repository codebase.
-- Run molecule test (which will provision a vagrant box, apply the role code and run testinfra test suite for **cis_ubuntu_2004** role).
+- Perform SonarCloud code quality check for the entire repository code base.
+- Run molecule test (which will provision a vagrant box, apply the role code and run TestInfra test suite for **cis_ubuntu_2004** role).
 
 ## 8\. Contributing:
 

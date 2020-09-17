@@ -465,10 +465,6 @@ def test_1_3_1_sudo_package(host):
     assert host.package('sudo').is_installed
 
 
-# def test_1_3_2_and_1_3_3_sudoers_file_mode(host):
-#     assert host.file('/etc/sudoers').mode == 0o640
-
-
 def test_1_4_1_aide_package(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.1
@@ -483,14 +479,6 @@ def test_1_4_1_aide_common_package(host):
     Tests if aide-common package is installed
     """
     assert host.package('aide-common').is_installed
-
-
-# def test_1_4_1_aide_db_file_exists(host):
-#     assert host.file('/var/lib/aide/aide.db').exists
-#
-#
-# def test_1_4_1_aide_db_file_isfile(host):
-#     assert host.file('/var/lib/aide/aide.db').is_file
 
 
 def test_1_5_1_40custom_file_mode(host):

@@ -9,7 +9,7 @@ python:
 env:
   global:
     - ROLE_NAME: cis-ubuntu-20.04
-    - VAGRANT_VERSION: 2.2.9
+    - VAGRANT_VERSION: 2.2.10
   jobs:
     - DISTRO: ubuntu2004
 

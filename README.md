@@ -348,6 +348,8 @@ None
 
 Example playbooks have been provided in [playbook-examples](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/playbook-examples) folder. It contains playbooks with defaults and customized requirements.
 
+**NOTE:** Considering that some of the CIS controls around networking may break the system and disallow a user from being capable to SSH back into the system. I would recommend that you apply or experiment using the [playbook-examples/playbook_with_custom_firewall_changes.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/playbook-examples/playbook_with_custom_firewall_changes.yml) playbook first. Modify the connection type and hosts in the playbook to match your needs.
+
 ## 7\. Local Development and CI/CD:
 
 For local development of the **cis_ubuntu_2004** role, please perform the following:

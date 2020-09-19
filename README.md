@@ -350,6 +350,58 @@ Example playbooks have been provided in [playbook-examples](https://github.com/d
 
 **NOTE:** Considering that some of the CIS controls around networking may break the system and disallow a user from being capable to SSH back into the system. I would recommend that you apply or experiment using the [playbook-examples/playbook_with_custom_firewall_changes.yml](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/playbook-examples/playbook_with_custom_firewall_changes.yml) playbook first. Modify the connection type and hosts in the playbook to match your needs.
 
+### Applying examples:
+
+If you are using any of the provided playbooks in playbook-examples folder, you can choose either one of them and run the following command to apply them:
+
+```shell
+ansible-playbook playbook_with_defaults.yml
+```
+
+```shell
+ansible-playbook playbook_with_custom_firewall_changes.yml
+```
+
+```shell
+ansible-playbook playbook_with_ipv6.yml
+```
+
+```shell
+ansible-playbook playbook_with_ufw.yml
+```
+
+Assuming you create your own custom playbook named **myplaybook.yml**, you may simply run it with the following command.
+
+```shell
+ansible-playbook myplaybook.yml
+```
+
+All tasks in the role have tags assigned to them based on the CIS Level assignment, rule number and the section number. By default, both Level 1 and Level 2 controls will be applied. Hence, if you wish to run customized applies for levels, rule numbers or sections - you can use the following examples:
+
+Example for only applying Level 1 controls:
+
+```shell
+ansible-playbook <playbook-name-here>.yml --tags "level_1"
+```
+
+Example for only applying Level 2 controls:
+
+```shell
+ansible-playbook <playbook-name-here>.yml --tags "level_2"
+```
+
+Example for applying controls of a specific section (i.e. section 4 of CIS Ubuntu 20.04 benchmark as an example):
+
+```shell
+ansible-playbook <playbook-name-here>.yml --tags "section4"
+```
+
+Example for applying a specific control (i.e. control 6.2.2 of CIS Ubuntu 20.04 benchmark as an example):
+
+```shell
+ansible-playbook <playbook-name-here>.yml --tags "rule_6_2_2"
+```
+
 ## 7\. Local Development and CI/CD:
 
 For local development of the **cis_ubuntu_2004** role, please perform the following:

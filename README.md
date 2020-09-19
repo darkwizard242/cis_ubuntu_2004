@@ -374,7 +374,7 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
 - Make changes and run `molecule test` or `molecule converge`.
 
-**molecule test** command will run the entire suite of configured molecule options.
+**molecule test** command will run the entire suite of configured molecule test sequence.
 
 **molecule converge** command will only create the vagrant instance and apply all operations defined in the role.
 

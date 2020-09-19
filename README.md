@@ -376,6 +376,8 @@ Assuming you create your own custom playbook named **myplaybook.yml**, you may s
 ansible-playbook myplaybook.yml
 ```
 
+### Applying examples using tags:
+
 All tasks in the role have tags assigned to them based on the CIS Level assignment, rule number and the section number. By default, both Level 1 and Level 2 controls will be applied. Hence, if you wish to run customized applies for levels, rule numbers or sections - you can use the following examples:
 
 Example for only applying Level 1 controls:

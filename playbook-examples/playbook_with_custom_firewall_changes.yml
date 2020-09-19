@@ -1,5 +1,5 @@
 ---
-- name: Example Playbook to apply cis_ubuntu_2004 role with ufw as the firewall.
+- name: Example Playbook to apply cis_ubuntu_2004 role with ufw as the firewall and prevent breaking network changes.
   hosts: localhost # or any grouping of hosts
   connection: local # or 'ssh'
   become: yes
@@ -7,10 +7,9 @@
   roles:
     - cis_ubuntu_2004
   vars:
-    ansible_python_interpreter: /usr/bin/`python3`
+    ansible_python_interpreter: /usr/bin/python3
 
     # To set ipv6 as required .... To use ufw is as the firewall
-    ubuntu_2004_cis_require_ipv6: true
     ubuntu_2004_cis_firewall: ufw
 
     # ufw rule that denies outgoing connections

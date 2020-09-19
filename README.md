@@ -447,6 +447,10 @@ When you create a Pull Request - it will automatically trigger a TravisCI build 
 
 Contributions are most welcome. Instructions for contributing have been mentioned [here](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/CONTRIBUTING.md).
 
+## Inspiration
+
+Inspired by the great work done by many of the members of Ansible Community ([Florian Utz](https://github.com/florianutz) and [ansible-lockdown](https://github.com/ansible-lockdown) to name a few among many). Keep rocking :metal:
+
 ## License
 
 [MIT](https://github.com/darkwizard242/cis_ubuntu_2004/blob/master/LICENSE)

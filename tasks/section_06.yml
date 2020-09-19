@@ -452,7 +452,7 @@
         name: "{{ item }}/.rhosts"
         state: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_filestate }}"
       with_items:
-        "{{ users_rhosts_files_check.stdout_lines }}"
+        - "{{ users_rhosts_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_11

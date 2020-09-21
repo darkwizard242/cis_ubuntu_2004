@@ -1,0 +1,528 @@
+---
+# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 3
+
+# Variables for 3.1.1
+ubuntu_2004_cis_section3_rule_3_1_1: true
+
+ubuntu_2004_cis_section3_rule_3_1_1_params_path: /etc/default/grub
+ubuntu_2004_cis_section3_rule_3_1_1_params_regex: '^GRUB_CMDLINE_LINUX="(((?!ipv6.disable=1).)*)"$'
+ubuntu_2004_cis_section3_rule_3_1_1_params_replace: 'GRUB_CMDLINE_LINUX="\1 ipv6.disable=1"'
+ubuntu_2004_cis_section3_rule_3_1_1_params_owner: root
+ubuntu_2004_cis_section3_rule_3_1_1_params_group: root
+ubuntu_2004_cis_section3_rule_3_1_1_params_mode: '0644'
+
+# Variables for 3.1.2
+ubuntu_2004_cis_section3_rule_3_1_2: true
+
+ubuntu_2004_cis_section3_rule_3_1_2_params_script: 3.1.2.disable_wireless_interfaces.sh
+
+# Variables for 3.2.1
+ubuntu_2004_cis_section3_rule_3_2_1: true
+
+ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects: net.ipv4.conf.all.send_redirects
+ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects: net.ipv4.conf.default.send_redirects
+ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_1_params_state: present
+ubuntu_2004_cis_section3_rule_3_2_1_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_2_1_params_sysctl_set: yes
+
+# Variables for 3.2.2
+ubuntu_2004_cis_section3_rule_3_2_2: true
+
+ubuntu_2004_cis_section3_rule_3_2_2_params_ipv4_forwarding: net.ipv4.ip_forward
+ubuntu_2004_cis_section3_rule_3_2_2_params_ipv4_forwarding_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_2_params_ipv6_forwarding: net.ipv6.conf.all.forwarding
+ubuntu_2004_cis_section3_rule_3_2_2_params_ipv6_forwarding_value: '0'
+ubuntu_2004_cis_section3_rule_3_2_2_params_state: present
+ubuntu_2004_cis_section3_rule_3_2_2_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_2_2_params_sysctl_set: yes
+
+# Variables for 3.3.1
+ubuntu_2004_cis_section3_rule_3_3_1: true
+
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route: net.ipv4.conf.all.accept_source_route
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route: net.ipv4.conf.default.accept_source_route
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route: net.ipv6.conf.all.accept_source_route
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route: net.ipv6.conf.default.accept_source_route
+ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_1_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_1_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_1_params_sysctl_set: yes
+
+# Variables for 3.3.2
+ubuntu_2004_cis_section3_rule_3_3_2: true
+
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects: net.ipv4.conf.all.accept_redirects
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects: net.ipv4.conf.default.accept_redirects
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects: net.ipv6.conf.all.accept_redirects
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects: net.ipv6.conf.default.accept_redirects
+ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_2_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_2_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_2_params_sysctl_set: yes
+
+# Variables for 3.3.3
+ubuntu_2004_cis_section3_rule_3_3_3: true
+
+ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects: net.ipv4.conf.all.secure_redirects
+ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects: net.ipv4.conf.default.secure_redirects
+ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_3_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_3_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_3_params_sysctl_set: yes
+
+# Variables for 3.3.4
+ubuntu_2004_cis_section3_rule_3_3_4: true
+
+ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians: net.ipv4.conf.all.log_martians
+ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians: net.ipv4.conf.default.log_martians
+ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_4_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_4_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_4_params_sysctl_set: yes
+
+# Variables for 3.3.5
+ubuntu_2004_cis_section3_rule_3_3_5: true
+
+ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts: net.ipv4.icmp_echo_ignore_broadcasts
+ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_5_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_5_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_5_params_sysctl_set: yes
+
+# Variables for 3.3.6
+ubuntu_2004_cis_section3_rule_3_3_6: true
+
+ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses: net.ipv4.icmp_ignore_bogus_error_responses
+ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_6_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_6_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_6_params_sysctl_set: yes
+
+# Variables for 3.3.7
+ubuntu_2004_cis_section3_rule_3_3_7: true
+
+ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4all_rp_filter: net.ipv4.conf.all.rp_filter
+ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4all_rp_filter_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter: net.ipv4.conf.default.rp_filter
+ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_7_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_7_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_7_params_sysctl_set: yes
+
+# Variables for 3.3.8
+ubuntu_2004_cis_section3_rule_3_3_8: true
+
+ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies: net.ipv4.tcp_syncookies
+ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies_value: '1'
+ubuntu_2004_cis_section3_rule_3_3_8_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_8_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_8_params_sysctl_set: yes
+
+# Variables for 3.3.9
+ubuntu_2004_cis_section3_rule_3_3_9: true
+
+ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra: net.ipv6.conf.all.accept_ra
+ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra: net.ipv6.conf.default.accept_ra
+ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra_value: '0'
+ubuntu_2004_cis_section3_rule_3_3_9_params_state: present
+ubuntu_2004_cis_section3_rule_3_3_9_params_reload: yes
+ubuntu_2004_cis_section3_rule_3_3_9_params_sysctl_set: yes
+
+# Variables for 3.4.1
+ubuntu_2004_cis_section3_rule_3_4_1: true
+
+ubuntu_2004_cis_section3_rule_3_4_1_params_source: section_03/3.4.1_dccp.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_1_params_dest: /etc/modprobe.d/3.4.1_dccp.conf
+ubuntu_2004_cis_section3_rule_3_4_1_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_1_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_1_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_1_params_module_name: dccp
+ubuntu_2004_cis_section3_rule_3_4_1_params_module_state: absent
+
+# Variables for 3.4.2
+ubuntu_2004_cis_section3_rule_3_4_2: true
+
+ubuntu_2004_cis_section3_rule_3_4_2_params_source: section_03/3.4.2_sctp.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_2_params_dest: /etc/modprobe.d/3.4.2_sctp.conf
+ubuntu_2004_cis_section3_rule_3_4_2_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_2_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_2_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_2_params_module_name: sctp
+ubuntu_2004_cis_section3_rule_3_4_2_params_module_state: absent
+
+# Variables for 3.4.3
+ubuntu_2004_cis_section3_rule_3_4_3: true
+
+ubuntu_2004_cis_section3_rule_3_4_3_params_source: section_03/3.4.3_rds.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_3_params_dest: /etc/modprobe.d/3.4.3_rds.conf
+ubuntu_2004_cis_section3_rule_3_4_3_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_3_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_3_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_3_params_module_name: rds
+ubuntu_2004_cis_section3_rule_3_4_3_params_module_state: absent
+
+# Variables for 3.4.4
+ubuntu_2004_cis_section3_rule_3_4_4: true
+
+ubuntu_2004_cis_section3_rule_3_4_4_params_source: section_03/3.4.4_tipc.conf.j2
+ubuntu_2004_cis_section3_rule_3_4_4_params_dest: /etc/modprobe.d/3.4.4_tipc.conf
+ubuntu_2004_cis_section3_rule_3_4_4_params_owner: root
+ubuntu_2004_cis_section3_rule_3_4_4_params_group: root
+ubuntu_2004_cis_section3_rule_3_4_4_params_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_4_4_params_module_name: tipc
+ubuntu_2004_cis_section3_rule_3_4_4_params_module_state: absent
+
+# Variables for 3.5.1.1
+ubuntu_2004_cis_section3_rule_3_5_1_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_1_params_name: ufw
+ubuntu_2004_cis_section3_rule_3_5_1_1_params_state: present
+
+# Variables for 3.5.1.2
+ubuntu_2004_cis_section3_rule_3_5_1_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_name: iptables-persistent
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_state: absent
+ubuntu_2004_cis_section3_rule_3_5_1_2_params_purge: yes
+
+
+# Variables for 3.5.1.3
+ubuntu_2004_cis_section3_rule_3_5_1_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwrule: allow
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwport: '22'
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwproto: tcp
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwcomment: Allow SSH tcp connection for port 22 from any to any
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_servicename: ufw
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_serviceenabled: yes
+ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_state: enabled
+
+# Variables for 3.5.1.3
+ubuntu_2004_cis_section3_rule_3_5_1_4: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressloopback: allow
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressloopback: in
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_ingressloopback: lo
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressloopback: Allow IN from anywhere to anywhere on loopback
+
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_egressloopback: allow
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_egressloopback: out
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_egressloopback: lo
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_egressloopback: Allow OUT from anywhere on loopback to anywhere
+
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv4: deny
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv4: in
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv4: '127.0.0.0/8'
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv4: Deny IN from 127.0.0.0/8 - ipv4
+
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv6: deny
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv6: in
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv6: '::1'
+ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv6: Deny IN from ::1 - ipv6
+
+# Variables for 3.5.1.5
+ubuntu_2004_cis_section3_rule_3_5_1_5: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule: allow
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection: out
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwinterface: all
+ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwcomment: Allow all for outbound connections on all interfaces
+
+# Variables for 3.5.1.6
+ubuntu_2004_cis_section3_rule_3_5_1_6: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwrule_53: allow
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwport_53: '53'
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwproto_53:
+  - tcp
+  - udp
+ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwcomment_53: Allow 53 tcp/udp
+
+
+# Variables for 3.5.1.7
+ubuntu_2004_cis_section3_rule_3_5_1_7: true
+
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW git application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_src: section_03/3.5.1.7_git.j2
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_dest: /etc/ufw/applications.d/git
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_owner: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_group: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_name: git
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_rule: allow
+
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTP application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_src: section_03/3.5.1.7_http.j2
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_dest: /etc/ufw/applications.d/http
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_owner: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_group: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_name: http
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_rule: allow
+
+ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile: yes  # IF 'ufw' is used, setting to 'yes' allows for a UFW HTTPS application profile to be configured and allowed.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_src: section_03/3.5.1.7_https.j2
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_dest: /etc/ufw/applications.d/https
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_owner: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_group: root
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_mode: '0644'
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_name: https
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_rule: allow
+
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_logging_state: 'on'
+
+ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming: true  # IF 'ufw' is used, setting to 'true' will deny all incoming connections by default. Operates same as `ufw default deny incoming`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_incoming: deny
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_incoming: incoming
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_incoming: Deny Incoming
+
+ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: true  # IF 'ufw' is used, setting to 'true' will deny all outgoing connections by default. Operates same as `ufw default deny outgoing`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_outgoing: deny
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_outgoing: outgoing
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_outgoing: Deny Outgoing
+
+ubuntu_2004_cis_section3_rule_ufw_default_deny_routed: true  # IF 'ufw' is used, setting to 'true' will deny all routed connections by default. Operates same as `ufw default deny routed`. Set to `false` if you don't require this to be applied.
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_routed: deny
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_routed: routed
+ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_routed: Deny Routed
+
+
+# Variables for 3.5.2.1
+ubuntu_2004_cis_section3_rule_3_5_2_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_1_params_name: nftables
+ubuntu_2004_cis_section3_rule_3_5_2_1_params_state: present
+
+# Variables for 3.5.2.2
+ubuntu_2004_cis_section3_rule_3_5_2_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_2_params_name: ufw
+ubuntu_2004_cis_section3_rule_3_5_2_2_params_state: absent
+ubuntu_2004_cis_section3_rule_3_5_2_2_params_purge: yes
+
+# Variables for 3.5.2.3
+ubuntu_2004_cis_section3_rule_3_5_2_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_flush: yes
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_version: ipv4
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_flush: yes
+ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_version: ipv6
+
+# Variables for 3.5.2.4
+ubuntu_2004_cis_section3_rule_3_5_2_4: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename: filter
+ubuntu_2004_cis_section3_rule_3_5_2_4_params_command: nft create table inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }}
+
+# Variables for 3.5.2.5
+ubuntu_2004_cis_section3_rule_3_5_2_5: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_5_params_executable: /bin/bash
+
+# Variables for 3.5.2.6
+ubuntu_2004_cis_section3_rule_3_5_2_6: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable: /bin/bash
+
+# Variables for 3.5.2.7
+ubuntu_2004_cis_section3_rule_3_5_2_7: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable: /bin/bash
+
+# Variables for 3.5.2.8
+ubuntu_2004_cis_section3_rule_3_5_2_8: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable: /bin/bash
+
+# Variables for 3.5.2.9
+ubuntu_2004_cis_section3_rule_3_5_2_9: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_servicename: nftables
+ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_serviceenabled: yes
+
+# Variables for 3.5.2.10
+ubuntu_2004_cis_section3_rule_3_5_2_10: true
+
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_executable: /bin/bash
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_path: /etc/nftables.conf
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_line: include "/etc/nftables.rules"
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_regexp: ^include.*"/etc/nftables.rules"
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_state: present
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_owner: root
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_group: root
+ubuntu_2004_cis_section3_rule_3_5_2_10_params_mode: '0755'
+
+# Variables for 3.5.3.1.1
+ubuntu_2004_cis_section3_rule_3_5_3_1_1: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_name:
+  - iptables
+  - iptables-persistent
+ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_state: present
+
+# Variables for 3.5.3.1.2
+ubuntu_2004_cis_section3_rule_3_5_3_1_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_name: nftables
+ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_state: absent
+ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_purge: yes
+
+# Variables for 3.5.3.1.3
+ubuntu_2004_cis_section3_rule_3_5_3_1_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_name: ufw
+ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_state: absent
+ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_purge: yes
+
+# Variables for 3.5.3.2.1
+ubuntu_2004_cis_section3_rule_3_5_3_2_1: true
+
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy: DROP
+
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy: DROP
+
+ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward: true
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name: FORWARD
+ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy: DROP
+
+# Variables for 3.5.3.2.2
+ubuntu_2004_cis_section3_rule_3_5_3_2_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_interface: lo
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_name: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_interface: lo
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_jump: DROP
+ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_interface: '127.0.0.0/8'
+
+# Variables for 3.5.3.2.3
+ubuntu_2004_cis_section3_rule_3_5_3_2_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+# Variables for 3.5.3.2.4
+ubuntu_2004_cis_section3_rule_3_5_3_2_4: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_ctstate: NEW
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_port: '22'
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_protocols: tcp
+
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_ctstate: NEW
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_port: '53'
+ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_protocols:
+  - tcp
+  - udp
+
+# Variables for 3.5.3.3.1
+ubuntu_2004_cis_section3_rule_3_5_3_3_1: true
+
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: true
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_input_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_input_policy: DROP
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_input_ipversion: ipv6
+
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: true
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_output_name: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_output_policy: DROP
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_output_ipversion: ipv6
+
+ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_name: FORWARD
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_policy: DROP
+ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_ipversion: ipv6
+
+# Variables for 3.5.3.3.2
+ubuntu_2004_cis_section3_rule_3_5_3_3_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_interface: lo
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_ipversion: ipv6
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_name: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_interface: lo
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_ipversion: ipv6
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_name: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_jump: DROP
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_interface: '::1'
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_ipversion: ipv6
+
+# Variables for 3.5.3.3.3
+ubuntu_2004_cis_section3_rule_3_5_3_3_3: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+# Variables for 3.5.3.3.4
+ubuntu_2004_cis_section3_rule_3_5_3_3_4: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_ctstate: NEW
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_port: '22'
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_protocols: tcp
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_ctstate: NEW
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_port: '53'
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_protocols:
+  - tcp
+  - udp

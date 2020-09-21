@@ -1,0 +1,511 @@
+---
+# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5
+
+# Variables for 5.1.1
+ubuntu_2004_cis_section5_rule_5_1_1: true
+
+ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_name: cron
+ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_state: started
+ubuntu_2004_cis_section5_rule_5_1_1_params_cron_service_enabled: yes
+
+# Variables for 5.1.2
+ubuntu_2004_cis_section5_rule_5_1_2: true
+
+ubuntu_2004_cis_section5_rule_5_1_2_params_path: /etc/crontab
+ubuntu_2004_cis_section5_rule_5_1_2_params_state: file
+ubuntu_2004_cis_section5_rule_5_1_2_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_2_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_2_params_mode: '0600'
+
+# Variables for 5.1.3
+ubuntu_2004_cis_section5_rule_5_1_3: true
+
+ubuntu_2004_cis_section5_rule_5_1_3_params_path: /etc/cron.hourly
+ubuntu_2004_cis_section5_rule_5_1_3_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_3_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_3_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_3_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_3_params_mode: '0700'
+
+# Variables for 5.1.4
+ubuntu_2004_cis_section5_rule_5_1_4: true
+
+ubuntu_2004_cis_section5_rule_5_1_4_params_path: /etc/cron.daily
+ubuntu_2004_cis_section5_rule_5_1_4_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_4_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_4_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_4_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_4_params_mode: '0700'
+
+# Variables for 5.1.5
+ubuntu_2004_cis_section5_rule_5_1_5: true
+
+ubuntu_2004_cis_section5_rule_5_1_5_params_path: /etc/cron.weekly
+ubuntu_2004_cis_section5_rule_5_1_5_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_5_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_5_params_mode: '0700'
+
+# Variables for 5.1.6
+ubuntu_2004_cis_section5_rule_5_1_6: true
+
+ubuntu_2004_cis_section5_rule_5_1_6_params_path: /etc/cron.monthly
+ubuntu_2004_cis_section5_rule_5_1_6_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_6_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_6_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_6_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_6_params_mode: '0700'
+
+# Variables for 5.1.7
+ubuntu_2004_cis_section5_rule_5_1_7: true
+
+ubuntu_2004_cis_section5_rule_5_1_7_params_path: /etc/cron.d
+ubuntu_2004_cis_section5_rule_5_1_7_params_state: directory
+ubuntu_2004_cis_section5_rule_5_1_7_params_recurse: yes
+ubuntu_2004_cis_section5_rule_5_1_7_params_owner: root
+ubuntu_2004_cis_section5_rule_5_1_7_params_group: root
+ubuntu_2004_cis_section5_rule_5_1_7_params_mode: '0700'
+
+# Variables for 5.1.8
+ubuntu_2004_cis_section5_rule_5_1_8: true
+
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_path: /etc/cron.deny
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_state: absent
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_deny_mode: '0640'
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_source: section_05/5.1.8.cron.allow.j2
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_dest: /etc/cron.allow
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allows_owner: root
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_group: root
+ubuntu_2004_cis_section5_rule_5_1_8_params_cron_allow_mode: '0640'
+
+# Variables for 5.1.9
+ubuntu_2004_cis_section5_rule_5_1_9: true
+
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_path: /etc/at.deny
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_state: absent
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_deny_mode: '0640'
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_source: section_05/5.1.9.at.allow.j2
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_dest: /etc/at.allow
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_allows_owner: root
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_group: root
+ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_mode: '0640'
+
+# Variables for 5.2.1
+ubuntu_2004_cis_section5_rule_5_2_1: true
+
+ubuntu_2004_cis_section5_rule_5_2_1_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_1_params_state: file
+ubuntu_2004_cis_section5_rule_5_2_1_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_1_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_1_params_mode: '0600'
+
+# Variables for 5.2.2
+ubuntu_2004_cis_section5_rule_5_2_2: true
+
+ubuntu_2004_cis_section5_rule_5_2_2_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown root:root {} \;
+ubuntu_2004_cis_section5_rule_5_2_2_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown 0600 {} \;
+
+# Variables for 5.2.3
+ubuntu_2004_cis_section5_rule_5_2_3: true
+
+ubuntu_2004_cis_section5_rule_5_2_3_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
+ubuntu_2004_cis_section5_rule_5_2_3_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown 0600 {} \;
+
+# Variables for 5.2.4
+ubuntu_2004_cis_section5_rule_5_2_4: true
+
+ubuntu_2004_cis_section5_rule_5_2_4_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_4_params_line: LogLevel INFO
+ubuntu_2004_cis_section5_rule_5_2_4_params_regexp: ^LogLevel.*
+ubuntu_2004_cis_section5_rule_5_2_4_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_4_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_4_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_4_params_mode: '0600'
+
+# Variables for 5.2.5
+ubuntu_2004_cis_section5_rule_5_2_5: true
+
+ubuntu_2004_cis_section5_rule_5_2_5_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_5_params_line: X11Forwarding no
+ubuntu_2004_cis_section5_rule_5_2_5_params_regexp: ^X11Forwarding.*
+ubuntu_2004_cis_section5_rule_5_2_5_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_5_params_mode: '0600'
+
+# Variables for 5.2.6
+ubuntu_2004_cis_section5_rule_5_2_6: true
+
+ubuntu_2004_cis_section5_rule_5_2_6_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_6_params_line: MaxAuthTries 4
+ubuntu_2004_cis_section5_rule_5_2_6_params_regexp: ^MaxAuthTries.*
+ubuntu_2004_cis_section5_rule_5_2_6_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_6_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_6_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_6_params_mode: '0600'
+
+# Variables for 5.2.7
+ubuntu_2004_cis_section5_rule_5_2_7: true
+
+ubuntu_2004_cis_section5_rule_5_2_7_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_7_params_line: IgnoreRhosts yes
+ubuntu_2004_cis_section5_rule_5_2_7_params_regexp: ^IgnoreRhosts.*
+ubuntu_2004_cis_section5_rule_5_2_7_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_7_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_7_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_7_params_mode: '0600'
+
+# Variables for 5.2.8
+ubuntu_2004_cis_section5_rule_5_2_8: true
+
+ubuntu_2004_cis_section5_rule_5_2_8_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_8_params_line: HostbasedAuthentication no
+ubuntu_2004_cis_section5_rule_5_2_8_params_regexp: ^HostbasedAuthentication.*
+ubuntu_2004_cis_section5_rule_5_2_8_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_8_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_8_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_8_params_mode: '0600'
+
+# Variables for 5.2.9
+ubuntu_2004_cis_section5_rule_5_2_9: true
+
+ubuntu_2004_cis_section5_rule_5_2_9_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_9_params_line: PermitRootLogin no
+ubuntu_2004_cis_section5_rule_5_2_9_params_regexp: ^PermitRootLogin.*
+ubuntu_2004_cis_section5_rule_5_2_9_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_9_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_9_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_9_params_mode: '0600'
+
+# Variables for 5.2.10
+ubuntu_2004_cis_section5_rule_5_2_10: true
+
+ubuntu_2004_cis_section5_rule_5_2_10_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_10_params_line: PermitEmptyPasswords no
+ubuntu_2004_cis_section5_rule_5_2_10_params_regexp: ^PermitEmptyPasswords.*
+ubuntu_2004_cis_section5_rule_5_2_10_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_10_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_10_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_10_params_mode: '0600'
+
+# Variables for 5.2.11
+ubuntu_2004_cis_section5_rule_5_2_11: true
+
+ubuntu_2004_cis_section5_rule_5_2_11_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_11_params_line: PermitUserEnvironment no
+ubuntu_2004_cis_section5_rule_5_2_11_params_regexp: ^PermitUserEnvironment.*
+ubuntu_2004_cis_section5_rule_5_2_11_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_11_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_11_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_11_params_mode: '0600'
+
+# Variables for 5.2.12
+ubuntu_2004_cis_section5_rule_5_2_12: true
+
+ubuntu_2004_cis_section5_rule_5_2_12_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_12_params_line: "Ciphers {{ ubuntu_2004_cis_require_ssh_ciphers }}"
+ubuntu_2004_cis_section5_rule_5_2_12_params_regexp: ^Ciphers.*
+ubuntu_2004_cis_section5_rule_5_2_12_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_12_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_12_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_12_params_mode: '0600'
+
+# Variables for 5.2.13
+ubuntu_2004_cis_section5_rule_5_2_13: true
+
+ubuntu_2004_cis_section5_rule_5_2_13_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_13_params_line: "MACs {{ ubuntu_2004_cis_require_ssh_macs }}"
+ubuntu_2004_cis_section5_rule_5_2_13_params_regexp: ^MACs.*
+ubuntu_2004_cis_section5_rule_5_2_13_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_13_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_13_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_13_params_mode: '0600'
+
+# Variables for 5.2.14
+ubuntu_2004_cis_section5_rule_5_2_14: true
+
+ubuntu_2004_cis_section5_rule_5_2_14_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_14_params_line: "KexAlgorithms {{ ubuntu_2004_cis_require_ssh_kexalgorithms }}"
+ubuntu_2004_cis_section5_rule_5_2_14_params_regexp: ^KexAlgorithms.*
+ubuntu_2004_cis_section5_rule_5_2_14_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_14_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_14_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_14_params_mode: '0600'
+
+# Variables for 5.2.15
+ubuntu_2004_cis_section5_rule_5_2_15: true
+
+ubuntu_2004_cis_section5_rule_5_2_15_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_15_params_clientaliveinterval_line: "ClientAliveInterval {{ ubuntu_2004_cis_require_ssh_clientaliveinterval }}"
+ubuntu_2004_cis_section5_rule_5_2_15_params_clientaliveinterval_regexp: ^ClientAliveInterval.*
+ubuntu_2004_cis_section5_rule_5_2_15_params_clientalivecountmax_line: "ClientAliveCountMax {{ ubuntu_2004_cis_require_ssh_clientalivecountmax }}"
+ubuntu_2004_cis_section5_rule_5_2_15_params_clientalivecountmax_regexp: ^ClientAliveCountMax.*
+ubuntu_2004_cis_section5_rule_5_2_15_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_15_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_15_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_15_params_mode: '0600'
+
+# Variables for 5.2.16
+ubuntu_2004_cis_section5_rule_5_2_16: true
+
+ubuntu_2004_cis_section5_rule_5_2_16_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_16_params_line: "LoginGraceTime {{ ubuntu_2004_cis_require_ssh_logingracetime }}"
+ubuntu_2004_cis_section5_rule_5_2_16_params_regexp: ^LoginGraceTime.*
+ubuntu_2004_cis_section5_rule_5_2_16_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_16_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_16_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_16_params_mode: '0600'
+
+# Variables for 5.2.17
+ubuntu_2004_cis_section5_rule_5_2_17: true
+
+ubuntu_2004_cis_section5_rule_5_2_17_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_line: "AllowUsers {{ ubuntu_2004_cis_require_ssh_allowusers }}"
+ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_regexp: ^AllowUsers.*
+ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_line: "AllowGroups {{ ubuntu_2004_cis_require_ssh_allowgroups }}"
+ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_regexp: ^AllowGroups.*
+ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_line: "DenyUsers {{ ubuntu_2004_cis_require_ssh_denyusers }}"
+ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_regexp: ^DenyUsers.*
+ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_line: "DenyGroups {{ ubuntu_2004_cis_require_ssh_denygroups }}"
+ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_regexp: ^DenyGroups.*
+ubuntu_2004_cis_section5_rule_5_2_17_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_17_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_17_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_17_params_mode: '0600'
+
+# Variables for 5.2.18
+ubuntu_2004_cis_section5_rule_5_2_18: true
+
+ubuntu_2004_cis_section5_rule_5_2_18_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_18_params_line: "Banner /etc/issue.net"
+ubuntu_2004_cis_section5_rule_5_2_18_params_regexp: ^Banner.*
+ubuntu_2004_cis_section5_rule_5_2_18_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_18_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_18_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_18_params_mode: '0600'
+
+# Variables for 5.2.19
+ubuntu_2004_cis_section5_rule_5_2_19: true
+
+ubuntu_2004_cis_section5_rule_5_2_19_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_19_params_line: "UsePAM yes"
+ubuntu_2004_cis_section5_rule_5_2_19_params_regexp: ^UsePAM.*
+ubuntu_2004_cis_section5_rule_5_2_19_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_19_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_19_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_19_params_mode: '0600'
+
+# Variables for 5.2.20
+ubuntu_2004_cis_section5_rule_5_2_20: true
+
+ubuntu_2004_cis_section5_rule_5_2_20_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_20_params_line: "AllowTcpForwarding no"
+ubuntu_2004_cis_section5_rule_5_2_20_params_regexp: ^AllowTcpForwarding.*
+ubuntu_2004_cis_section5_rule_5_2_20_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_20_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_20_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_20_params_mode: '0600'
+
+# Variables for 5.2.21
+ubuntu_2004_cis_section5_rule_5_2_21: true
+
+ubuntu_2004_cis_section5_rule_5_2_21_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_21_params_line: "MaxStartups 10:30:60"
+ubuntu_2004_cis_section5_rule_5_2_21_params_regexp: ^MaxStartups.*
+ubuntu_2004_cis_section5_rule_5_2_21_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_21_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_21_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_21_params_mode: '0600'
+
+# Variables for 5.2.22
+ubuntu_2004_cis_section5_rule_5_2_22: true
+
+ubuntu_2004_cis_section5_rule_5_2_22_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_2_22_params_line: "MaxSessions 5"
+ubuntu_2004_cis_section5_rule_5_2_22_params_regexp: ^MaxSessions.*
+ubuntu_2004_cis_section5_rule_5_2_22_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_22_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_22_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_22_params_mode: '0600'
+
+# Variables for 5.3.1
+ubuntu_2004_cis_section5_rule_5_3_1: true
+
+ubuntu_2004_cis_section5_rule_5_3_1_params_package_name: libpam-pwquality
+ubuntu_2004_cis_section5_rule_5_3_1_params_package_state: present
+
+ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_path: /etc/security/pwquality.conf
+ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_state: present
+ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_owner: root
+ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_group: root
+ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_mode: '0644'
+
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_path: /etc/pam.d/common-password
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_line: "password requisite pam_pwquality.so retry=3"
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_regexp: ^password.*requisite.*pam_pwquality.so.*
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_state: present
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_owner: root
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_group: root
+ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_mode: '0644'
+
+# Variables for 5.3.2
+ubuntu_2004_cis_section5_rule_5_3_2: true
+
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_path: /etc/pam.d/common-auth
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_line: "auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900"
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_regexp: ^auth.*required.*pam_tally2.so.*
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_state: present
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_owner: root
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_group: root
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_mode: '0644'
+
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_path: /etc/pam.d/common-account
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_line: "account requisite pam_deny.so"
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_regexp: ^account.*requisite.*pam_deny.so.*
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_state: present
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_line: "account required pam_tally2.so"
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_regexp: ^account.*required.*pam_tally2.so.*
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_state: present
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_owner: root
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_group: root
+ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_mode: '0644'
+
+# Variables for 5.3.3
+ubuntu_2004_cis_section5_rule_5_3_3: true
+
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_path: /etc/pam.d/common-password
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_line: "password required pam_pwhistory.so remember=5"
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_regexp: ^password.*required.*pam_pwhistory.so.*
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_state: present
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_owner: root
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_group: root
+ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_mode: '0644'
+
+# Variables for 5.3.4
+ubuntu_2004_cis_section5_rule_5_3_4: true
+
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_path: /etc/pam.d/common-password
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_line: "password [success=1 default=ignore] pam_unix.so sha512"
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_regexp: ^password.*success.*pam_unix.so.*
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_state: present
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_owner: root
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_group: root
+ubuntu_2004_cis_section5_rule_5_3_4_params_common_password_mode: '0644'
+
+# Variables for 5.4.1.1
+ubuntu_2004_cis_section5_rule_5_4_1_1: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_path: /etc/login.defs
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_line: "PASS_MAX_DAYS {{ ubuntu_2004_cis_require_passmaxdays }}"
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_regexp: ^PASS_MAX_DAYS.*
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_1_1_params_mode: '0644'
+
+# Variables for 5.4.1.2
+ubuntu_2004_cis_section5_rule_5_4_1_2: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_path: /etc/login.defs
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_line: "PASS_MIN_DAYS {{ ubuntu_2004_cis_require_passmindays }}"
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_regexp: ^PASS_MIN_DAYS.*
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_1_2_params_mode: '0644'
+
+# Variables for 5.4.1.3
+ubuntu_2004_cis_section5_rule_5_4_1_3: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_path: /etc/login.defs
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_line: "PASS_WARN_AGE {{ ubuntu_2004_cis_require_passwarnage }}"
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_regexp: ^PASS_WARN_AGE.*
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_1_3_params_mode: '0644'
+
+# Variables for 5.4.1.4
+ubuntu_2004_cis_section5_rule_5_4_1_4: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_path: /etc/default/useradd
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_line: "INACTIVE={{ ubuntu_2004_cis_require_passinactive }}"
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_regexp: ^INACTIVE.*
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_1_4_params_mode: '0644'
+
+# Variables for 5.4.1.5
+ubuntu_2004_cis_section5_rule_5_4_1_5: true
+
+ubuntu_2004_cis_section5_rule_5_4_1_5_params_script: 5.4.1.5.users_last_password_change.sh
+ubuntu_2004_cis_section5_rule_5_4_1_5_params_expires: '1599884816'
+
+# Variables for 5.4.2
+ubuntu_2004_cis_section5_rule_5_4_2: true
+
+ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_script: 5.4.2.secure_system_accounts_audit1.sh
+ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script: 5.4.2.secure_system_accounts_audit2.sh
+ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script: 5.4.2.secure_system_accounts_remediation.sh
+
+
+# Variables for 5.4.3
+ubuntu_2004_cis_section5_rule_5_4_3: true
+
+ubuntu_2004_cis_section5_rule_5_4_3_params_name: root
+ubuntu_2004_cis_section5_rule_5_4_3_params_gid: '0'
+ubuntu_2004_cis_section5_rule_5_4_3_params_state: present
+ubuntu_2004_cis_section5_rule_5_4_3_params_system: yes
+
+# Variables for 5.4.4
+ubuntu_2004_cis_section5_rule_5_4_4: true
+
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_path: /etc/login.defs
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_line: "UMASK 027"
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_regexp: ^UMASK.*
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_state: present
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_owner: root
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_group: root
+ubuntu_2004_cis_section5_rule_5_4_4_params_login_mode: '0644'
+
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_path: /etc/pam.d/common-session
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_line: "session optional pam_umask.so"
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_regexp: ^session.*optional.*pam_umask.*
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_state: present
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_owner: root
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_group: root
+ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_mode: '0644'
+
+# Variables for 5.4.4
+ubuntu_2004_cis_section5_rule_5_4_5: true
+
+ubuntu_2004_cis_section5_rule_5_4_5_params_source: section_05/5.4.5.tmout.sh.j2
+ubuntu_2004_cis_section5_rule_5_4_5_params_dest: /etc/profile.d/cis_tmout.sh
+ubuntu_2004_cis_section5_rule_5_4_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_4_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_4_5_params_mode: '0755'
+
+# Variables for 5.5
+ubuntu_2004_cis_section5_rule_5_5: true
+
+ubuntu_2004_cis_section5_rule_5_5_params_source: section_05/5.5.etc.securetty.j2
+ubuntu_2004_cis_section5_rule_5_5_params_dest: /etc/securetty
+ubuntu_2004_cis_section5_rule_5_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_5_params_mode: '0644'
+
+# Variables for 5.6
+ubuntu_2004_cis_section5_rule_5_6: true
+
+ubuntu_2004_cis_section5_rule_5_6_params_group_name: "{{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_6_params_group_state: present
+
+ubuntu_2004_cis_section5_rule_5_6_params_su_path: /etc/pam.d/su
+ubuntu_2004_cis_section5_rule_5_6_params_su_line: "auth required pam_wheel.so use_uid group={{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_6_params_su_regexp: ^auth.*required.*pam_wheel.*use_uid.*
+ubuntu_2004_cis_section5_rule_5_6_params_su_state: present
+ubuntu_2004_cis_section5_rule_5_6_params_su_owner: root
+ubuntu_2004_cis_section5_rule_5_6_params_su_group: root
+ubuntu_2004_cis_section5_rule_5_6_params_su_mode: '0644'

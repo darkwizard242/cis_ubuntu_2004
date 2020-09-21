@@ -1,0 +1,35 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+  options:
+    memory: 2048
+    cpus: 2
+lint: |
+    yamllint .
+    ansible-lint
+    flake8
+platforms:
+  - name: ${DISTRO:-ubuntu2004}
+    box: "darkwizard242/ansible${DISTRO:-ubuntu2004}"
+provisioner:
+  name: ansible
+  log: true
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - syntax
+    - create
+    - converge
+    # - idempotence
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    verbose: true

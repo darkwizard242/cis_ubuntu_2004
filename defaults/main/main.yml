@@ -1,0 +1,78 @@
+---
+# defaults file for cis-ubuntu-20.04
+
+preliminary_appliance: true
+
+# CIS Sections
+ubuntu_2004_cis_section1: true
+ubuntu_2004_cis_section2: true
+ubuntu_2004_cis_section3: true
+ubuntu_2004_cis_section4: true
+ubuntu_2004_cis_section5: true
+ubuntu_2004_cis_section6: true
+
+# Services
+ubuntu_2004_cis_require_ipv6: false
+ubuntu_2004_cis_require_wireless: false
+ubuntu_2004_cis_require_router: false
+ubuntu_2004_cis_require_ssh_server: true
+ubuntu_2004_cis_require_ssh_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+ubuntu_2004_cis_require_ssh_macs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
+ubuntu_2004_cis_require_ssh_kexalgorithms: curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+ubuntu_2004_cis_require_ssh_clientaliveinterval: '300'
+ubuntu_2004_cis_require_ssh_clientalivecountmax: '3'
+ubuntu_2004_cis_require_ssh_logingracetime: '60'
+ubuntu_2004_cis_require_ssh_allowusers: ubuntu vagrant
+ubuntu_2004_cis_require_ssh_allowgroups: ubuntu vagrant
+ubuntu_2004_cis_require_ssh_denyusers: bogus dummy
+ubuntu_2004_cis_require_ssh_denygroups: bogus dummy
+ubuntu_2004_cis_require_pam_pwquality:
+  - key: 'minlen'
+    value: '14'
+  - key: 'minclass'
+    value: '4'
+ubuntu_2004_cis_require_passmaxdays: '365'
+ubuntu_2004_cis_require_passmindays: '1'
+ubuntu_2004_cis_require_passwarnage: '7'
+ubuntu_2004_cis_require_passinactive: '30'
+ubuntu_2004_cis_require_shell_timeout: '900'
+ubuntu_2004_cis_require_su_group: sugroup
+ubuntu_2004_cis_require_audit_system_file_permissions_logfile: /var/log/6_1_1_cis_audit_system.log
+ubuntu_2004_cis_firewall: ufw  # can be one of 'iptables' or 'nftables' or 'ufw'.
+ubuntu_2004_cis_time_synchronization: systemd-timesyncd  # can be one of 'ntp' or 'chrony' or 'systemd-timesyncd'.
+ubuntu_2004_cis_auditd_backloglimit: '8192'
+ubuntu_2004_cis_auditd_maxlogfile: '25'
+ubuntu_2004_cis_auditd_maxlogfileaction: keep_logs
+ubuntu_2004_cis_auditd_spaceleftaction: email
+ubuntu_2004_cis_auditd_actionmailacct: root
+ubuntu_2004_cis_auditd_adminspaceleftaction: halt
+ubuntu_2004_cis_cron_allow_users:
+  - root
+  - ubuntu
+ubuntu_2004_cis_at_allow_users:
+  - root
+  - ubuntu
+ubuntu_2004_cis_require_xwindows_system: false
+ubuntu_2004_cis_require_cups: false
+ubuntu_2004_cis_require_dhcp_server: false
+ubuntu_2004_cis_require_ldap_server: false
+ubuntu_2004_cis_require_nfs_server: false
+ubuntu_2004_cis_require_dns_server: false
+ubuntu_2004_cis_require_ftp_server: false
+ubuntu_2004_cis_require_http_server: false
+ubuntu_2004_cis_require_imap_pop3_server: false
+ubuntu_2004_cis_require_samba_server: false
+ubuntu_2004_cis_require_squid_server: false
+ubuntu_2004_cis_require_snmp_server: false
+ubuntu_2004_cis_require_mail_server: true
+ubuntu_2004_cis_require_rsyncd_server: false
+ubuntu_2004_cis_require_nis_server: false
+ubuntu_2004_cis_require_nis_client: false
+ubuntu_2004_cis_require_rsh_client: false
+ubuntu_2004_cis_require_talk_client: false
+ubuntu_2004_cis_require_telnet_client: false
+ubuntu_2004_cis_require_ldap_client: false
+ubuntu_2004_cis_require_rpcbind_client: false
+
+# Custom
+skip_for_development: false

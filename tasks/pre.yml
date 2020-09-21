@@ -1,0 +1,13 @@
+---
+# tasks file for Preliminary Appliance Actions
+
+- name: "Install python3-apt"
+  apt:
+    name: python3-apt
+    state: present
+  when: preliminary_appliance
+
+- name: "Gather Package facts"
+  package_facts:
+    manager: apt
+  when: preliminary_appliance

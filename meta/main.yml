@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: cis_ubuntu_2004
+  author: Ali Muhammad
+  description: Role to apply CIS Ubuntu 20.04 v1.0.0 Benchmarks.
+  company: none
+  license: MIT
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+
+  galaxy_tags:
+    - cis
+    - hardening
+    - os
+    - ubuntu
+    - focal
+    - linux

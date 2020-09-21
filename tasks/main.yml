@@ -1,0 +1,53 @@
+---
+# tasks file for cis-ubuntu-20.04
+
+- name: Inspect OS and Version that the role is being applied on.
+  debug:
+    msg:
+      - "Role cis-ubuntu-20.04 being applied upon | OS: {{ ansible_distribution }} | Version: {{ ansible_distribution_version }}"
+  tags:
+    - always
+
+- name: Fail if OS isn't Ubuntu and Version isn't 20.04.
+  fail:
+    msg: "Role is only applicable for Ubuntu 20.04. Does not comply on OS: {{ ansible_distribution }} and version: {{ ansible_distribution_version }}"
+  when:
+    - not ansible_distribution == "Ubuntu"
+    - not ansible_distribution_version == "20.04"
+  tags:
+    - always
+
+- name: Import Preliminary Appliance tasks
+  import_tasks: pre.yml
+  become: true
+  when: preliminary_appliance
+
+- name: Import CIS Section 1 tasks
+  import_tasks: section_01.yml
+  become: true
+  when: ubuntu_2004_cis_section1
+
+- name: Import CIS Section 2 tasks
+  import_tasks: section_02.yml
+  become: true
+  when: ubuntu_2004_cis_section2
+
+- name: Import CIS Section 3 tasks
+  import_tasks: section_03.yml
+  become: true
+  when: ubuntu_2004_cis_section3
+
+- name: Import CIS Section 4 tasks
+  import_tasks: section_04.yml
+  become: true
+  when: ubuntu_2004_cis_section4
+
+- name: Import CIS Section 5 tasks
+  import_tasks: section_05.yml
+  become: true
+  when: ubuntu_2004_cis_section5
+
+- name: Import CIS Section 6 tasks
+  import_tasks: section_06.yml
+  become: true
+  when: ubuntu_2004_cis_section6

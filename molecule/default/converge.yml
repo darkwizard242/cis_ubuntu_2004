@@ -1,0 +1,36 @@
+---
+- name: CIS Ubuntu 20.04 v1.0.0 Ansible Role
+  hosts: all
+  become: yes
+  roles:
+    - role: cis_ubuntu_2004
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+    # To skip any long running tasks not required during development
+    skip_for_development: true
+
+    # To set ipv6 as required .... To use ufw is as the firewall
+    ubuntu_2004_cis_require_ipv6: true
+    ubuntu_2004_cis_firewall: ufw
+
+    # ufw rule that denies outgoing connections
+    ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing: false
+
+    # nftable rule that blocks all connection
+    ubuntu_2004_cis_section3_rule_3_5_2_8: false
+
+    # iptables rule that denies incoming/outgoing connection for ipv4 and ipv6
+    ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input: false
+    ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output: false
+    ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input: false
+    ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output: false
+
+    # Users allowed to schedule cronjobs.
+    ubuntu_2004_cis_cron_allow_users:
+      - root
+      - ubuntu
+    # Users allowed to use 'at' to schedule jobs.
+    ubuntu_2004_cis_at_allow_users:
+      - root
+      - ubuntu

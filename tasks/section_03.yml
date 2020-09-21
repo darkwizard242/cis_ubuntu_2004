@@ -1,0 +1,1110 @@
+---
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 3 BENCHMARKS
+
+- name: "3.1.1 | Disable IPv6 (Manual)"
+  replace:
+    path: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_path }}"
+    regexp: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_regex }}"
+    replace: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_replace }}"
+    owner: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section3_rule_3_1_1_params_mode }}"
+  notify:
+    - update grub configuration
+    - reapply permissions to bootloader configuration
+    # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+  when:
+    - not ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_section3_rule_3_1_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_1_1
+    - level_2
+
+- name: "3.1.2 | Ensure wireless interfaces are disabled (Automated)"
+  script: "{{ ubuntu_2004_cis_section3_rule_3_1_2_params_script }}"
+  when:
+    - not ubuntu_2004_cis_require_wireless
+    - ubuntu_2004_cis_section3_rule_3_1_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_1_2
+    - level_1
+    - level_2
+
+- name: "3.2.1 | Ensure packet redirect sending is disabled (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_all_send_redirects_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_2_1_params_default_send_redirects_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - not ubuntu_2004_cis_require_router
+    - ubuntu_2004_cis_section3_rule_3_2_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_2_1
+    - level_1
+
+- name: "3.2.2 | Ensure IP forwarding is disabled (Automated)"
+  block:
+
+    - name: "3.2.2 | Ensure IP forwarding is disabled (Automated) | IPv4 forwarding"
+      sysctl:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_ipv4_forwarding }}"
+        value: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_ipv4_forwarding_value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_sysctl_set }}"
+      notify:
+        - flush ipv4 route
+
+    - name: "3.2.2 | Ensure IP forwarding is disabled (Automated) | IPv6 forwarding"
+      sysctl:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_ipv6_forwarding }}"
+        value: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_ipv6_forwarding_value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_2_2_params_sysctl_set }}"
+      notify:
+        - flush ipv6 route
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - not ubuntu_2004_cis_require_router
+    - ubuntu_2004_cis_section3_rule_3_2_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_2_2
+    - level_1
+
+- name: "3.3.1 | Ensure source routed packets are not accepted (Automated)"
+  block:
+
+    - name: "3.3.1 | Ensure source routed packets are not accepted (Automated) | IPv4 source routed packets"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4all_accept_source_route_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv4default_accept_source_route_value }}" }
+      notify:
+        - flush ipv4 route
+
+    - name: "3.3.1 | Ensure source routed packets are not accepted (Automated) | IPv6 source routed packets"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6all_accept_source_route_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_1_params_ipv6default_accept_source_route_value }}" }
+      notify:
+        - flush ipv6 route
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_1
+    - level_1
+
+- name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated)"
+  block:
+
+    - name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated) | IPv4 ICMP redirects rejected"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4all_accept_redirects_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv4default_accept_redirects_value }}" }
+      notify:
+        - flush ipv4 route
+
+    - name: "3.3.2 | Ensure ICMP redirects are not accepted (Automated) | IPv6 ICMP redirects rejected"
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_state }}"
+        reload: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_sysctl_set }}"
+      with_items:
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6all_accept_redirects_value }}" }
+        - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_2_params_ipv6default_accept_redirects_value }}" }
+      notify:
+        - flush ipv6 route
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_2
+    - level_1
+
+- name: "3.3.3 | Ensure secure ICMP redirects are not accepted (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4all_secure_redirects_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_3_params_ipv4default_secure_redirects_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_3
+    - level_1
+
+- name: "3.3.4 | Ensure suspicious packets are logged (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4all_log_martians_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_4_params_ipv4default_log_martians_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_4
+    - level_1
+
+- name: "3.3.5 | Ensure broadcast ICMP requests are ignored (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_ipv4_ignore_broadcasts_value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_5_params_sysctl_set }}"
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_5
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_5
+    - level_1
+
+- name: "3.3.6 | Ensure bogus ICMP responses are ignored (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_ipv4_ignore_bogus_error_responses_value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_6_params_sysctl_set }}"
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_6
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_6
+    - level_1
+
+- name: "3.3.7 | Ensure Reverse Path Filtering is enabled (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4all_rp_filter }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4all_rp_filter_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_7_params_ipv4default_rp_filter_value }}" }
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_7
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_7
+    - level_1
+
+- name: "3.3.8 | Ensure TCP SYN Cookies is enabled (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies }}"
+    value: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_ipv4_tcp_syncookies_value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_8_params_sysctl_set }}"
+  notify:
+    - flush ipv4 route
+  when:
+    - ubuntu_2004_cis_section3_rule_3_3_8
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_8
+    - level_1
+
+- name: "3.3.9 | Ensure IPv6 router advertisements are not accepted (Automated)"
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_state }}"
+    reload: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_sysctl_set }}"
+  with_items:
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6all_accept_ra_value }}" }
+    - { name: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra }}", value: "{{ ubuntu_2004_cis_section3_rule_3_3_9_params_ipv6default_accept_ra_value }}" }
+  notify:
+    - flush ipv6 route
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_section3_rule_3_3_9
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_3_9
+    - level_1
+
+- name: "3.4.1 | Ensure DCCP is disabled (Automated)"
+  block:
+
+    - name: "3.4.1 | Ensure DCCP is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_mode }}"
+
+    - name: "3.4.1 | Ensure DCCP is disabled (Automated) | dccp kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_1_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_1
+    - level_2
+
+- name: "3.4.2 | Ensure SCTP is disabled (Automated)"
+  block:
+
+    - name: "3.4.2 | Ensure SCTP is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_mode }}"
+
+    - name: "3.4.2 | Ensure SCTP is disabled (Automated) | sctp kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_2_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_2
+    - level_2
+
+- name: "3.4.3 | Ensure RDS is disabled (Automated)"
+  block:
+
+    - name: "3.4.3 | Ensure RDS is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_mode }}"
+
+    - name: "3.4.3 | Ensure RDS is disabled (Automated) | rds kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_3_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_3
+    - level_2
+
+- name: "3.4.4 | Ensure TIPC is disabled (Automated)"
+  block:
+
+    - name: "3.4.4 | Ensure TIPC is disabled (Automated) | custom template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_source }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_mode }}"
+
+    - name: "3.4.4 | Ensure TIPC is disabled (Automated) | tipc kernel module removal"
+      modprobe:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_module_name }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_4_4_params_module_state }}"
+
+  when:
+    - ubuntu_2004_cis_section3_rule_3_4_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_4_4
+    - level_2
+
+- name: "3.5.1.1 | Ensure Uncomplicated Firewall is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_1_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_1
+    - level_1
+
+- name: "3.5.1.2 | Ensure iptables-persistent is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_2_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_1_2_params_state }}"
+    purge: "{{ ubuntu_2004_cis_section3_rule_3_5_1_2_params_purge }}"
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_2
+    - level_1
+
+- name: "3.5.1.3 | Ensure ufw service is enabled (Automated)"
+  block:
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | SSH Rule"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwrule }}"
+        port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwport }}"
+        proto: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwproto }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufwcomment }}"
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | Enable UFW systemd"
+      systemd:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_servicename }}"
+        enabled: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_serviceenabled }}"
+
+    - name: "3.5.1.3 | Ensure ufw service is enabled (Automated) | Enable UFW"
+      ufw:
+        state: "{{ ubuntu_2004_cis_section3_rule_3_5_1_3_params_ufw_state }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_3
+    - level_1
+
+- name: "3.5.1.4 | Ensure loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Allow ingress on loopback interface"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressloopback }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressloopback }}"
+        interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_ingressloopback }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressloopback }}"
+
+    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Allow egress on loopback interface"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_egressloopback }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_egressloopback }}"
+        interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_egressloopback }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_egressloopback }}"
+
+    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Deny ingress from 127.0.0.0/8"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv4 }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv4 }}"
+        from: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv4 }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv4 }}"
+
+    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Deny ingress from ::1"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv6 }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv6 }}"
+        from: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv6 }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv6 }}"
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_4
+    - level_1
+
+- name: "3.5.1.5 | Ensure outbound connections are configured (Manual)"
+  ufw:
+    rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule }}"
+    direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection }}"
+    interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwinterface }}"
+    comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwcomment }}"
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_5
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_5
+    - level_1
+
+- name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual)"
+  block:
+
+    # - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 22 SSH port in"
+    #   ufw:
+    #     rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwrule_22 }}"
+    #     port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwport_22 }}"
+    #     proto: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwproto_22 }}"
+    #     comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwcomment_22 }}"
+
+    - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 53 DNS Resolver"
+      ufw:
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwrule_53 }}"
+        port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwport_53 }}"
+        proto: "{{ item }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwcomment_53 }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwproto_53 }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_6
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_6
+    - level_1
+
+
+- name: "3.5.1.7 | Ensure default deny firewall policy (Automated)"
+  block:
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW GIT Template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_src }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_mode }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW GIT Profile - Allow"
+      ufw:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_name }}"
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_rule }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTP Template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_src }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_mode }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTP Profile - Allow"
+      ufw:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_name }}"
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_rule }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTPS Template"
+      template:
+        src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_src }}"
+        dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_dest }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_mode }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTPS Profile - Allow"
+      ufw:
+        name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_name }}"
+        rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_rule }}"
+      when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | Set Loggin ON"
+      ufw:
+        logging: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_logging_state }}"
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny incoming"
+      ufw:
+        default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_incoming }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_incoming }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_incoming }}"
+      when: ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny outgoing"
+      ufw:
+        default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_outgoing }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_outgoing }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_outgoing }}"
+      when: ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing
+
+    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny routed"
+      ufw:
+        default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_routed }}"
+        direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_routed }}"
+        comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_routed }}"
+      when: ubuntu_2004_cis_section3_rule_ufw_default_deny_routed
+
+  when:
+    - ubuntu_2004_cis_firewall == "ufw"
+    - ubuntu_2004_cis_section3_rule_3_5_1_7
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_1_7
+    - level_1
+
+- name: "3.5.2.1 | Ensure nftables is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_1
+    - level_1
+
+- name: "3.5.2.2 | Ensure Uncomplicated Firewall is not installed or disabled (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_state }}"
+    purge: "{{ ubuntu_2004_cis_section3_rule_3_5_2_2_params_purge }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_2
+    - level_1
+
+- name: "3.5.2.3 | Ensure iptables are flushed (Manual)"
+  block:
+
+    - name: "3.5.2.3 | Ensure iptables are flushed (Manual) | IPv4"
+      iptables:
+        flush: "{{ ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_flush }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv4_version }}"
+
+    - name: "3.5.2.3 | Ensure iptables are flushed (Manual) | IPv6"
+      iptables:
+        flush: "{{ ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_flush }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_2_3_params_ipv6_version }}"
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_3
+    - level_1
+
+- name: "3.5.2.4 | Ensure a table exists (Automated)"
+  command: "{{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_command }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the table already exists.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_4
+    - level_1
+
+- name: "3.5.2.5 | Ensure base chains exist (Automated)"
+  shell: |
+    set -eou pipefail
+    nft create chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} {{ item }} { type filter hook {{ item }} priority 0 \; }
+  args:
+    executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_5_params_executable }}"
+  with_items:
+    - input
+    - forward
+    - output
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the base chains already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_5
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_5
+    - level_1
+
+- name: "3.5.2.6 | Ensure loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.2.6 | Ensure loopback traffic is configured (Automated) | ipv4"
+      shell: |
+        set -eou pipefail && \
+        nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input iif lo accept && \
+        nft create rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip saddr 127.0.0.0/8 counter drop
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable }}"
+
+    - name: "3.5.2.6 | Ensure loopback traffic is configured (Automated) | ipv6"
+      shell: |
+        set -eou pipefail && \
+        nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip6 saddr ::1 counter drop
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_6_params_executable }}"
+      when:
+        - ubuntu_2004_cis_require_ipv6
+
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when loopback traffic is already configured.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_6
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_6
+    - level_1
+
+- name: "3.5.2.7 | Ensure outbound and established connections are configured (Manual)"
+  shell: |
+    set -eou pipefail && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol tcp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol udp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input ip protocol icmp ct state established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol tcp ct state new,related,established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol udp ct state new,related,established accept && \
+    nft add rule inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output ip protocol icmp ct state new,related,established accept
+  args:
+    executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_7_params_executable }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the outbound/established connections already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_7
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_7
+    - level_1
+
+- name: "3.5.2.8 | Ensure default deny firewall policy (Automated)"
+  shell: |
+    set -eou pipefail
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input { policy drop \; }
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} forward { policy drop \; }
+    nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} output { policy drop \; }
+  args:
+    executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_8_params_executable }}"
+  ignore_errors: true
+  # Ignore errors is set to true to avoid a break of playbook apply when the default deny rules already exist.
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_8
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_8
+    - level_1
+
+- name: "3.5.2.9 | Ensure nftables service is enabled (Automated)"
+  systemd:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_servicename }}"
+    enabled: "{{ ubuntu_2004_cis_section3_rule_3_5_2_9_params_nftables_serviceenabled }}"
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_9
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_9
+    - level_1
+
+- name: "3.5.2.10| Ensure nftables rules are permanent (Automated)"
+  block:
+
+    - name: "3.5.2.10| Ensure nftables rules are permanent (Automated) | Pupulate nftables.rule file"
+      shell: |
+        set -eou pipefail
+        nft list table inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} > /etc/nftables.rules
+      args:
+        executable: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_executable }}"
+
+    - name: "3.5.2.10| Ensure nftables rules are permanent (Automated) | Add nftables.rules file to nftables.conf"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_path }}"
+        line: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_line }}"
+        regexp: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_regexp }}"
+        state: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section3_rule_3_5_2_10_params_mode }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "nftables"
+    - ubuntu_2004_cis_section3_rule_3_5_2_10
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_2_10
+    - level_1
+
+- name: "3.5.3.1.1 | Ensure iptables packages are installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_1_params_state }}"
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_1_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_1_1
+    - level_1
+
+- name: "3.5.3.1.2 | Ensure nftables is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_state }}"
+    purge: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_purge }}"
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_1_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_1_2
+    - level_1
+
+- name: "3.5.3.1.3 | Ensure Uncomplicated Firewall is not installed or disabled (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_name }}"
+    state: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_state }}"
+    purge: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_3_params_purge }}"
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_1_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_1_3
+    - level_1
+
+- name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated)"
+  block:
+
+    - name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated) | set input chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input
+
+    - name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated) | set output chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output
+
+    - name: "3.5.3.2.1 | Ensure default deny firewall policy (Automated) | set forward chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_1
+    - level_1
+
+- name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | loopback ingress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_jump }}"
+        in_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_input_interface }}"
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | loopback egress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_jump }}"
+        out_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_output_interface }}"
+
+    - name: "3.5.3.2.2 | Ensure loopback traffic is configured (Automated) | deny on loopback"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_jump }}"
+        source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_iptablesloopbackchain_inputlocal_interface }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_2
+    - level_1
+
+- name: "3.5.3.2.3 | Ensure outbound and established connections are configured (Manual)"
+  block:
+
+    - name: "3.5.3.2.3 | Ensure outbound and established connections are configured (Manual) | input"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_ctstate }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_input_connections_protocols }}"
+
+
+    - name: "3.5.3.2.3 | Ensure outbound and established connections are configured (Manual) | output"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_ctstate }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_output_connections_protocols }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_3
+    - level_1
+
+- name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated)"
+  block:
+
+    - name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated) | SSH"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_ctstate }}"
+        destination_port: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_port }}"
+        protocol: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_protocols }}"
+
+
+    - name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated) | DNS resolver"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_ctstate }}"
+        destination_port: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_port }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_protocols }}"
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_4
+    - level_1
+
+- name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated)"
+  block:
+
+    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set input chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_input_ipversion }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input
+
+    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set output chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_output_ipversion }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output
+
+    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set forward chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_ipversion }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_1
+    - level_1
+
+- name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | loopback ingress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_jump }}"
+        in_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_ipversion }}"
+
+    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | loopback egress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_jump }}"
+        out_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_ipversion }}"
+
+    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | deny on loopback"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_jump }}"
+        source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_ipversion }}"
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_2
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_2
+    - level_1
+
+- name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual)"
+  block:
+
+    - name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual) | input"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ctstate }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ipversion }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_protocols }}"
+
+
+    - name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual) | output"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ctstate }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ipversion }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_protocols }}"
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_3
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_3
+    - level_1
+
+- name: "3.5.3.3.4 | Ensure IPv6 firewall rules exist for all open ports (Manual)"
+  block:
+
+    - name: "3.5.3.3.4 | Ensure IPv6 firewall rules exist for all open ports (Manual) | SSH"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_ctstate }}"
+        destination_port: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_port }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_ipversion }}"
+        protocol: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_input_connections_protocols }}"
+
+
+    - name: "3.5.3.3.4 | Ensure IPv6 firewall rules exist for all open ports (Manual) | DNS resolver"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_chain }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_jump }}"
+        ctstate: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_ctstate }}"
+        destination_port: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_port }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_ipversion }}"
+        protocol: "{{ item }}"
+      with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_protocols }}"
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_4
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_4
+    - level_1

@@ -1,0 +1,78 @@
+---
+# handlers file for CIS UBUNTU 20.04 BENCHMARKS
+
+- name: systemd tmp.mount reload
+  systemd:
+    name: tmp.mount
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: reloaded
+
+- name: update grub configuration
+  command: update-grub
+
+- name: reapply permissions to bootloader configuration
+  file:
+    path: /boot/grub/grub.cfg
+    mode: '0400'
+    owner: root
+    group: root
+    state: file
+
+- name: reload gdm
+  command: dpkg-reconfigure gdm3
+
+- name: chrony restart
+  systemd:
+    name: chrony
+    enabled: yes
+    state: restarted
+
+- name: ntp restart
+  systemd:
+    name: ntp
+    enabled: yes
+    state: restarted
+
+- name: postfix restart
+  systemd:
+    name: postfix
+    enabled: yes
+    state: restarted
+
+- name: flush ipv4 route
+  sysctl:
+    name: net.ipv4.route.flush
+    value: '1'
+    sysctl_set: true
+
+- name: flush ipv6 route
+  sysctl:
+    name: net.ipv6.route.flush
+    value: '1'
+    sysctl_set: true
+
+- name: auditd restart
+  systemd:
+    name: auditd
+    enabled: yes
+    state: restarted
+
+- name: rsyslog restart
+  systemd:
+    name: rsyslog
+    enabled: yes
+    state: restarted
+
+- name: journald restart
+  systemd:
+    name: systemd-journald
+    enabled: yes
+    state: restarted
+
+- name: sshd restart
+  systemd:
+    name: sshd
+    enabled: yes
+    state: restarted

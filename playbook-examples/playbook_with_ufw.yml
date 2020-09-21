@@ -1,0 +1,11 @@
+---
+- name: Example Playbook to apply cis_ubuntu_2004 role with ufw as the firewall.
+  hosts: localhost  # or any grouping of hosts
+  connection: local  # or 'ssh'
+  become: yes
+  gather_facts: true
+  roles:
+    - cis_ubuntu_2004
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ubuntu_2004_cis_firewall: ufw

@@ -10,7 +10,7 @@ The below table specifies the versions of role available on [Ansible Galaxy](htt
 
 CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version | Repository Tag Version
 ---------------------------------- | ---------------------- | ----------------------
-1.0.0                              | 1.0.0                  | 1.0.0
+1.0.0                              | 1.0.0, 1.0.1           | 1.0.0, 1.0.1
 
 ## 1\. Installation/Download Instructions:
 

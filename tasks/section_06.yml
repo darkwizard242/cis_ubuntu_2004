@@ -269,6 +269,7 @@
       user:
         name: "{{ item }}"
         password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
+      failed_when: false
       with_items:
         - "{{ uid_0_non_root_accounts.stdout_lines }}"
       when:

@@ -27,7 +27,7 @@ install:
   - sudo apt-get update
   - sudo apt-get install virtualbox-6.1 -y
   - sudo /sbin/vboxconfig
-  - pip3 install molecule ansible-lint flake8 testinfra molecule-vagrant
+  - pip3 install molecule==3.0.8 ansible-lint flake8 testinfra molecule-vagrant
 
 script:
   - sudo wget -v -O vagrant.zip https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_linux_amd64.zip &> /dev/null

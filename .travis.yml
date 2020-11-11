@@ -19,7 +19,7 @@ addons:
 before_install:
   - sudo apt-get update
   # - sudo apt-get upgrade -y
-  - sudo apt-get install wget unzip bsdtar software-properties-common linux-headers-$(uname -r) -y
+  - sudo apt-get install wget unzip libarchive-tools software-properties-common linux-headers-$(uname -r) -y
 
 install:
   - echo -e "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee -a /etc/apt/sources.list.d/virtualbox.list

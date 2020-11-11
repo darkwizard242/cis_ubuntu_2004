@@ -8,7 +8,7 @@ python:
 
 env:
   global:
-    - VAGRANT_VERSION: 2.2.10
+    - VAGRANT_VERSION: 2.2.13
   jobs:
     - DISTRO: ubuntu2004
 

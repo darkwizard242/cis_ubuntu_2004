@@ -300,7 +300,7 @@
     - rule_1_1_13
     - level_1
 
-- name: "1.1.14 | Ensure noexec option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.14 | Ensure /var/tmp partition includes the noexec option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.14 HAS NOT BEEN IMPLEMENTED in this Ansible Role."

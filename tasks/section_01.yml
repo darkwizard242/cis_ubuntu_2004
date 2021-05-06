@@ -286,7 +286,7 @@
     - rule_1_1_12
     - level_1
 
-- name: "1.1.13 | Ensure nosuid option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.13 | Ensure /var/tmp partition includes the nosuid option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.13 HAS NOT BEEN IMPLEMENTED in this Ansible Role."

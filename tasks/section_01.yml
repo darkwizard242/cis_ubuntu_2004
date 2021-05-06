@@ -600,22 +600,22 @@
     - level_1
 
 
-- name: "1.4.2 | Ensure filesystem integrity is regularly checked (Automated)"
+- name: "1.3.2 | Ensure filesystem integrity is regularly checked (Automated)"
   cron:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_name }}"
-    minute: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_minute }}"
-    hour: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_hour }}"
-    day: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_day }}"
-    month: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_month }}"
-    weekday: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_weekday }}"
-    user: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_user }}"
-    job: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_job }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_name }}"
+    minute: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_minute }}"
+    hour: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_hour }}"
+    day: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_day }}"
+    month: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_month }}"
+    weekday: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_weekday }}"
+    user: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_user }}"
+    job: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_job }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_4_2
+    - ubuntu_2004_cis_section1_rule_1_3_2
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_4_2
+    - rule_1_3_2
     - level_1
 
 - name: "1.5.1 | Ensure bootloader password is set (Automated)"

@@ -235,17 +235,17 @@ ubuntu_2004_cis_section1_rule_1_3_1_params_package_state: present
 ubuntu_2004_cis_section1_rule_1_3_1_params_db_file_name: /var/lib/aide/aide.db
 ubuntu_2004_cis_section1_rule_1_3_1_params_db_file_init_command: aideinit
 
-# Variables for 1.4.2
-ubuntu_2004_cis_section1_rule_1_4_2: true
+# Variables for 1.3.2
+ubuntu_2004_cis_section1_rule_1_3_2: true
 
-ubuntu_2004_cis_section1_rule_1_4_2_params_name: "1.4.2 Ensure filesystem integrity is regularly checked | AIDE CRON ENTRY"
-ubuntu_2004_cis_section1_rule_1_4_2_params_minute: '0'
-ubuntu_2004_cis_section1_rule_1_4_2_params_hour: '5'
-ubuntu_2004_cis_section1_rule_1_4_2_params_day: '*'
-ubuntu_2004_cis_section1_rule_1_4_2_params_month: '*'
-ubuntu_2004_cis_section1_rule_1_4_2_params_weekday: '*'
-ubuntu_2004_cis_section1_rule_1_4_2_params_user: root
-ubuntu_2004_cis_section1_rule_1_4_2_params_job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
+ubuntu_2004_cis_section1_rule_1_3_2_params_name: "1.4.2 Ensure filesystem integrity is regularly checked | AIDE CRON ENTRY"
+ubuntu_2004_cis_section1_rule_1_3_2_params_minute: '0'
+ubuntu_2004_cis_section1_rule_1_3_2_params_hour: '5'
+ubuntu_2004_cis_section1_rule_1_3_2_params_day: '*'
+ubuntu_2004_cis_section1_rule_1_3_2_params_month: '*'
+ubuntu_2004_cis_section1_rule_1_3_2_params_weekday: '*'
+ubuntu_2004_cis_section1_rule_1_3_2_params_user: root
+ubuntu_2004_cis_section1_rule_1_3_2_params_job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
 
 # Variables for 1.5.1
 ubuntu_2004_cis_section1_rule_1_5_1: true

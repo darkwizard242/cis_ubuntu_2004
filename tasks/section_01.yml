@@ -272,7 +272,7 @@
     - rule_1_1_11
     - level_2
 
-- name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.12 | Ensure /var/tmp partition includes the nodev option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.12 HAS NOT BEEN IMPLEMENTED in this Ansible Role."

@@ -356,7 +356,7 @@
     - rule_1_1_17
     - level_2
 
-- name: "1.1.18 | Ensure nodev option set on /home partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.18 | Ensure /home partition includes the nodev option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.18 HAS NOT BEEN IMPLEMENTED in this Ansible Role."

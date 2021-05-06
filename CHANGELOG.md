@@ -1,7 +1,7 @@
 # Changelog
 Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
-## [1.0.3](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.3) - TBD
+## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.3) - TBD
 
 ### Added
 
@@ -12,7 +12,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * [Updated](https://github.com/darkwizard242/cis_ubuntu_2004/commit/1f53384e7ec16371781ca99452e7d902a0de8c2b) testinfra to pytest-testinfra as it has been renamed.
 * Benchmark control name change for control 1.1.12
 * Benchmark control name change for control 1.1.13
-
+* Benchmark control name change for control 1.1.14
 
 ### Removed
 

@@ -414,14 +414,14 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
   ```shell
   # To install pip modules globally when running as a non-root user.
-  sudo -H python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  sudo -H python3 -m pip install -U molecule ansible-lint flake8 pytest-testinfra molecule-vagrant
   ```
 
   OR
 
   ```shell
   # To install pip modules local to user directory when running as a non-root user.
-  python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  python3 -m pip install -U molecule ansible-lint flake8 pytest-testinfra molecule-vagrant
   ```
 
 - Make changes and run `molecule test` or `molecule converge`.

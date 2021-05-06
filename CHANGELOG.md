@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
 ## [1.0.3](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.3) - TBD
@@ -7,13 +7,9 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
 *
 
-### Fixed
+### Fixed/Changed
 
-*
-
-### Changed
-
-*
+* [Updated](https://github.com/darkwizard242/cis_ubuntu_2004/commit/1f53384e7ec16371781ca99452e7d902a0de8c2b) testinfra to pytest-testinfra as it has been renamed.
 
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020
 

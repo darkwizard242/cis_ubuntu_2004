@@ -247,6 +247,12 @@ ubuntu_2004_cis_section1_rule_1_3_2_params_weekday: '*'
 ubuntu_2004_cis_section1_rule_1_3_2_params_user: root
 ubuntu_2004_cis_section1_rule_1_3_2_params_job: '/usr/bin/aide.wrapper --config /etc/aide/aide.conf --check'
 
+# Variables for 1.4.1
+ubuntu_2004_cis_section1_rule_1_4_1: true
+
+ubuntu_2004_cis_section1_rule_1_4_1_params_script: 1.4.1.bootloader_config_overridden.sh
+
+
 # Variables for 1.5.1
 ubuntu_2004_cis_section1_rule_1_5_1: true
 

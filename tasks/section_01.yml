@@ -618,6 +618,17 @@
     - rule_1_3_2
     - level_1
 
+
+- name: "1.4.1 | Ensure permissions on bootloader config are not overridden (Automated)"
+  script: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_script }}"
+  when:
+    - ubuntu_2004_cis_section1_rule_1_4_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_4_1
+    - level_1
+
 - name: "1.5.1 | Ensure bootloader password is set (Automated)"
   block:
 

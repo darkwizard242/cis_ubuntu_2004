@@ -5,11 +5,15 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
 ### Added
 
-*
+* Inclusion of "1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ### Fixed/Changed
 
 * [Updated](https://github.com/darkwizard242/cis_ubuntu_2004/commit/1f53384e7ec16371781ca99452e7d902a0de8c2b) testinfra to pytest-testinfra as it has been renamed.
+
+### Removed
+
+* Removal of "1.1.1.7 Ensure mounting of FAT filesystems is limited (Manual)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020
 

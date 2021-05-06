@@ -121,10 +121,10 @@
     - rule_1_1_1_5
     - level_1
 
-- name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
+- name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual)"
   block:
 
-    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | custom template"
+    - name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual) | custom template"
       template:
         src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_source }}"
         dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest }}"
@@ -132,7 +132,7 @@
         group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_group }}"
         mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode }}"
 
-    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | remove udf kernel module"
+    - name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual) | remove squashfs kernel module"
       modprobe:
         name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name }}"
         state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state }}"
@@ -145,10 +145,10 @@
     - rule_1_1_1_6
     - level_1
 
-- name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated)"
+- name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated)"
   block:
 
-    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | custom template"
+    - name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated) | custom template"
       template:
         src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_source }}"
         dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest }}"
@@ -156,7 +156,7 @@
         group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_group }}"
         mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode }}"
 
-    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | remove vfat kernel module"
+    - name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated) | remove udf kernel module"
       modprobe:
         name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name }}"
         state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state }}"

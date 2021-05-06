@@ -59,23 +59,23 @@ ubuntu_2004_cis_section1_rule_1_1_1_5_params_module_state: absent
 # Variables for 1.1.1.6
 ubuntu_2004_cis_section1_rule_1_1_1_6: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_6_params_source: section_01/1.1.1.6_udf.conf.j2
-ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest: /etc/modprobe.d/1.1.1.6_udf.conf
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_source: section_01/1.1.1.6_squashfs.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest: /etc/modprobe.d/1.1.1.6_squashfs.conf
 ubuntu_2004_cis_section1_rule_1_1_1_6_params_owner: root
 ubuntu_2004_cis_section1_rule_1_1_1_6_params_group: root
 ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode: '0644'
-ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name: udf
+ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name: squashfs
 ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state: absent
 
 # Variables for 1.1.1.7
 ubuntu_2004_cis_section1_rule_1_1_1_7: true
 
-ubuntu_2004_cis_section1_rule_1_1_1_7_params_source: section_01/1.1.1.7_vfat.conf.j2
-ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest: /etc/modprobe.d/1.1.1.7_vfat.conf
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_source: section_01/1.1.1.7_udf.conf.j2
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest: /etc/modprobe.d/1.1.1.7_udf.conf
 ubuntu_2004_cis_section1_rule_1_1_1_7_params_owner: root
 ubuntu_2004_cis_section1_rule_1_1_1_7_params_group: root
-ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode: '0644'
-ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name: vfat
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode: '0744'
+ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name: udf
 ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state: absent
 
 # Variables for 1.1.2

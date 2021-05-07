@@ -282,14 +282,14 @@ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_owner: root
 ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_group: root
 ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_mode: '0755'
 
-# Variables for 1.5.2
-ubuntu_2004_cis_section1_rule_1_5_2: true
+# Variables for 1.4.3
+ubuntu_2004_cis_section1_rule_1_4_3: true
 
-ubuntu_2004_cis_section1_rule_1_5_2_params_path: /boot/grub/grub.cfg
-ubuntu_2004_cis_section1_rule_1_5_2_params_mode: '0400'
-ubuntu_2004_cis_section1_rule_1_5_2_params_owner: root
-ubuntu_2004_cis_section1_rule_1_5_2_params_group: root
-ubuntu_2004_cis_section1_rule_1_5_2_params_state: file
+ubuntu_2004_cis_section1_rule_1_4_3_params_path: /boot/grub/grub.cfg
+ubuntu_2004_cis_section1_rule_1_4_3_params_mode: '0400'
+ubuntu_2004_cis_section1_rule_1_4_3_params_owner: root
+ubuntu_2004_cis_section1_rule_1_4_3_params_group: root
+ubuntu_2004_cis_section1_rule_1_4_3_params_state: file
 
 # Variables for 1.5.3
 ubuntu_2004_cis_section1_rule_1_5_3: true

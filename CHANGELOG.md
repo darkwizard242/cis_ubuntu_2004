@@ -1,7 +1,7 @@
 # Changelog
 Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
-## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.3) - TBD
+## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - TBD
 
 ### Added
 

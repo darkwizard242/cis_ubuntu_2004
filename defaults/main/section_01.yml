@@ -385,14 +385,14 @@ ubuntu_2004_cis_section1_rule_1_7_1_params_owner: root
 ubuntu_2004_cis_section1_rule_1_7_1_params_group: root
 ubuntu_2004_cis_section1_rule_1_7_1_params_mode: '0644'
 
-# Variables for 1.8.1.2
-ubuntu_2004_cis_section1_rule_1_8_1_2: true
+# Variables for 1.7.2
+ubuntu_2004_cis_section1_rule_1_7_2: true
 
-ubuntu_2004_cis_section1_rule_1_8_1_2_params_source: section_01/1.8.1.2_issue.j2
-ubuntu_2004_cis_section1_rule_1_8_1_2_params_dest: /etc/issue
-ubuntu_2004_cis_section1_rule_1_8_1_2_params_owner: root
-ubuntu_2004_cis_section1_rule_1_8_1_2_params_group: root
-ubuntu_2004_cis_section1_rule_1_8_1_2_params_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_7_2_params_source: section_01/1.7.2_issue.j2
+ubuntu_2004_cis_section1_rule_1_7_2_params_dest: /etc/issue
+ubuntu_2004_cis_section1_rule_1_7_2_params_owner: root
+ubuntu_2004_cis_section1_rule_1_7_2_params_group: root
+ubuntu_2004_cis_section1_rule_1_7_2_params_mode: '0644'
 
 # Variables for 1.8.1.3
 ubuntu_2004_cis_section1_rule_1_8_1_3: true

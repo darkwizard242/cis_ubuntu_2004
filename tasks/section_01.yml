@@ -924,19 +924,19 @@
     - rule_1_7_1
     - level_1
 
-- name: "1.8.1.2 | Ensure local login warning banner is configured properly (Automated)"
+- name: "1.7.2 | Ensure local login warning banner is configured properly (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_mode }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_2
+    - ubuntu_2004_cis_section1_rule_1_7_2
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_2
+    - rule_1_7_2
     - level_1
 
 - name: "1.8.1.3 | Ensure remote login warning banner is configured properly (Automated)"

@@ -356,15 +356,15 @@ ubuntu_2004_cis_section1_rule_1_6_1_1_params_name:
   - apparmor-utils
 ubuntu_2004_cis_section1_rule_1_6_1_1_params_state: present
 
-# Variables for 1.7.1.2
-ubuntu_2004_cis_section1_rule_1_7_1_2: true
+# Variables for 1.6.1.2
+ubuntu_2004_cis_section1_rule_1_6_1_2: true
 
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_path: /etc/default/grub
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!apparmor).)*)"$'
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 apparmor=1 security=apparmor"'
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_owner: root
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_group: root
-ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_mode: '0644'
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_path: /etc/default/grub
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_regex: '^GRUB_CMDLINE_LINUX="(((?!apparmor).)*)"$'
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_replace: 'GRUB_CMDLINE_LINUX="\1 apparmor=1 security=apparmor"'
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_owner: root
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_group: root
+ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_mode: '0644'
 
 # Variables for 1.7.1.3
 ubuntu_2004_cis_section1_rule_1_7_1_3: true

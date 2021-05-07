@@ -868,25 +868,25 @@
     - rule_1_6_1_1
     - level_1
 
-- name: "1.7.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
+- name: "1.6.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
   replace:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_path }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_regex }}"
-    replace: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_replace }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_mode }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_path }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_regex }}"
+    replace: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_replace }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_mode }}"
     backup: yes
   notify:
     - update grub configuration
     - reapply permissions to bootloader configuration
     # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_2
+    - ubuntu_2004_cis_section1_rule_1_6_1_2
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_2
+    - rule_1_6_1_2
     - level_1
 
 - name: "1.7.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode (Automated)"

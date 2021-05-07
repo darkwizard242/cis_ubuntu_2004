@@ -856,16 +856,16 @@
     - rule_1_5_4
     - level_1
 
-- name: "1.7.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
+- name: "1.6.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_state }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_1_1_params_state }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_1
+    - ubuntu_2004_cis_section1_rule_1_6_1_1
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_1
+    - rule_1_6_1_1
     - level_1
 
 - name: "1.7.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"

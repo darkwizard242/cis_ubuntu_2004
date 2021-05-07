@@ -348,13 +348,13 @@ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_mode: '0544'
 ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_state: present
 ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_no_extra_spaces: yes
 
-# Variables for 1.7.1.1
-ubuntu_2004_cis_section1_rule_1_7_1_1: true
+# Variables for 1.6.1.1
+ubuntu_2004_cis_section1_rule_1_6_1_1: true
 
-ubuntu_2004_cis_section1_rule_1_7_1_1_params_name:
+ubuntu_2004_cis_section1_rule_1_6_1_1_params_name:
   - apparmor
   - apparmor-utils
-ubuntu_2004_cis_section1_rule_1_7_1_1_params_state: present
+ubuntu_2004_cis_section1_rule_1_6_1_1_params_state: present
 
 # Variables for 1.7.1.2
 ubuntu_2004_cis_section1_rule_1_7_1_2: true

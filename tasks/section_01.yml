@@ -909,19 +909,19 @@
     - rule_1_6_1_4
     - level_2
 
-- name: "1.8.1.1 | Ensure message of the day is configured properly (Automated)"
+- name: "1.7.1 | Ensure message of the day is configured properly (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_mode }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_1
+    - ubuntu_2004_cis_section1_rule_1_7_1
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_1
+    - rule_1_7_1
     - level_1
 
 - name: "1.8.1.2 | Ensure local login warning banner is configured properly (Automated)"

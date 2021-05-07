@@ -899,14 +899,14 @@
     - rule_1_6_1_3
     - level_1
 
-- name: "1.7.1.4 | Ensure all AppArmor Profiles are enforcing (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_7_1_4_params_apparmor_command }}"
+- name: "1.6.1.4 | Ensure all AppArmor Profiles are enforcing (Automated)"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_4_params_apparmor_command }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_4
+    - ubuntu_2004_cis_section1_rule_1_6_1_4
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_4
+    - rule_1_6_1_4
     - level_2
 
 - name: "1.8.1.1 | Ensure message of the day is configured properly (Automated)"

@@ -371,10 +371,10 @@ ubuntu_2004_cis_section1_rule_1_6_1_3: true
 
 ubuntu_2004_cis_section1_rule_1_6_1_3_params_apparmor_command: "aa-enforce /etc/apparmor.d/*"
 
-# Variables for 1.7.1.4
-ubuntu_2004_cis_section1_rule_1_7_1_4: true
+# Variables for 1.6.1.4
+ubuntu_2004_cis_section1_rule_1_6_1_4: true
 
-ubuntu_2004_cis_section1_rule_1_7_1_4_params_apparmor_command: "aa-enforce /etc/apparmor.d/*"
+ubuntu_2004_cis_section1_rule_1_6_1_4_params_apparmor_command: "aa-enforce /etc/apparmor.d/*"
 
 # Variables for 1.8.1.1
 ubuntu_2004_cis_section1_rule_1_8_1_1: true

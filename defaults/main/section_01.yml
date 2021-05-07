@@ -297,10 +297,10 @@ ubuntu_2004_cis_section1_rule_1_4_4: true
 ubuntu_2004_cis_section1_rule_1_4_4_params_audit_root_password_command: 'grep ^root:[*\!]: /etc/shadow'
 ubuntu_2004_cis_section1_rule_1_4_4_params_audit_root_password_executable: /bin/bash
 
-# Variables for 1.6.1
-ubuntu_2004_cis_section1_rule_1_6_1: true
+# Variables for 1.5.1
+ubuntu_2004_cis_section1_rule_1_5_1: true
 
-ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command: "grep ^flags /proc/cpuinfo | head -n1 | grep -E 'pae|nx'"
+ubuntu_2004_cis_section1_rule_1_5_1_params_audit_xd_nx_command: "grep ^flags /proc/cpuinfo | head -n1 | grep -E 'pae|nx'"
 
 # Variables for 1.6.2
 ubuntu_2004_cis_section1_rule_1_6_2: true

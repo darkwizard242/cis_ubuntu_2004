@@ -1008,31 +1008,31 @@
     - rule_1_7_5
     - level_1
 
-- name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated)"
+- name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated)"
   block:
 
-    - name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated) | Check if /etc/issue.net exists"
+    - name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated) | Check if /etc/issue.net exists"
       stat:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_path }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_path }}"
       register: etc_issue_net_file
       failed_when: false
 
-    - name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated) | set /etc/issue.net permissions"
+    - name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated) | set /etc/issue.net permissions"
       file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_path }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_mode }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_group }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_state }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_state }}"
       when:
         - etc_issue_net_file.stat.exists
 
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_6
+    - ubuntu_2004_cis_section1_rule_1_7_6
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_6
+    - rule_1_7_6
     - level_1
 
 - name: "1.9 | Ensure updates, patches, and additional security software are installed (Manual)"

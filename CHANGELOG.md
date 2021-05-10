@@ -7,6 +7,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
 * Inclusion of "1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 * Inclusion of "1.4.1 Ensure permissions on bootloader config are not overridden (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
+* Inclusion of "1.8.1 Ensure GNOME Display Manager is removed (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ### Fixed/Changed
 

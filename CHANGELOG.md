@@ -39,6 +39,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * Changed GDM related controls as per CIS benchmark version 1.1.0 (control id's are 1.8.1, 1.8.2 and 1.8.3)
 * 2.2.1.1 control from CIS benchmark version 1.0.0 has been moved to 2.1.1.1 as per CIS benchmark version 1.1.0
 * 2.2.1.2 control from CIS benchmark version 1.0.0 has been moved to 2.1.1.2 as per CIS benchmark version 1.1.0
+* 2.2.1.3 control from CIS benchmark version 1.0.0 has been moved to 2.1.1.3 as per CIS benchmark version 1.1.0
 
 ### Removed
 

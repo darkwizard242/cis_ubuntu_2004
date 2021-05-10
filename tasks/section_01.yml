@@ -1106,6 +1106,27 @@
     - rule_1_8_3
     - level_1
 
+- name: "1.8.4 | Ensure XDCMP is not enabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_mode }}"
+  notify:
+    - reload gdm
+
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_4
+    - level_1
+
 - name: "1.9 | Ensure updates, patches, and additional security software are installed (Manual)"
   apt:
     upgrade: "{{ ubuntu_2004_cis_section1_rule_1_9_params_upgrade }}"
@@ -1118,51 +1139,3 @@
     - section1
     - rule_1_9
     - level_2
-
-- name: "1.10 | Ensure GDM is removed or login is configured (Automated)"
-  block:
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure banner-message-enable if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure banner-message-text if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure disable-user-list if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-  when:
-    - "'gdm3' in ansible_facts.packages"
-    - ubuntu_2004_cis_section1_rule_1_10
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_10
-    - level_1

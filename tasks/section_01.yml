@@ -775,14 +775,14 @@
     - rule_1_5_2
     - level_1
 
-- name: "1.5.3 | Ensure prelink is not installed (Automated)"
+- name: "1.5.3 | Ensure GNOME Display Manager is removed (Manual)"
   block:
 
-    - name: "1.5.3 | Ensure prelink is not installed (Automated) | undo all prelinking"
+    - name: "1.5.3 | Ensure GNOME Display Manager is removed (Manual) | undo all prelinking"
       command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_prelink_command }}"
       failed_when: false
 
-    - name: "1.5.3 | Ensure prelink is not installed (Automated) | uninstall/purge prelink"
+    - name: "1.5.3 | Ensure GNOME Display Manager is removed (Manual) | uninstall/purge prelink"
       apt:
         name: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_package_name }}"
         state: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_package_state }}"
@@ -1033,6 +1033,20 @@
   tags:
     - section1
     - rule_1_7_6
+    - level_1
+
+- name: "1.8.1 | Ensure GNOME Display Manager is removed (Manual)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_purge }}"
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_1
     - level_1
 
 - name: "1.9 | Ensure updates, patches, and additional security software are installed (Manual)"

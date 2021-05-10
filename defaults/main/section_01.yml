@@ -1,5 +1,5 @@
 ---
-# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 1
+# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 1
 
 # Variables for 1.1.1.1
 ubuntu_2004_cis_section1_rule_1_1_1_1: true
@@ -461,23 +461,19 @@ ubuntu_2004_cis_section1_rule_1_8_3_params_owner: root
 ubuntu_2004_cis_section1_rule_1_8_3_params_group: root
 ubuntu_2004_cis_section1_rule_1_8_3_params_mode: '0640'
 
+# Variables for 1.8.4
+ubuntu_2004_cis_section1_rule_1_8_4: true
+
+ubuntu_2004_cis_section1_rule_1_8_4_params_path: /etc/gdm3/custom.conf
+ubuntu_2004_cis_section1_rule_1_8_4_params_line: 'Enable=false'
+ubuntu_2004_cis_section1_rule_1_8_4_params_regexp: .*Enable.*=.*true.*
+ubuntu_2004_cis_section1_rule_1_8_4_params_state: present
+ubuntu_2004_cis_section1_rule_1_8_4_params_owner: root
+ubuntu_2004_cis_section1_rule_1_8_4_params_group: root
+ubuntu_2004_cis_section1_rule_1_8_4_params_mode: '0644'
+
 # Variables for 1.9
 ubuntu_2004_cis_section1_rule_1_9: true
 
 ubuntu_2004_cis_section1_rule_1_9_params_upgrade: dist
 ubuntu_2004_cis_section1_rule_1_9_params_update_cache: yes
-
-# Variables for 1.10
-ubuntu_2004_cis_section1_rule_1_10: true
-
-ubuntu_2004_cis_section1_rule_1_10_params_path: /etc/gdm3/greeter.dconf-defaults
-ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_line: banner-message-enable=true
-ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_regexp: .*banner-message-enable=.*
-ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_line: banner-message-text='Authorized users only. All activity may be monitored and reported.'
-ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_regexp: .*banner-message-text=.*
-ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_line: disable-user-list=true
-ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_regexp: .*disable-user-list=.*
-ubuntu_2004_cis_section1_rule_1_10_params_state: present
-ubuntu_2004_cis_section1_rule_1_10_params_owner: root
-ubuntu_2004_cis_section1_rule_1_10_params_group: root
-ubuntu_2004_cis_section1_rule_1_10_params_mode: '0640'

@@ -4,7 +4,7 @@
 - name: Inspect OS and Version that the role is being applied on.
   debug:
     msg:
-      - "Role cis-ubuntu-20.04 being applied upon | OS: {{ ansible_distribution }} | Version: {{ ansible_distribution_version }}"
+      - "Role cis_ubuntu_2004 being applied upon | OS: {{ ansible_distribution }} | Version: {{ ansible_distribution_version }}"
   tags:
     - always
 
@@ -27,27 +27,27 @@
   become: true
   when: ubuntu_2004_cis_section1
 
-- name: Import CIS Section 2 tasks
-  import_tasks: section_02.yml
-  become: true
-  when: ubuntu_2004_cis_section2
-
-- name: Import CIS Section 3 tasks
-  import_tasks: section_03.yml
-  become: true
-  when: ubuntu_2004_cis_section3
-
-- name: Import CIS Section 4 tasks
-  import_tasks: section_04.yml
-  become: true
-  when: ubuntu_2004_cis_section4
-
-- name: Import CIS Section 5 tasks
-  import_tasks: section_05.yml
-  become: true
-  when: ubuntu_2004_cis_section5
-
-- name: Import CIS Section 6 tasks
-  import_tasks: section_06.yml
-  become: true
-  when: ubuntu_2004_cis_section6
+# - name: Import CIS Section 2 tasks
+#   import_tasks: section_02.yml
+#   become: true
+#   when: ubuntu_2004_cis_section2
+#
+# - name: Import CIS Section 3 tasks
+#   import_tasks: section_03.yml
+#   become: true
+#   when: ubuntu_2004_cis_section3
+#
+# - name: Import CIS Section 4 tasks
+#   import_tasks: section_04.yml
+#   become: true
+#   when: ubuntu_2004_cis_section4
+#
+# - name: Import CIS Section 5 tasks
+#   import_tasks: section_05.yml
+#   become: true
+#   when: ubuntu_2004_cis_section5
+#
+# - name: Import CIS Section 6 tasks
+#   import_tasks: section_06.yml
+#   become: true
+#   when: ubuntu_2004_cis_section6

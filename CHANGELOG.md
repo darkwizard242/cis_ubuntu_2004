@@ -8,6 +8,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * Inclusion of "1.1.1.6 Ensure mounting of squashfs filesystems is disabled (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 * Inclusion of "1.4.1 Ensure permissions on bootloader config are not overridden (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 * Inclusion of "1.8.1 Ensure GNOME Display Manager is removed (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
+* Inclusion of "1.8.4 Ensure XDCMP is not enabled (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ### Fixed/Changed
 
@@ -35,6 +36,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * 1.8.1.4 control from CIS benchmark version 1.0.0 has been moved to 1.7.4 as per CIS benchmark version 1.1.0
 * 1.8.1.5 control from CIS benchmark version 1.0.0 has been moved to 1.7.5 as per CIS benchmark version 1.1.0
 * 1.8.1.6 control from CIS benchmark version 1.0.0 has been moved to 1.7.6 as per CIS benchmark version 1.1.0
+* Changed GDM related controls as per CIS benchmark version 1.1.0 (control id's are 1.8.1, 1.8.2 and 1.8.3)
 
 ### Removed
 

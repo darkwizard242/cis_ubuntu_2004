@@ -236,6 +236,20 @@
     - rule_2_1_7
     - level_1
 
+- name: "2.1.8 | Ensure DNS Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_dns_server
+    - ubuntu_2004_cis_section2_rule_2_1_8
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_8
+    - level_1
+
 - name: "2.1.1 | Ensure xinetd is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
@@ -260,171 +274,6 @@
   tags:
     - section2
     - rule_2_1_2
-    - level_1
-
-# - name: "2.2.1.1 | Ensure time synchronization is in use (Automated)"
-#   block:
-#
-#     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Enable systemd-timesyncd if time synchronization is systemd-timesyncd"
-#       systemd:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name }}"
-#         enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_enabled_state }}"
-#       when:
-#         - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
-#
-#     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Mask systemd-timesyncd if time synchronization is not systemd-timesyncd"
-#       systemd:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name }}"
-#         masked: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_masked_true }}"
-#       when:
-#         - ubuntu_2004_cis_time_synchronization != "systemd-timesyncd"
-#
-#     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Installing NTP or Chrony if time synchronization is not systemd-timesyncd"
-#       apt:
-#         name: "{{ ubuntu_2004_cis_time_synchronization }}"
-#         state: "{{ ubuntu_2004_cis_time_synchronization_package_state }}"
-#       when:
-#         - ubuntu_2004_cis_time_synchronization != "systemd-timesyncd"
-#
-#
-#     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Purge Chrony if time synchronization is NTP or systemd-timesyncd"
-#       apt:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_state }}"
-#         purge: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_purge }}"
-#       when:
-#         - ubuntu_2004_cis_time_synchronization != "chrony"
-#
-#     - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Purge NTP if time synchronization is Chrony or systemd-timesyncd"
-#       apt:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_state }}"
-#         purge: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_purge }}"
-#       when:
-#         - ubuntu_2004_cis_time_synchronization != "ntp"
-#
-#   when:
-#     - ubuntu_2004_cis_section2_rule_2_2_1_1
-#     - ubuntu_2004_cis_section2
-#   tags:
-#     - section2
-#     - rule_2_2_1_1
-#     - level_1
-#
-# - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual)"
-#   block:
-#
-#     - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is not masked if time synchronization is systemd-timesyncd"
-#       systemd:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-#         masked: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_masked_true }}"
-#
-#     - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
-#       systemd:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-#         enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_enabled_state }}"
-#
-#     - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd NTP entries"
-#       ini_file:
-#         path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-#         section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-#         option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_option }}"
-#         value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_value }}"
-#         owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-#         group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-#         mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-#         no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
-#
-#     - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd FallbackNTP entries"
-#       ini_file:
-#         path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-#         section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-#         option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_option }}"
-#         value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_value }}"
-#         owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-#         group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-#         mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-#         no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
-#
-#     - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd RootDistanceMaxSec entries"
-#       ini_file:
-#         path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-#         section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-#         option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_option }}"
-#         value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_value }}"
-#         owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-#         group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-#         mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-#         no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
-#
-#     - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Restart systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
-#       systemd:
-#         name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-#         state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_state }}"
-#
-#     - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | set-ntp true"
-#       command: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_setntptrue_command }}"
-#
-#   when:
-#     - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
-#     - ubuntu_2004_cis_section2_rule_2_2_1_2
-#     - ubuntu_2004_cis_section2
-#   tags:
-#     - section2
-#     - rule_2_2_1_2
-#     - level_1
-#
-# - name: "2.2.1.3 | Ensure chrony is configured (Automated)"
-#   template:
-#     src: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_src }}"
-#     dest: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_dest }}"
-#     owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_owner }}"
-#     group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_group }}"
-#     mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_mode }}"
-#   notify:
-#     - chrony restart
-#   when:
-#     - ubuntu_2004_cis_time_synchronization == "chrony"
-#     - ubuntu_2004_cis_section2_rule_2_2_1_3
-#     - ubuntu_2004_cis_section2
-#   tags:
-#     - section2
-#     - rule_2_2_1_3
-#     - level_1
-#
-# - name: "2.2.1.4 | Ensure ntp is configured (Automated)"
-#   template:
-#     src: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_src }}"
-#     dest: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_dest }}"
-#     owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner }}"
-#     group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group }}"
-#     mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode }}"
-#   notify:
-#     - ntp restart
-#   when:
-#     - ubuntu_2004_cis_time_synchronization == "ntp"
-#     - ubuntu_2004_cis_section2_rule_2_2_1_4
-#     - ubuntu_2004_cis_section2
-#   tags:
-#     - section2
-#     - rule_2_2_1_4
-#     - level_1
-
-- name: "2.2.8 | Ensure DNS Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_dns_server
-    - ubuntu_2004_cis_section2_rule_2_2_8
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_8
     - level_1
 
 - name: "2.2.9 | Ensure FTP Server is not installed (Automated)"

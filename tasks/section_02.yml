@@ -278,6 +278,20 @@
     - rule_2_1_10
     - level_1
 
+- name: "2.1.11 | Ensure IMAP and POP3 server are not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_imap_pop3_server
+    - ubuntu_2004_cis_section2_rule_2_1_11
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_11
+    - level_1
+
 - name: "2.1.1 | Ensure xinetd is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
@@ -302,20 +316,6 @@
   tags:
     - section2
     - rule_2_1_2
-    - level_1
-
-- name: "2.2.11 | Ensure IMAP and POP3 server are not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_imap_pop3_server
-    - ubuntu_2004_cis_section2_rule_2_2_11
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_11
     - level_1
 
 - name: "2.2.12 | Ensure Samba is not installed (Automated)"

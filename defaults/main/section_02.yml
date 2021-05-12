@@ -98,6 +98,13 @@ ubuntu_2004_cis_section2_rule_2_1_8_params_package_name: bind9
 ubuntu_2004_cis_section2_rule_2_1_8_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_8_params_package_purge: yes
 
+# Variables for 2.1.9
+ubuntu_2004_cis_section2_rule_2_1_9: true
+
+ubuntu_2004_cis_section2_rule_2_1_9_params_package_name: vsftpd
+ubuntu_2004_cis_section2_rule_2_1_9_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_9_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -111,13 +118,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.2.9
-ubuntu_2004_cis_section2_rule_2_2_9: true
-
-ubuntu_2004_cis_section2_rule_2_2_9_params_package_name: vsftpd
-ubuntu_2004_cis_section2_rule_2_2_9_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_9_params_package_purge: yes
 
 # Variables for 2.2.10
 ubuntu_2004_cis_section2_rule_2_2_10: true

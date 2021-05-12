@@ -179,6 +179,21 @@
     - rule_2_1_3
     - level_1
 
+- name: "2.1.4 | Ensure CUPS is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_cups
+    - ubuntu_2004_cis_section2_rule_2_1_4
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_4
+    - level_1
+    - level_2
+
 - name: "2.1.1 | Ensure xinetd is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
@@ -355,21 +370,6 @@
 #     - section2
 #     - rule_2_2_1_4
 #     - level_1
-
-- name: "2.2.4 | Ensure CUPS is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_cups
-    - ubuntu_2004_cis_section2_rule_2_2_4
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_4
-    - level_1
-    - level_2
 
 - name: "2.2.5 | Ensure DHCP Server is not installed (Automated)"
   apt:

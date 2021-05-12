@@ -91,6 +91,13 @@ ubuntu_2004_cis_section2_rule_2_1_7_params_package_name: nfs-kernel-server
 ubuntu_2004_cis_section2_rule_2_1_7_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_7_params_package_purge: yes
 
+# Variables for 2.1.8
+ubuntu_2004_cis_section2_rule_2_1_8: true
+
+ubuntu_2004_cis_section2_rule_2_1_8_params_package_name: bind9
+ubuntu_2004_cis_section2_rule_2_1_8_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_8_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -104,62 +111,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.2.1.1, 2.2.1.2, 2.2.1.3 and 2.2.1.4
-# ubuntu_2004_cis_section2_rule_2_2_1_1: true
-# ubuntu_2004_cis_section2_rule_2_2_1_2: true
-# ubuntu_2004_cis_section2_rule_2_2_1_3: true
-# ubuntu_2004_cis_section2_rule_2_2_1_4: true
-#
-# ubuntu_2004_cis_time_synchronization_package_state: present
-#
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name: systemd-timesyncd
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_enabled_state: yes
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_masked_true: yes
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package: chrony
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_state: absent
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_purge: yes
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package: ntp
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_state: absent
-# ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_purge: yes
-#
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name: systemd-timesyncd
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_enabled_state: yes
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_masked_true: no
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_state: restarted
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path: /etc/systemd/timesyncd.conf
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section: Time
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_option: NTP
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_value: 0.debian.pool.ntp.org 1.debian.pool.ntp.org
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_option: FallbackNTP
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_value: 2.debian.pool.ntp.org 3.debian.pool.ntp.org
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_option: RootDistanceMaxSec
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_value: '1'
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner: root
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group: root
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode: 0644
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state: present
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces: yes
-# ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_setntptrue_command: timedatectl set-ntp true
-#
-# ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_src: section_02/2.2.1.3_chrony.conf.j2
-# ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_dest: /etc/chrony/chrony.conf
-# ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_owner: root
-# ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_group: root
-# ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_mode: '0644'
-#
-# ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_src: section_02/2.2.1.4_ntp.conf.j2
-# ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_dest: /etc/ntp.conf
-# ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner: root
-# ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group: root
-# ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode: '0644'
-
-# Variables for 2.2.8
-ubuntu_2004_cis_section2_rule_2_2_8: true
-
-ubuntu_2004_cis_section2_rule_2_2_8_params_package_name: bind9
-ubuntu_2004_cis_section2_rule_2_2_8_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_8_params_package_purge: yes
 
 # Variables for 2.2.9
 ubuntu_2004_cis_section2_rule_2_2_9: true

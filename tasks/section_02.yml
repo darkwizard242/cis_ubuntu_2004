@@ -194,6 +194,20 @@
     - level_1
     - level_2
 
+- name: "2.1.5 | Ensure DHCP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_dhcp_server
+    - ubuntu_2004_cis_section2_rule_2_1_5
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_5
+    - level_1
+
 - name: "2.1.1 | Ensure xinetd is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
@@ -370,20 +384,6 @@
 #     - section2
 #     - rule_2_2_1_4
 #     - level_1
-
-- name: "2.2.5 | Ensure DHCP Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_dhcp_server
-    - ubuntu_2004_cis_section2_rule_2_2_5
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_5
-    - level_1
 
 - name: "2.2.6 | Ensure LDAP server is not installed (Automated)"
   apt:

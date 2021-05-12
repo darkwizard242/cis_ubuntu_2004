@@ -112,6 +112,15 @@ ubuntu_2004_cis_section2_rule_2_1_10_params_package_name: apache2
 ubuntu_2004_cis_section2_rule_2_1_10_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_10_params_package_purge: yes
 
+# Variables for 2.1.11
+ubuntu_2004_cis_section2_rule_2_1_11: true
+
+ubuntu_2004_cis_section2_rule_2_1_11_params_package_name:
+  - dovecot-imapd
+  - dovecot-pop3d
+ubuntu_2004_cis_section2_rule_2_1_11_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_11_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -125,15 +134,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.2.11
-ubuntu_2004_cis_section2_rule_2_2_11: true
-
-ubuntu_2004_cis_section2_rule_2_2_11_params_package_name:
-  - dovecot-imapd
-  - dovecot-pop3d
-ubuntu_2004_cis_section2_rule_2_2_11_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_11_params_package_purge: yes
 
 # Variables for 2.2.12
 ubuntu_2004_cis_section2_rule_2_2_12: true

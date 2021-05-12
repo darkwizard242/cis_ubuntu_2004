@@ -77,6 +77,13 @@ ubuntu_2004_cis_section2_rule_2_1_5_params_package_name: isc-dhcp-server
 ubuntu_2004_cis_section2_rule_2_1_5_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_5_params_package_purge: yes
 
+# Variables for 2.1.6
+ubuntu_2004_cis_section2_rule_2_1_6: true
+
+ubuntu_2004_cis_section2_rule_2_1_6_params_package_name: slapd
+ubuntu_2004_cis_section2_rule_2_1_6_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_6_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -139,13 +146,6 @@ ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
 # ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner: root
 # ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group: root
 # ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode: '0644'
-
-# Variables for 2.2.6
-ubuntu_2004_cis_section2_rule_2_2_6: true
-
-ubuntu_2004_cis_section2_rule_2_2_6_params_package_name: slapd
-ubuntu_2004_cis_section2_rule_2_2_6_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_6_params_package_purge: yes
 
 # Variables for 2.2.7
 ubuntu_2004_cis_section2_rule_2_2_7: true

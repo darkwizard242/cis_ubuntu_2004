@@ -195,6 +195,13 @@ ubuntu_2004_cis_section2_rule_2_2_4_params_package_name: telnet
 ubuntu_2004_cis_section2_rule_2_2_4_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_2_4_params_package_purge: yes
 
+# Variables for 2.2.5
+ubuntu_2004_cis_section2_rule_2_2_5: true
+
+ubuntu_2004_cis_section2_rule_2_2_5_params_package_name: ldap-utils
+ubuntu_2004_cis_section2_rule_2_2_5_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -208,13 +215,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.3.5
-ubuntu_2004_cis_section2_rule_2_3_5: true
-
-ubuntu_2004_cis_section2_rule_2_3_5_params_package_name: ldap-utils
-ubuntu_2004_cis_section2_rule_2_3_5_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_3_5_params_package_purge: yes
 
 # Variables for 2.3.6
 ubuntu_2004_cis_section2_rule_2_3_6: true

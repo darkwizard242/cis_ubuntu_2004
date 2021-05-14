@@ -135,6 +135,13 @@ ubuntu_2004_cis_section2_rule_2_1_13_params_package_name: squid
 ubuntu_2004_cis_section2_rule_2_1_13_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_13_params_package_purge: yes
 
+# Variables for 2.1.14
+ubuntu_2004_cis_section2_rule_2_1_14: true
+
+ubuntu_2004_cis_section2_rule_2_1_14_params_package_name: snmpd
+ubuntu_2004_cis_section2_rule_2_1_14_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_14_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -148,13 +155,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.2.14
-ubuntu_2004_cis_section2_rule_2_2_14: true
-
-ubuntu_2004_cis_section2_rule_2_2_14_params_package_name: snmpd
-ubuntu_2004_cis_section2_rule_2_2_14_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge: yes
 
 # Variables for 2.2.15
 ubuntu_2004_cis_section2_rule_2_2_15: true

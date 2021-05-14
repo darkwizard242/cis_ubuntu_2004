@@ -61,6 +61,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * 2.3.1 control from CIS benchmark version 1.0.0 has been moved to 2.2.1 as per CIS benchmark version 1.1.0
 * 2.3.2 control from CIS benchmark version 1.0.0 has been moved to 2.2.2 as per CIS benchmark version 1.1.0
 * 2.3.3 control from CIS benchmark version 1.0.0 has been moved to 2.2.3 as per CIS benchmark version 1.1.0
+* 2.3.4 control from CIS benchmark version 1.0.0 has been moved to 2.2.4 as per CIS benchmark version 1.1.0
 
 ### Removed
 

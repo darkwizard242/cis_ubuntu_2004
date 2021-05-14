@@ -320,6 +320,20 @@
     - rule_2_1_13
     - level_1
 
+- name: "2.1.14 | Ensure SNMP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_snmp_server
+    - ubuntu_2004_cis_section2_rule_2_1_14
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_14
+    - level_1
+
 - name: "2.1.1 | Ensure xinetd is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
@@ -344,20 +358,6 @@
   tags:
     - section2
     - rule_2_1_2
-    - level_1
-
-- name: "2.2.14 | Ensure SNMP Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_snmp_server
-    - ubuntu_2004_cis_section2_rule_2_2_14
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_14
     - level_1
 
 - name: "2.2.15 | Ensure mail transfer agent is configured for local-only mode (Automated)"

@@ -153,6 +153,13 @@ ubuntu_2004_cis_section2_rule_2_1_15_params_owner: root
 ubuntu_2004_cis_section2_rule_2_1_15_params_group: root
 ubuntu_2004_cis_section2_rule_2_1_15_params_mode: '0644'
 
+# Variables for 2.1.16
+ubuntu_2004_cis_section2_rule_2_1_16: true
+
+ubuntu_2004_cis_section2_rule_2_1_16_params_package_name: rsync
+ubuntu_2004_cis_section2_rule_2_1_16_params_package_state: absent
+ubuntu_2004_cis_section2_rule_2_1_16_params_package_purge: yes
+
 # Variables for 2.1.1
 ubuntu_2004_cis_section2_rule_2_1_1: true
 
@@ -166,13 +173,6 @@ ubuntu_2004_cis_section2_rule_2_1_2: true
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_name: openbsd-inetd
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_state: absent
 ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge: yes
-
-# Variables for 2.2.16
-ubuntu_2004_cis_section2_rule_2_2_16: true
-
-ubuntu_2004_cis_section2_rule_2_2_16_params_package_name: rsync
-ubuntu_2004_cis_section2_rule_2_2_16_params_package_state: absent
-ubuntu_2004_cis_section2_rule_2_2_16_params_package_purge: yes
 
 # Variables for 2.2.17
 ubuntu_2004_cis_section2_rule_2_2_17: true

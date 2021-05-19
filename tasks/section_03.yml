@@ -492,7 +492,7 @@
     - rule_3_5_1_4
     - level_1
 
-- name: "3.5.1.5 | Ensure outbound connections are configured (Manual)"
+- name: "3.5.1.5 | Ensure ufw outbound connections are configured (Manual)"
   ufw:
     rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwrule }}"
     direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_5_params_ufwdirection }}"

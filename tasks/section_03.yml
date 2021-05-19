@@ -450,31 +450,31 @@
     - rule_3_5_1_3
     - level_1
 
-- name: "3.5.1.4 | Ensure loopback traffic is configured (Automated)"
+- name: "3.5.1.4 | Ensure ufw loopback traffic is configured (Automated)"
   block:
 
-    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Allow ingress on loopback interface"
+    - name: "3.5.1.4 | Ensure ufw loopback traffic is configured (Automated) | Allow ingress on loopback interface"
       ufw:
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressloopback }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressloopback }}"
         interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_ingressloopback }}"
         comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressloopback }}"
 
-    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Allow egress on loopback interface"
+    - name: "3.5.1.4 | Ensure ufw loopback traffic is configured (Automated) | Allow egress on loopback interface"
       ufw:
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_egressloopback }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_egressloopback }}"
         interface: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwinterface_egressloopback }}"
         comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_egressloopback }}"
 
-    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Deny ingress from 127.0.0.0/8"
+    - name: "3.5.1.4 | Ensure ufw loopback traffic is configured (Automated) | Deny ingress from 127.0.0.0/8"
       ufw:
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv4 }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv4 }}"
         from: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwfrom_ingressnonloopbackipv4 }}"
         comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwcomment_ingressnonloopbackipv4 }}"
 
-    - name: "3.5.1.4 | Ensure loopback traffic is configured (Automated) | Deny ingress from ::1"
+    - name: "3.5.1.4 | Ensure ufw loopback traffic is configured (Automated) | Deny ingress from ::1"
       ufw:
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwrule_ingressnonloopbackipv6 }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_4_params_ufwdirection_ingressnonloopbackipv6 }}"

@@ -829,7 +829,7 @@
     - rule_3_5_3_1_1
     - level_1
 
-- name: "3.5.3.1.2 | Ensure nftables is not installed (Automated)"
+- name: "3.5.3.1.2 | Ensure nftables is not installed with iptables (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_name }}"
     state: "{{ ubuntu_2004_cis_section3_rule_3_5_3_1_2_params_state }}"

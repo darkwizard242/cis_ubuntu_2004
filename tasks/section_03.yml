@@ -535,10 +535,10 @@
     - level_1
 
 
-- name: "3.5.1.7 | Ensure default deny firewall policy (Automated)"
+- name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated)"
   block:
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW GIT Template"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW GIT Template"
       template:
         src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_src }}"
         dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_dest }}"
@@ -547,13 +547,13 @@
         mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_mode }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW GIT Profile - Allow"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW GIT Profile - Allow"
       ufw:
         name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_name }}"
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_git_profile_rule }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_git_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTP Template"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW HTTP Template"
       template:
         src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_src }}"
         dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_dest }}"
@@ -562,13 +562,13 @@
         mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_mode }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTP Profile - Allow"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW HTTP Profile - Allow"
       ufw:
         name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_name }}"
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_http_profile_rule }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_http_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTPS Template"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW HTTPS Template"
       template:
         src: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_src }}"
         dest: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_dest }}"
@@ -577,31 +577,31 @@
         mode: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_mode }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | UFW HTTPS Profile - Allow"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | UFW HTTPS Profile - Allow"
       ufw:
         name: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_name }}"
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_https_profile_rule }}"
       when: ubuntu_2004_cis_section3_rule_3_5_1_7_ufw_require_https_profile
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | Set Loggin ON"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | Set Loggin ON"
       ufw:
         logging: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw_logging_state }}"
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny incoming"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | default deny incoming"
       ufw:
         default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_incoming }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_incoming }}"
         comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_incoming }}"
       when: ubuntu_2004_cis_section3_rule_ufw_default_deny_incoming
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny outgoing"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | default deny outgoing"
       ufw:
         default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_outgoing }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_outgoing }}"
         comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufw22comment_outgoing }}"
       when: ubuntu_2004_cis_section3_rule_ufw_default_deny_outgoing
 
-    - name: "3.5.1.7 | Ensure default deny firewall policy (Automated) | default deny routed"
+    - name: "3.5.1.7 | Ensure ufw default deny firewall policy (Automated) | default deny routed"
       ufw:
         default: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdefault_routed }}"
         direction: "{{ ubuntu_2004_cis_section3_rule_3_5_1_7_params_ufwdirection_routed }}"

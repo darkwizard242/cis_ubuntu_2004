@@ -755,7 +755,7 @@
     - rule_3_5_2_7
     - level_1
 
-- name: "3.5.2.8 | Ensure default deny firewall policy (Automated)"
+- name: "3.5.2.8 | Ensure nftables default deny firewall policy (Automated)"
   shell: |
     set -eou pipefail
     nft chain inet {{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_nftablename }} input { policy drop \; }

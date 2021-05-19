@@ -644,7 +644,7 @@
     - rule_3_5_2_2
     - level_1
 
-- name: "3.5.2.3 | Ensure iptables are flushed (Manual)"
+- name: "3.5.2.3 | Ensure iptables are flushed with nftables (Manual)"
   block:
 
     - name: "3.5.2.3 | Ensure iptables are flushed (Manual) | IPv4"

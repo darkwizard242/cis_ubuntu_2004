@@ -69,6 +69,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * Benchmark control name change for control 3.5.1.4
 * Benchmark control name change for control 3.5.1.5
 * Benchmark control name change for control 3.5.1.6
+* Benchmark control name change for control 3.5.1.7
 
 ### Removed
 

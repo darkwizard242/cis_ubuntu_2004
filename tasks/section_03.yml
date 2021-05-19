@@ -702,7 +702,7 @@
     - rule_3_5_2_5
     - level_1
 
-- name: "3.5.2.6 | Ensure loopback traffic is configured (Automated)"
+- name: "3.5.2.6 | Ensure nftables loopback traffic is configured (Automated)"
   block:
 
     - name: "3.5.2.6 | Ensure loopback traffic is configured (Automated) | ipv4"

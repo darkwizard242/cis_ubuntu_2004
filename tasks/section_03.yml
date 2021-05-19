@@ -668,7 +668,7 @@
     - rule_3_5_2_3
     - level_1
 
-- name: "3.5.2.4 | Ensure a table exists (Automated)"
+- name: "3.5.2.4 | Ensure a nftables table exists (Automated)"
   command: "{{ ubuntu_2004_cis_section3_rule_3_5_2_4_params_command }}"
   ignore_errors: true
   # Ignore errors is set to true to avoid a break of playbook apply when the table already exists.

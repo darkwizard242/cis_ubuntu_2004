@@ -66,6 +66,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * 2.3.6 control from CIS benchmark version 1.0.0 has been moved to 2.2.6 as per CIS benchmark version 1.1.0
 * 2.4 control from CIS benchmark version 1.0.0 has been moved to 2.3 as per CIS benchmark version 1.1.0
 * Benchmark control name change for control 3.5.1.1
+* Benchmark control name change for control 3.5.1.4
 
 ### Removed
 

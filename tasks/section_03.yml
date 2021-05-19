@@ -507,7 +507,7 @@
     - rule_3_5_1_5
     - level_1
 
-- name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual)"
+- name: "3.5.1.6 | Ensure ufw firewall rules exist for all open ports (Manual)"
   block:
 
     # - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 22 SSH port in"
@@ -517,7 +517,7 @@
     #     proto: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwproto_22 }}"
     #     comment: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwcomment_22 }}"
 
-    - name: "3.5.1.6 | Ensure firewall rules exist for all open ports (Manual) | 53 DNS Resolver"
+    - name: "3.5.1.6 | Ensure ufw firewall rules exist for all open ports (Manual) | 53 DNS Resolver"
       ufw:
         rule: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwrule_53 }}"
         port: "{{ ubuntu_2004_cis_section3_rule_3_5_1_6_params_ufwport_53 }}"

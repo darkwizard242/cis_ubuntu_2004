@@ -1042,38 +1042,38 @@
     - rule_3_5_3_3_2
     - level_1
 
-- name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated)"
+- name: "3.5.3.3.3 | Ensure ip6tables default deny firewall policy (Automated)"
   block:
 
-    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set input chain to drop"
+    - name: "3.5.3.3.3 | Ensure ip6tables default deny firewall policy (Automated) | set input chain to drop"
       iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_input_ipversion }}"
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_input_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_input_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_input_ipversion }}"
       when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_input
 
-    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set output chain to drop"
+    - name: "3.5.3.3.3 | Ensure ip6tables default deny firewall policy (Automated) | set output chain to drop"
       iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_output_ipversion }}"
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_output_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_output_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_output_ipversion }}"
       when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_output
 
-    - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated) | set forward chain to drop"
+    - name: "3.5.3.3.3 | Ensure ip6tables default deny firewall policy (Automated) | set forward chain to drop"
       iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_ipversion }}"
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_forward_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_forward_policy }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_forward_ipversion }}"
       when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward
 
   when:
     - ubuntu_2004_cis_require_ipv6
     - ubuntu_2004_cis_firewall == "iptables"
-    - ubuntu_2004_cis_section3_rule_3_5_3_3_1
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_3
     - ubuntu_2004_cis_section3
   tags:
     - section3
-    - rule_3_5_3_3_1
+    - rule_3_5_3_3_3
     - level_1
 
 - name: "3.5.3.3.4 | Ensure IPv6 firewall rules exist for all open ports (Manual)"

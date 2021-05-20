@@ -946,10 +946,10 @@
     - rule_3_5_3_2_1
     - level_1
 
-- name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated)"
+- name: "3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports (Automated)"
   block:
 
-    - name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated) | SSH"
+    - name: "3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports (Automated) | SSH"
       iptables:
         chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_chain }}"
         jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_jump }}"
@@ -958,7 +958,7 @@
         protocol: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_input_connections_protocols }}"
 
 
-    - name: "3.5.3.2.4 | Ensure firewall rules exist for all open ports (Automated) | DNS resolver"
+    - name: "3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports (Automated) | DNS resolver"
       iptables:
         chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_chain }}"
         jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_jump }}"

@@ -80,6 +80,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 * Benchmark control name change for control 3.5.3.1.2
 * Benchmark control name change for control 3.5.3.1.3
 * 3.5.3.2.2 control from CIS benchmark version 1.0.0 has been moved to 3.5.3.2.1 as per CIS benchmark version 1.1.0
+* 3.5.3.2.3 control from CIS benchmark version 1.0.0 has been moved to 3.5.3.2.2 as per CIS benchmark version 1.1.0
 
 ### Removed
 

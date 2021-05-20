@@ -469,6 +469,27 @@ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_
 ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_interface: '::1'
 ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_ipversion: ipv6
 
+# Variables for 3.5.3.3.2
+ubuntu_2004_cis_section3_rule_3_5_3_3_2: true
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_input_connections_chain: INPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_input_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_input_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_input_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_input_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_chain: OUTPUT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_jump: ACCEPT
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_ctstate: NEW,ESTABLISHED
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_ipversion: ipv6
+ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_protocols:
+  - tcp
+  - udp
+  - icmp
+
 # Variables for 3.5.3.3.1
 ubuntu_2004_cis_section3_rule_3_5_3_3_1: true
 
@@ -486,27 +507,6 @@ ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward: true
 ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_name: FORWARD
 ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_policy: DROP
 ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptableschain_forward_ipversion: ipv6
-
-# Variables for 3.5.3.3.3
-ubuntu_2004_cis_section3_rule_3_5_3_3_3: true
-
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_chain: INPUT
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_jump: ACCEPT
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ctstate: NEW,ESTABLISHED
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_ipversion: ipv6
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_input_connections_protocols:
-  - tcp
-  - udp
-  - icmp
-
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_chain: OUTPUT
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_jump: ACCEPT
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ctstate: NEW,ESTABLISHED
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_ipversion: ipv6
-ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_output_connections_protocols:
-  - tcp
-  - udp
-  - icmp
 
 # Variables for 3.5.3.3.4
 ubuntu_2004_cis_section3_rule_3_5_3_3_4: true

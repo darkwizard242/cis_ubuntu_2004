@@ -976,6 +976,40 @@
     - rule_3_5_3_2_4
     - level_1
 
+- name: "3.5.3.3.1 | Ensure ip6tables loopback traffic is configured (Automated)"
+  block:
+
+    - name: "3.5.3.3.1 | Ensure ip6tables loopback traffic is configured (Automated) | loopback ingress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_input_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_input_jump }}"
+        in_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_input_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_input_ipversion }}"
+
+    - name: "3.5.3.3.1 | Ensure ip6tables loopback traffic is configured (Automated) | loopback egress"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_output_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_output_jump }}"
+        out_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_output_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_output_ipversion }}"
+
+    - name: "3.5.3.3.1 | Ensure ip6tables loopback traffic is configured (Automated) | deny on loopback"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_name }}"
+        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_jump }}"
+        source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_interface }}"
+        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_ipversion }}"
+
+  when:
+    - ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_3_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_3_1
+    - level_1
+
 - name: "3.5.3.3.1 | Ensure IPv6 default deny firewall policy (Automated)"
   block:
 
@@ -1008,40 +1042,6 @@
   tags:
     - section3
     - rule_3_5_3_3_1
-    - level_1
-
-- name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated)"
-  block:
-
-    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | loopback ingress"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_name }}"
-        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_jump }}"
-        in_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_interface }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_input_ipversion }}"
-
-    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | loopback egress"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_name }}"
-        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_jump }}"
-        out_interface: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_interface }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_output_ipversion }}"
-
-    - name: "3.5.3.3.2 | Ensure IPv6 loopback traffic is configured (Automated) | deny on loopback"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_name }}"
-        jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_jump }}"
-        source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_interface }}"
-        ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_iptablesloopbackchain_inputlocal_ipversion }}"
-
-  when:
-    - ubuntu_2004_cis_require_ipv6
-    - ubuntu_2004_cis_firewall == "iptables"
-    - ubuntu_2004_cis_section3_rule_3_5_3_3_2
-    - ubuntu_2004_cis_section3
-  tags:
-    - section3
-    - rule_3_5_3_3_2
     - level_1
 
 - name: "3.5.3.3.3 | Ensure IPv6 outbound and established connections are configured (Manual)"

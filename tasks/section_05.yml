@@ -159,6 +159,18 @@
     - rule_5_1_9
     - level_1
 
+- name: "5.2.1 | Ensure sudo is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_package_state }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_2_1
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_2_1
+    - level_1
+
 - name: "5.2.1 | Ensure permissions on /etc/ssh/sshd_config are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_path }}"

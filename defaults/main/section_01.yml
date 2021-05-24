@@ -195,36 +195,6 @@ ubuntu_2004_cis_section1_rule_1_2_2: true
 
 ubuntu_2004_cis_section1_rule_1_2_2_params_script: 1.2.2.apt_key_list_check.sh
 
-# # Variables for 1.3.1
-# ubuntu_2004_cis_section1_rule_1_3_1: true
-#
-# ubuntu_2004_cis_section1_rule_1_3_1_params_package_name: sudo
-# ubuntu_2004_cis_section1_rule_1_3_1_params_package_state: present
-#
-# # Variables for 1.3.2
-# ubuntu_2004_cis_section1_rule_1_3_2: true
-#
-# ubuntu_2004_cis_section1_rule_1_3_2_params_path: /etc/sudoers
-# ubuntu_2004_cis_section1_rule_1_3_2_params_line: Defaults use_pty
-# ubuntu_2004_cis_section1_rule_1_3_2_params_regexp: ^Defaults.*use_pty
-# ubuntu_2004_cis_section1_rule_1_3_2_params_state: present
-# ubuntu_2004_cis_section1_rule_1_3_2_params_owner: root
-# ubuntu_2004_cis_section1_rule_1_3_2_params_group: root
-# ubuntu_2004_cis_section1_rule_1_3_2_params_mode: '0640'
-# ubuntu_2004_cis_section1_rule_1_3_2_params_validate: visudo -cf %s
-#
-# # Variables for 1.3.3
-# ubuntu_2004_cis_section1_rule_1_3_3: true
-#
-# ubuntu_2004_cis_section1_rule_1_3_3_params_path: /etc/sudoers
-# ubuntu_2004_cis_section1_rule_1_3_3_params_line: Defaults logfile="/var/log/sudo.log"
-# ubuntu_2004_cis_section1_rule_1_3_3_params_regexp: ^Defaults.*logfile
-# ubuntu_2004_cis_section1_rule_1_3_3_params_state: present
-# ubuntu_2004_cis_section1_rule_1_3_3_params_owner: root
-# ubuntu_2004_cis_section1_rule_1_3_3_params_group: root
-# ubuntu_2004_cis_section1_rule_1_3_3_params_mode: '0640'
-# ubuntu_2004_cis_section1_rule_1_3_3_params_validate: visudo -cf %s
-
 # Variables for 1.3.1
 ubuntu_2004_cis_section1_rule_1_3_1: true
 

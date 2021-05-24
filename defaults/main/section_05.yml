@@ -94,6 +94,12 @@ ubuntu_2004_cis_section5_rule_5_1_9_params_at_allow_mode: '0640'
 # Variables for 5.2.1
 ubuntu_2004_cis_section5_rule_5_2_1: true
 
+ubuntu_2004_cis_section5_rule_5_2_1_params_package_name: sudo
+ubuntu_2004_cis_section5_rule_5_2_1_params_package_state: present
+
+# Variables for 5.2.1
+ubuntu_2004_cis_section5_rule_5_2_1: true
+
 ubuntu_2004_cis_section5_rule_5_2_1_params_path: /etc/ssh/sshd_config
 ubuntu_2004_cis_section5_rule_5_2_1_params_state: file
 ubuntu_2004_cis_section5_rule_5_2_1_params_owner: root

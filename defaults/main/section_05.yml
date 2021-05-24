@@ -97,6 +97,18 @@ ubuntu_2004_cis_section5_rule_5_2_1: true
 ubuntu_2004_cis_section5_rule_5_2_1_params_package_name: sudo
 ubuntu_2004_cis_section5_rule_5_2_1_params_package_state: present
 
+# Variables for 5.2.2
+ubuntu_2004_cis_section5_rule_5_2_2: true
+
+ubuntu_2004_cis_section5_rule_5_2_2_params_path: /etc/sudoers
+ubuntu_2004_cis_section5_rule_5_2_2_params_line: Defaults use_pty
+ubuntu_2004_cis_section5_rule_5_2_2_params_regexp: ^Defaults.*use_pty
+ubuntu_2004_cis_section5_rule_5_2_2_params_state: present
+ubuntu_2004_cis_section5_rule_5_2_2_params_owner: root
+ubuntu_2004_cis_section5_rule_5_2_2_params_group: root
+ubuntu_2004_cis_section5_rule_5_2_2_params_mode: '0640'
+ubuntu_2004_cis_section5_rule_5_2_2_params_validate: visudo -cf %s
+
 # Variables for 5.2.1
 ubuntu_2004_cis_section5_rule_5_2_1: true
 

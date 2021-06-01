@@ -136,11 +136,11 @@ ubuntu_2004_cis_section5_rule_5_3_2: true
 ubuntu_2004_cis_section5_rule_5_3_2_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown root:root {} \;
 ubuntu_2004_cis_section5_rule_5_3_2_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown 0600 {} \;
 
-# Variables for 5.2.3
-ubuntu_2004_cis_section5_rule_5_2_3: true
+# Variables for 5.3.3
+ubuntu_2004_cis_section5_rule_5_3_3: true
 
-ubuntu_2004_cis_section5_rule_5_2_3_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
-ubuntu_2004_cis_section5_rule_5_2_3_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown 0600 {} \;
+ubuntu_2004_cis_section5_rule_5_3_3_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
+ubuntu_2004_cis_section5_rule_5_3_3_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown 0600 {} \;
 
 # Variables for 5.2.4
 ubuntu_2004_cis_section5_rule_5_2_4: true

@@ -207,22 +207,22 @@
     - rule_5_2_3
     - level_1
 
-- name: "5.2.1 | Ensure permissions on /etc/ssh/sshd_config are configured (Automated)"
+- name: "5.3.1 | Ensure permissions on /etc/ssh/sshd_config are configured (Automated)"
   file:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_path }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_mode }}"
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_path }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_mode }}"
   notify:
     - sshd restart
   when:
     - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_1
+    - ubuntu_2004_cis_section5_rule_5_3_1
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_2_1
+    - rule_5_3_1
     - level_1
 
 - name: "5.2.2 | Ensure permissions on SSH private host key files are configured (Automated)"

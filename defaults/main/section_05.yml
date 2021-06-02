@@ -142,6 +142,23 @@ ubuntu_2004_cis_section5_rule_5_3_3: true
 ubuntu_2004_cis_section5_rule_5_3_3_params_onwership_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
 ubuntu_2004_cis_section5_rule_5_3_3_params_permissions_command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown 0600 {} \;
 
+# Variables for 5.3.4
+ubuntu_2004_cis_section5_rule_5_3_4: true
+
+ubuntu_2004_cis_section5_rule_5_3_4_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_4_params_allowusers_line: "AllowUsers {{ ubuntu_2004_cis_require_ssh_allowusers }}"
+ubuntu_2004_cis_section5_rule_5_3_4_params_allowusers_regexp: ^AllowUsers.*
+ubuntu_2004_cis_section5_rule_5_3_4_params_allowgroups_line: "AllowGroups {{ ubuntu_2004_cis_require_ssh_allowgroups }}"
+ubuntu_2004_cis_section5_rule_5_3_4_params_allowgroups_regexp: ^AllowGroups.*
+ubuntu_2004_cis_section5_rule_5_3_4_params_denyusers_line: "DenyUsers {{ ubuntu_2004_cis_require_ssh_denyusers }}"
+ubuntu_2004_cis_section5_rule_5_3_4_params_denyusers_regexp: ^DenyUsers.*
+ubuntu_2004_cis_section5_rule_5_3_4_params_denygroups_line: "DenyGroups {{ ubuntu_2004_cis_require_ssh_denygroups }}"
+ubuntu_2004_cis_section5_rule_5_3_4_params_denygroups_regexp: ^DenyGroups.*
+ubuntu_2004_cis_section5_rule_5_3_4_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_4_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_4_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_4_params_mode: '0600'
+
 # Variables for 5.2.4
 ubuntu_2004_cis_section5_rule_5_2_4: true
 
@@ -286,23 +303,6 @@ ubuntu_2004_cis_section5_rule_5_2_16_params_state: present
 ubuntu_2004_cis_section5_rule_5_2_16_params_owner: root
 ubuntu_2004_cis_section5_rule_5_2_16_params_group: root
 ubuntu_2004_cis_section5_rule_5_2_16_params_mode: '0600'
-
-# Variables for 5.2.17
-ubuntu_2004_cis_section5_rule_5_2_17: true
-
-ubuntu_2004_cis_section5_rule_5_2_17_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_line: "AllowUsers {{ ubuntu_2004_cis_require_ssh_allowusers }}"
-ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_regexp: ^AllowUsers.*
-ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_line: "AllowGroups {{ ubuntu_2004_cis_require_ssh_allowgroups }}"
-ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_regexp: ^AllowGroups.*
-ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_line: "DenyUsers {{ ubuntu_2004_cis_require_ssh_denyusers }}"
-ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_regexp: ^DenyUsers.*
-ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_line: "DenyGroups {{ ubuntu_2004_cis_require_ssh_denygroups }}"
-ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_regexp: ^DenyGroups.*
-ubuntu_2004_cis_section5_rule_5_2_17_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_17_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_17_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_17_params_mode: '0600'
 
 # Variables for 5.2.18
 ubuntu_2004_cis_section5_rule_5_2_18: true

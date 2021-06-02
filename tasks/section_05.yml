@@ -329,24 +329,24 @@
     - rule_5_3_4
     - level_1
 
-- name: "5.2.4 | Ensure SSH LogLevel is appropriate (Automated)"
+- name: "5.3.5 | Ensure SSH LogLevel is appropriate (Automated)"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_mode }}"
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_mode }}"
   notify:
     - sshd restart
   when:
     - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_4
+    - ubuntu_2004_cis_section5_rule_5_3_5
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_2_4
+    - rule_5_3_5
     - level_1
 
 - name: "5.2.5 | Ensure SSH X11 forwarding is disabled (Automated)"

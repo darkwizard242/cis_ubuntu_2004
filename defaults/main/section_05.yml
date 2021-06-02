@@ -159,16 +159,16 @@ ubuntu_2004_cis_section5_rule_5_3_4_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_4_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_4_params_mode: '0600'
 
-# Variables for 5.2.4
-ubuntu_2004_cis_section5_rule_5_2_4: true
+# Variables for 5.3.54
+ubuntu_2004_cis_section5_rule_5_3_5: true
 
-ubuntu_2004_cis_section5_rule_5_2_4_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_4_params_line: LogLevel INFO
-ubuntu_2004_cis_section5_rule_5_2_4_params_regexp: ^LogLevel.*
-ubuntu_2004_cis_section5_rule_5_2_4_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_4_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_4_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_4_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_5_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_5_params_line: LogLevel INFO
+ubuntu_2004_cis_section5_rule_5_3_5_params_regexp: ^LogLevel.*
+ubuntu_2004_cis_section5_rule_5_3_5_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_5_params_mode: '0600'
 
 # Variables for 5.2.5
 ubuntu_2004_cis_section5_rule_5_2_5: true

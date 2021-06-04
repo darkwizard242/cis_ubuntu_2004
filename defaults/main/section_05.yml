@@ -304,16 +304,16 @@ ubuntu_2004_cis_section5_rule_5_3_17_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_17_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_17_params_mode: '0600'
 
-# Variables for 5.2.18
-ubuntu_2004_cis_section5_rule_5_2_18: true
+# Variables for 5.3.18
+ubuntu_2004_cis_section5_rule_5_3_18: true
 
-ubuntu_2004_cis_section5_rule_5_2_18_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_18_params_line: "Banner /etc/issue.net"
-ubuntu_2004_cis_section5_rule_5_2_18_params_regexp: ^Banner.*
-ubuntu_2004_cis_section5_rule_5_2_18_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_18_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_18_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_18_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_18_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_18_params_line: "Banner /etc/issue.net"
+ubuntu_2004_cis_section5_rule_5_3_18_params_regexp: ^Banner.*
+ubuntu_2004_cis_section5_rule_5_3_18_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_18_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_18_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_18_params_mode: '0600'
 
 # Variables for 5.2.19
 ubuntu_2004_cis_section5_rule_5_2_19: true

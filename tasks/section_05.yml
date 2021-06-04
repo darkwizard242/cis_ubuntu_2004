@@ -370,24 +370,24 @@
     - level_1
     - level_2
 
-- name: "5.2.6 | Ensure SSH MaxAuthTries is set to 4 or less (Automated)"
+- name: "5.3.7 | Ensure SSH MaxAuthTries is set to 4 or less (Automated)"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_mode }}"
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_mode }}"
   notify:
     - sshd restart
   when:
     - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_6
+    - ubuntu_2004_cis_section5_rule_5_3_7
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_2_6
+    - rule_5_3_7
     - level_1
 
 - name: "5.2.7 | Ensure SSH IgnoreRhosts is enabled (Automated)"

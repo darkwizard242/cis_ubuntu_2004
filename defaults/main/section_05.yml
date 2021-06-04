@@ -315,16 +315,16 @@ ubuntu_2004_cis_section5_rule_5_3_18_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_18_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_18_params_mode: '0600'
 
-# Variables for 5.2.19
-ubuntu_2004_cis_section5_rule_5_2_19: true
+# Variables for 5.3.19
+ubuntu_2004_cis_section5_rule_5_3_19: true
 
-ubuntu_2004_cis_section5_rule_5_2_19_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_19_params_line: "UsePAM yes"
-ubuntu_2004_cis_section5_rule_5_2_19_params_regexp: ^UsePAM.*
-ubuntu_2004_cis_section5_rule_5_2_19_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_19_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_19_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_19_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_19_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_19_params_line: "UsePAM yes"
+ubuntu_2004_cis_section5_rule_5_3_19_params_regexp: ^UsePAM.*
+ubuntu_2004_cis_section5_rule_5_3_19_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_19_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_19_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_19_params_mode: '0600'
 
 # Variables for 5.2.20
 ubuntu_2004_cis_section5_rule_5_2_20: true

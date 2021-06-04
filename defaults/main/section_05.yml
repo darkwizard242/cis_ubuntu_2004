@@ -293,16 +293,16 @@ ubuntu_2004_cis_section5_rule_5_3_16_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_16_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_16_params_mode: '0600'
 
-# Variables for 5.2.16
-ubuntu_2004_cis_section5_rule_5_2_16: true
+# Variables for 5.3.17
+ubuntu_2004_cis_section5_rule_5_3_17: true
 
-ubuntu_2004_cis_section5_rule_5_2_16_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_16_params_line: "LoginGraceTime {{ ubuntu_2004_cis_require_ssh_logingracetime }}"
-ubuntu_2004_cis_section5_rule_5_2_16_params_regexp: ^LoginGraceTime.*
-ubuntu_2004_cis_section5_rule_5_2_16_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_16_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_16_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_16_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_17_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_17_params_line: "LoginGraceTime {{ ubuntu_2004_cis_require_ssh_logingracetime }}"
+ubuntu_2004_cis_section5_rule_5_3_17_params_regexp: ^LoginGraceTime.*
+ubuntu_2004_cis_section5_rule_5_3_17_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_17_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_17_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_17_params_mode: '0600'
 
 # Variables for 5.2.18
 ubuntu_2004_cis_section5_rule_5_2_18: true

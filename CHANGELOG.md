@@ -104,6 +104,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 - 5.2.10 control from CIS benchmark version 1.0.0 has been moved to 5.3.11 as per CIS benchmark version 1.1.0
 - 5.2.11 control from CIS benchmark version 1.0.0 has been moved to 5.3.12 as per CIS benchmark version 1.1.0
 - 5.2.12 control from CIS benchmark version 1.0.0 has been moved to 5.3.13 as per CIS benchmark version 1.1.0
+- 5.2.13 control from CIS benchmark version 1.0.0 has been moved to 5.3.14 as per CIS benchmark version 1.1.0
 
 ### Removed
 

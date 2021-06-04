@@ -225,16 +225,16 @@ ubuntu_2004_cis_section5_rule_5_3_10_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_10_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_10_params_mode: '0600'
 
-# Variables for 5.2.10
-ubuntu_2004_cis_section5_rule_5_2_10: true
+# Variables for 5.3.11
+ubuntu_2004_cis_section5_rule_5_3_11: true
 
-ubuntu_2004_cis_section5_rule_5_2_10_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_10_params_line: PermitEmptyPasswords no
-ubuntu_2004_cis_section5_rule_5_2_10_params_regexp: ^PermitEmptyPasswords.*
-ubuntu_2004_cis_section5_rule_5_2_10_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_10_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_10_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_10_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_11_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_11_params_line: PermitEmptyPasswords no
+ubuntu_2004_cis_section5_rule_5_3_11_params_regexp: ^PermitEmptyPasswords.*
+ubuntu_2004_cis_section5_rule_5_3_11_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_11_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_11_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_11_params_mode: '0600'
 
 # Variables for 5.2.11
 ubuntu_2004_cis_section5_rule_5_2_11: true

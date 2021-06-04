@@ -203,16 +203,16 @@ ubuntu_2004_cis_section5_rule_5_3_8_params_owner: root
 ubuntu_2004_cis_section5_rule_5_3_8_params_group: root
 ubuntu_2004_cis_section5_rule_5_3_8_params_mode: '0600'
 
-# Variables for 5.2.8
-ubuntu_2004_cis_section5_rule_5_2_8: true
+# Variables for 5.3.9
+ubuntu_2004_cis_section5_rule_5_3_9: true
 
-ubuntu_2004_cis_section5_rule_5_2_8_params_path: /etc/ssh/sshd_config
-ubuntu_2004_cis_section5_rule_5_2_8_params_line: HostbasedAuthentication no
-ubuntu_2004_cis_section5_rule_5_2_8_params_regexp: ^HostbasedAuthentication.*
-ubuntu_2004_cis_section5_rule_5_2_8_params_state: present
-ubuntu_2004_cis_section5_rule_5_2_8_params_owner: root
-ubuntu_2004_cis_section5_rule_5_2_8_params_group: root
-ubuntu_2004_cis_section5_rule_5_2_8_params_mode: '0600'
+ubuntu_2004_cis_section5_rule_5_3_9_params_path: /etc/ssh/sshd_config
+ubuntu_2004_cis_section5_rule_5_3_9_params_line: HostbasedAuthentication no
+ubuntu_2004_cis_section5_rule_5_3_9_params_regexp: ^HostbasedAuthentication.*
+ubuntu_2004_cis_section5_rule_5_3_9_params_state: present
+ubuntu_2004_cis_section5_rule_5_3_9_params_owner: root
+ubuntu_2004_cis_section5_rule_5_3_9_params_group: root
+ubuntu_2004_cis_section5_rule_5_3_9_params_mode: '0600'
 
 # Variables for 5.2.9
 ubuntu_2004_cis_section5_rule_5_2_9: true

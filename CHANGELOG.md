@@ -118,13 +118,16 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 
 - Removal of "1.1.1.7 Ensure mounting of FAT filesystems is limited (Manual)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
+## Fixed
+
+- Fix for "5.2.2 Ensure permissions on SSH private host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
+- Fix for "5.2.3 Ensure permissions on SSH public host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
+
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020
 
 ### Fixed
 
 - Fix for "3.3.4 Ensure suspicious packets are logged". Corrected [values](https://github.com/darkwizard242/cis_ubuntu_2004/commit/f5e81396221990176524ab37fad7a080dcc470ef) as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide.
-- Fix for "5.2.2 Ensure permissions on SSH private host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
-- Fix for "5.2.3 Ensure permissions on SSH public host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
 
 ## [1.0.1](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.1) - 09/28/2020
 

@@ -819,7 +819,6 @@
     - rule_5_4_4
     - level_1
 
-
 - name: "5.5.1.1| Ensure minimum days between password changes is configured (Automated)"
   lineinfile:
     path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_path }}"
@@ -837,21 +836,21 @@
     - rule_5_5_1_1
     - level_1
 
-- name: "5.4.1.1 | Ensure password expiration is 365 days or less (Automated)"
+- name: "5.5.1.2 | Ensure password expiration is 365 days or less (Automated)"
   lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_mode }}"
+    path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_mode }}"
   when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_1
+    - ubuntu_2004_cis_section5_rule_5_5_1_2
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_4_1_1
+    - rule_5_5_1_2
     - level_1
 
 - name: "5.4.1.3 | Ensure password expiration warning days is 7 or more (Automated)"

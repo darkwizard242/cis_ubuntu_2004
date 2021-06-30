@@ -913,31 +913,31 @@
     - rule_5_5_1_5
     - level_1
 
-- name: "5.4.2 | Ensure system accounts are secured (Automated)"
+- name: "5.5.2 | Ensure system accounts are secured (Automated)"
   block:
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #1"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_script }}"
-      register: ubuntu_2004_cis_section5_rule_5_4_2_audit1
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Audit #1"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_audit1_script }}"
+      register: ubuntu_2004_cis_section5_rule_5_5_2_audit1
       changed_when: false
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #2"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script }}"
-      register: ubuntu_2004_cis_section5_rule_5_4_2_audit2
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Audit #2"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_audit2_script }}"
+      register: ubuntu_2004_cis_section5_rule_5_5_2_audit2
       changed_when: false
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Remediation"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script }}"
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Remediation"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_remediation_script }}"
       when:
-        - ubuntu_2004_cis_section5_rule_5_4_2_audit1 | length > 0
-        - ubuntu_2004_cis_section5_rule_5_4_2_audit2 | length > 0
+        - ubuntu_2004_cis_section5_rule_5_5_2_audit1 | length > 0
+        - ubuntu_2004_cis_section5_rule_5_5_2_audit2 | length > 0
 
   when:
-    - ubuntu_2004_cis_section5_rule_5_4_2
+    - ubuntu_2004_cis_section5_rule_5_5_2
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_4_2
+    - rule_5_5_2
     - level_1
 
 - name: "5.4.3 | Ensure default group for the root account is GID 0 (Automated)"

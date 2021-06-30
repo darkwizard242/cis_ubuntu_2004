@@ -456,16 +456,16 @@ ubuntu_2004_cis_section5_rule_5_5_1_3_params_owner: root
 ubuntu_2004_cis_section5_rule_5_5_1_3_params_group: root
 ubuntu_2004_cis_section5_rule_5_5_1_3_params_mode: '0644'
 
-# Variables for 5.4.1.4
-ubuntu_2004_cis_section5_rule_5_4_1_4: true
+# Variables for 5.5.1.4
+ubuntu_2004_cis_section5_rule_5_5_1_4: true
 
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_path: /etc/default/useradd
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_line: "INACTIVE={{ ubuntu_2004_cis_require_passinactive }}"
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_regexp: ^INACTIVE.*
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_state: present
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_owner: root
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_group: root
-ubuntu_2004_cis_section5_rule_5_4_1_4_params_mode: '0644'
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_path: /etc/default/useradd
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_line: "INACTIVE={{ ubuntu_2004_cis_require_passinactive }}"
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_regexp: ^INACTIVE.*
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_state: present
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_owner: root
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_group: root
+ubuntu_2004_cis_section5_rule_5_5_1_4_params_mode: '0644'
 
 # Variables for 5.4.1.5
 ubuntu_2004_cis_section5_rule_5_4_1_5: true

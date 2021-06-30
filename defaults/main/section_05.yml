@@ -473,13 +473,12 @@ ubuntu_2004_cis_section5_rule_5_5_1_5: true
 ubuntu_2004_cis_section5_rule_5_5_1_5_params_script: 5.5.1.5.users_last_password_change.sh
 ubuntu_2004_cis_section5_rule_5_5_1_5_params_expires: '1625088928'
 
-# Variables for 5.4.2
-ubuntu_2004_cis_section5_rule_5_4_2: true
+# Variables for 5.5.2
+ubuntu_2004_cis_section5_rule_5_5_2: true
 
-ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_script: 5.4.2.secure_system_accounts_audit1.sh
-ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script: 5.4.2.secure_system_accounts_audit2.sh
-ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script: 5.4.2.secure_system_accounts_remediation.sh
-
+ubuntu_2004_cis_section5_rule_5_5_2_params_audit1_script: 5.5.2.secure_system_accounts_audit1.sh
+ubuntu_2004_cis_section5_rule_5_5_2_params_audit2_script: 5.5.2.secure_system_accounts_audit2.sh
+ubuntu_2004_cis_section5_rule_5_5_2_params_remediation_script: 5.5.2.secure_system_accounts_remediation.sh
 
 # Variables for 5.4.3
 ubuntu_2004_cis_section5_rule_5_4_3: true

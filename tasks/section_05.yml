@@ -887,18 +887,18 @@
     - rule_5_5_1_4
     - level_1
 
-- name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated)"
+- name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated)"
   block:
 
-    - name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated) | Check users"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_1_5_params_script }}"
+    - name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated) | Check users"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_1_5_params_script }}"
       register: users_list_that_have_password_last_change_date_in_future
       changed_when: false
 
-    - name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated) | Expire users"
+    - name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated) | Expire users"
       user:
         name: "{{ item }}"
-        expires: "{{ ubuntu_2004_cis_section5_rule_5_4_1_5_params_expires }}"
+        expires: "{{ ubuntu_2004_cis_section5_rule_5_5_1_5_params_expires }}"
       with_items:
         - "{{ users_list_that_have_password_last_change_date_in_future.stdout_lines }}"
       when:
@@ -906,11 +906,11 @@
         - not skip_for_development
 
   when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_5
+    - ubuntu_2004_cis_section5_rule_5_5_1_5
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_4_1_5
+    - rule_5_5_1_5
     - level_1
 
 - name: "5.4.2 | Ensure system accounts are secured (Automated)"

@@ -118,6 +118,7 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 - 5.3.3 control from CIS benchmark version 1.0.0 has been moved to 5.4.3 as per CIS benchmark version 1.1.0
 - 5.3.4 control from CIS benchmark version 1.0.0 has been moved to 5.4.4 as per CIS benchmark version 1.1.0
 - 5.4.1.2 control from CIS benchmark version 1.0.0 has been moved to 5.5.1.1 as per CIS benchmark version 1.1.0
+- 5.4.1.1 control from CIS benchmark version 1.0.0 has been moved to 5.5.1.2 as per CIS benchmark version 1.1.0
 
 ### Removed
 

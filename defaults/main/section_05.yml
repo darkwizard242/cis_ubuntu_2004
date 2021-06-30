@@ -467,11 +467,11 @@ ubuntu_2004_cis_section5_rule_5_5_1_4_params_owner: root
 ubuntu_2004_cis_section5_rule_5_5_1_4_params_group: root
 ubuntu_2004_cis_section5_rule_5_5_1_4_params_mode: '0644'
 
-# Variables for 5.4.1.5
-ubuntu_2004_cis_section5_rule_5_4_1_5: true
+# Variables for 5.5.1.5
+ubuntu_2004_cis_section5_rule_5_5_1_5: true
 
-ubuntu_2004_cis_section5_rule_5_4_1_5_params_script: 5.4.1.5.users_last_password_change.sh
-ubuntu_2004_cis_section5_rule_5_4_1_5_params_expires: '1599884816'
+ubuntu_2004_cis_section5_rule_5_5_1_5_params_script: 5.5.1.5.users_last_password_change.sh
+ubuntu_2004_cis_section5_rule_5_5_1_5_params_expires: '1625088928'
 
 # Variables for 5.4.2
 ubuntu_2004_cis_section5_rule_5_4_2: true

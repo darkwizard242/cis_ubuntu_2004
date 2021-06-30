@@ -1,6 +1,6 @@
 # Changelog
 
-Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
+Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
 ## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - TBD
 
@@ -11,9 +11,18 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 - Inclusion of "1.8.1 Ensure GNOME Display Manager is removed (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 - Inclusion of "1.8.4 Ensure XDCMP is not enabled (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
-### Fixed/Changed
+### Removed
 
+- Removal of "1.1.1.7 Ensure mounting of FAT filesystems is limited (Manual)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
+
+### Fixed
+
+- Fix for "5.2.2 Ensure permissions on SSH private host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
+- Fix for "5.2.3 Ensure permissions on SSH public host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
 - [Updated](https://github.com/darkwizard242/cis_ubuntu_2004/commit/1f53384e7ec16371781ca99452e7d902a0de8c2b) testinfra to pytest-testinfra as it has been renamed.
+
+### Changed
+
 - Benchmark control name change for control 1.1.12
 - Benchmark control name change for control 1.1.13
 - Benchmark control name change for control 1.1.14
@@ -120,14 +129,6 @@ Changes/Fixes/Additions addressed in Releases. Dates are in MM/DD/YYYY format.
 - 5.4.1.2 control from CIS benchmark version 1.0.0 has been moved to 5.5.1.1 as per CIS benchmark version 1.1.0
 - 5.4.1.1 control from CIS benchmark version 1.0.0 has been moved to 5.5.1.2 as per CIS benchmark version 1.1.0
 
-### Removed
-
-- Removal of "1.1.1.7 Ensure mounting of FAT filesystems is limited (Manual)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
-
-### Fixed
-
-- Fix for "5.2.2 Ensure permissions on SSH private host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
-- Fix for "5.2.3 Ensure permissions on SSH public host key files are configured (Automated)". Corrected usage to `chmod` as required by "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0" official guide and reported in [ISSUE #4](https://github.com/darkwizard242/cis_ubuntu_2004/issues/4) by @estenrye.
 
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020
 

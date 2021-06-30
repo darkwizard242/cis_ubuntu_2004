@@ -802,6 +802,23 @@
     - rule_5_4_3
     - level_1
 
+- name: "5.4.4 | Ensure password hashing algorithm is SHA-512 (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_4_4
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_4_4
+    - level_1
+
 - name: "5.4.1.1 | Ensure password expiration is 365 days or less (Automated)"
   lineinfile:
     path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_path }}"

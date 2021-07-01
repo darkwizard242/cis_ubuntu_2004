@@ -148,6 +148,7 @@ Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY 
 - 6.2.12 control from CIS benchmark version 1.0.0 has been moved to 6.2.3 as per CIS benchmark version 1.1.0
 - 6.2.6 control from CIS benchmark version 1.0.0 has been moved to 6.2.5 as per CIS benchmark version 1.1.0
 - 6.2.5 control from CIS benchmark version 1.0.0 has been moved to 6.2.6 as per CIS benchmark version 1.1.0
+- 6.2.9 control from CIS benchmark version 1.0.0 has been moved to 6.2.8 as per CIS benchmark version 1.1.0
 
 
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020

@@ -266,7 +266,7 @@
       with_items:
         - "{{ empty_password_fields_user_list.stdout_lines }}"
       when:
-        - empty_password_fields_user_list | length > 4
+        - empty_password_fields_user_list | length > 5
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_2

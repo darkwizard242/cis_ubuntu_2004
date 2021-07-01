@@ -538,25 +538,25 @@ def test_1_4_3_grub_file_group(host):
     assert host.file(BOOT_GRUB).group == 'root'
 
 
-def test_1_6_1_xd_nx_pae(host):
+def test_1_5_1_xd_nx_pae(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
     Tests if /proc/cpuinfo file contains pae
     """
     assert host.file(PROC_CPUINFO).contains('pae')
 
 
-def test_1_6_1_xd_nx_nx(host):
+def test_1_5_1_xd_nx_nx(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
     Tests if /proc/cpuinfo file contains nx
     """
     assert host.file(PROC_CPUINFO).contains('nx')
 
 
-def test_1_6_4_systemd_coredump_package(host):
+def test_1_5_4_systemd_coredump_package(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.4
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.4
     Tests if systemd-coredump package is installed
     """
     assert host.package('systemd-coredump').is_installed

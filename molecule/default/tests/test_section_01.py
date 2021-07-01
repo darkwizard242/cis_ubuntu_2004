@@ -562,9 +562,9 @@ def test_1_5_4_systemd_coredump_package(host):
     assert host.package('systemd-coredump').is_installed
 
 
-def test_1_7_1_1_apparmor_package(host):
+def test_1_6_1_1_apparmor_package(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.1.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.6.1.1
     Tests if apparmor package is installed
     """
     assert host.package('apparmor').is_installed

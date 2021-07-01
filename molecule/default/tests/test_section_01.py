@@ -479,7 +479,7 @@ def test_1_4_2_40custom_file_mode(host):
     CIS Ubuntu 20.04 v1.1.0 - Rule # 1.4.2
     Tests if /etc/grub.d/40_custom has 0744 mode
     """
-    assert host.file(GRUB_D_CUSTOM40_FILE).mode == 0o744
+    assert host.file(GRUB_D_CUSTOM40_FILE).mode == 0o755
 
 
 def test_1_4_2_40custom_file_superusers(host):

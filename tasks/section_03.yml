@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 3 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 3 BENCHMARKS
 
 - name: "3.1.1 | Disable IPv6 (Manual)"
   replace:

@@ -458,25 +458,17 @@ def test_1_1_24_file_group(host):
     assert host.file(USBSTORAGE_MOD_FILE).group == 'root'
 
 
-def test_1_3_1_sudo_package(host):
+def test_1_3_1_aide_package(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.3.1
-    Tests if sudo package is installed
-    """
-    assert host.package('sudo').is_installed
-
-
-def test_1_4_1_aide_package(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.1
     Tests if aide package is installed
     """
     assert host.package('aide').is_installed
 
 
-def test_1_4_1_aide_common_package(host):
+def test_1_3_1_aide_common_package(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.3.1
     Tests if aide-common package is installed
     """
     assert host.package('aide-common').is_installed

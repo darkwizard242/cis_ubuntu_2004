@@ -1000,19 +1000,19 @@
     - rule_5_5_5
     - level_1
 
-- name: "5.5 | Ensure root login is restricted to system console (Manual)"
+- name: "5.6 | Ensure root login is restricted to system console (Manual)"
   template:
-    src: "{{ ubuntu_2004_cis_section5_rule_5_5_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section5_rule_5_5_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_5_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section5_rule_5_6_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section5_rule_5_6_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_6_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_6_params_mode }}"
   when:
-    - ubuntu_2004_cis_section5_rule_5_5
+    - ubuntu_2004_cis_section5_rule_5_6
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_5
+    - rule_5_6
     - level_1
 
 - name: "5.6 | Ensure access to the su command is restricted (Automated)"

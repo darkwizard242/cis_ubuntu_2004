@@ -11,8 +11,8 @@ FREEVXFS_MOD_FILE = "/etc/modprobe.d/1.1.1.2_freevxfs.conf"
 JFFS2_MOD_FILE = "/etc/modprobe.d/1.1.1.3_jffs2.conf"
 HFS_MOD_FILE = "/etc/modprobe.d/1.1.1.4_hfs.conf"
 HFSPLUS_MOD_FILE = "/etc/modprobe.d/1.1.1.5_hfsplus.conf"
-UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.6_udf.conf"
-VFAT_MOD_FILE = "/etc/modprobe.d/1.1.1.7_vfat.conf"
+SQUASHFS_MOD_FILE = "/etc/modprobe.d/1.1.1.7_squashfs.conf"
+UDF_MOD_FILE = "/etc/modprobe.d/1.1.1.7_udf.conf"
 TMP_MOUNT_FILE = "/etc/systemd/system/tmp.mount"
 TMP_MOUNT_SYSTEMD = "tmp.mount"
 DEV_SHM = "/dev/shm"
@@ -229,39 +229,79 @@ def test_1_1_1_5_file_group(host):
 def test_1_1_1_6_file_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
-    Tests if /etc/modprobe.d/1.1.1.6_udf.conf file exists
+    Tests if /etc/modprobe.d/1.1.1.6_squashfs.conf file exists
     """
-    assert host.file(UDF_MOD_FILE).exists
+    assert host.file(SQUASHFS_MOD_FILE).exists
 
 
 def test_1_1_1_6_file_isfile(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
-    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is a file
+    Tests if /etc/modprobe.d/1.1.1.6_squashfs.conf is a file
     """
-    assert host.file(UDF_MOD_FILE).is_file
+    assert host.file(SQUASHFS_MOD_FILE).is_file
 
 
 def test_1_1_1_6_file_mode(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
-    Tests if /etc/modprobe.d/1.1.1.6_udf.conf has 0644 mode
+    Tests if /etc/modprobe.d/1.1.1.6_squashfs.conf has 0644 mode
     """
-    assert host.file(UDF_MOD_FILE).mode == 0o644
+    assert host.file(SQUASHFS_MOD_FILE).mode == 0o644
 
 
 def test_1_1_1_6_file_user(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
-    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is owned by user root
+    Tests if /etc/modprobe.d/1.1.1.6_squashfs.conf is owned by user root
     """
-    assert host.file(UDF_MOD_FILE).user == 'root'
+    assert host.file(SQUASHFS_MOD_FILE).user == 'root'
 
 
 def test_1_1_1_6_file_group(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.6
-    Tests if /etc/modprobe.d/1.1.1.6_udf.conf is owned by group root
+    Tests if /etc/modprobe.d/1.1.1.6_squashfs.conf is owned by group root
+    """
+    assert host.file(SQUASHFS_MOD_FILE).group == 'root'
+
+
+def test_1_1_1_7_file_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_udf.conf file exists
+    """
+    assert host.file(UDF_MOD_FILE).exists
+
+
+def test_1_1_1_7_file_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_udf.conf is a file
+    """
+    assert host.file(UDF_MOD_FILE).is_file
+
+
+def test_1_1_1_7_file_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_udf.conf has 0644 mode
+    """
+    assert host.file(UDF_MOD_FILE).mode == 0o644
+
+
+def test_1_1_1_7_file_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_udf.conf is owned by user root
+    """
+    assert host.file(UDF_MOD_FILE).user == 'root'
+
+
+def test_1_1_1_7_file_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
+    Tests if /etc/modprobe.d/1.1.1.7_udf.conf is owned by group root
     """
     assert host.file(UDF_MOD_FILE).group == 'root'
 

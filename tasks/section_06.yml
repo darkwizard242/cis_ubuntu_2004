@@ -314,6 +314,25 @@
     - rule_6_2_4
     - level_1
 
+- name: "6.2.5 | Ensure users own their home directories (Automated)"
+  block:
+
+    - name: "6.2.5 | Ensure users own their home directories (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_5_params_script }}"
+      register: users_own_home_directory_check
+
+    - name: "6.2.5 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
+      debug:
+        var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_5
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_5
+    - level_1
+
 # - name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
 #
 #   block:
@@ -380,24 +399,7 @@
 #     - rule_6_2_5
 #     - level_1
 #
-# - name: "6.2.6 | Ensure users own their home directories (Automated)"
-#   block:
-#
-#     - name: "6.2.6 | Ensure users own their home directories (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_6_params_script }}"
-#       register: users_own_home_directory_check
-#
-#     - name: "6.2.6 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
-#       debug:
-#         var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_6
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_6
-#     - level_1
+
 #
 # - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
 #   block:

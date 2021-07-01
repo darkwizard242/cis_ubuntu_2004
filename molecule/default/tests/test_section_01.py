@@ -474,25 +474,25 @@ def test_1_3_1_aide_common_package(host):
     assert host.package('aide-common').is_installed
 
 
-def test_1_5_1_40custom_file_mode(host):
+def test_1_4_2_40custom_file_mode(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
-    Tests if /etc/grub.d/40_custom has 0755 mode
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.2
+    Tests if /etc/grub.d/40_custom has 0744 mode
     """
-    assert host.file(GRUB_D_CUSTOM40_FILE).mode == 0o755
+    assert host.file(GRUB_D_CUSTOM40_FILE).mode == 0o744
 
 
-def test_1_5_1_40custom_file_superusers(host):
+def test_1_4_2_40custom_file_superusers(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.2
     Tests if /etc/grub.d/40_custom contains superusers
     """
     assert host.file(GRUB_D_CUSTOM40_FILE).contains('superusers')
 
 
-def test_1_5_1_40custom_file_password(host):
+def test_1_4_2_40custom_file_password(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.1
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.2
     Tests if /etc/grub.d/40_custom contains password
     """
     assert host.file(GRUB_D_CUSTOM40_FILE).contains('password')

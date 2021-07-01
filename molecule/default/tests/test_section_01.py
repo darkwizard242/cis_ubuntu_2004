@@ -650,41 +650,41 @@ def test_1_7_2_issue_file_group(host):
     assert host.file(ETC_ISSUE).group == 'root'
 
 
-def test_1_8_1_3_issue_net_file_exists(host):
+def test_1_7_3_issue_net_file_exists(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.3
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.3
     Tests if /etc/issue.net file exists
     """
     assert host.file(ETC_ISSUE_NET).exists
 
 
-def test_1_8_1_3_issue_net_file_isfile(host):
+def test_1_7_3_issue_net_file_isfile(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.3
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.3
     Tests if /etc/issue.net file is a file
     """
     assert host.file(ETC_ISSUE_NET).is_file
 
 
-def test_1_8_1_3_issue_net_file_mode(host):
+def test_1_7_3_issue_net_file_mode(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.3
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.3
     Tests if /etc/issue.net file has mode 0644
     """
     assert host.file(ETC_ISSUE_NET).mode == 0o644
 
 
-def test_1_8_1_3_issue_net_file_user(host):
+def test_1_7_3_issue_net_file_user(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.3
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.3
     Tests if /etc/issue.net file is owned by user root
     """
     assert host.file(ETC_ISSUE_NET).user == 'root'
 
 
-def test_1_8_1_3_issue_net_file_group(host):
+def test_1_7_3_issue_net_file_group(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.3
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.3
     Tests if /etc/issue.net file is owned by group root
     """
     assert host.file(ETC_ISSUE_NET).group == 'root'

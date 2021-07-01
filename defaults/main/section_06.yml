@@ -87,10 +87,6 @@ ubuntu_2004_cis_section6_rule_6_1_9_params_owner: root
 ubuntu_2004_cis_section6_rule_6_1_9_params_group: root
 ubuntu_2004_cis_section6_rule_6_1_9_params_mode: '0640'
 
-
-
-
-
 # Variables for 6.1.10
 ubuntu_2004_cis_section6_rule_6_1_10: true
 
@@ -119,89 +115,95 @@ ubuntu_2004_cis_section6_rule_6_1_14_params_script: 6.1.14.audit_sgid_executable
 # Variables for 6.2.1
 ubuntu_2004_cis_section6_rule_6_2_1: true
 
-ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.empty_password_fields.sh
-ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock: yes
+ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.shadowed_passwords.sh
 
-# Variables for 6.2.2
-ubuntu_2004_cis_section6_rule_6_2_2: true
-
-ubuntu_2004_cis_section6_rule_6_2_2_params_script: 6.2.2.uid_0_non_root_accounts.sh
-ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
-
-# Variables for 6.2.3
-ubuntu_2004_cis_section6_rule_6_2_3: true
-
-ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.root_path_integrity.sh
-
-# Variables for 6.2.4
-ubuntu_2004_cis_section6_rule_6_2_4: true
-
-ubuntu_2004_cis_section6_rule_6_2_4_params_script: 6.2.4.users_home_directory_check.sh
-
-# Variables for 6.2.5
-ubuntu_2004_cis_section6_rule_6_2_5: true
-
-ubuntu_2004_cis_section6_rule_6_2_5_params_script: 6.2.5.users_home_directory_750_check.sh
-
-# Variables for 6.2.6
-ubuntu_2004_cis_section6_rule_6_2_6: true
-
-ubuntu_2004_cis_section6_rule_6_2_6_params_script: 6.2.6.users_own_home_directories_check.sh
-
-# Variables for 6.2.7
-ubuntu_2004_cis_section6_rule_6_2_7: true
-
-ubuntu_2004_cis_section6_rule_6_2_7_params_script: 6.2.7.users_dot_files_check.sh
-
-# Variables for 6.2.8
-ubuntu_2004_cis_section6_rule_6_2_8: true
-
-ubuntu_2004_cis_section6_rule_6_2_8_params_script: 6.2.8.users_forward_files_check.sh
-ubuntu_2004_cis_section6_rule_6_2_8_params_filestate: absent
-
-# Variables for 6.2.9
-ubuntu_2004_cis_section6_rule_6_2_9: true
-
-ubuntu_2004_cis_section6_rule_6_2_9_params_script: 6.2.9.users_netrc_files_check.sh
-ubuntu_2004_cis_section6_rule_6_2_9_params_filestate: absent
-
-# Variables for 6.2.10
-ubuntu_2004_cis_section6_rule_6_2_10: true
-
-ubuntu_2004_cis_section6_rule_6_2_10_params_script: 6.2.10.users_netrc_files_world_accessible_check.sh
-
-# Variables for 6.2.11
-ubuntu_2004_cis_section6_rule_6_2_11: true
-
-ubuntu_2004_cis_section6_rule_6_2_11_params_script: 6.2.11.users_rhosts_files_check.sh
-ubuntu_2004_cis_section6_rule_6_2_11_params_filestate: absent
-
-# Variables for 6.2.12
-ubuntu_2004_cis_section6_rule_6_2_12: true
-
-ubuntu_2004_cis_section6_rule_6_2_12_params_script: 6.2.12.groups_existence_in_passwd_group.sh
-
-# Variables for 6.2.13
-ubuntu_2004_cis_section6_rule_6_2_13: true
-
-ubuntu_2004_cis_section6_rule_6_2_13_params_script: 6.2.12.groups_existence_in_passwd_group.sh
-
-# Variables for 6.2.14
-ubuntu_2004_cis_section6_rule_6_2_14: true
-
-ubuntu_2004_cis_section6_rule_6_2_14_params_script: 6.2.14.no_duplicate_gids.sh
-
-# Variables for 6.2.15
-ubuntu_2004_cis_section6_rule_6_2_15: true
-
-ubuntu_2004_cis_section6_rule_6_2_15_params_script: 6.2.15.no_duplicate_usernames.sh
-
-# Variables for 6.2.16
-ubuntu_2004_cis_section6_rule_6_2_16: true
-
-ubuntu_2004_cis_section6_rule_6_2_16_params_script: 6.2.16.no_duplicate_groupnames.sh
-
-# Variables for 6.2.17
-ubuntu_2004_cis_section6_rule_6_2_17: true
-
-ubuntu_2004_cis_section6_rule_6_2_17_params_script: 6.2.17.shadow_group_empty.sh
+#
+# # Variables for 6.2.1
+# ubuntu_2004_cis_section6_rule_6_2_1: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.empty_password_fields.sh
+# ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock: yes
+#
+# # Variables for 6.2.2
+# ubuntu_2004_cis_section6_rule_6_2_2: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_2_params_script: 6.2.2.uid_0_non_root_accounts.sh
+# ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
+#
+# # Variables for 6.2.3
+# ubuntu_2004_cis_section6_rule_6_2_3: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.root_path_integrity.sh
+#
+# # Variables for 6.2.4
+# ubuntu_2004_cis_section6_rule_6_2_4: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_4_params_script: 6.2.4.users_home_directory_check.sh
+#
+# # Variables for 6.2.5
+# ubuntu_2004_cis_section6_rule_6_2_5: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_5_params_script: 6.2.5.users_home_directory_750_check.sh
+#
+# # Variables for 6.2.6
+# ubuntu_2004_cis_section6_rule_6_2_6: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_6_params_script: 6.2.6.users_own_home_directories_check.sh
+#
+# # Variables for 6.2.7
+# ubuntu_2004_cis_section6_rule_6_2_7: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_7_params_script: 6.2.7.users_dot_files_check.sh
+#
+# # Variables for 6.2.8
+# ubuntu_2004_cis_section6_rule_6_2_8: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_8_params_script: 6.2.8.users_forward_files_check.sh
+# ubuntu_2004_cis_section6_rule_6_2_8_params_filestate: absent
+#
+# # Variables for 6.2.9
+# ubuntu_2004_cis_section6_rule_6_2_9: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_9_params_script: 6.2.9.users_netrc_files_check.sh
+# ubuntu_2004_cis_section6_rule_6_2_9_params_filestate: absent
+#
+# # Variables for 6.2.10
+# ubuntu_2004_cis_section6_rule_6_2_10: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_10_params_script: 6.2.10.users_netrc_files_world_accessible_check.sh
+#
+# # Variables for 6.2.11
+# ubuntu_2004_cis_section6_rule_6_2_11: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_11_params_script: 6.2.11.users_rhosts_files_check.sh
+# ubuntu_2004_cis_section6_rule_6_2_11_params_filestate: absent
+#
+# # Variables for 6.2.12
+# ubuntu_2004_cis_section6_rule_6_2_12: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_12_params_script: 6.2.12.groups_existence_in_passwd_group.sh
+#
+# # Variables for 6.2.13
+# ubuntu_2004_cis_section6_rule_6_2_13: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_13_params_script: 6.2.12.groups_existence_in_passwd_group.sh
+#
+# # Variables for 6.2.14
+# ubuntu_2004_cis_section6_rule_6_2_14: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_14_params_script: 6.2.14.no_duplicate_gids.sh
+#
+# # Variables for 6.2.15
+# ubuntu_2004_cis_section6_rule_6_2_15: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_15_params_script: 6.2.15.no_duplicate_usernames.sh
+#
+# # Variables for 6.2.16
+# ubuntu_2004_cis_section6_rule_6_2_16: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_16_params_script: 6.2.16.no_duplicate_groupnames.sh
+#
+# # Variables for 6.2.17
+# ubuntu_2004_cis_section6_rule_6_2_17: true
+#
+# ubuntu_2004_cis_section6_rule_6_2_17_params_script: 6.2.17.shadow_group_empty.sh

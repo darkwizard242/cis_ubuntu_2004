@@ -1,5 +1,5 @@
 ---
-# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5
+# Default Variables for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 5
 
 # Variables for 5.1.1
 ubuntu_2004_cis_section5_rule_5_1_1: true
@@ -525,16 +525,16 @@ ubuntu_2004_cis_section5_rule_5_6_params_owner: root
 ubuntu_2004_cis_section5_rule_5_6_params_group: root
 ubuntu_2004_cis_section5_rule_5_6_params_mode: '0644'
 
-# Variables for 5.6
-ubuntu_2004_cis_section5_rule_5_6: true
+# Variables for 5.7
+ubuntu_2004_cis_section5_rule_5_7: true
 
-ubuntu_2004_cis_section5_rule_5_6_params_group_name: "{{ ubuntu_2004_cis_require_su_group }}"
-ubuntu_2004_cis_section5_rule_5_6_params_group_state: present
+ubuntu_2004_cis_section5_rule_5_7_params_group_name: "{{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_7_params_group_state: present
 
-ubuntu_2004_cis_section5_rule_5_6_params_su_path: /etc/pam.d/su
-ubuntu_2004_cis_section5_rule_5_6_params_su_line: "auth required pam_wheel.so use_uid group={{ ubuntu_2004_cis_require_su_group }}"
-ubuntu_2004_cis_section5_rule_5_6_params_su_regexp: ^auth.*required.*pam_wheel.*use_uid.*
-ubuntu_2004_cis_section5_rule_5_6_params_su_state: present
-ubuntu_2004_cis_section5_rule_5_6_params_su_owner: root
-ubuntu_2004_cis_section5_rule_5_6_params_su_group: root
-ubuntu_2004_cis_section5_rule_5_6_params_su_mode: '0644'
+ubuntu_2004_cis_section5_rule_5_7_params_su_path: /etc/pam.d/su
+ubuntu_2004_cis_section5_rule_5_7_params_su_line: "auth required pam_wheel.so use_uid group={{ ubuntu_2004_cis_require_su_group }}"
+ubuntu_2004_cis_section5_rule_5_7_params_su_regexp: ^auth.*required.*pam_wheel.*use_uid.*
+ubuntu_2004_cis_section5_rule_5_7_params_su_state: present
+ubuntu_2004_cis_section5_rule_5_7_params_su_owner: root
+ubuntu_2004_cis_section5_rule_5_7_params_su_group: root
+ubuntu_2004_cis_section5_rule_5_7_params_su_mode: '0644'

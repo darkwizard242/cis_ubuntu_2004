@@ -72,6 +72,21 @@
     - rule_6_1_4
     - level_1
 
+- name: "6.1.5 | Ensure permissions on /etc/group- are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_path }}"
+    state: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section6_rule_6_1_5
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_1_5
+    - level_1
+
 # - name: "6.1.3 | Ensure permissions on /etc/gshadow- are configured (Automated)"
 #   file:
 #     path: "{{ ubuntu_2004_cis_section6_rule_6_1_3_params_path }}"
@@ -87,35 +102,21 @@
 #     - rule_6_1_3
 #     - level_1
 
-- name: "6.1.4 | Ensure permissions on /etc/shadow are configured (Automated)"
-  file:
-    path: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_path }}"
-    state: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section6_rule_6_1_4
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_1_4
-    - level_1
-
-# - name: "6.1.5 | Ensure permissions on /etc/group are configured (Automated)"
+# - name: "6.1.4 | Ensure permissions on /etc/shadow are configured (Automated)"
 #   file:
-#     path: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_path }}"
-#     state: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_state }}"
-#     owner: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_owner }}"
-#     group: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_group }}"
-#     mode: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_mode }}"
+#     path: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_path }}"
+#     state: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_state }}"
+#     owner: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_owner }}"
+#     group: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_group }}"
+#     mode: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_mode }}"
 #   when:
-#     - ubuntu_2004_cis_section6_rule_6_1_5
+#     - ubuntu_2004_cis_section6_rule_6_1_4
 #     - ubuntu_2004_cis_section6
 #   tags:
 #     - section6
-#     - rule_6_1_5
+#     - rule_6_1_4
 #     - level_1
+
 
 - name: "6.1.7 | Ensure permissions on /etc/shadow- are configured (Automated)"
   file:
@@ -130,21 +131,6 @@
   tags:
     - section6
     - rule_6_1_7
-    - level_1
-
-- name: "6.1.8 | Ensure permissions on /etc/group- are configured (Automated)"
-  file:
-    path: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_path }}"
-    state: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section6_rule_6_1_8
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_1_8
     - level_1
 
 - name: "6.1.9 | Ensure permissions on /etc/gshadow are configured (Automated)"

@@ -266,46 +266,6 @@ def test_1_1_1_6_file_group(host):
     assert host.file(UDF_MOD_FILE).group == 'root'
 
 
-def test_1_1_1_7_file_exists(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf file exists
-    """
-    assert host.file(VFAT_MOD_FILE).exists
-
-
-def test_1_1_1_7_file_isfile(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is a file
-    """
-    assert host.file(VFAT_MOD_FILE).is_file
-
-
-def test_1_1_1_7_file_mode(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf has 0644 mode
-    """
-    assert host.file(VFAT_MOD_FILE).mode == 0o644
-
-
-def test_1_1_1_7_file_user(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is owned by user root
-    """
-    assert host.file(VFAT_MOD_FILE).user == 'root'
-
-
-def test_1_1_1_7_file_group(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.1.7
-    Tests if /etc/modprobe.d/1.1.1.7_vfat.conf is owned by group root
-    """
-    assert host.file(VFAT_MOD_FILE).group == 'root'
-
-
 def test_1_1_2_tmp_mount_file_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 1.1.2

@@ -352,6 +352,46 @@
     - rule_6_2_6
     - level_1
 
+- name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
+  block:
+
+    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check and Apply"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_7_params_script }}"
+      register: users_dot_files_check
+
+    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing output"
+      debug:
+        var: "{{ users_dot_files_check.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_7
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_7
+    - level_1
+
+- name: "6.2.8 | Ensure no users have .netrc files (Automated)"
+  block:
+
+    - name: "6.2.8 | Ensure no users have .netrc files (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
+      register: users_netrc_files_check
+
+    - name: "6.2.8 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
+      file:
+        name: "{{ item }}/.netrc"
+        state: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_filestate }}"
+      with_items:
+        - "{{ users_netrc_files_check.stdout_lines }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_8
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_8
+    - level_1
 
 # - name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
 #
@@ -401,26 +441,7 @@
 
 
 
-#
-# - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
-#   block:
-#
-#     - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check and Apply"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_7_params_script }}"
-#       register: users_dot_files_check
-#
-#     - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing output"
-#       debug:
-#         var: "{{ users_dot_files_check.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_7
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_7
-#     - level_1
-#
+
 # - name: "6.2.8 | Ensure no users have .forward files (Automated)"
 #   block:
 #
@@ -443,27 +464,7 @@
 #     - rule_6_2_8
 #     - level_1
 #
-# - name: "6.2.9 | Ensure no users have .netrc files (Automated)"
-#   block:
-#
-#     - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
-#       register: users_netrc_files_check
-#
-#     - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
-#       file:
-#         name: "{{ item }}/.netrc"
-#         state: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate }}"
-#       with_items:
-#         - "{{ users_netrc_files_check.stdout_lines }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_9
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_9
-#     - level_1
+
 #
 # - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
 #   block:

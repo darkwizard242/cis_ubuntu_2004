@@ -482,123 +482,97 @@
     - rule_6_2_12
     - level_1
 
+- name: "6.2.13 | Ensure no duplicate UIDs exist (Automated)"
+  block:
 
+    - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_13_params_script }}"
+      register: no_duplicate_uids
 
+    - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ no_duplicate_uids.stdout_lines | to_json }}"
 
-#
-# - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
-#   block:
-#
-#     - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_script }}"
-#       register: users_netrc_world_accessible_files_check
-#
-#     - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Printing, if any require manual remediation"
-#       debug:
-#         var: "{{ users_netrc_world_accessible_files_check.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_10
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_10
-#     - level_1
-#
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_13
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_13
+    - level_1
 
+- name: "6.2.14 | Ensure no duplicate GIDs exist (Automated)"
+  block:
 
-#
-# - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated)"
-#   block:
-#
-#     - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_13_params_script }}"
-#       register: no_duplicate_uids
-#
-#     - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Print any that may need manual remediation"
-#       debug:
-#         var: "{{ no_duplicate_uids.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_13
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_13
-#     - level_1
-#
-# - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated)"
-#   block:
-#
-#     - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_14_params_script }}"
-#       register: no_duplicate_gids
-#
-#     - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Print any that may need manual remediation"
-#       debug:
-#         var: "{{ no_duplicate_gids.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_14
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_14
-#     - level_1
-#
-# - name: "6.2.15 | Ensure no duplicate user names exist (Automated)"
-#   block:
-#
-#     - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_15_params_script }}"
-#       register: no_duplicate_usernames
-#
-#     - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Print any that may need manual remediation"
-#       debug:
-#         var: "{{ no_duplicate_usernames.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_15
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_15
-#     - level_1
-#
-# - name: "6.2.16 | Ensure no duplicate group names exist (Automated)"
-#   block:
-#
-#     - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_16_params_script }}"
-#       register: no_duplicate_groupnames
-#
-#     - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Print any that may need manual remediation"
-#       debug:
-#         var: "{{ no_duplicate_groupnames.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_16
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_16
-#     - level_1
-#
-# - name: "6.2.17 | Ensure shadow group is empty (Automated)"
-#   block:
-#
-#     - name: "6.2.17 | Ensure shadow group is empty (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_17_params_script }}"
-#       register: shadow_group_empty
-#
-#     - name: "6.2.17 | Ensure shadow group is empty (Automated) | Print any that may need manual remediation"
-#       debug:
-#         var: "{{ shadow_group_empty.stdout_lines | to_json }}"
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_17
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_17
-#     - level_1
+    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_14_params_script }}"
+      register: no_duplicate_gids
+
+    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ no_duplicate_gids.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_14
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_14
+    - level_1
+
+- name: "6.2.15 | Ensure no duplicate user names exist (Automated)"
+  block:
+
+    - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_15_params_script }}"
+      register: no_duplicate_usernames
+
+    - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ no_duplicate_usernames.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_15
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_15
+    - level_1
+
+- name: "6.2.16 | Ensure no duplicate group names exist (Automated)"
+  block:
+
+    - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_16_params_script }}"
+      register: no_duplicate_groupnames
+
+    - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ no_duplicate_groupnames.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_16
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_16
+    - level_1
+
+- name: "6.2.17 | Ensure shadow group is empty (Automated)"
+  block:
+
+    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_17_params_script }}"
+      register: shadow_group_empty
+
+    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Print any that may need manual remediation"
+      debug:
+        var: "{{ shadow_group_empty.stdout_lines | to_json }}"
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_17
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_17
+    - level_1

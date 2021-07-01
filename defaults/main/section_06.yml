@@ -122,7 +122,12 @@ ubuntu_2004_cis_section6_rule_6_2_2: true
 
 ubuntu_2004_cis_section6_rule_6_2_2_params_script: 6.2.2.empty_password_fields.sh
 ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
-#
+
+# Variables for 6.2.3
+ubuntu_2004_cis_section6_rule_6_2_3: true
+
+ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.groups_existence_in_passwd_group.sh
+
 # # Variables for 6.2.2
 # ubuntu_2004_cis_section6_rule_6_2_2: true
 #
@@ -177,10 +182,6 @@ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
 # ubuntu_2004_cis_section6_rule_6_2_11_params_script: 6.2.11.users_rhosts_files_check.sh
 # ubuntu_2004_cis_section6_rule_6_2_11_params_filestate: absent
 #
-# # Variables for 6.2.12
-# ubuntu_2004_cis_section6_rule_6_2_12: true
-#
-# ubuntu_2004_cis_section6_rule_6_2_12_params_script: 6.2.12.groups_existence_in_passwd_group.sh
 #
 # # Variables for 6.2.13
 # ubuntu_2004_cis_section6_rule_6_2_13: true

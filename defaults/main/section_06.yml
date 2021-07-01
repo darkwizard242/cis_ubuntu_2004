@@ -128,6 +128,11 @@ ubuntu_2004_cis_section6_rule_6_2_3: true
 
 ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.groups_existence_in_passwd_group.sh
 
+# Variables for 6.2.4
+ubuntu_2004_cis_section6_rule_6_2_4: true
+
+ubuntu_2004_cis_section6_rule_6_2_4_params_script: 6.2.4.users_home_directory_check.sh
+
 # # Variables for 6.2.2
 # ubuntu_2004_cis_section6_rule_6_2_2: true
 #
@@ -139,10 +144,7 @@ ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.groups_existence_in_pas
 #
 # ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.root_path_integrity.sh
 #
-# # Variables for 6.2.4
-# ubuntu_2004_cis_section6_rule_6_2_4: true
-#
-# ubuntu_2004_cis_section6_rule_6_2_4_params_script: 6.2.4.users_home_directory_check.sh
+
 #
 # # Variables for 6.2.5
 # ubuntu_2004_cis_section6_rule_6_2_5: true

@@ -1015,27 +1015,27 @@
     - rule_5_6
     - level_1
 
-- name: "5.6 | Ensure access to the su command is restricted (Automated)"
+- name: "5.7 | Ensure access to the su command is restricted (Automated)"
   block:
 
-    - name: 5.6 | Ensure access to the su command is restricted (Automated) | group for su"
+    - name: 5.7 | Ensure access to the su command is restricted (Automated) | group for su"
       group:
-        name: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group_name }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group_state }}"
+        name: "{{ ubuntu_2004_cis_section5_rule_5_7_params_group_name }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_7_params_group_state }}"
 
-    - name: 5.6 | Ensure access to the su command is restricted (Automated) | Configure /etc/pam.d/su"
+    - name: 5.7 | Ensure access to the su command is restricted (Automated) | Configure /etc/pam.d/su"
       lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_mode }}"
+        path: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_mode }}"
   when:
-    - ubuntu_2004_cis_section5_rule_5_6
+    - ubuntu_2004_cis_section5_rule_5_7
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_6
+    - rule_5_7
     - level_1

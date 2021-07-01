@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 5 BENCHMARKS
 
 - name: "5.1.1 | Ensure cron daemon is enabled and running (Automated)"
   systemd:

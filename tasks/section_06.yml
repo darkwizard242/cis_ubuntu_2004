@@ -233,21 +233,16 @@
     - rule_6_1_14
     - level_1
 
-- name: "6.2.1 | Ensure password fields are not empty (Automated)"
+- name: "6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords (Automated)"
   block:
 
-    - name: "6.2.1 | Ensure password fields are not empty (Automated) | Check"
+    - name: "6.2.1| Ensure accounts in /etc/passwd use shadowed passwords (Automated) | Audit"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_script }}"
-      register: empty_password_fields_user_list
+      register: shadowed_passwords_audit
 
-    - name: "6.2.1 | Ensure password fields are not empty (Automated) | Lock Password"
-      user:
-        name: "{{ item }}"
-        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock }}"
-      with_items:
-        - "{{ empty_password_fields_user_list.stdout_lines }}"
-      when:
-        - empty_password_fields_user_list | length > 4
+    - name: "6.2.1| Ensure accounts in /etc/passwd use shadowed passwords (Automated) | Print"
+      debug:
+        var: "{{ shadowed_passwords_audit.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_1
@@ -257,322 +252,346 @@
     - rule_6_2_1
     - level_1
 
-- name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
-
-  block:
-
-    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_script }}"
-      register: uid_0_non_root_accounts
-
-    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Lock Password"
-      user:
-        name: "{{ item }}"
-        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
-      failed_when: false
-      with_items:
-        - "{{ uid_0_non_root_accounts.stdout_lines }}"
-      when:
-        - uid_0_non_root_accounts | length > 4
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_2
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_2
-    - level_1
-
-- name: "6.2.3 | Ensure root PATH Integrity (Automated)"
-  block:
-
-    - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_3_params_script }}"
-      register: root_path_integrity
-
-    - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Printing any in PATH that need manual remediation"
-      debug:
-        var: "{{ root_path_integrity.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_3
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_3
-    - level_1
-
-- name: "6.2.4 | Ensure all users' home directories exist (Automated)"
-  block:
-
-    - name: "6.2.4 | Ensure all users' home directories exist (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_4_params_script }}"
-      register: users_home_directory_audit_check
-
-    - name: "6.2.4 | Ensure all users' home directories exist (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_home_directory_audit_check.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_4
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_4
-    - level_1
-
-- name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
-  block:
-
-    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_5_params_script }}"
-      register: users_home_directory_750_audit_check
-
-    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_home_directory_750_audit_check.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_5
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_5
-    - level_1
-
-- name: "6.2.6 | Ensure users own their home directories (Automated)"
-  block:
-
-    - name: "6.2.6 | Ensure users own their home directories (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_6_params_script }}"
-      register: users_own_home_directory_check
-
-    - name: "6.2.6 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_6
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_6
-    - level_1
-
-- name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
-  block:
-
-    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check and Apply"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_7_params_script }}"
-      register: users_dot_files_check
-
-    - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing output"
-      debug:
-        var: "{{ users_dot_files_check.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_7
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_7
-    - level_1
-
-- name: "6.2.8 | Ensure no users have .forward files (Automated)"
-  block:
-
-    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
-      register: users_forward_files_check
-
-    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
-      file:
-        name: "{{ item }}/.forward"
-        state: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_filestate }}"
-      with_items:
-        - "{{ users_forward_files_check.stdout_lines }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_8
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_8
-    - level_1
-
-- name: "6.2.9 | Ensure no users have .netrc files (Automated)"
-  block:
-
-    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
-      register: users_netrc_files_check
-
-    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
-      file:
-        name: "{{ item }}/.netrc"
-        state: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate }}"
-      with_items:
-        - "{{ users_netrc_files_check.stdout_lines }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_9
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_9
-    - level_1
-
-- name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
-  block:
-
-    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_script }}"
-      register: users_netrc_world_accessible_files_check
-
-    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_netrc_world_accessible_files_check.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_10
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_10
-    - level_1
-
-- name: "6.2.11 | Ensure no users have .rhosts files (Automated)"
-  block:
-
-    - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_script }}"
-      register: users_rhosts_files_check
-
-    - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Removing from home directories, if present"
-      file:
-        name: "{{ item }}/.rhosts"
-        state: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_filestate }}"
-      with_items:
-        - "{{ users_rhosts_files_check.stdout_lines }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_11
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_11
-    - level_1
-
-- name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
-  block:
-
-    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_12_params_script }}"
-      register: groups_existence_in_passwd_group
-
-    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ groups_existence_in_passwd_group.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_12
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_12
-    - level_1
-
-- name: "6.2.13 | Ensure no duplicate UIDs exist (Automated)"
-  block:
-
-    - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_13_params_script }}"
-      register: no_duplicate_uids
-
-    - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ no_duplicate_uids.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_13
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_13
-    - level_1
-
-- name: "6.2.14 | Ensure no duplicate GIDs exist (Automated)"
-  block:
-
-    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_14_params_script }}"
-      register: no_duplicate_gids
-
-    - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ no_duplicate_gids.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_14
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_14
-    - level_1
-
-- name: "6.2.15 | Ensure no duplicate user names exist (Automated)"
-  block:
-
-    - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_15_params_script }}"
-      register: no_duplicate_usernames
-
-    - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ no_duplicate_usernames.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_15
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_15
-    - level_1
-
-- name: "6.2.16 | Ensure no duplicate group names exist (Automated)"
-  block:
-
-    - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_16_params_script }}"
-      register: no_duplicate_groupnames
-
-    - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ no_duplicate_groupnames.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_16
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_16
-    - level_1
-
-- name: "6.2.17 | Ensure shadow group is empty (Automated)"
-  block:
-
-    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Check"
-      script: "{{ ubuntu_2004_cis_section6_rule_6_2_17_params_script }}"
-      register: shadow_group_empty
-
-    - name: "6.2.17 | Ensure shadow group is empty (Automated) | Print any that may need manual remediation"
-      debug:
-        var: "{{ shadow_group_empty.stdout_lines | to_json }}"
-
-  when:
-    - ubuntu_2004_cis_section6_rule_6_2_17
-    - ubuntu_2004_cis_section6
-  tags:
-    - section6
-    - rule_6_2_17
-    - level_1
+# - name: "6.2.1 | Ensure password fields are not empty (Automated)"
+#   block:
+#
+#     - name: "6.2.1 | Ensure password fields are not empty (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_script }}"
+#       register: empty_password_fields_user_list
+#
+#     - name: "6.2.1 | Ensure password fields are not empty (Automated) | Lock Password"
+#       user:
+#         name: "{{ item }}"
+#         password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock }}"
+#       with_items:
+#         - "{{ empty_password_fields_user_list.stdout_lines }}"
+#       when:
+#         - empty_password_fields_user_list | length > 4
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_1
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_1
+#     - level_1
+#
+# - name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
+#
+#   block:
+#
+#     - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_script }}"
+#       register: uid_0_non_root_accounts
+#
+#     - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Lock Password"
+#       user:
+#         name: "{{ item }}"
+#         password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
+#       failed_when: false
+#       with_items:
+#         - "{{ uid_0_non_root_accounts.stdout_lines }}"
+#       when:
+#         - uid_0_non_root_accounts | length > 4
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_2
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_2
+#     - level_1
+#
+# - name: "6.2.3 | Ensure root PATH Integrity (Automated)"
+#   block:
+#
+#     - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_3_params_script }}"
+#       register: root_path_integrity
+#
+#     - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Printing any in PATH that need manual remediation"
+#       debug:
+#         var: "{{ root_path_integrity.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_3
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_3
+#     - level_1
+#
+# - name: "6.2.4 | Ensure all users' home directories exist (Automated)"
+#   block:
+#
+#     - name: "6.2.4 | Ensure all users' home directories exist (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_4_params_script }}"
+#       register: users_home_directory_audit_check
+#
+#     - name: "6.2.4 | Ensure all users' home directories exist (Automated) | Printing, if any require manual remediation"
+#       debug:
+#         var: "{{ users_home_directory_audit_check.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_4
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_4
+#     - level_1
+#
+# - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
+#   block:
+#
+#     - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_5_params_script }}"
+#       register: users_home_directory_750_audit_check
+#
+#     - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Printing, if any require manual remediation"
+#       debug:
+#         var: "{{ users_home_directory_750_audit_check.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_5
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_5
+#     - level_1
+#
+# - name: "6.2.6 | Ensure users own their home directories (Automated)"
+#   block:
+#
+#     - name: "6.2.6 | Ensure users own their home directories (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_6_params_script }}"
+#       register: users_own_home_directory_check
+#
+#     - name: "6.2.6 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
+#       debug:
+#         var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_6
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_6
+#     - level_1
+#
+# - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated)"
+#   block:
+#
+#     - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Check and Apply"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_7_params_script }}"
+#       register: users_dot_files_check
+#
+#     - name: "6.2.7 | Ensure users' dot files are not group or world writable (Automated) | Printing output"
+#       debug:
+#         var: "{{ users_dot_files_check.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_7
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_7
+#     - level_1
+#
+# - name: "6.2.8 | Ensure no users have .forward files (Automated)"
+#   block:
+#
+#     - name: "6.2.8 | Ensure no users have .forward files (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
+#       register: users_forward_files_check
+#
+#     - name: "6.2.8 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
+#       file:
+#         name: "{{ item }}/.forward"
+#         state: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_filestate }}"
+#       with_items:
+#         - "{{ users_forward_files_check.stdout_lines }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_8
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_8
+#     - level_1
+#
+# - name: "6.2.9 | Ensure no users have .netrc files (Automated)"
+#   block:
+#
+#     - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
+#       register: users_netrc_files_check
+#
+#     - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
+#       file:
+#         name: "{{ item }}/.netrc"
+#         state: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate }}"
+#       with_items:
+#         - "{{ users_netrc_files_check.stdout_lines }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_9
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_9
+#     - level_1
+#
+# - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
+#   block:
+#
+#     - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_script }}"
+#       register: users_netrc_world_accessible_files_check
+#
+#     - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Printing, if any require manual remediation"
+#       debug:
+#         var: "{{ users_netrc_world_accessible_files_check.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_10
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_10
+#     - level_1
+#
+# - name: "6.2.11 | Ensure no users have .rhosts files (Automated)"
+#   block:
+#
+#     - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_script }}"
+#       register: users_rhosts_files_check
+#
+#     - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Removing from home directories, if present"
+#       file:
+#         name: "{{ item }}/.rhosts"
+#         state: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_filestate }}"
+#       with_items:
+#         - "{{ users_rhosts_files_check.stdout_lines }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_11
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_11
+#     - level_1
+#
+# - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
+#   block:
+#
+#     - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_12_params_script }}"
+#       register: groups_existence_in_passwd_group
+#
+#     - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ groups_existence_in_passwd_group.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_12
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_12
+#     - level_1
+#
+# - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated)"
+#   block:
+#
+#     - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_13_params_script }}"
+#       register: no_duplicate_uids
+#
+#     - name: "6.2.13 | Ensure no duplicate UIDs exist (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ no_duplicate_uids.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_13
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_13
+#     - level_1
+#
+# - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated)"
+#   block:
+#
+#     - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_14_params_script }}"
+#       register: no_duplicate_gids
+#
+#     - name: "6.2.14 | Ensure no duplicate GIDs exist (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ no_duplicate_gids.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_14
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_14
+#     - level_1
+#
+# - name: "6.2.15 | Ensure no duplicate user names exist (Automated)"
+#   block:
+#
+#     - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_15_params_script }}"
+#       register: no_duplicate_usernames
+#
+#     - name: "6.2.15 | Ensure no duplicate user names exist (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ no_duplicate_usernames.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_15
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_15
+#     - level_1
+#
+# - name: "6.2.16 | Ensure no duplicate group names exist (Automated)"
+#   block:
+#
+#     - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_16_params_script }}"
+#       register: no_duplicate_groupnames
+#
+#     - name: "6.2.16 | Ensure no duplicate group names exist (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ no_duplicate_groupnames.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_16
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_16
+#     - level_1
+#
+# - name: "6.2.17 | Ensure shadow group is empty (Automated)"
+#   block:
+#
+#     - name: "6.2.17 | Ensure shadow group is empty (Automated) | Check"
+#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_17_params_script }}"
+#       register: shadow_group_empty
+#
+#     - name: "6.2.17 | Ensure shadow group is empty (Automated) | Print any that may need manual remediation"
+#       debug:
+#         var: "{{ shadow_group_empty.stdout_lines | to_json }}"
+#
+#   when:
+#     - ubuntu_2004_cis_section6_rule_6_2_17
+#     - ubuntu_2004_cis_section6
+#   tags:
+#     - section6
+#     - rule_6_2_17
+#     - level_1

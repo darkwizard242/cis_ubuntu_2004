@@ -117,12 +117,11 @@ ubuntu_2004_cis_section6_rule_6_2_1: true
 
 ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.shadowed_passwords.sh
 
-#
-# # Variables for 6.2.1
-# ubuntu_2004_cis_section6_rule_6_2_1: true
-#
-# ubuntu_2004_cis_section6_rule_6_2_1_params_script: 6.2.1.empty_password_fields.sh
-# ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock: yes
+# Variables for 6.2.2
+ubuntu_2004_cis_section6_rule_6_2_2: true
+
+ubuntu_2004_cis_section6_rule_6_2_2_params_script: 6.2.2.empty_password_fields.sh
+ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock: yes
 #
 # # Variables for 6.2.2
 # ubuntu_2004_cis_section6_rule_6_2_2: true

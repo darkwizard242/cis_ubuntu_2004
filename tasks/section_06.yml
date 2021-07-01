@@ -252,30 +252,30 @@
     - rule_6_2_1
     - level_1
 
-# - name: "6.2.1 | Ensure password fields are not empty (Automated)"
-#   block:
-#
-#     - name: "6.2.1 | Ensure password fields are not empty (Automated) | Check"
-#       script: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_script }}"
-#       register: empty_password_fields_user_list
-#
-#     - name: "6.2.1 | Ensure password fields are not empty (Automated) | Lock Password"
-#       user:
-#         name: "{{ item }}"
-#         password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock }}"
-#       with_items:
-#         - "{{ empty_password_fields_user_list.stdout_lines }}"
-#       when:
-#         - empty_password_fields_user_list | length > 4
-#
-#   when:
-#     - ubuntu_2004_cis_section6_rule_6_2_1
-#     - ubuntu_2004_cis_section6
-#   tags:
-#     - section6
-#     - rule_6_2_1
-#     - level_1
-#
+- name: "6.2.2 | Ensure password fields are not empty (Automated)"
+  block:
+
+    - name: "6.2.2 | Ensure password fields are not empty (Automated) | Check"
+      script: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_script }}"
+      register: empty_password_fields_user_list
+
+    - name: "6.2.2 | Ensure password fields are not empty (Automated) | Lock Password"
+      user:
+        name: "{{ item }}"
+        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
+      with_items:
+        - "{{ empty_password_fields_user_list.stdout_lines }}"
+      when:
+        - empty_password_fields_user_list | length > 4
+
+  when:
+    - ubuntu_2004_cis_section6_rule_6_2_2
+    - ubuntu_2004_cis_section6
+  tags:
+    - section6
+    - rule_6_2_2
+    - level_1
+
 # - name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
 #
 #   block:

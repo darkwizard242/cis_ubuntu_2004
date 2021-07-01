@@ -10,6 +10,7 @@ Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY 
 - Inclusion of "1.4.1 Ensure permissions on bootloader config are not overridden (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 - Inclusion of "1.8.1 Ensure GNOME Display Manager is removed (Manual)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 - Inclusion of "1.8.4 Ensure XDCMP is not enabled (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
+- Inclusion of "6.2.1 Ensure accounts in /etc/passwd use shadowed passwords (Automated)" per "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ### Removed
 

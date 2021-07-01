@@ -498,41 +498,41 @@ def test_1_4_2_40custom_file_password(host):
     assert host.file(GRUB_D_CUSTOM40_FILE).contains('password')
 
 
-def test_1_5_2_grub_file_exists(host):
+def test_1_4_3_grub_file_exists(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.3
     Tests if /boot/grub/grub.cfg file exists
     """
     assert host.file(BOOT_GRUB).exists
 
 
-def test_1_5_2_grub_file_isfile(host):
+def test_1_4_3_grub_file_isfile(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.3
     Tests if /boot/grub/grub.cfg is a file
     """
     assert host.file(BOOT_GRUB).is_file
 
 
-def test_1_5_2_grub_file_mode(host):
+def test_1_4_3_grub_file_mode(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.3
     Tests if /boot/grub/grub.cfg has 0400 mode
     """
     assert host.file(BOOT_GRUB).mode == 0o400
 
 
-def test_1_5_2_grub_file_user(host):
+def test_1_4_3_grub_file_user(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.3
     Tests if /boot/grub/grub.cfg file is owned by user root
     """
     assert host.file(BOOT_GRUB).user == 'root'
 
 
-def test_1_5_2_grub_file_group(host):
+def test_1_4_3_grub_file_group(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.5.2
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.4.3
     Tests if /boot/grub/grub.cfg file is owned by group root
     """
     assert host.file(BOOT_GRUB).group == 'root'

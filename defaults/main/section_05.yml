@@ -507,14 +507,14 @@ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_owner: root
 ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_group: root
 ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_mode: '0644'
 
-# Variables for 5.4.5
-ubuntu_2004_cis_section5_rule_5_4_5: true
+# Variables for 5.5.5
+ubuntu_2004_cis_section5_rule_5_5_5: true
 
-ubuntu_2004_cis_section5_rule_5_4_5_params_source: section_05/5.4.5.tmout.sh.j2
-ubuntu_2004_cis_section5_rule_5_4_5_params_dest: /etc/profile.d/cis_tmout.sh
-ubuntu_2004_cis_section5_rule_5_4_5_params_owner: root
-ubuntu_2004_cis_section5_rule_5_4_5_params_group: root
-ubuntu_2004_cis_section5_rule_5_4_5_params_mode: '0755'
+ubuntu_2004_cis_section5_rule_5_5_5_params_source: section_05/5.5.5.tmout.sh.j2
+ubuntu_2004_cis_section5_rule_5_5_5_params_dest: /etc/profile.d/cis_tmout.sh
+ubuntu_2004_cis_section5_rule_5_5_5_params_owner: root
+ubuntu_2004_cis_section5_rule_5_5_5_params_group: root
+ubuntu_2004_cis_section5_rule_5_5_5_params_mode: '0755'
 
 # Variables for 5.5
 ubuntu_2004_cis_section5_rule_5_5: true

@@ -138,6 +138,11 @@ ubuntu_2004_cis_section6_rule_6_2_5: true
 
 ubuntu_2004_cis_section6_rule_6_2_5_params_script: 6.2.5.users_own_home_directories_check.sh
 
+# Variables for 6.2.6
+ubuntu_2004_cis_section6_rule_6_2_6: true
+
+ubuntu_2004_cis_section6_rule_6_2_6_params_script: 6.2.6.users_home_directory_750_check.sh
+
 # # Variables for 6.2.2
 # ubuntu_2004_cis_section6_rule_6_2_2: true
 #
@@ -150,11 +155,7 @@ ubuntu_2004_cis_section6_rule_6_2_5_params_script: 6.2.5.users_own_home_director
 # ubuntu_2004_cis_section6_rule_6_2_3_params_script: 6.2.3.root_path_integrity.sh
 #
 
-#
-# # Variables for 6.2.5
-# ubuntu_2004_cis_section6_rule_6_2_5: true
-#
-# ubuntu_2004_cis_section6_rule_6_2_5_params_script: 6.2.5.users_home_directory_750_check.sh
+
 
 # # Variables for 6.2.7
 # ubuntu_2004_cis_section6_rule_6_2_7: true

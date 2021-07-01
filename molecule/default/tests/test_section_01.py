@@ -690,17 +690,17 @@ def test_1_7_3_issue_net_file_group(host):
     assert host.file(ETC_ISSUE_NET).group == 'root'
 
 
-def test_1_8_1_4_motd_file_mode(host):
+def test_1_7_4_motd_file_mode(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.4
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.4
     Tests if /etc/motd file has mode 0644
     """
     assert host.file(ETC_MOTD).mode == 0o644
 
 
-def test_1_8_1_5_issue_file_mode(host):
+def test_1_7_5_issue_file_mode(host):
     """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.8.1.5
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 1.7.5
     Tests if /etc/issue file has mode 0644
     """
     assert host.file(ETC_ISSUE).mode == 0o644

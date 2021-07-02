@@ -15,7 +15,7 @@ Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY 
 ### Removed
 
 - Removal of "1.1.1.7 Ensure mounting of FAT filesystems is limited (Manual)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
-- Removal of "6.2.10 Ensure users' .netrc Files are not group or world accessible ((Automated))" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
+- Removal of "6.2.10 Ensure users' .netrc Files are not group or world accessible (Automated)" which has been removed from "CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0"
 
 ### Fixed
 

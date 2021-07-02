@@ -355,6 +355,14 @@ def test_5_1_9_at_allow_group(host):
     assert host.file(AT_ALLOW).group == 'root'
 
 
+def test_5_2_1_sudo_package(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1
+    Tests if sudo package is installed
+    """
+    assert host.package('sudo').is_installed
+
+
 def test_5_2_1_sshd_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 5.2.1

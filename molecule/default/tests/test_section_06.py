@@ -97,22 +97,6 @@ def test_6_1_2_etc_passwd_group(host):
     assert host.file(ETC_PASSWD).group == 'root'
 
 
-def test_6_1_3_etc_gshadow_dash_exists(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.3
-    Tests if /etc/gshadow- file exists
-    """
-    assert host.file(ETC_GSHADOW_DASH).exists
-
-
-def test_6_1_3_etc_gshadow_dash_isfile(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.3
-    Tests if /etc/gshadow- is a file
-    """
-    assert host.file(ETC_GSHADOW_DASH).is_file
-
-
 def test_6_1_4_etc_shadow_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
@@ -335,6 +319,22 @@ def test_6_1_9_etc_gshadow_dash_group(host):
     Tests if /etc/gshadow- is owned by group root
     """
     assert host.file(ETC_GSHADOW_DASH).group == 'root'
+
+
+def test_6_1_9_etc_gshadow_dash_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
+    Tests if /etc/gshadow- file exists
+    """
+    assert host.file(ETC_GSHADOW_DASH).exists
+
+
+def test_6_1_9_etc_gshadow_dash_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
+    Tests if /etc/gshadow- is a file
+    """
+    assert host.file(ETC_GSHADOW_DASH).is_file
 
 
 def test_6_1_9_etc_gshadow_exists(host):

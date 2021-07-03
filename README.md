@@ -63,7 +63,7 @@ Add to an existing **requirements.yml** file along with your other roles or crea
 
   ```yaml
   - name: darkwizard242.cis_ubuntu_2004
-    version: 1.0.0
+    version: 2.0.0
   ```
 
 - Specific branch from repository.

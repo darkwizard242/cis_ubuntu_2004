@@ -113,30 +113,6 @@ def test_6_1_3_etc_gshadow_dash_isfile(host):
     assert host.file(ETC_GSHADOW_DASH).is_file
 
 
-def test_6_1_3_etc_gshadow_dash_mode(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.3
-    Tests if /etc/gshadow- has 0640 mode
-    """
-    assert host.file(ETC_GSHADOW_DASH).mode == 0o640
-
-
-def test_6_1_3_etc_gshadow_dash_user(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.3
-    Tests if /etc/gshadow- is owned by user root
-    """
-    assert host.file(ETC_GSHADOW_DASH).user == 'root'
-
-
-def test_6_1_3_etc_gshadow_dash_group(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.3
-    Tests if /etc/gshadow- is owned by group root
-    """
-    assert host.file(ETC_GSHADOW_DASH).group == 'root'
-
-
 def test_6_1_4_etc_shadow_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
@@ -335,6 +311,30 @@ def test_6_1_8_etc_group_dash_group(host):
     Tests if /etc/group- is owned by group root
     """
     assert host.file(ETC_GROUP_DASH).group == 'root'
+
+
+def test_6_1_9_etc_gshadow_dash_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
+    Tests if /etc/gshadow- has 0640 mode
+    """
+    assert host.file(ETC_GSHADOW_DASH).mode == 0o640
+
+
+def test_6_1_9_etc_gshadow_dash_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
+    Tests if /etc/gshadow- is owned by user root
+    """
+    assert host.file(ETC_GSHADOW_DASH).user == 'root'
+
+
+def test_6_1_9_etc_gshadow_dash_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
+    Tests if /etc/gshadow- is owned by group root
+    """
+    assert host.file(ETC_GSHADOW_DASH).group == 'root'
 
 
 def test_6_1_9_etc_gshadow_exists(host):

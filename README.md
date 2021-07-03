@@ -2,7 +2,12 @@
 
 # Ansible Role: cis_ubuntu_2004 :computer:
 
-Ansible Role for applying **CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0**.
+Ansible Role for applying **CIS Benchmark for Ubuntu Linux 20.04 LTS**.
+
+Currently supported and available versions are:
+
+- CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0
+- CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0
 
 ## Versioning
 

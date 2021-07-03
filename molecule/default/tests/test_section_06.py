@@ -297,6 +297,46 @@ def test_6_1_7_etc_shadow_dash_group(host):
     assert host.file(ETC_SHADOW_DASH).group == 'root'
 
 
+def test_6_1_8_etc_gshadow_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/gshadow file exists
+    """
+    assert host.file(ETC_GSHADOW).exists
+
+
+def test_6_1_8_etc_gshadow_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/gshadow is a file
+    """
+    assert host.file(ETC_GSHADOW).is_file
+
+
+def test_6_1_8_etc_gshadow_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/gshadow has 0640 mode
+    """
+    assert host.file(ETC_GSHADOW).mode == 0o640
+
+
+def test_6_1_8_etc_gshadow_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/gshadow is owned by user root
+    """
+    assert host.file(ETC_GSHADOW).user == 'root'
+
+
+def test_6_1_8_etc_gshadow_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.8
+    Tests if /etc/gshadow is owned by group root
+    """
+    assert host.file(ETC_GSHADOW).group == 'root'
+
+
 def test_6_1_9_etc_gshadow_dash_mode(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
@@ -335,43 +375,3 @@ def test_6_1_9_etc_gshadow_dash_isfile(host):
     Tests if /etc/gshadow- is a file
     """
     assert host.file(ETC_GSHADOW_DASH).is_file
-
-
-def test_6_1_9_etc_gshadow_exists(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
-    Tests if /etc/gshadow file exists
-    """
-    assert host.file(ETC_GSHADOW).exists
-
-
-def test_6_1_9_etc_gshadow_isfile(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
-    Tests if /etc/gshadow is a file
-    """
-    assert host.file(ETC_GSHADOW).is_file
-
-
-def test_6_1_9_etc_gshadow_mode(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
-    Tests if /etc/gshadow has 0640 mode
-    """
-    assert host.file(ETC_GSHADOW).mode == 0o640
-
-
-def test_6_1_9_etc_gshadow_user(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
-    Tests if /etc/gshadow is owned by user root
-    """
-    assert host.file(ETC_GSHADOW).user == 'root'
-
-
-def test_6_1_9_etc_gshadow_group(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.9
-    Tests if /etc/gshadow is owned by group root
-    """
-    assert host.file(ETC_GSHADOW).group == 'root'

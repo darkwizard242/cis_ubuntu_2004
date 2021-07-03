@@ -97,46 +97,6 @@ def test_6_1_2_etc_passwd_group(host):
     assert host.file(ETC_PASSWD).group == 'root'
 
 
-def test_6_1_4_etc_shadow_exists(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
-    Tests if /etc/shadow file exists
-    """
-    assert host.file(ETC_SHADOW).exists
-
-
-def test_6_1_4_etc_shadow_isfile(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
-    Tests if /etc/shadow is a file
-    """
-    assert host.file(ETC_SHADOW).is_file
-
-
-def test_6_1_4_etc_shadow_mode(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
-    Tests if /etc/shadow has 0640 mode
-    """
-    assert host.file(ETC_SHADOW).mode == 0o640
-
-
-def test_6_1_4_etc_shadow_user(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
-    Tests if /etc/shadow is owned by user root
-    """
-    assert host.file(ETC_SHADOW).user == 'root'
-
-
-def test_6_1_4_etc_shadow_group(host):
-    """
-    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.4
-    Tests if /etc/shadow is owned by group root
-    """
-    assert host.file(ETC_SHADOW).group == 'root'
-
-
 def test_6_1_5_etc_group_exists(host):
     """
     CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.5
@@ -175,6 +135,46 @@ def test_6_1_5_etc_group_group(host):
     Tests if /etc/group is owned by group root
     """
     assert host.file(ETC_GROUP).group == 'root'
+
+
+def test_6_1_6_etc_shadow_exists(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/shadow file exists
+    """
+    assert host.file(ETC_SHADOW).exists
+
+
+def test_6_1_6_etc_shadow_isfile(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/shadow is a file
+    """
+    assert host.file(ETC_SHADOW).is_file
+
+
+def test_6_1_6_etc_shadow_mode(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/shadow has 0640 mode
+    """
+    assert host.file(ETC_SHADOW).mode == 0o640
+
+
+def test_6_1_6_etc_shadow_user(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/shadow is owned by user root
+    """
+    assert host.file(ETC_SHADOW).user == 'root'
+
+
+def test_6_1_6_etc_shadow_group(host):
+    """
+    CIS Ubuntu 20.04 v1.0.0 - Rule # 6.1.6
+    Tests if /etc/shadow is owned by group root
+    """
+    assert host.file(ETC_SHADOW).group == 'root'
 
 
 def test_6_1_6_etc_group_exists(host):

@@ -916,36 +916,6 @@
     - rule_3_5_3_2_2
     - level_1
 
-- name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated)"
-  block:
-
-    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set input chain to drop"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input
-
-    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set output chain to drop"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output
-
-    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set forward chain to drop"
-      iptables:
-        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
-        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
-      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward
-
-  when:
-    - ubuntu_2004_cis_firewall == "iptables"
-    - ubuntu_2004_cis_section3_rule_3_5_3_2_1
-    - ubuntu_2004_cis_section3
-  tags:
-    - section3
-    - rule_3_5_3_2_1
-    - level_1
-
 - name: "3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports (Automated)"
   block:
 
@@ -974,6 +944,36 @@
   tags:
     - section3
     - rule_3_5_3_2_4
+    - level_1
+
+- name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated)"
+  block:
+
+    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set input chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_input_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_input
+
+    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set output chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_output_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_output
+
+    - name: "3.5.3.2.3 | Ensure iptables default deny firewall policy (Automated) | set forward chain to drop"
+      iptables:
+        chain: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_name }}"
+        policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptableschain_forward_policy }}"
+      when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward
+
+  when:
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_rule_3_5_3_2_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - rule_3_5_3_2_1
     - level_1
 
 - name: "3.5.3.3.1 | Ensure ip6tables loopback traffic is configured (Automated)"

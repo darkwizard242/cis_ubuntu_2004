@@ -2,7 +2,7 @@
 
 Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
-## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - TBD
+## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - 07/15/2021
 
 ### Added
 

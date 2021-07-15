@@ -2,7 +2,12 @@
 
 # Ansible Role: cis_ubuntu_2004 :computer:
 
-Ansible Role for applying **CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0**.
+Ansible Role for applying **CIS Benchmark for Ubuntu Linux 20.04 LTS**.
+
+Currently supported and available versions are:
+
+- CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0
+- CIS Benchmark for Ubuntu Linux 20.04 LTS v1.0.0
 
 ## Versioning
 
@@ -11,6 +16,7 @@ The below table specifies the versions of role available on [Ansible Galaxy](htt
 CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version | Repository Tag Version
 ---------------------------------- | ---------------------- | ----------------------
 1.0.0                              | 1.0.0, 1.0.1, 1.0.2    | 1.0.0, 1.0.1, 1.0.2
+1.1.0                              | 2.0.0                  | 2.0.0
 
 ## 1\. Installation/Download Instructions:
 
@@ -24,16 +30,28 @@ This role is available on Ansible Galaxy. There are a few methods you can utiliz
   ansible-galaxy install darkwizard242.cis_ubuntu_2004
   ```
 
-- Installing/Downloading specific available tag version (using 1.0.0 as an example):
+- Installing/Downloading specific available tag version (using 2.0.0 as an example):
 
   ```shell
-  ansible-galaxy install darkwizard242.cis_ubuntu_2004,1.0.0
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,2.0.0
   ```
 
-- Installing/Downloading specific available branch version from repository (using master branch as an example):
+- Installing/Downloading specific available branch version from repository (using `master` branch as an example, `master` will always be compliant to latest available version of **CIS Ubuntu 20.04 Benchmark**):
 
   ```shell
   ansible-galaxy install darkwizard242.cis_ubuntu_2004,master
+  ```
+
+- Installing/Downloading specific available branch version from repository (using `feature/cis_version_1.1.0` branch as an example which complies with latest updates for **CIS Ubuntu 20.04 Benchmark Version v1.1.0**):
+
+  ```shell
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,feature/cis_version_1.1.0
+  ```
+
+- Installing/Downloading specific available branch version from repository (using `feature/cis_version_1.0.0` branch as an example which complies with latest updates for **CIS Ubuntu 20.04 Benchmark Version v1.0.0**):
+
+  ```shell
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,feature/cis_version_1.0.0
   ```
 
 ### With a requirements.yml file:
@@ -50,7 +68,7 @@ Add to an existing **requirements.yml** file along with your other roles or crea
 
   ```yaml
   - name: darkwizard242.cis_ubuntu_2004
-    version: 1.0.0
+    version: 2.0.0
   ```
 
 - Specific branch from repository.
@@ -414,14 +432,14 @@ For local development of the **cis_ubuntu_2004** role, please perform the follow
 
   ```shell
   # To install pip modules globally when running as a non-root user.
-  sudo -H python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  sudo -H python3 -m pip install -U molecule ansible-lint flake8 pytest-testinfra molecule-vagrant
   ```
 
   OR
 
   ```shell
   # To install pip modules local to user directory when running as a non-root user.
-  python3 -m pip install -U molecule ansible-lint flake8 testinfra molecule-vagrant
+  python3 -m pip install -U molecule ansible-lint flake8 pytest-testinfra molecule-vagrant
   ```
 
 - Make changes and run `molecule test` or `molecule converge`.

@@ -1,50 +1,24 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 2 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 2 BENCHMARKS
 
-- name: "2.1.1 | Ensure xinetd is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_1_params_package_purge }}"
-  when:
-    - ubuntu_2004_cis_section2_rule_2_1_1
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_1_1
-    - level_1
-
-- name: "2.1.2 | Ensure openbsd-inetd is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge }}"
-  when:
-    - ubuntu_2004_cis_section2_rule_2_1_2
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_1_2
-    - level_1
-
-- name: "2.2.1.1 | Ensure time synchronization is in use (Automated)"
+- name: "2.1.1.1 | Ensure time synchronization is in use (Automated)"
   block:
 
-    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Enable systemd-timesyncd if time synchronization is systemd-timesyncd"
+    - name: "2.1.1.1 | Ensure time synchronization is in use (Automated) | Enable systemd-timesyncd if time synchronization is systemd-timesyncd"
       systemd:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name }}"
-        enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_enabled_state }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_timesyncd_service_name }}"
+        enabled: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_timesyncd_service_enabled_state }}"
       when:
         - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
 
-    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Mask systemd-timesyncd if time synchronization is not systemd-timesyncd"
+    - name: "2.1.1.1 | Ensure time synchronization is in use (Automated) | Mask systemd-timesyncd if time synchronization is not systemd-timesyncd"
       systemd:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_name }}"
-        masked: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_timesyncd_service_masked_true }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_timesyncd_service_name }}"
+        masked: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_timesyncd_service_masked_true }}"
       when:
         - ubuntu_2004_cis_time_synchronization != "systemd-timesyncd"
 
-    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Installing NTP or Chrony if time synchronization is not systemd-timesyncd"
+    - name: "2.1.1.1 | Ensure time synchronization is in use (Automated) | Installing NTP or Chrony if time synchronization is not systemd-timesyncd"
       apt:
         name: "{{ ubuntu_2004_cis_time_synchronization }}"
         state: "{{ ubuntu_2004_cis_time_synchronization_package_state }}"
@@ -52,139 +26,384 @@
         - ubuntu_2004_cis_time_synchronization != "systemd-timesyncd"
 
 
-    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Purge Chrony if time synchronization is NTP or systemd-timesyncd"
+    - name: "2.1.1.1 | Ensure time synchronization is in use (Automated) | Purge Chrony if time synchronization is NTP or systemd-timesyncd"
       apt:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_state }}"
-        purge: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_chrony_package_purge }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_chrony_package }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_chrony_package_state }}"
+        purge: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_chrony_package_purge }}"
       when:
         - ubuntu_2004_cis_time_synchronization != "chrony"
 
-    - name: "2.2.1.1 | Ensure time synchronization is in use (Automated) | Purge NTP if time synchronization is Chrony or systemd-timesyncd"
+    - name: "2.1.1.1 | Ensure time synchronization is in use (Automated) | Purge NTP if time synchronization is Chrony or systemd-timesyncd"
       apt:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_state }}"
-        purge: "{{ ubuntu_2004_cis_section2_rule_2_2_1_1_params_ntp_package_purge }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_ntp_package }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_ntp_package_state }}"
+        purge: "{{ ubuntu_2004_cis_section2_rule_2_1_1_1_params_ntp_package_purge }}"
       when:
         - ubuntu_2004_cis_time_synchronization != "ntp"
 
   when:
-    - ubuntu_2004_cis_section2_rule_2_2_1_1
+    - ubuntu_2004_cis_section2_rule_2_1_1_1
     - ubuntu_2004_cis_section2
   tags:
     - section2
-    - rule_2_2_1_1
+    - rule_2_1_1_1
     - level_1
 
-- name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual)"
+- name: "2.1.1.2 | Ensure systemd-timesyncd is configured (Manual)"
   block:
 
-    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is not masked if time synchronization is systemd-timesyncd"
+    - name: "2.1.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is not masked if time synchronization is systemd-timesyncd"
       systemd:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-        masked: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_masked_true }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_name }}"
+        masked: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_masked_true }}"
 
-    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
+    - name: "2.1.1.2 | Ensure systemd-timesyncd is configured (Manual) | Ensure systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
       systemd:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-        enabled: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_enabled_state }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_name }}"
+        enabled: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_enabled_state }}"
 
-    - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd NTP entries"
+    - name: "2.1.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd NTP entries"
       ini_file:
-        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_option }}"
-        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_ntp_value }}"
-        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+        path: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_ntp_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_ntp_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
 
-    - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd FallbackNTP entries"
+    - name: "2.1.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd FallbackNTP entries"
       ini_file:
-        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_option }}"
-        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_fallbackntp_value }}"
-        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+        path: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_fallbackntp_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_fallbackntp_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
 
-    - name: "2.2.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd RootDistanceMaxSec entries"
+    - name: "2.1.1.2 | Ensure time synchronization is in use (Automated) | Set systemd-timesyncd RootDistanceMaxSec entries"
       ini_file:
-        path: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_path }}"
-        section: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_section }}"
-        option: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_option }}"
-        value: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_value }}"
-        owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_owner }}"
-        group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_group }}"
-        mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_mode }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_state }}"
-        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
+        path: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_path }}"
+        section: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_section }}"
+        option: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_option }}"
+        value: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_rootdistancemaxsec_value }}"
+        owner: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_owner }}"
+        group: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_group }}"
+        mode: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_mode }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_conffile_no_extra_spaces }}"
 
-    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | Restart systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
+    - name: "2.1.1.2 | Ensure systemd-timesyncd is configured (Manual) | Restart systemd-timesyncd is enabled if time synchronization is systemd-timesyncd"
       systemd:
-        name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_name }}"
-        state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_service_state }}"
+        name: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_name }}"
+        state: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_service_state }}"
 
-    - name: "2.2.1.2 | Ensure systemd-timesyncd is configured (Manual) | set-ntp true"
-      command: "{{ ubuntu_2004_cis_section2_rule_2_2_1_2_params_timesyncd_setntptrue_command }}"
+    - name: "2.1.1.2 | Ensure systemd-timesyncd is configured (Manual) | set-ntp true"
+      command: "{{ ubuntu_2004_cis_section2_rule_2_1_1_2_params_timesyncd_setntptrue_command }}"
 
   when:
     - ubuntu_2004_cis_time_synchronization == "systemd-timesyncd"
-    - ubuntu_2004_cis_section2_rule_2_2_1_2
+    - ubuntu_2004_cis_section2_rule_2_1_1_2
     - ubuntu_2004_cis_section2
   tags:
     - section2
-    - rule_2_2_1_2
+    - rule_2_1_1_2
     - level_1
 
-- name: "2.2.1.3 | Ensure chrony is configured (Automated)"
+- name: "2.1.1.3 | Ensure chrony is configured (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_src }}"
-    dest: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_dest }}"
-    owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_owner }}"
-    group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_group }}"
-    mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_3_params_chrony_template_mode }}"
+    src: "{{ ubuntu_2004_cis_section2_rule_2_1_1_3_params_chrony_template_src }}"
+    dest: "{{ ubuntu_2004_cis_section2_rule_2_1_1_3_params_chrony_template_dest }}"
+    owner: "{{ ubuntu_2004_cis_section2_rule_2_1_1_3_params_chrony_template_owner }}"
+    group: "{{ ubuntu_2004_cis_section2_rule_2_1_1_3_params_chrony_template_group }}"
+    mode: "{{ ubuntu_2004_cis_section2_rule_2_1_1_3_params_chrony_template_mode }}"
   notify:
     - chrony restart
   when:
     - ubuntu_2004_cis_time_synchronization == "chrony"
-    - ubuntu_2004_cis_section2_rule_2_2_1_3
+    - ubuntu_2004_cis_section2_rule_2_1_1_3
     - ubuntu_2004_cis_section2
   tags:
     - section2
-    - rule_2_2_1_3
+    - rule_2_1_1_3
     - level_1
 
-- name: "2.2.1.4 | Ensure ntp is configured (Automated)"
+- name: "2.1.1.4 | Ensure ntp is configured (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_src }}"
-    dest: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_dest }}"
-    owner: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_owner }}"
-    group: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_group }}"
-    mode: "{{ ubuntu_2004_cis_section2_rule_2_2_1_4_params_ntp_template_mode }}"
+    src: "{{ ubuntu_2004_cis_section2_rule_2_1_1_4_params_ntp_template_src }}"
+    dest: "{{ ubuntu_2004_cis_section2_rule_2_1_1_4_params_ntp_template_dest }}"
+    owner: "{{ ubuntu_2004_cis_section2_rule_2_1_1_4_params_ntp_template_owner }}"
+    group: "{{ ubuntu_2004_cis_section2_rule_2_1_1_4_params_ntp_template_group }}"
+    mode: "{{ ubuntu_2004_cis_section2_rule_2_1_1_4_params_ntp_template_mode }}"
   notify:
     - ntp restart
   when:
     - ubuntu_2004_cis_time_synchronization == "ntp"
-    - ubuntu_2004_cis_section2_rule_2_2_1_4
+    - ubuntu_2004_cis_section2_rule_2_1_1_4
     - ubuntu_2004_cis_section2
   tags:
     - section2
-    - rule_2_2_1_4
+    - rule_2_1_1_4
     - level_1
 
-- name: "2.2.2 | Ensure X Window System is not installed (Automated)"
+- name: "2.1.2 | Ensure X Window System is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_2_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_xwindows_system
+    - ubuntu_2004_cis_section2_rule_2_1_2
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_2
+    - level_1
+
+- name: "2.1.3 | Ensure Avahi Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_3_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_3_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_3_params_package_purge }}"
+  when:
+    - ubuntu_2004_cis_section2_rule_2_1_3
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_3
+    - level_1
+
+- name: "2.1.4 | Ensure CUPS is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_4_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_cups
+    - ubuntu_2004_cis_section2_rule_2_1_4
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_4
+    - level_1
+    - level_2
+
+- name: "2.1.5 | Ensure DHCP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_5_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_dhcp_server
+    - ubuntu_2004_cis_section2_rule_2_1_5
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_5
+    - level_1
+
+- name: "2.1.6 | Ensure LDAP server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_6_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_6_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_6_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_ldap_server
+    - ubuntu_2004_cis_section2_rule_2_1_6
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_6
+    - level_1
+
+- name: "2.1.7 | Ensure NFS is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_7_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_7_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_7_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_nfs_server
+    - ubuntu_2004_cis_section2_rule_2_1_7
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_7
+    - level_1
+
+- name: "2.1.8 | Ensure DNS Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_8_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_dns_server
+    - ubuntu_2004_cis_section2_rule_2_1_8
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_8
+    - level_1
+
+- name: "2.1.9 | Ensure FTP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_9_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_9_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_9_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_ftp_server
+    - ubuntu_2004_cis_section2_rule_2_1_9
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_9
+    - level_1
+
+- name: "2.1.10 | Ensure HTTP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_10_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_10_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_10_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_http_server
+    - ubuntu_2004_cis_section2_rule_2_1_10
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_10
+    - level_1
+
+- name: "2.1.11 | Ensure IMAP and POP3 server are not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_11_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_imap_pop3_server
+    - ubuntu_2004_cis_section2_rule_2_1_11
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_11
+    - level_1
+
+- name: "2.1.12 | Ensure Samba is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_12_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_12_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_12_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_samba_server
+    - ubuntu_2004_cis_section2_rule_2_1_12
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_12
+    - level_1
+
+- name: "2.1.13 | Ensure HTTP Proxy Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_13_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_13_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_13_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_squid_server
+    - ubuntu_2004_cis_section2_rule_2_1_13
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_13
+    - level_1
+
+- name: "2.1.14 | Ensure SNMP Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_14_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_snmp_server
+    - ubuntu_2004_cis_section2_rule_2_1_14
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_14
+    - level_1
+
+- name: "2.1.15 | Ensure mail transfer agent is configured for local-only mode (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_path }}"
+    line: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section2_rule_2_1_15_params_mode }}"
+  notify:
+    - postfix restart
+  when:
+    - ubuntu_2004_cis_require_mail_server
+    - "'postfix' in ansible_facts.packages"
+    - ubuntu_2004_cis_section2_rule_2_1_15
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_15
+    - level_1
+
+- name: "2.1.16 | Ensure rsync service is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_16_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_16_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_16_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_rsyncd_server
+    - ubuntu_2004_cis_section2_rule_2_1_16
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_16
+    - level_1
+
+- name: "2.1.17 | Ensure NIS Server is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_1_17_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_1_17_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_1_17_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_nis_server
+    - ubuntu_2004_cis_section2_rule_2_1_17
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_1_17
+    - level_1
+
+- name: "2.2.1 | Ensure NIS Client is not installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section2_rule_2_2_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section2_rule_2_2_1_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_1_params_package_purge }}"
+  when:
+    - not ubuntu_2004_cis_require_nis_client
+    - ubuntu_2004_cis_section2_rule_2_2_1
+    - ubuntu_2004_cis_section2
+  tags:
+    - section2
+    - rule_2_2_1
+    - level_1
+
+- name: "2.2.2 | Ensure rsh client is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_2_2_params_package_name }}"
     state: "{{ ubuntu_2004_cis_section2_rule_2_2_2_params_package_state }}"
     purge: "{{ ubuntu_2004_cis_section2_rule_2_2_2_params_package_purge }}"
   when:
-    - not ubuntu_2004_cis_require_xwindows_system
+    - not ubuntu_2004_cis_require_rsh_client
     - ubuntu_2004_cis_section2_rule_2_2_2
     - ubuntu_2004_cis_section2
   tags:
@@ -192,12 +411,13 @@
     - rule_2_2_2
     - level_1
 
-- name: "2.2.3 | Ensure Avahi Server is not installed (Automated)"
+- name: "2.2.3 | Ensure talk client is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_2_3_params_package_name }}"
     state: "{{ ubuntu_2004_cis_section2_rule_2_2_3_params_package_state }}"
     purge: "{{ ubuntu_2004_cis_section2_rule_2_2_3_params_package_purge }}"
   when:
+    - not ubuntu_2004_cis_require_talk_client
     - ubuntu_2004_cis_section2_rule_2_2_3
     - ubuntu_2004_cis_section2
   tags:
@@ -205,28 +425,27 @@
     - rule_2_2_3
     - level_1
 
-- name: "2.2.4 | Ensure CUPS is not installed (Automated)"
+- name: "2.2.4 | Ensure telnet client is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_name }}"
     state: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_state }}"
     purge: "{{ ubuntu_2004_cis_section2_rule_2_2_4_params_package_purge }}"
   when:
-    - not ubuntu_2004_cis_require_cups
+    - not ubuntu_2004_cis_require_telnet_client
     - ubuntu_2004_cis_section2_rule_2_2_4
     - ubuntu_2004_cis_section2
   tags:
     - section2
     - rule_2_2_4
     - level_1
-    - level_2
 
-- name: "2.2.5 | Ensure DHCP Server is not installed (Automated)"
+- name: "2.2.5 | Ensure LDAP client is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_name }}"
     state: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_state }}"
     purge: "{{ ubuntu_2004_cis_section2_rule_2_2_5_params_package_purge }}"
   when:
-    - not ubuntu_2004_cis_require_dhcp_server
+    - not ubuntu_2004_cis_require_ldap_client
     - ubuntu_2004_cis_section2_rule_2_2_5
     - ubuntu_2004_cis_section2
   tags:
@@ -234,13 +453,13 @@
     - rule_2_2_5
     - level_1
 
-- name: "2.2.6 | Ensure LDAP server is not installed (Automated)"
+- name: "2.2.6 | Ensure RPC is not installed (Automated)"
   apt:
     name: "{{ ubuntu_2004_cis_section2_rule_2_2_6_params_package_name }}"
     state: "{{ ubuntu_2004_cis_section2_rule_2_2_6_params_package_state }}"
     purge: "{{ ubuntu_2004_cis_section2_rule_2_2_6_params_package_purge }}"
   when:
-    - not ubuntu_2004_cis_require_ldap_server
+    - not ubuntu_2004_cis_require_rpcbind_client
     - ubuntu_2004_cis_section2_rule_2_2_6
     - ubuntu_2004_cis_section2
   tags:
@@ -248,267 +467,22 @@
     - rule_2_2_6
     - level_1
 
-- name: "2.2.7 | Ensure NFS is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_7_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_7_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_7_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_nfs_server
-    - ubuntu_2004_cis_section2_rule_2_2_7
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_7
-    - level_1
-
-- name: "2.2.8 | Ensure DNS Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_8_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_dns_server
-    - ubuntu_2004_cis_section2_rule_2_2_8
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_8
-    - level_1
-
-- name: "2.2.9 | Ensure FTP Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_9_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_9_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_9_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_ftp_server
-    - ubuntu_2004_cis_section2_rule_2_2_9
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_9
-    - level_1
-
-- name: "2.2.10 | Ensure HTTP Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_10_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_10_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_10_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_http_server
-    - ubuntu_2004_cis_section2_rule_2_2_10
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_10
-    - level_1
-
-- name: "2.2.11 | Ensure IMAP and POP3 server are not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_11_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_imap_pop3_server
-    - ubuntu_2004_cis_section2_rule_2_2_11
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_11
-    - level_1
-
-- name: "2.2.12 | Ensure Samba is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_12_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_12_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_12_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_samba_server
-    - ubuntu_2004_cis_section2_rule_2_2_12
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_12
-    - level_1
-
-- name: "2.2.13 | Ensure HTTP Proxy Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_13_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_squid_server
-    - ubuntu_2004_cis_section2_rule_2_2_13
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_13
-    - level_1
-
-- name: "2.2.14 | Ensure SNMP Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_14_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_snmp_server
-    - ubuntu_2004_cis_section2_rule_2_2_14
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_14
-    - level_1
-
-- name: "2.2.15 | Ensure mail transfer agent is configured for local-only mode (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_path }}"
-    line: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section2_rule_2_2_15_params_mode }}"
-  notify:
-    - postfix restart
-  when:
-    - ubuntu_2004_cis_require_mail_server
-    - "'postfix' in ansible_facts.packages"
-    - ubuntu_2004_cis_section2_rule_2_2_15
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_15
-    - level_1
-
-- name: "2.2.16 | Ensure rsync service is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_16_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_rsyncd_server
-    - ubuntu_2004_cis_section2_rule_2_2_16
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_16
-    - level_1
-
-- name: "2.2.17 | Ensure NIS Server is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_2_17_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_nis_server
-    - ubuntu_2004_cis_section2_rule_2_2_17
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_2_17
-    - level_1
-
-- name: "2.3.1 | Ensure NIS Client is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_1_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_1_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_1_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_nis_client
-    - ubuntu_2004_cis_section2_rule_2_3_1
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_1
-    - level_1
-
-- name: "2.3.2 | Ensure rsh client is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_2_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_2_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_2_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_rsh_client
-    - ubuntu_2004_cis_section2_rule_2_3_2
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_2
-    - level_1
-
-- name: "2.3.3 | Ensure talk client is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_3_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_talk_client
-    - ubuntu_2004_cis_section2_rule_2_3_3
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_3
-    - level_1
-
-- name: "2.3.4 | Ensure telnet client is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_4_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_telnet_client
-    - ubuntu_2004_cis_section2_rule_2_3_4
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_4
-    - level_1
-
-- name: "2.3.5 | Ensure LDAP client is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_5_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_5_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_5_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_ldap_client
-    - ubuntu_2004_cis_section2_rule_2_3_5
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_5
-    - level_1
-
-- name: "2.3.6 | Ensure RPC is not installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_state }}"
-    purge: "{{ ubuntu_2004_cis_section2_rule_2_3_6_params_package_purge }}"
-  when:
-    - not ubuntu_2004_cis_require_rpcbind_client
-    - ubuntu_2004_cis_section2_rule_2_3_6
-    - ubuntu_2004_cis_section2
-  tags:
-    - section2
-    - rule_2_3_6
-    - level_1
-
-- name: "2.4 | Ensure nonessential services are removed or masked (Manual)"
+- name: "2.3 | Ensure nonessential services are removed or masked (Manual)"
   block:
 
-    - name: "2.4 | Ensure nonessential services are removed or masked (Manual) | check"
-      script: "{{ ubuntu_2004_cis_section2_rule_2_4_params_script }}"
+    - name: "2.3 | Ensure nonessential services are removed or masked (Manual) | check"
+      script: "{{ ubuntu_2004_cis_section2_rule_2_3_params_script }}"
       register: services_listening_output
       changed_when: false
 
-    - name: "2.4 | Ensure nonessential services are removed or masked (Manual) | print"
+    - name: "2.3 | Ensure nonessential services are removed or masked (Manual) | print"
       debug:
         var: "{{ services_listening_output.stdout_lines  | to_json }}"
 
   when:
-    - ubuntu_2004_cis_section2_rule_2_4
+    - ubuntu_2004_cis_section2_rule_2_3
     - ubuntu_2004_cis_section2
   tags:
     - section2
-    - rule_2_4
+    - rule_2_3
     - level_1

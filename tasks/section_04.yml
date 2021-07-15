@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 4 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 4 BENCHMARKS
 
 - name: "4.1.1.1 | Ensure auditd is installed (Automated)"
   apt:

@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 6 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 6 BENCHMARKS
 
 - name: "6.1.1 | Audit system file permissions (Manual)"
   block:
@@ -42,7 +42,7 @@
     - rule_6_1_2
     - level_1
 
-- name: "6.1.3 | Ensure permissions on /etc/gshadow- are configured (Automated)"
+- name: "6.1.3 | Ensure permissions on /etc/passwd- are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_3_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_3_params_state }}"
@@ -57,7 +57,7 @@
     - rule_6_1_3
     - level_1
 
-- name: "6.1.4 | Ensure permissions on /etc/shadow are configured (Automated)"
+- name: "6.1.4 | Ensure permissions on /etc/group are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_4_params_state }}"
@@ -72,7 +72,7 @@
     - rule_6_1_4
     - level_1
 
-- name: "6.1.5 | Ensure permissions on /etc/group are configured (Automated)"
+- name: "6.1.5 | Ensure permissions on /etc/group- are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_5_params_state }}"
@@ -87,7 +87,7 @@
     - rule_6_1_5
     - level_1
 
-- name: "6.1.6 | Ensure permissions on /etc/passwd- are configured (Automated)"
+- name: "6.1.6 | Ensure permissions on /etc/shadow are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_6_params_state }}"
@@ -117,7 +117,7 @@
     - rule_6_1_7
     - level_1
 
-- name: "6.1.8 | Ensure permissions on /etc/group- are configured (Automated)"
+- name: "6.1.8 | Ensure permissions on /etc/gshadow are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_8_params_state }}"
@@ -132,7 +132,7 @@
     - rule_6_1_8
     - level_1
 
-- name: "6.1.9 | Ensure permissions on /etc/gshadow are configured (Automated)"
+- name: "6.1.9 | Ensure permissions on /etc/gshadow- are configured (Automated)"
   file:
     path: "{{ ubuntu_2004_cis_section6_rule_6_1_9_params_path }}"
     state: "{{ ubuntu_2004_cis_section6_rule_6_1_9_params_state }}"
@@ -233,21 +233,16 @@
     - rule_6_1_14
     - level_1
 
-- name: "6.2.1 | Ensure password fields are not empty (Automated)"
+- name: "6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords (Automated)"
   block:
 
-    - name: "6.2.1 | Ensure password fields are not empty (Automated) | Check"
+    - name: "6.2.1| Ensure accounts in /etc/passwd use shadowed passwords (Automated) | Audit"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_script }}"
-      register: empty_password_fields_user_list
+      register: shadowed_passwords_audit
 
-    - name: "6.2.1 | Ensure password fields are not empty (Automated) | Lock Password"
-      user:
-        name: "{{ item }}"
-        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_1_params_password_lock }}"
-      with_items:
-        - "{{ empty_password_fields_user_list.stdout_lines }}"
-      when:
-        - empty_password_fields_user_list | length > 4
+    - name: "6.2.1| Ensure accounts in /etc/passwd use shadowed passwords (Automated) | Print"
+      debug:
+        var: "{{ shadowed_passwords_audit.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_1
@@ -257,23 +252,21 @@
     - rule_6_2_1
     - level_1
 
-- name: "6.2.2 | Ensure root is the only UID 0 account (Automated)"
-
+- name: "6.2.2 | Ensure password fields are not empty (Automated)"
   block:
 
-    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Check"
+    - name: "6.2.2 | Ensure password fields are not empty (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_script }}"
-      register: uid_0_non_root_accounts
+      register: empty_password_fields_user_list
 
-    - name: "6.2.2 | Ensure root is the only UID 0 account (Automated) | Lock Password"
+    - name: "6.2.2 | Ensure password fields are not empty (Automated) | Lock Password"
       user:
         name: "{{ item }}"
         password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_2_params_password_lock }}"
-      failed_when: false
       with_items:
-        - "{{ uid_0_non_root_accounts.stdout_lines }}"
+        - "{{ empty_password_fields_user_list.stdout_lines }}"
       when:
-        - uid_0_non_root_accounts | length > 4
+        - empty_password_fields_user_list | length > 5
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_2
@@ -283,16 +276,16 @@
     - rule_6_2_2
     - level_1
 
-- name: "6.2.3 | Ensure root PATH Integrity (Automated)"
+- name: "6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
   block:
 
-    - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Check"
+    - name: "6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_3_params_script }}"
-      register: root_path_integrity
+      register: groups_existence_in_passwd_group
 
-    - name: "6.2.3 | Ensure root PATH Integrity (Automated) | Printing any in PATH that need manual remediation"
+    - name: "6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Print any that may need manual remediation"
       debug:
-        var: "{{ root_path_integrity.stdout_lines | to_json }}"
+        var: "{{ groups_existence_in_passwd_group.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_3
@@ -321,16 +314,16 @@
     - rule_6_2_4
     - level_1
 
-- name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
+- name: "6.2.5 | Ensure users own their home directories (Automated)"
   block:
 
-    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Check"
+    - name: "6.2.5 | Ensure users own their home directories (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_5_params_script }}"
-      register: users_home_directory_750_audit_check
+      register: users_own_home_directory_check
 
-    - name: "6.2.5 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Printing, if any require manual remediation"
+    - name: "6.2.5 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
       debug:
-        var: "{{ users_home_directory_750_audit_check.stdout_lines | to_json }}"
+        var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_5
@@ -340,16 +333,16 @@
     - rule_6_2_5
     - level_1
 
-- name: "6.2.6 | Ensure users own their home directories (Automated)"
+- name: "6.2.6 | Ensure users' home directories permissions are 750 or more restrictive (Automated)"
   block:
 
-    - name: "6.2.6 | Ensure users own their home directories (Automated) | Check"
+    - name: "6.2.6 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_6_params_script }}"
-      register: users_own_home_directory_check
+      register: users_home_directory_750_audit_check
 
-    - name: "6.2.6 | Ensure users own their home directories (Automated) | Printing, if any require manual remediation"
+    - name: "6.2.6 | Ensure users' home directories permissions are 750 or more restrictive (Automated) | Printing, if any require manual remediation"
       debug:
-        var: "{{ users_own_home_directory_check.stdout_lines | to_json }}"
+        var: "{{ users_home_directory_750_audit_check.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_6
@@ -378,19 +371,19 @@
     - rule_6_2_7
     - level_1
 
-- name: "6.2.8 | Ensure no users have .forward files (Automated)"
+- name: "6.2.8 | Ensure no users have .netrc files (Automated)"
   block:
 
-    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Check"
+    - name: "6.2.8 | Ensure no users have .netrc files (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_script }}"
-      register: users_forward_files_check
+      register: users_netrc_files_check
 
-    - name: "6.2.8 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
+    - name: "6.2.8 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
       file:
-        name: "{{ item }}/.forward"
+        name: "{{ item }}/.netrc"
         state: "{{ ubuntu_2004_cis_section6_rule_6_2_8_params_filestate }}"
       with_items:
-        - "{{ users_forward_files_check.stdout_lines }}"
+        - "{{ users_netrc_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_8
@@ -400,19 +393,19 @@
     - rule_6_2_8
     - level_1
 
-- name: "6.2.9 | Ensure no users have .netrc files (Automated)"
+- name: "6.2.9 | Ensure no users have .forward files (Automated)"
   block:
 
-    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Check"
+    - name: "6.2.9 | Ensure no users have .forward files (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_script }}"
-      register: users_netrc_files_check
+      register: users_forward_files_check
 
-    - name: "6.2.9 | Ensure no users have .netrc files (Automated) | Removing from home directories, if present"
+    - name: "6.2.9 | Ensure no users have .forward files (Automated) | Removing from home directories, if present"
       file:
-        name: "{{ item }}/.netrc"
+        name: "{{ item }}/.forward"
         state: "{{ ubuntu_2004_cis_section6_rule_6_2_9_params_filestate }}"
       with_items:
-        - "{{ users_netrc_files_check.stdout_lines }}"
+        - "{{ users_forward_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_9
@@ -422,16 +415,19 @@
     - rule_6_2_9
     - level_1
 
-- name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated)"
+- name: "6.2.10 | Ensure no users have .rhosts files (Automated)"
   block:
 
-    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Check"
+    - name: "6.2.10 | Ensure no users have .rhosts files (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_script }}"
-      register: users_netrc_world_accessible_files_check
+      register: users_rhosts_files_check
 
-    - name: "6.2.10 | Ensure users' .netrc Files are not group or world accessible (Automated) | Printing, if any require manual remediation"
-      debug:
-        var: "{{ users_netrc_world_accessible_files_check.stdout_lines | to_json }}"
+    - name: "6.2.10 | Ensure no users have .rhosts files (Automated) | Removing from home directories, if present"
+      file:
+        name: "{{ item }}/.rhosts"
+        state: "{{ ubuntu_2004_cis_section6_rule_6_2_10_params_filestate }}"
+      with_items:
+        - "{{ users_rhosts_files_check.stdout_lines }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_10
@@ -441,19 +437,23 @@
     - rule_6_2_10
     - level_1
 
-- name: "6.2.11 | Ensure no users have .rhosts files (Automated)"
+- name: "6.2.11 | Ensure root is the only UID 0 account (Automated)"
+
   block:
 
-    - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Check"
+    - name: "6.2.11 | Ensure root is the only UID 0 account (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_script }}"
-      register: users_rhosts_files_check
+      register: uid_0_non_root_accounts
 
-    - name: "6.2.11 | Ensure no users have .rhosts files (Automated) | Removing from home directories, if present"
-      file:
-        name: "{{ item }}/.rhosts"
-        state: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_filestate }}"
+    - name: "6.2.11 | Ensure root is the only UID 0 account (Automated) | Lock Password"
+      user:
+        name: "{{ item }}"
+        password_lock: "{{ ubuntu_2004_cis_section6_rule_6_2_11_params_password_lock }}"
+      failed_when: false
       with_items:
-        - "{{ users_rhosts_files_check.stdout_lines }}"
+        - "{{ uid_0_non_root_accounts.stdout_lines }}"
+      when:
+        - uid_0_non_root_accounts | length > 4
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_11
@@ -463,16 +463,16 @@
     - rule_6_2_11
     - level_1
 
-- name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated)"
+- name: "6.2.12 | Ensure root PATH Integrity (Automated)"
   block:
 
-    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Check"
+    - name: "6.2.12 | Ensure root PATH Integrity (Automated) | Check"
       script: "{{ ubuntu_2004_cis_section6_rule_6_2_12_params_script }}"
-      register: groups_existence_in_passwd_group
+      register: root_path_integrity
 
-    - name: "6.2.12 | Ensure all groups in /etc/passwd exist in /etc/group (Automated) | Print any that may need manual remediation"
+    - name: "6.2.12 | Ensure root PATH Integrity (Automated) | Printing any in PATH that need manual remediation"
       debug:
-        var: "{{ groups_existence_in_passwd_group.stdout_lines | to_json }}"
+        var: "{{ root_path_integrity.stdout_lines | to_json }}"
 
   when:
     - ubuntu_2004_cis_section6_rule_6_2_12

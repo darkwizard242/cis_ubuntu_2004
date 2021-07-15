@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 5 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 5 BENCHMARKS
 
 - name: "5.1.1 | Ensure cron daemon is enabled and running (Automated)"
   systemd:
@@ -159,17 +159,11 @@
     - rule_5_1_9
     - level_1
 
-- name: "5.2.1 | Ensure permissions on /etc/ssh/sshd_config are configured (Automated)"
-  file:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_path }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_mode }}"
-  notify:
-    - sshd restart
+- name: "5.2.1 | Ensure sudo is installed (Automated)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_1_params_package_state }}"
   when:
-    - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_2_1
     - ubuntu_2004_cis_section5
   tags:
@@ -177,21 +171,17 @@
     - rule_5_2_1
     - level_1
 
-- name: "5.2.2 | Ensure permissions on SSH private host key files are configured (Automated)"
-  block:
-
-    - name: "5.2.2 | Ensure permissions on SSH private host key files are configured (Automated) | Set ownership for SSH private host keys"
-      command: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_onwership_command }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.2 | Ensure permissions on SSH private host key files are configured (Automated) | Set permissions for SSH private host keys"
-      command: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_permissions_command }}"
-      notify:
-        - sshd restart
-
+- name: "5.2.2 | Ensure sudo commands use pty (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_mode }}"
+    validate: "{{ ubuntu_2004_cis_section5_rule_5_2_2_params_validate }}"
   when:
-    - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_2_2
     - ubuntu_2004_cis_section5
   tags:
@@ -199,21 +189,17 @@
     - rule_5_2_2
     - level_1
 
-- name: "5.2.3 | Ensure permissions on SSH public host key files are configured (Automated)"
-  block:
-
-    - name: "5.2.3 | Ensure permissions on SSH public host key files are configured (Automated) | Set ownership for SSH private host keys"
-      command: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_onwership_command }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.3 | Ensure permissions on SSH public host key files are configured (Automated) | Set permissions for SSH private host keys"
-      command: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_permissions_command }}"
-      notify:
-        - sshd restart
-
+- name: "5.2.3 | Ensure sudo log file exists (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_mode }}"
+    validate: "{{ ubuntu_2004_cis_section5_rule_5_2_3_params_validate }}"
   when:
-    - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_2_3
     - ubuntu_2004_cis_section5
   tags:
@@ -221,474 +207,17 @@
     - rule_5_2_3
     - level_1
 
-- name: "5.2.4 | Ensure SSH LogLevel is appropriate (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_4_params_mode }}"
+- name: "5.3.1 | Ensure permissions on /etc/ssh/sshd_config are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_path }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_mode }}"
   notify:
     - sshd restart
   when:
     - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_4
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_4
-    - level_1
-
-- name: "5.2.5 | Ensure SSH X11 forwarding is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_5_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_5
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_5
-    - level_1
-    - level_2
-
-- name: "5.2.6 | Ensure SSH MaxAuthTries is set to 4 or less (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_6_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_6
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_6
-    - level_1
-
-- name: "5.2.7 | Ensure SSH IgnoreRhosts is enabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_7_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_7
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_7
-    - level_1
-
-- name: "5.2.8 | Ensure SSH HostbasedAuthentication is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_8_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_8
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_8
-    - level_1
-
-- name: "5.2.9 | Ensure SSH root login is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_9_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_9
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_9
-    - level_1
-
-- name: "5.2.10 | Ensure SSH PermitEmptyPasswords is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_10_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_10
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_10
-    - level_1
-
-- name: "5.2.11 | Ensure SSH PermitUserEnvironment is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_11_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_11
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_11
-    - level_1
-
-- name: "5.2.12 | Ensure only strong Ciphers are used (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_12_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_12
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_12
-    - level_1
-
-- name: "5.2.13 | Ensure only strong MAC algorithms are used (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_13_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_13
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_13
-    - level_1
-
-- name: "5.2.14 | Ensure only strong Key Exchange algorithms are used (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_14_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_14
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_14
-    - level_1
-
-- name: "5.2.15 | Ensure SSH Idle Timeout Interval is configured (Automated)"
-  block:
-
-    - name: "5.2.15 | Ensure SSH Idle Timeout Interval is configured (Automated) | Configure ClientAliveInterval"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_clientaliveinterval_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_clientaliveinterval_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_mode }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.15 | Ensure SSH Idle Timeout Interval is configured (Automated) | Configure ClientAliveCountMax"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_clientalivecountmax_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_clientalivecountmax_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_15_params_mode }}"
-      notify:
-        - sshd restart
-
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_15
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_15
-    - level_1
-
-- name: "5.2.16 | Ensure SSH LoginGraceTime is set to one minute or less (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_16_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_16
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_16
-    - level_1
-
-- name: "5.2.17 | Ensure SSH access is limited (Automated)"
-  block:
-
-    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure AllowUsers"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowusers_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure AllowGroups"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_allowgroups_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure DenyUsers"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denyusers_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
-      notify:
-        - sshd restart
-
-    - name: "5.2.17 | Ensure SSH access is limited (Automated) | Configure DenyGroups"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_denygroups_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_2_17_params_mode }}"
-      notify:
-        - sshd restart
-
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_17
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_17
-    - level_1
-
-- name: "5.2.18 | Ensure SSH warning banner is configured (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_18_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_18
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_18
-    - level_1
-
-- name: "5.2.19 | Ensure SSH PAM is enabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_19_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_19
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_19
-    - level_1
-
-- name: "5.2.20 | Ensure SSH AllowTcpForwarding is disabled (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_20_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_20
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_20
-    - level_2
-
-- name: "5.2.21 | Ensure SSH MaxStartups is configured (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_21_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_21
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_21
-    - level_1
-
-- name: "5.2.22 | Ensure SSH MaxSessions is limited (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_2_22_params_mode }}"
-  notify:
-    - sshd restart
-  when:
-    - ubuntu_2004_cis_require_ssh_server
-    - ubuntu_2004_cis_section5_rule_5_2_22
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_2_22
-    - level_1
-
-- name: "5.3.1 | Ensure password creation requirements are configured (Automated)"
-  block:
-
-    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Install libpam-pwquality"
-      apt:
-        name: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_package_name }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_package_state }}"
-
-    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/security/pwquality.conf"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_path }}"
-        line: "{{ item.key }} = {{ item.value }}"
-        regexp: "^{{ item.key }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_pwquality_mode }}"
-      with_items:
-        - "{{ ubuntu_2004_cis_require_pam_pwquality }}"
-
-    - name: "5.3.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/pam.d/common-password"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_1_params_common_password_mode }}"
-
-  when:
     - ubuntu_2004_cis_section5_rule_5_3_1
     - ubuntu_2004_cis_section5
   tags:
@@ -696,40 +225,21 @@
     - rule_5_3_1
     - level_1
 
-- name: "5.3.2 | Ensure lockout for failed password attempts is configured (Automated)"
+- name: "5.3.2 | Ensure permissions on SSH private host key files are configured (Automated)"
   block:
 
-    - name: "5.3.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_tally2.so in /etc/pam.d/common-auth"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_auth_mode }}"
+    - name: "5.3.2 | Ensure permissions on SSH private host key files are configured (Automated) | Set ownership for SSH private host keys"
+      command: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_onwership_command }}"
+      notify:
+        - sshd restart
 
-    - name: "5.3.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_deny.so in /etc/pam.d/common-account"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_deny_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_mode }}"
-
-    - name: "5.3.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_tally2.so in /etc/pam.d/common-account"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_tally2_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_common_account_mode }}"
+    - name: "5.3.2 | Ensure permissions on SSH private host key files are configured (Automated) | Set permissions for SSH private host keys"
+      command: "{{ ubuntu_2004_cis_section5_rule_5_3_2_params_permissions_command }}"
+      notify:
+        - sshd restart
 
   when:
+    - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_3_2
     - ubuntu_2004_cis_section5
   tags:
@@ -737,16 +247,21 @@
     - rule_5_3_2
     - level_1
 
-- name: "5.3.3 | Ensure password reuse is limited (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_common_password_mode }}"
+- name: "5.3.3 | Ensure permissions on SSH public host key files are configured (Automated)"
+  block:
+
+    - name: "5.3.3 | Ensure permissions on SSH public host key files are configured (Automated) | Set ownership for SSH private host keys"
+      command: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_onwership_command }}"
+      notify:
+        - sshd restart
+
+    - name: "5.3.3 | Ensure permissions on SSH public host key files are configured (Automated) | Set permissions for SSH private host keys"
+      command: "{{ ubuntu_2004_cis_section5_rule_5_3_3_params_permissions_command }}"
+      notify:
+        - sshd restart
+
   when:
+    - ubuntu_2004_cis_require_ssh_server
     - ubuntu_2004_cis_section5_rule_5_3_3
     - ubuntu_2004_cis_section5
   tags:
@@ -754,118 +269,513 @@
     - rule_5_3_3
     - level_1
 
-- name: "5.4.1.1 | Ensure password expiration is 365 days or less (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_1_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_1
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_4_1_1
-    - level_1
-
-- name: "5.4.1.2 | Ensure minimum days between password changes is configured (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_2_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_2
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_4_1_2
-    - level_1
-
-- name: "5.4.1.3 | Ensure password expiration warning days is 7 or more (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_3_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_3
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_4_1_3
-    - level_1
-
-- name: "5.4.1.4 | Ensure inactive password lock is 30 days or less (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_path }}"
-    line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_4_params_mode }}"
-  when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_4
-    - ubuntu_2004_cis_section5
-  tags:
-    - section5
-    - rule_5_4_1_4
-    - level_1
-
-- name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated)"
+- name: "5.3.4 | Ensure SSH access is limited (Automated)"
   block:
 
-    - name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated) | Check users"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_1_5_params_script }}"
-      register: users_list_that_have_password_last_change_date_in_future
-      changed_when: false
+    - name: "5.3.4 | Ensure SSH access is limited (Automated) | Configure AllowUsers"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_allowusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_allowusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_mode }}"
+      notify:
+        - sshd restart
 
-    - name: "5.4.1.5 | Ensure all users last password change date is in the past (Automated) | Expire users"
-      user:
-        name: "{{ item }}"
-        expires: "{{ ubuntu_2004_cis_section5_rule_5_4_1_5_params_expires }}"
+    - name: "5.3.4 | Ensure SSH access is limited (Automated) | Configure AllowGroups"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_allowgroups_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_allowgroups_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.3.4 | Ensure SSH access is limited (Automated) | Configure DenyUsers"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_denyusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_denyusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.3.4 | Ensure SSH access is limited (Automated) | Configure DenyGroups"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_denygroups_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_denygroups_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_4_params_mode }}"
+      notify:
+        - sshd restart
+
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_4
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_4
+    - level_1
+
+- name: "5.3.5 | Ensure SSH LogLevel is appropriate (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_5_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_5
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_5
+    - level_1
+
+- name: "5.3.6 | Ensure SSH X11 forwarding is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_6_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_6
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_6
+    - level_1
+    - level_2
+
+- name: "5.3.7 | Ensure SSH MaxAuthTries is set to 4 or less (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_7_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_7
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_7
+    - level_1
+
+- name: "5.3.8 | Ensure SSH IgnoreRhosts is enabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_8_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_8
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_8
+    - level_1
+
+- name: "5.3.9 | Ensure SSH HostbasedAuthentication is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_9_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_9
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_9
+    - level_1
+
+- name: "5.3.10 | Ensure SSH root login is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_10_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_10
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_10
+    - level_1
+
+- name: "5.3.11 | Ensure SSH PermitEmptyPasswords is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_11_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_11
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_11
+    - level_1
+
+- name: "5.3.12 | Ensure SSH PermitUserEnvironment is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_12_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_12
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_12
+    - level_1
+
+- name: "5.3.13 | Ensure only strong Ciphers are used (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_13_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_13
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_13
+    - level_1
+
+- name: "5.3.14 | Ensure only strong MAC algorithms are used (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_14_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_14
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_14
+    - level_1
+
+- name: "5.3.15 | Ensure only strong Key Exchange algorithms are used (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_15_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_15
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_15
+    - level_1
+
+- name: "5.3.16 | Ensure SSH Idle Timeout Interval is configured (Automated)"
+  block:
+
+    - name: "5.3.16 | Ensure SSH Idle Timeout Interval is configured (Automated) | Configure ClientAliveInterval"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_clientaliveinterval_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_clientaliveinterval_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_mode }}"
+      notify:
+        - sshd restart
+
+    - name: "5.3.16 | Ensure SSH Idle Timeout Interval is configured (Automated) | Configure ClientAliveCountMax"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_clientalivecountmax_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_clientalivecountmax_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_3_16_params_mode }}"
+      notify:
+        - sshd restart
+
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_16
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_16
+    - level_1
+
+- name: "5.3.17 | Ensure SSH LoginGraceTime is set to one minute or less (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_17_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_17
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_17
+    - level_1
+
+- name: "5.3.18 | Ensure SSH warning banner is configured (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_18_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_18
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_18
+    - level_1
+
+- name: "5.3.19 | Ensure SSH PAM is enabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_19_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_19
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_19
+    - level_1
+
+- name: "5.3.20 | Ensure SSH AllowTcpForwarding is disabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_20_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_20
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_20
+    - level_2
+
+- name: "5.3.21 | Ensure SSH MaxStartups is configured (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_21_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_21
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_21
+    - level_1
+
+- name: "5.3.22 | Ensure SSH MaxSessions is limited (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_3_22_params_mode }}"
+  notify:
+    - sshd restart
+  when:
+    - ubuntu_2004_cis_require_ssh_server
+    - ubuntu_2004_cis_section5_rule_5_3_22
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_3_22
+    - level_1
+
+- name: "5.4.1 | Ensure password creation requirements are configured (Automated)"
+  block:
+
+    - name: "5.4.1 | Ensure password creation requirements are configured (Automated) | Install libpam-pwquality"
+      apt:
+        name: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_package_name }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_package_state }}"
+
+    - name: "5.4.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/security/pwquality.conf"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_pwquality_path }}"
+        line: "{{ item.key }} = {{ item.value }}"
+        regexp: "^{{ item.key }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_pwquality_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_pwquality_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_pwquality_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_pwquality_mode }}"
       with_items:
-        - "{{ users_list_that_have_password_last_change_date_in_future.stdout_lines }}"
-      when:
-        - users_list_that_have_password_last_change_date_in_future | length > 3
-        - not skip_for_development
+        - "{{ ubuntu_2004_cis_require_pam_pwquality }}"
+
+    - name: "5.4.1 | Ensure password creation requirements are configured (Automated) | Configure /etc/pam.d/common-password"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_1_params_common_password_mode }}"
 
   when:
-    - ubuntu_2004_cis_section5_rule_5_4_1_5
+    - ubuntu_2004_cis_section5_rule_5_4_1
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_4_1_5
+    - rule_5_4_1
     - level_1
 
-- name: "5.4.2 | Ensure system accounts are secured (Automated)"
+- name: "5.4.2 | Ensure lockout for failed password attempts is configured (Automated)"
   block:
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #1"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit1_script }}"
-      register: ubuntu_2004_cis_section5_rule_5_4_2_audit1
-      changed_when: false
+    - name: "5.4.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_tally2.so in /etc/pam.d/common-auth"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_auth_mode }}"
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Audit #2"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_audit2_script }}"
-      register: ubuntu_2004_cis_section5_rule_5_4_2_audit2
-      changed_when: false
+    - name: "5.4.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_deny.so in /etc/pam.d/common-account"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_deny_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_deny_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_deny_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_mode }}"
 
-    - name: "5.4.2 | Ensure system accounts are secured (Automated) | Remediation"
-      script: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_remediation_script }}"
-      when:
-        - ubuntu_2004_cis_section5_rule_5_4_2_audit1 | length > 0
-        - ubuntu_2004_cis_section5_rule_5_4_2_audit2 | length > 0
+    - name: "5.4.2 | Ensure lockout for failed password attempts is configured (Automated) | Configure pam_tally2.so in /etc/pam.d/common-account"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_tally2_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_tally2_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_tally2_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_2_params_common_account_mode }}"
 
   when:
     - ubuntu_2004_cis_section5_rule_5_4_2
@@ -875,12 +785,15 @@
     - rule_5_4_2
     - level_1
 
-- name: "5.4.3 | Ensure default group for the root account is GID 0 (Automated)"
-  group:
-    name: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_name }}"
-    gid: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_gid }}"
-    state: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_state }}"
-    system: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_system }}"
+- name: "5.4.3 | Ensure password reuse is limited (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_3_params_common_password_mode }}"
   when:
     - ubuntu_2004_cis_section5_rule_5_4_3
     - ubuntu_2004_cis_section5
@@ -889,29 +802,15 @@
     - rule_5_4_3
     - level_1
 
-- name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated)"
-  block:
-
-    - name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in /etc/login.defs"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_login_mode }}"
-
-    - name: "5.4.4 | Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in login.defs in /etc/pam.d/common-session"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_session_mode }}"
-
+- name: "5.4.4 | Ensure password hashing algorithm is SHA-512 (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_4_params_common_password_mode }}"
   when:
     - ubuntu_2004_cis_section5_rule_5_4_4
     - ubuntu_2004_cis_section5
@@ -920,57 +819,223 @@
     - rule_5_4_4
     - level_1
 
-- name: "5.4.5 | Ensure default user shell timeout is 900 seconds or less (Automated)"
-  template:
-    src: "{{ ubuntu_2004_cis_section5_rule_5_4_5_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section5_rule_5_4_5_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_4_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_4_5_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_4_5_params_mode }}"
+- name: "5.5.1.1| Ensure minimum days between password changes is configured (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_1_1_params_mode }}"
   when:
-    - ubuntu_2004_cis_section5_rule_5_4_5
+    - ubuntu_2004_cis_section5_rule_5_5_1_1
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_4_5
+    - rule_5_5_1_1
     - level_1
 
-- name: "5.5 | Ensure root login is restricted to system console (Manual)"
-  template:
-    src: "{{ ubuntu_2004_cis_section5_rule_5_5_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section5_rule_5_5_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section5_rule_5_5_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_params_mode }}"
+- name: "5.5.1.2 | Ensure password expiration is 365 days or less (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_1_2_params_mode }}"
   when:
-    - ubuntu_2004_cis_section5_rule_5_5
+    - ubuntu_2004_cis_section5_rule_5_5_1_2
     - ubuntu_2004_cis_section5
   tags:
     - section5
-    - rule_5_5
+    - rule_5_5_1_2
     - level_1
 
-- name: "5.6 | Ensure access to the su command is restricted (Automated)"
+- name: "5.5.1.3 | Ensure password expiration warning days is 7 or more (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_1_3_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_1_3
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_1_3
+    - level_1
+
+- name: "5.5.1.4 | Ensure inactive password lock is 30 days or less (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_path }}"
+    line: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_1_4_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_1_4
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_1_4
+    - level_1
+
+- name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated)"
   block:
 
-    - name: 5.6 | Ensure access to the su command is restricted (Automated) | group for su"
-      group:
-        name: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group_name }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group_state }}"
+    - name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated) | Check users"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_1_5_params_script }}"
+      register: users_list_that_have_password_last_change_date_in_future
+      changed_when: false
 
-    - name: 5.6 | Ensure access to the su command is restricted (Automated) | Configure /etc/pam.d/su"
+    - name: "5.5.1.5 | Ensure all users last password change date is in the past (Automated) | Expire users"
+      user:
+        name: "{{ item }}"
+        expires: "{{ ubuntu_2004_cis_section5_rule_5_5_1_5_params_expires }}"
+      with_items:
+        - "{{ users_list_that_have_password_last_change_date_in_future.stdout_lines }}"
+      when:
+        - users_list_that_have_password_last_change_date_in_future | length > 3
+        - not skip_for_development
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_1_5
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_1_5
+    - level_1
+
+- name: "5.5.2 | Ensure system accounts are secured (Automated)"
+  block:
+
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Audit #1"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_audit1_script }}"
+      register: ubuntu_2004_cis_section5_rule_5_5_2_audit1
+      changed_when: false
+
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Audit #2"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_audit2_script }}"
+      register: ubuntu_2004_cis_section5_rule_5_5_2_audit2
+      changed_when: false
+
+    - name: "5.5.2 | Ensure system accounts are secured (Automated) | Remediation"
+      script: "{{ ubuntu_2004_cis_section5_rule_5_5_2_params_remediation_script }}"
+      when:
+        - ubuntu_2004_cis_section5_rule_5_5_2_audit1 | length > 0
+        - ubuntu_2004_cis_section5_rule_5_5_2_audit2 | length > 0
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_2
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_2
+    - level_1
+
+- name: "5.5.3 | Ensure default group for the root account is GID 0 (Automated)"
+  group:
+    name: "{{ ubuntu_2004_cis_section5_rule_5_5_3_params_name }}"
+    gid: "{{ ubuntu_2004_cis_section5_rule_5_5_3_params_gid }}"
+    state: "{{ ubuntu_2004_cis_section5_rule_5_5_3_params_state }}"
+    system: "{{ ubuntu_2004_cis_section5_rule_5_5_3_params_system }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_3
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_3
+    - level_1
+
+- name: "5.5.4| Ensure default user umask is 027 or more restrictive (Automated)"
+  block:
+
+    - name: "5.5.4| Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in /etc/login.defs"
       lineinfile:
-        path: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_path }}"
-        line: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_line }}"
-        regexp: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_regexp }}"
-        state: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_state }}"
-        owner: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_owner }}"
-        group: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_group }}"
-        mode: "{{ ubuntu_2004_cis_section5_rule_5_6_params_su_mode }}"
+        path: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_mode }}"
+
+    - name: "5.5.4| Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in login.defs in /etc/pam.d/common-session"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_mode }}"
+
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_4
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_4
+    - level_1
+
+- name: "5.5.5 | Ensure default user shell timeout is 900 seconds or less (Automated)"
+  template:
+    src: "{{ ubuntu_2004_cis_section5_rule_5_5_5_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section5_rule_5_5_5_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_5_5_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_5_5_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_5_5_params_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_5_5
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_5_5
+    - level_1
+
+- name: "5.6 | Ensure root login is restricted to system console (Manual)"
+  template:
+    src: "{{ ubuntu_2004_cis_section5_rule_5_6_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section5_rule_5_6_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section5_rule_5_6_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section5_rule_5_6_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section5_rule_5_6_params_mode }}"
   when:
     - ubuntu_2004_cis_section5_rule_5_6
     - ubuntu_2004_cis_section5
   tags:
     - section5
     - rule_5_6
+    - level_1
+
+- name: "5.7 | Ensure access to the su command is restricted (Automated)"
+  block:
+
+    - name: 5.7 | Ensure access to the su command is restricted (Automated) | group for su"
+      group:
+        name: "{{ ubuntu_2004_cis_section5_rule_5_7_params_group_name }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_7_params_group_state }}"
+
+    - name: 5.7 | Ensure access to the su command is restricted (Automated) | Configure /etc/pam.d/su"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_line }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_regexp }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_7_params_su_mode }}"
+  when:
+    - ubuntu_2004_cis_section5_rule_5_7
+    - ubuntu_2004_cis_section5
+  tags:
+    - section5
+    - rule_5_7
     - level_1

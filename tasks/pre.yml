@@ -11,3 +11,8 @@
   package_facts:
     manager: apt
   when: preliminary_appliance
+
+- name: "Update repository cache"
+  apt:
+    update_cache: yes
+  when: preliminary_appliance

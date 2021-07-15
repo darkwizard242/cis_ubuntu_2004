@@ -1,5 +1,5 @@
 ---
-# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.0.0 Section 1 BENCHMARKS
+# tasks file for CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 Section 1 BENCHMARKS
 
 - name: "1.1.1.1 | Ensure mounting of cramfs filesystems is disabled (Automated)"
   block:
@@ -121,10 +121,10 @@
     - rule_1_1_1_5
     - level_1
 
-- name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated)"
+- name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual)"
   block:
 
-    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | custom template"
+    - name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual) | custom template"
       template:
         src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_source }}"
         dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_dest }}"
@@ -132,7 +132,7 @@
         group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_group }}"
         mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_mode }}"
 
-    - name: "1.1.1.6 | Ensure mounting of udf filesystems is disabled (Automated) | remove udf kernel module"
+    - name: "1.1.1.6 | Ensure mounting of squashfs filesystems is disabled (Manual) | remove squashfs kernel module"
       modprobe:
         name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_name }}"
         state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_6_params_module_state }}"
@@ -145,10 +145,10 @@
     - rule_1_1_1_6
     - level_1
 
-- name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated)"
+- name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated)"
   block:
 
-    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | custom template"
+    - name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated) | custom template"
       template:
         src: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_source }}"
         dest: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_dest }}"
@@ -156,7 +156,7 @@
         group: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_group }}"
         mode: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_mode }}"
 
-    - name: "1.1.1.7 | Ensure mounting of FAT filesystems is disabled (Automated) | remove vfat kernel module"
+    - name: "1.1.1.7 | Ensure mounting of udf filesystems is disabled (Automated) | remove udf kernel module"
       modprobe:
         name: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_name }}"
         state: "{{ ubuntu_2004_cis_section1_rule_1_1_1_7_params_module_state }}"
@@ -272,7 +272,7 @@
     - rule_1_1_11
     - level_2
 
-- name: "1.1.12 | Ensure nodev option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.12 | Ensure /var/tmp partition includes the nodev option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.12 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
@@ -286,7 +286,7 @@
     - rule_1_1_12
     - level_1
 
-- name: "1.1.13 | Ensure nosuid option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.13 | Ensure /var/tmp partition includes the nosuid option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.13 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
@@ -300,7 +300,7 @@
     - rule_1_1_13
     - level_1
 
-- name: "1.1.14 | Ensure noexec option set on /var/tmp partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.14 | Ensure /var/tmp partition includes the noexec option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.14 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
@@ -356,7 +356,7 @@
     - rule_1_1_17
     - level_2
 
-- name: "1.1.18 | Ensure nodev option set on /home partition (Automated) | Not IMPLEMENTED"
+- name: "1.1.18 | Ensure /home partition includes the nodev option (Automated) | Not IMPLEMENTED"
   debug:
     msg:
       - "CIS Ubuntu 20.04 benchmark 1.1.18 HAS NOT BEEN IMPLEMENTED in this Ansible Role."
@@ -522,10 +522,27 @@
     - rule_1_2_2
     - level_1
 
-- name: "1.3.1 | Ensure sudo is installed (Automated)"
-  apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_state }}"
+- name: "1.3.1 | Ensure AIDE is installed (Automated)"
+  block:
+
+    - name: "1.3.1 | Ensure AIDE is installed (Automated) | Packages installation"
+      apt:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_package_state }}"
+
+    - name: "1.3.1 | Ensure AIDE is installed (Automated) | Check if DB exists"
+      stat:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_db_file_name }}"
+      register: aide_db_file
+
+    - name: "1.3.1 | Ensure AIDE is installed (Automated) | Initialize DB if it DOESN'T Exist"
+      command:
+        cmd: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_db_file_init_command }}"
+        creates: "{{ ubuntu_2004_cis_section1_rule_1_3_1_params_db_file_name }}"
+      when:
+        - not aide_db_file.stat.exists
+        - not skip_for_development
+
   when:
     - ubuntu_2004_cis_section1_rule_1_3_1
     - ubuntu_2004_cis_section1
@@ -534,16 +551,17 @@
     - rule_1_3_1
     - level_1
 
-- name: "1.3.2 | Ensure sudo commands use pty (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_path }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_mode }}"
-    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_validate }}"
+
+- name: "1.3.2 | Ensure filesystem integrity is regularly checked (Automated)"
+  cron:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_name }}"
+    minute: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_minute }}"
+    hour: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_hour }}"
+    day: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_day }}"
+    month: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_month }}"
+    weekday: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_weekday }}"
+    user: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_user }}"
+    job: "{{ ubuntu_2004_cis_section1_rule_1_3_2_params_job }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_3_2
     - ubuntu_2004_cis_section1
@@ -552,45 +570,9 @@
     - rule_1_3_2
     - level_1
 
-- name: "1.3.3 | Ensure sudo log file exists (Automated)"
-  lineinfile:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_path }}"
-    line: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_line }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_regexp }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_state }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_mode }}"
-    validate: "{{ ubuntu_2004_cis_section1_rule_1_3_3_params_validate }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_3_3
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_3_3
-    - level_1
 
-- name: "1.4.1 | Ensure AIDE is installed (Automated)"
-  block:
-
-    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Packages installation"
-      apt:
-        name: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_name }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_package_state }}"
-
-    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Check if DB exists"
-      stat:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
-      register: aide_db_file
-
-    - name: "1.4.1 | Ensure AIDE is installed (Automated) | Initialize DB if it DOESN'T Exist"
-      command:
-        cmd: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_init_command }}"
-        creates: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_db_file_name }}"
-      when:
-        - not aide_db_file.stat.exists
-        - not skip_for_development
-
+- name: "1.4.1 | Ensure permissions on bootloader config are not overridden (Automated)"
+  script: "{{ ubuntu_2004_cis_section1_rule_1_4_1_params_script }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_4_1
     - ubuntu_2004_cis_section1
@@ -599,16 +581,68 @@
     - rule_1_4_1
     - level_1
 
-- name: "1.4.2 | Ensure filesystem integrity is regularly checked (Automated)"
-  cron:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_name }}"
-    minute: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_minute }}"
-    hour: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_hour }}"
-    day: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_day }}"
-    month: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_month }}"
-    weekday: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_weekday }}"
-    user: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_user }}"
-    job: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_job }}"
+- name: "1.4.2 | Ensure bootloader password is set (Automated)"
+  block:
+
+    - name: "1.4.2 | Ensure bootloader password is set (Automated) | Set super_users"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_path }}"
+        line: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_line }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_regexp }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_set_superusers_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_4_2_set_superuser
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+
+    # Example taken from https://github.com/florianutz/Ubuntu1804-CIS/blob/master/tasks/section1.yml
+    - name: "1.4.2 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
+      shell: "set -eou pipefail && \
+          PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
+          echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
+      args:
+        executable: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_executable }}"
+      register: bootloader_encrypted_password
+      when:
+        - ubuntu_2004_cis_section1_rule_1_4_2_password_pbkdf2
+
+    - name: "1.4.2 | Ensure bootloader password is set (Automated) | Set bootloader encrypted password"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_path }}"
+        line: password_pbkdf2 root {{ bootloader_encrypted_password.stdout }}
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_regexp }}"
+        insertafter: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_insertafter }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_bootloader_password_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_4_2_password_pbkdf2
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+
+    - name: "1.4.2 | Ensure bootloader password is set (Automated) | Add --unrestricted for system boot without password"
+      replace:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_path }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_regex }}"
+        replace: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_replace }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_4_2_params_unrestricted_mode }}"
+      when:
+        - ubuntu_2004_cis_section1_rule_1_4_2_unrestricted
+      notify:
+        - update grub configuration
+        - reapply permissions to bootloader configuration
+        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+
   when:
     - ubuntu_2004_cis_section1_rule_1_4_2
     - ubuntu_2004_cis_section1
@@ -617,68 +651,59 @@
     - rule_1_4_2
     - level_1
 
-- name: "1.5.1 | Ensure bootloader password is set (Automated)"
+- name: "1.4.3 | Ensure permissions on bootloader config are configured (Automated)"
+  file:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_4_3_params_path }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_4_3_params_mode }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_4_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_4_3_params_group }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_4_3_params_state }}"
+  notify:
+    - reapply permissions to bootloader configuration
+  when:
+    - ubuntu_2004_cis_section1_rule_1_4_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_4_3
+    - level_1
+
+- name: "1.4.4 | Ensure authentication required for single user mode (Automated)"
   block:
 
-    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set super_users"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_set_superusers_mode }}"
-      when:
-        - ubuntu_2004_cis_section1_rule_1_5_1_set_superuser
-      notify:
-        - update grub configuration
-        - reapply permissions to bootloader configuration
-        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+    - name: "1.4.4 | Ensure authentication required for single user mode (Automated) | Audit if root has a password"
+      command: "{{ ubuntu_2004_cis_section1_rule_1_4_4_params_audit_root_password_command }}"
+      # ^ Evaluates if root has a password. If root has password, rc is 0.
+      register: audit_root_password_command_result
+      changed_when: false
+      failed_when: false
 
-    # Example taken from https://github.com/florianutz/Ubuntu1804-CIS/blob/master/tasks/section1.yml
-    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Generate and Encrypt password"
+    - name: "1.4.4 | Ensure authentication required for single user mode (Automated) | Set password for root"
       shell: "set -eou pipefail && \
           PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
-          echo -e \"$PASSWORD\n$PASSWORD\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
+          echo -e \"$PASSWORD\n$PASSWORD\" | passwd root"
       args:
-        executable: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_executable }}"
-      register: bootloader_encrypted_password
+        executable: "{{ ubuntu_2004_cis_section1_rule_1_4_4_params_audit_root_password_executable }}"
       when:
-        - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
+        - audit_root_password_command_result.rc == 0
+        # ^ This conditions allows to only set/change root password when it has been evaluated
+        # that root did not originally have a password.
 
-    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Set bootloader encrypted password"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_path }}"
-        line: password_pbkdf2 root {{ bootloader_encrypted_password.stdout }}
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_regexp }}"
-        insertafter: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_insertafter }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_bootloader_password_mode }}"
-      when:
-        - ubuntu_2004_cis_section1_rule_1_5_1_password_pbkdf2
-      notify:
-        - update grub configuration
-        - reapply permissions to bootloader configuration
-        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
+  when:
+    - ubuntu_2004_cis_section1_rule_1_4_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_4_4
+    - level_1
 
-    - name: "1.5.1 | Ensure bootloader password is set (Automated) | Add --unrestricted for system boot without password"
-      replace:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_path }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_regex }}"
-        replace: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_replace }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_unrestricted_mode }}"
-      when:
-        - ubuntu_2004_cis_section1_rule_1_5_1_unrestricted
-      notify:
-        - update grub configuration
-        - reapply permissions to bootloader configuration
-        # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
-
+- name: "1.5.1 | Ensure XD/NX support is enabled (Automated)"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_5_1_params_audit_xd_nx_command }}"
+  # ^ Evaluates if xd/nx are supported. If supported, rc is 0.
+  register: audit_xd_nx_command_result
+  changed_when: false
+  failed_when: "'FAILED' in audit_xd_nx_command_result.stderr"
+  # ^ Fail task if xd/nx grep command returns any non 0 return code
   when:
     - ubuntu_2004_cis_section1_rule_1_5_1
     - ubuntu_2004_cis_section1
@@ -687,15 +712,13 @@
     - rule_1_5_1
     - level_1
 
-- name: "1.5.2 | Ensure permissions on bootloader config are configured (Automated)"
-  file:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_path }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_mode }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_group }}"
+- name: "1.5.2 | Ensure address space layout randomization (ASLR) is enabled (Automated)"
+  sysctl:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_name }}"
+    value: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_value }}"
     state: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_state }}"
-  notify:
-    - reapply permissions to bootloader configuration
+    reload: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_reload }}"
+    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_5_2_params_sysctl_set }}"
   when:
     - ubuntu_2004_cis_section1_rule_1_5_2
     - ubuntu_2004_cis_section1
@@ -704,28 +727,21 @@
     - rule_1_5_2
     - level_1
 
-- name: "1.5.3 | Ensure authentication required for single user mode (Automated)"
+- name: "1.5.3 | Ensure prelink is not installed (Automated)"
   block:
 
-    - name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Audit if root has a password"
-      command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_command }}"
-      # ^ Evaluates if root has a password. If root has password, rc is 0.
-      register: audit_root_password_command_result
-      changed_when: false
+    - name: "1.5.3 | Ensure prelink is not installed (Automated) | undo all prelinking"
+      command: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_prelink_command }}"
       failed_when: false
 
-    - name: "1.5.3 | Ensure authentication required for single user mode (Automated) | Set password for root"
-      shell: "set -eou pipefail && \
-          PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c18) && \
-          echo -e \"$PASSWORD\n$PASSWORD\" | passwd root"
-      args:
-        executable: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_audit_root_password_executable }}"
-      when:
-        - audit_root_password_command_result.rc == 0
-        # ^ This conditions allows to only set/change root password when it has been evaluated
-        # that root did not originally have a password.
+    - name: "1.5.3 | Ensure prelink is not installed (Automated) | uninstall/purge prelink"
+      apt:
+        name: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_package_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_package_state }}"
+        purge: "{{ ubuntu_2004_cis_section1_rule_1_5_3_params_package_purge }}"
 
   when:
+    - "'prelink' in ansible_facts.packages"
     - ubuntu_2004_cis_section1_rule_1_5_3
     - ubuntu_2004_cis_section1
   tags:
@@ -733,294 +749,334 @@
     - rule_1_5_3
     - level_1
 
-- name: "1.6.1 | Ensure XD/NX support is enabled (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_params_audit_xd_nx_command }}"
-  # ^ Evaluates if xd/nx are supported. If supported, rc is 0.
-  register: audit_xd_nx_command_result
-  changed_when: false
-  failed_when: "'FAILED' in audit_xd_nx_command_result.stderr"
-  # ^ Fail task if xd/nx grep command returns any non 0 return code
-  when:
-    - ubuntu_2004_cis_section1_rule_1_6_1
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_6_1
-    - level_1
-
-- name: "1.6.2 | Ensure address space layout randomization (ASLR) is enabled (Automated)"
-  sysctl:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_name }}"
-    value: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_value }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_state }}"
-    reload: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_reload }}"
-    sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_2_params_sysctl_set }}"
-  when:
-    - ubuntu_2004_cis_section1_rule_1_6_2
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_6_2
-    - level_1
-
-- name: "1.6.3 | Ensure prelink is disabled (Automated)"
+- name: "1.5.4 | Ensure core dumps are restricted (Automated)"
   block:
 
-    - name: "1.6.3 | Ensure prelink is disabled (Automated) | undo all prelinking"
-      command: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_prelink_command }}"
-      failed_when: false
-
-    - name: "1.6.3 | Ensure prelink is disabled (Automated) | uninstall/purge prelink"
-      apt:
-        name: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_name }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_state }}"
-        purge: "{{ ubuntu_2004_cis_section1_rule_1_6_3_params_package_purge }}"
-
-  when:
-    - "'prelink' in ansible_facts.packages"
-    - ubuntu_2004_cis_section1_rule_1_6_3
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_6_3
-    - level_1
-
-- name: "1.6.4 | Ensure core dumps are restricted (Automated)"
-  block:
-
-    - name: "1.6.4 | Ensure core dumps are restricted (Automated) | limit for user groups"
+    - name: "1.5.4 | Ensure core dumps are restricted (Automated) | limit for user groups"
       lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_security_limit_mode }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_path }}"
+        line: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_line }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_regexp }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_security_limit_mode }}"
         backup: yes
 
-    - name: "1.6.4 | Ensure core dumps are restricted (Automated) | set kernel parameter fs.suid_dumpable"
+    - name: "1.5.4 | Ensure core dumps are restricted (Automated) | set kernel parameter fs.suid_dumpable"
       sysctl:
-        name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_name }}"
-        value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_value }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_state }}"
-        reload: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_reload }}"
-        sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_kernel_parameter_sysctl_set }}"
+        name: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_kernel_parameter_name }}"
+        value: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_kernel_parameter_value }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_kernel_parameter_state }}"
+        reload: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_kernel_parameter_reload }}"
+        sysctl_set: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_kernel_parameter_sysctl_set }}"
 
-    - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump package"
+    - name: "1.5.4 | Ensure core dumps are restricted (Automated) | systemd-coredump package"
       apt:
-        name: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_name }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_package_state }}"
+        name: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_package_name }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_package_state }}"
 
-    - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file Storage=none modification"
+    - name: "1.5.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file Storage=none modification"
       ini_file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_path }}"
-        section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_section }}"
-        option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_option }}"
-        value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_storage_value }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_mode }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_state }}"
-        no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_no_extra_spaces }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_path }}"
+        section: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_section }}"
+        option: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_storage_option }}"
+        value: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_storage_value }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_mode }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_no_extra_spaces }}"
 
-    - name: "1.6.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file ProcessSizeMax=0 modification"
+    - name: "1.5.4 | Ensure core dumps are restricted (Automated) | systemd-coredump conf file ProcessSizeMax=0 modification"
       ini_file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_path }}"
-        section: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_section }}"
-        option: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_option }}"
-        value: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_processsizemax_value }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_mode }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_state }}"
-        no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_6_4_params_core_dump_service_conf_no_extra_spaces }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_path }}"
+        section: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_section }}"
+        option: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_processsizemax_option }}"
+        value: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_processsizemax_value }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_mode }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_state }}"
+        no_extra_spaces: "{{ ubuntu_2004_cis_section1_rule_1_5_4_params_core_dump_service_conf_no_extra_spaces }}"
 
   when:
-    - ubuntu_2004_cis_section1_rule_1_6_4
+    - ubuntu_2004_cis_section1_rule_1_5_4
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_6_4
+    - rule_1_5_4
     - level_1
 
-- name: "1.7.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
+- name: "1.6.1.1 | Ensure AppArmor is installed (Automated) | apparmor and apparmor-utils package"
   apt:
-    name: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_name }}"
-    state: "{{ ubuntu_2004_cis_section1_rule_1_7_1_1_params_state }}"
+    name: "{{ ubuntu_2004_cis_section1_rule_1_6_1_1_params_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_6_1_1_params_state }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_1
+    - ubuntu_2004_cis_section1_rule_1_6_1_1
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_1
+    - rule_1_6_1_1
     - level_1
 
-- name: "1.7.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
+- name: "1.6.1.2 | Ensure Ensure AppArmor is enabled in the bootloader configuration (Automated)"
   replace:
-    path: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_path }}"
-    regexp: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_regex }}"
-    replace: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_replace }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_2_params_apparmor_enabled_mode }}"
+    path: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_path }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_regex }}"
+    replace: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_replace }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_6_1_2_params_apparmor_enabled_mode }}"
     backup: yes
   notify:
     - update grub configuration
     - reapply permissions to bootloader configuration
     # ^ to handle the fact that handlers run after tasks which change bootloader config permissions
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_2
+    - ubuntu_2004_cis_section1_rule_1_6_1_2
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_2
+    - rule_1_6_1_2
     - level_1
 
-- name: "1.7.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_7_1_3_params_apparmor_command }}"
+- name: "1.6.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode (Automated)"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_3_params_apparmor_command }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_3
+    - ubuntu_2004_cis_section1_rule_1_6_1_3
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_3
+    - rule_1_6_1_3
     - level_1
 
-- name: "1.7.1.4 | Ensure all AppArmor Profiles are enforcing (Automated)"
-  command: "{{ ubuntu_2004_cis_section1_rule_1_7_1_4_params_apparmor_command }}"
+- name: "1.6.1.4 | Ensure all AppArmor Profiles are enforcing (Automated)"
+  command: "{{ ubuntu_2004_cis_section1_rule_1_6_1_4_params_apparmor_command }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_7_1_4
+    - ubuntu_2004_cis_section1_rule_1_6_1_4
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_7_1_4
+    - rule_1_6_1_4
     - level_2
 
-- name: "1.8.1.1 | Ensure message of the day is configured properly (Automated)"
+- name: "1.7.1 | Ensure message of the day is configured properly (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_1_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_1_params_mode }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_1
+    - ubuntu_2004_cis_section1_rule_1_7_1
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_1
+    - rule_1_7_1
     - level_1
 
-- name: "1.8.1.2 | Ensure local login warning banner is configured properly (Automated)"
+- name: "1.7.2 | Ensure local login warning banner is configured properly (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_2_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_2_params_mode }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_2
+    - ubuntu_2004_cis_section1_rule_1_7_2
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_2
+    - rule_1_7_2
     - level_1
 
-- name: "1.8.1.3 | Ensure remote login warning banner is configured properly (Automated)"
+- name: "1.7.3 | Ensure remote login warning banner is configured properly (Automated)"
   template:
-    src: "{{ ubuntu_2004_cis_section1_rule_1_8_1_3_params_source }}"
-    dest: "{{ ubuntu_2004_cis_section1_rule_1_8_1_3_params_dest }}"
-    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_3_params_owner }}"
-    group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_3_params_group }}"
-    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_3_params_mode }}"
+    src: "{{ ubuntu_2004_cis_section1_rule_1_7_3_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section1_rule_1_7_3_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_7_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_7_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_7_3_params_mode }}"
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_3
+    - ubuntu_2004_cis_section1_rule_1_7_3
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_3
+    - rule_1_7_3
     - level_1
 
-- name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated)"
+- name: "1.7.4 | Ensure permissions on /etc/motd are configured (Automated)"
   block:
 
-    - name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | Check if /etc/motd exists"
+    - name: "1.7.4 | Ensure permissions on /etc/motd are configured (Automated) | Check if /etc/motd exists"
       stat:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_path }}"
       register: etc_motd_file
       failed_when: false
 
-    - name: "1.8.1.4 | Ensure permissions on /etc/motd are configured (Automated) | set /etc/motd permissions"
+    - name: "1.7.4 | Ensure permissions on /etc/motd are configured (Automated) | set /etc/motd permissions"
       file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_path }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_mode }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_group }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_4_params_state }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_7_4_params_state }}"
       when:
         - etc_motd_file.stat.exists
 
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_4
+    - ubuntu_2004_cis_section1_rule_1_7_4
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_4
+    - rule_1_7_4
     - level_1
 
-- name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated)"
+- name: "1.7.5 | Ensure permissions on /etc/issue are configured (Automated)"
   block:
 
-    - name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | Check if /etc/issue exists"
+    - name: "1.7.5 | Ensure permissions on /etc/issue are configured (Automated) | Check if /etc/issue exists"
       stat:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_path }}"
       register: etc_issue_file
       failed_when: false
 
-    - name: "1.8.1.5 | Ensure permissions on /etc/issue are configured (Automated) | set /etc/issue permissions"
+    - name: "1.7.5 | Ensure permissions on /etc/issue are configured (Automated) | set /etc/issue permissions"
       file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_path }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_mode }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_group }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_5_params_state }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_7_5_params_state }}"
       when:
         - etc_issue_file.stat.exists
 
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_5
+    - ubuntu_2004_cis_section1_rule_1_7_5
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_5
+    - rule_1_7_5
     - level_1
 
-- name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated)"
+- name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated)"
   block:
 
-    - name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated) | Check if /etc/issue.net exists"
+    - name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated) | Check if /etc/issue.net exists"
       stat:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_path }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_path }}"
       register: etc_issue_net_file
       failed_when: false
 
-    - name: "1.8.1.6 | Ensure permissions on /etc/issue.net are configured (Automated) | set /etc/issue.net permissions"
+    - name: "1.7.6 | Ensure permissions on /etc/issue.net are configured (Automated) | set /etc/issue.net permissions"
       file:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_path }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_mode }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_group }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_6_params_state }}"
+        path: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_path }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_mode }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_group }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_7_6_params_state }}"
       when:
         - etc_issue_net_file.stat.exists
 
   when:
-    - ubuntu_2004_cis_section1_rule_1_8_1_6
+    - ubuntu_2004_cis_section1_rule_1_7_6
     - ubuntu_2004_cis_section1
   tags:
     - section1
-    - rule_1_8_1_6
+    - rule_1_7_6
+    - level_1
+
+- name: "1.8.1 | Ensure GNOME Display Manager is removed (Manual)"
+  apt:
+    name: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_name }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_state }}"
+    purge: "{{ ubuntu_2004_cis_section1_rule_1_8_1_params_package_purge }}"
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_1
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_1
+    - level_1
+
+- name: "1.8.2 | Ensure GDM login banner is configured (Automated)"
+  block:
+
+    - name: "1.8.2 | Ensure GDM login banner is configured (Automated) | Configure banner-message-enable if gdm3 installed"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_path }}"
+        line: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_banner_message_enable_line }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_banner_message_enable_regexp }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_mode }}"
+      notify:
+        - reload gdm
+
+    - name: "1.8.2 | Ensure GDM login banner is configured (Automated) | Configure banner-message-text if gdm3 installed"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_path }}"
+        line: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_banner_message_text_line }}"
+        regexp: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_banner_message_text_regexp }}"
+        state: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_state }}"
+        owner: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_owner }}"
+        group: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_group }}"
+        mode: "{{ ubuntu_2004_cis_section1_rule_1_8_2_params_mode }}"
+      notify:
+        - reload gdm
+
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_2
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_2
+    - level_1
+
+- name: "1.8.3 | Ensure disable-user-list is enabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_disable_user_list_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_disable_user_list_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_3_params_mode }}"
+  notify:
+    - reload gdm
+
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_3
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_3
+    - level_1
+
+- name: "1.8.4 | Ensure XDCMP is not enabled (Automated)"
+  lineinfile:
+    path: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_path }}"
+    line: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_line }}"
+    regexp: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_regexp }}"
+    state: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_state }}"
+    owner: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section1_rule_1_8_4_params_mode }}"
+  notify:
+    - reload gdm
+
+  when:
+    - "'gdm3' in ansible_facts.packages"
+    - ubuntu_2004_cis_section1_rule_1_8_4
+    - ubuntu_2004_cis_section1
+  tags:
+    - section1
+    - rule_1_8_4
     - level_1
 
 - name: "1.9 | Ensure updates, patches, and additional security software are installed (Manual)"
@@ -1034,52 +1090,4 @@
   tags:
     - section1
     - rule_1_9
-    - level_1
-
-- name: "1.10 | Ensure GDM is removed or login is configured (Automated)"
-  block:
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure banner-message-enable if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_enable_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure banner-message-text if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_banner_message_text_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-    - name: "1.10 | Ensure GDM is removed or login is configured (Automated) | Configure disable-user-list if gdm3 installed"
-      lineinfile:
-        path: "{{ ubuntu_2004_cis_section1_rule_1_10_params_path }}"
-        line: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_line }}"
-        regexp: "{{ ubuntu_2004_cis_section1_rule_1_10_params_disable_user_list_regexp }}"
-        state: "{{ ubuntu_2004_cis_section1_rule_1_10_params_state }}"
-        owner: "{{ ubuntu_2004_cis_section1_rule_1_10_params_owner }}"
-        group: "{{ ubuntu_2004_cis_section1_rule_1_10_params_group }}"
-        mode: "{{ ubuntu_2004_cis_section1_rule_1_10_params_mode }}"
-      notify:
-        - reload gdm
-
-  when:
-    - "'gdm3' in ansible_facts.packages"
-    - ubuntu_2004_cis_section1_rule_1_10
-    - ubuntu_2004_cis_section1
-  tags:
-    - section1
-    - rule_1_10
-    - level_1
+    - level_2

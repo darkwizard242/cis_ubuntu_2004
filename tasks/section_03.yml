@@ -878,6 +878,8 @@
         jump: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptablesloopbackchain_inputlocal_jump }}"
         source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_1_params_iptablesloopbackchain_inputlocal_interface }}"
 
+  notify:
+    - persist iptables v4 rules
   when:
     - ubuntu_2004_cis_firewall == "iptables"
     - ubuntu_2004_cis_section3_rule_3_5_3_2_1
@@ -907,6 +909,8 @@
         protocol: "{{ item }}"
       with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_2_params_output_connections_protocols }}"
 
+  notify:
+    - persist iptables v4 rules
   when:
     - ubuntu_2004_cis_firewall == "iptables"
     - ubuntu_2004_cis_section3_rule_3_5_3_2_2
@@ -937,6 +941,8 @@
         protocol: "{{ item }}"
       with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_4_params_output_connections_protocols }}"
 
+  notify:
+    - persist iptables v4 rules
   when:
     - ubuntu_2004_cis_firewall == "iptables"
     - ubuntu_2004_cis_section3_rule_3_5_3_2_4
@@ -967,6 +973,8 @@
         policy: "{{ ubuntu_2004_cis_section3_rule_3_5_3_2_3_params_iptableschain_forward_policy }}"
       when: ubuntu_2004_cis_section3_rule_iptables_ipv4_default_deny_forward
 
+  notify:
+    - persist iptables v4 rules
   when:
     - ubuntu_2004_cis_firewall == "iptables"
     - ubuntu_2004_cis_section3_rule_3_5_3_2_3
@@ -1000,6 +1008,8 @@
         source: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_interface }}"
         ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_1_params_iptablesloopbackchain_inputlocal_ipversion }}"
 
+  notify:
+    - persist iptables v6 rules
   when:
     - ubuntu_2004_cis_require_ipv6
     - ubuntu_2004_cis_firewall == "iptables"
@@ -1032,6 +1042,8 @@
         protocol: "{{ item }}"
       with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_2_params_output_connections_protocols }}"
 
+  notify:
+    - persist iptables v6 rules
   when:
     - ubuntu_2004_cis_require_ipv6
     - ubuntu_2004_cis_firewall == "iptables"
@@ -1066,6 +1078,8 @@
         ip_version: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_3_params_iptableschain_forward_ipversion }}"
       when: ubuntu_2004_cis_section3_rule_iptables_ipv6_default_deny_forward
 
+  notify:
+    - persist iptables v6 rules
   when:
     - ubuntu_2004_cis_require_ipv6
     - ubuntu_2004_cis_firewall == "iptables"
@@ -1099,6 +1113,8 @@
         protocol: "{{ item }}"
       with_items: "{{ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_protocols }}"
 
+  notify:
+    - persist iptables v6 rules
   when:
     - ubuntu_2004_cis_require_ipv6
     - ubuntu_2004_cis_firewall == "iptables"

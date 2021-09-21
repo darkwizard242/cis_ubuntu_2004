@@ -76,3 +76,13 @@
     name: sshd
     enabled: yes
     state: restarted
+
+- name: persist iptables v4 rules
+  shell: iptables-save > /etc/iptables/rules.v4
+  args:
+    executable: /bin/bash
+
+- name: persist iptables v6 rules
+  shell: iptables-save > /etc/iptables/rules.v6
+  args:
+    executable: /bin/bash

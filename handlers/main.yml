@@ -83,6 +83,6 @@
     executable: /bin/bash
 
 - name: persist iptables v6 rules
-  shell: iptables-save > /etc/iptables/rules.v6
+  shell: ip6tables-save > /etc/iptables/rules.v6
   args:
     executable: /bin/bash

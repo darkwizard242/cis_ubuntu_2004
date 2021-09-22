@@ -1124,3 +1124,22 @@
     - section3
     - rule_3_5_3_3_4
     - level_1
+
+
+## Following is a custom task to ensure that IPv6 DROP rules are present when IPv6 is not required i.e 'ubuntu_2004_cis_require_ipv6: false' and firewall is iptables i.e. 'ubuntu_2004_cis_firewall: iptables'
+## REFERENCE: https://github.com/darkwizard242/cis_ubuntu_2004/issues/9#issuecomment-925172069
+- name: "Ensure ipv6 DROP rules are present when firewall is 'iptables' and 'ipv6' is disabled"
+  template:
+    src: "{{ ubuntu_2004_cis_section3_iptables_ext_1_params_source }}"
+    dest: "{{ ubuntu_2004_cis_section3_iptables_ext_1_params_dest }}"
+    owner: "{{ ubuntu_2004_cis_section3_iptables_ext_1_params_owner }}"
+    group: "{{ ubuntu_2004_cis_section3_iptables_ext_1_params_group }}"
+    mode: "{{ ubuntu_2004_cis_section3_iptables_ext_1_params_mode }}"
+  when:
+    - not ubuntu_2004_cis_require_ipv6
+    - ubuntu_2004_cis_firewall == "iptables"
+    - ubuntu_2004_cis_section3_iptables_ext_1
+    - ubuntu_2004_cis_section3
+  tags:
+    - section3
+    - level_1

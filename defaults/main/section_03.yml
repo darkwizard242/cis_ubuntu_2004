@@ -526,3 +526,13 @@ ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_ipversion: ipv
 ubuntu_2004_cis_section3_rule_3_5_3_3_4_params_output_connections_protocols:
   - tcp
   - udp
+
+
+# Variables for Section 3 | IPtables | Extended Task 1
+ubuntu_2004_cis_section3_iptables_ext_1: true
+
+ubuntu_2004_cis_section3_iptables_ext_1_params_source: section_03/iptables_drop_rules.v6.j2
+ubuntu_2004_cis_section3_iptables_ext_1_params_dest: /etc/iptables/rules.v6
+ubuntu_2004_cis_section3_iptables_ext_1_params_owner: root
+ubuntu_2004_cis_section3_iptables_ext_1_params_group: root
+ubuntu_2004_cis_section3_iptables_ext_1_params_mode: '0644'

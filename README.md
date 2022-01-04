@@ -30,10 +30,10 @@ This role is available on Ansible Galaxy. There are a few methods you can utiliz
   ansible-galaxy install darkwizard242.cis_ubuntu_2004
   ```
 
-- Installing/Downloading specific available tag version (using 2.1.0 as an example):
+- Installing/Downloading specific available tag version (using 3.0.0 as an example):
 
   ```shell
-  ansible-galaxy install darkwizard242.cis_ubuntu_2004,2.1.0
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,3.0.0
   ```
 
 - Installing/Downloading specific available branch version from repository (using `master` branch as an example, `master` will always be compliant to latest available version of **CIS Ubuntu 20.04 Benchmark**):
@@ -68,7 +68,7 @@ Add to an existing **requirements.yml** file along with your other roles or crea
 
   ```yaml
   - name: darkwizard242.cis_ubuntu_2004
-    version: 2.1.0
+    version: 3.0.0
   ```
 
 - Specific branch from repository.

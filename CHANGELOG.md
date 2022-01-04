@@ -2,11 +2,18 @@
 
 Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
+## [3.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/3.0.0) - 01/03/2022
+
+### Fixed
+
+- Improve package "absent" checking for services by @gitbock in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/13>
+- Fix 2.1.15 | CIS v1.1.0 by @darkwizard242 in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/15>
+
 ## [2.1.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.1.0) - 09/26/2021
 
 ### Fixed
 
-- Fix for iptables rules not persisting as Identified and reported by @estenrye in Issue #9  | PR #10
+- Fix for iptables rules not persisting as Identified and reported by @estenrye in Issue #9 | PR #10
 
 ### Added
 
@@ -17,7 +24,6 @@ Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY 
 ### Fixed
 
 - Fix incorrect vars/tags reference in task for Control 3.5.3.2.3 of **CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0**, identified by @estenrye #7
-
 
 ## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - 07/15/2021
 
@@ -171,7 +177,6 @@ Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY 
 - 6.2.11 control from CIS benchmark version 1.0.0 has been moved to 6.2.10 as per CIS benchmark version 1.1.0
 - 6.2.2 control from CIS benchmark version 1.0.0 has been moved to 6.2.11 as per CIS benchmark version 1.1.0
 - 6.2.3 control from CIS benchmark version 1.0.0 has been moved to 6.2.12 as per CIS benchmark version 1.1.0
-
 
 ## [1.0.2](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/1.0.2) - 10/29/2020
 

@@ -13,10 +13,10 @@ Currently supported and available versions are:
 
 The below table specifies the versions of role available on [Ansible Galaxy](https://galaxy.ansible.com/darkwizard242/cis_ubuntu_2004) and [GitHub Releases](https://github.com/darkwizard242/cis_ubuntu_2004/releases), in terms of the corresponding [CIS Benchmark for Ubuntu Linux 20.04 LTS](https://www.cisecurity.org/benchmark/ubuntu_linux).
 
-CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version | Repository Tag Version
----------------------------------- | ---------------------- | ----------------------
-1.0.0                              | 1.0.0, 1.0.1, 1.0.2    | 1.0.0, 1.0.1, 1.0.2
-1.1.0                              | 2.0.0, 2.0.1, 2.1.0    | 2.0.0, 2.0.1, 2.1.0
+CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version     | Repository Tag Version
+---------------------------------- | -------------------------- | --------------------------
+1.0.0                              | 1.0.0, 1.0.1, 1.0.2        | 1.0.0, 1.0.1, 1.0.2
+1.1.0                              | 2.0.0, 2.0.1, 2.1.0, 3.0.0 | 2.0.0, 2.0.1, 2.1.0, 3.0.0
 
 ## 1\. Installation/Download Instructions:
 

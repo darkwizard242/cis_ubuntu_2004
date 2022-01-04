@@ -346,7 +346,7 @@
   notify:
     - postfix restart
   when:
-    - ubuntu_2004_cis_require_mail_server
+    - not ubuntu_2004_cis_require_mail_server
     - "'postfix' in ansible_facts.packages"
     - ubuntu_2004_cis_section2_rule_2_1_15
     - ubuntu_2004_cis_section2

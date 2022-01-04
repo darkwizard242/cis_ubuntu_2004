@@ -2,6 +2,23 @@
 
 Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
+## [2.1.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.1.0) - 09/26/2021
+
+### Fixed
+
+- Fix for iptables rules not persisting as Identified and reported by @estenrye in Issue #9  | PR #10
+
+### Added
+
+- Addition of a task to run with ipv6 drop rules when ipv6 is not required ( `ubuntu_2004_cis_require_ipv6: false` ) and firewall is set to be iptables ( `ubuntu_2004_cis_firewall: iptables` )
+
+## [2.0.1](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.1) - 09/21/2021
+
+### Fixed
+
+- Fix incorrect vars/tags reference in task for Control 3.5.3.2.3 of **CIS Benchmark for Ubuntu Linux 20.04 LTS v1.1.0**, identified by @estenrye #7
+
+
 ## [2.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/2.0.0) - 07/15/2021
 
 ### Added

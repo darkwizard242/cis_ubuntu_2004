@@ -328,7 +328,7 @@ ubuntu_2004_cis_require_squid_server: false
 # Set to `true` if SNMP server is required.
 ubuntu_2004_cis_require_snmp_server: false
 
-# Set's postfix to act in local-only mode.
+# To avoid setting postfix to act in local-only mode. Define as `false`  if postfix is required act in local-only mode.
 ubuntu_2004_cis_require_mail_server: true
 
 # Set to `true` if RSYNC is required.

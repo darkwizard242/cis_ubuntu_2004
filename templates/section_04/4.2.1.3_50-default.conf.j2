@@ -3,9 +3,7 @@
 auth,authpriv.*                 /var/log/auth.log
 *.*;auth,authpriv.none          -/var/log/syslog
 kern.*                          -/var/log/kern.log
-mail.*                          -/var/log/mail
-mail.info                       -/var/log/mail.info
-mail.warning                    -/var/log/mail.warn
+mail.*                          -/var/log/mail.log
 mail.err                        /var/log/mail.err
 news.crit                       -/var/log/news/news.crit
 news.err                        -/var/log/news/news.err

@@ -452,6 +452,7 @@
     owner: "{{ ubuntu_2004_cis_section4_rule_4_2_1_3_params_owner }}"
     group: "{{ ubuntu_2004_cis_section4_rule_4_2_1_3_params_group }}"
     mode: "{{ ubuntu_2004_cis_section4_rule_4_2_1_3_params_mode }}"
+    backup: yes
   notify:
     - rsyslog restart
   when:

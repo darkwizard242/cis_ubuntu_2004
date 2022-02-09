@@ -403,7 +403,7 @@ ubuntu_2004_cis_section1_rule_1_7_6_params_state: file
 # Variables for 1.8.1
 ubuntu_2004_cis_section1_rule_1_8_1: true
 
-ubuntu_2004_cis_section1_rule_1_8_1_params_package_name: prelink
+ubuntu_2004_cis_section1_rule_1_8_1_params_package_name: gdm3
 ubuntu_2004_cis_section1_rule_1_8_1_params_package_state: absent
 ubuntu_2004_cis_section1_rule_1_8_1_params_package_purge: yes
 

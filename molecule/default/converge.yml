@@ -10,6 +10,9 @@
     # To skip any long running tasks not required during development
     skip_for_development: true
 
+    # DISABLE 1.1.1.6 as it results with error | modprobe: FATAL: Module squashfs is builtin.
+    ubuntu_2004_cis_section1_rule_1_1_1_6: false
+
     # To set ipv6 as required .... To use ufw is as the firewall
     ubuntu_2004_cis_require_ipv6: true
     ubuntu_2004_cis_firewall: ufw

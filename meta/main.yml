@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: cis_ubuntu_2004
-  author: Ali Muhammad
+  author: darkwizard242
   description: Role to apply CIS Benchmark for Ubuntu Linux 20.04 LTS.
   company: none
   license: MIT

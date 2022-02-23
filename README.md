@@ -13,10 +13,10 @@ Currently supported and available versions are:
 
 The below table specifies the versions of role available on [Ansible Galaxy](https://galaxy.ansible.com/darkwizard242/cis_ubuntu_2004) and [GitHub Releases](https://github.com/darkwizard242/cis_ubuntu_2004/releases), in terms of the corresponding [CIS Benchmark for Ubuntu Linux 20.04 LTS](https://www.cisecurity.org/benchmark/ubuntu_linux).
 
-CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version     | Repository Tag Version
----------------------------------- | -------------------------- | --------------------------
-1.0.0                              | 1.0.0, 1.0.1, 1.0.2        | 1.0.0, 1.0.1, 1.0.2
-1.1.0                              | 2.0.0, 2.0.1, 2.1.0, 3.0.0 | 2.0.0, 2.0.1, 2.1.0, 3.0.0
+CIS Ubuntu 20.04 Benchmark Version | Ansible Galaxy Version            | Repository Tag Version
+---------------------------------- | --------------------------------- | ---------------------------------
+1.0.0                              | 1.0.0, 1.0.1, 1.0.2               | 1.0.0, 1.0.1, 1.0.2
+1.1.0                              | 2.0.0, 2.0.1, 2.1.0, 3.0.0, 3.1.0 | 2.0.0, 2.0.1, 2.1.0, 3.0.0, 3.1.0
 
 ## 1\. Installation/Download Instructions:
 
@@ -30,10 +30,10 @@ This role is available on Ansible Galaxy. There are a few methods you can utiliz
   ansible-galaxy install darkwizard242.cis_ubuntu_2004
   ```
 
-- Installing/Downloading specific available tag version (using 3.0.0 as an example):
+- Installing/Downloading specific available tag version (using 3.1.0 as an example):
 
   ```shell
-  ansible-galaxy install darkwizard242.cis_ubuntu_2004,3.0.0
+  ansible-galaxy install darkwizard242.cis_ubuntu_2004,3.1.0
   ```
 
 - Installing/Downloading specific available branch version from repository (using `master` branch as an example, `master` will always be compliant to latest available version of **CIS Ubuntu 20.04 Benchmark**):
@@ -68,7 +68,7 @@ Add to an existing **requirements.yml** file along with your other roles or crea
 
   ```yaml
   - name: darkwizard242.cis_ubuntu_2004
-    version: 3.0.0
+    version: 3.1.0
   ```
 
 - Specific branch from repository.
@@ -93,13 +93,13 @@ Benchmarks around the **_disk partitioning_** and their **_mount points_** from 
 
 - 1.1.10 Ensure separate partition exists for /var (Automated)
 - 1.1.11 Ensure separate partition exists for /var/tmp (Automated)
-- 1.1.12 Ensure nodev option set on /var/tmp partition (Automated)
-- 1.1.13 Ensure nosuid option set on /var/tmp partition (Automated)
-- 1.1.14 Ensure noexec option set on /var/tmp partition (Automated)
+- 1.1.12 Ensure /var/tmp partition includes the nodev option (Automated)
+- 1.1.13 Ensure /var/tmp partition includes the nosuid option (Automated)
+- 1.1.14 Ensure /var/tmp partition includes the noexec option (Automated)
 - 1.1.15 Ensure separate partition exists for /var/log (Automated)
 - 1.1.16 Ensure separate partition exists for /var/log/audit (Automated)
 - 1.1.17 Ensure separate partition exists for /home (Automated)
-- 1.1.18 Ensure nodev option set on /home partition (Automated)
+- 1.1.18 Ensure /home partition includes the nodev option (Automated)
 - 1.1.19 Ensure nodev option set on removable media partitions (Manual)
 - 1.1.20 Ensure nosuid option set on removable media partitions (Manual)
 - 1.1.21 Ensure noexec option set on removable media partitions (Manual)
@@ -473,4 +473,4 @@ Inspired by the great work done by many of the members of Ansible Community ([Fl
 
 ## Author Information
 
-This role was created by [Ali Muhammad](https://www.linkedin.com/in/ali-muhammad-759791130/).
+This role was created by [Ali Muhammad](https://www.alimuhammad.dev/).

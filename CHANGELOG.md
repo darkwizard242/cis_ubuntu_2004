@@ -2,6 +2,13 @@
 
 Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
+## [3.1.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/3.1.0) - 02/23/2022
+
+### Fixed
+
+- Rule 1.8.1 package name correction by @jodlajodla in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/16>
+- Fix role metadata and disable Rule 1.1.1.6 by @darkwizard242 in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/17>
+
 ## [3.0.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/3.0.0) - 01/03/2022
 
 ### Fixed

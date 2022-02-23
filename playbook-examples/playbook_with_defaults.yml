@@ -8,3 +8,6 @@
     - cis_ubuntu_2004
   vars:
     ansible_python_interpreter: /usr/bin/python3
+
+    # DISABLE 1.1.1.6 as it results with error | modprobe: FATAL: Module squashfs is builtin.
+    ubuntu_2004_cis_section1_rule_1_1_1_6: false

@@ -494,6 +494,8 @@ ubuntu_2004_cis_section5_rule_5_5_4: true
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_path: /etc/login.defs
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_line: "UMASK 027"
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_regexp: ^UMASK.*
+ubuntu_2004_cis_section5_rule_5_5_4_params_login_line_2: "USERGROUPS_ENAB no"
+ubuntu_2004_cis_section5_rule_5_5_4_params_login_regexp_2: ^USERGROUPS_ENAB.*
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_state: present
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_owner: root
 ubuntu_2004_cis_section5_rule_5_5_4_params_login_group: root

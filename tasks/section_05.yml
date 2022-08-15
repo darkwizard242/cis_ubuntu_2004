@@ -967,6 +967,16 @@
         group: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_group }}"
         mode: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_mode }}"
 
+    - name: "5.5.4| Ensure USERGROUPS_ENAB is no (Automated) | Configure USERGROUPS_ENAB in /etc/login.defs"
+      lineinfile:
+        path: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_path }}"
+        line: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_line_2 }}"
+        regexp: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_regexp_2 }}"
+        state: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_state }}"
+        owner: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_owner }}"
+        group: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_group }}"
+        mode: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_login_mode }}"
+
     - name: "5.5.4| Ensure default user umask is 027 or more restrictive (Automated) | Configure umask in login.defs in /etc/pam.d/common-session"
       lineinfile:
         path: "{{ ubuntu_2004_cis_section5_rule_5_5_4_params_common_session_path }}"

@@ -66,7 +66,7 @@ ubuntu_2004_cis_section2_rule_2_1_3_params_package_purge: yes
 # Variables for 2.1.4
 ubuntu_2004_cis_section2_rule_2_1_4: true
 
-ubuntu_2004_cis_section2_rule_2_1_4_params_package_name: 
+ubuntu_2004_cis_section2_rule_2_1_4_params_package_name:
   - cups
   - cups-common
   - cups-server-common
@@ -105,7 +105,7 @@ ubuntu_2004_cis_section2_rule_2_1_8_params_package_purge: yes
 # Variables for 2.1.9
 ubuntu_2004_cis_section2_rule_2_1_9: true
 
-ubuntu_2004_cis_section2_rule_2_1_9_params_package_name: 
+ubuntu_2004_cis_section2_rule_2_1_9_params_package_name:
   - vsftpd
   - proftpd-basic
 ubuntu_2004_cis_section2_rule_2_1_9_params_package_state: absent
@@ -114,7 +114,7 @@ ubuntu_2004_cis_section2_rule_2_1_9_params_package_purge: yes
 # Variables for 2.1.10
 ubuntu_2004_cis_section2_rule_2_1_10: true
 
-ubuntu_2004_cis_section2_rule_2_1_10_params_package_name: 
+ubuntu_2004_cis_section2_rule_2_1_10_params_package_name:
   - apache
   - apache2
   - lighttpd

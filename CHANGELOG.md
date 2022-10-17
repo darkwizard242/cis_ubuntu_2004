@@ -2,6 +2,13 @@
 
 Changes/Fixes/Additions/Removals addressed in Releases. Dates are in MM/DD/YYYY format.
 
+## [3.2.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/3.2.0) - 10/17/2022
+
+### Fixed
+
+- 5.5.4 login.defs USERGROUPS_ENAB added by @jodlajodla in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/21>
+- Add automated remediation of 5.5.1.1 by @estenrye in <https://github.com/darkwizard242/cis_ubuntu_2004/pull/23>
+
 ## [3.1.0](https://github.com/darkwizard242/cis_ubuntu_2004/releases/tag/3.1.0) - 02/23/2022
 
 ### Fixed
